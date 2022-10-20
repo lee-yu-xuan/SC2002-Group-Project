@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 //to update the seatTaken, can concatenate to the String then update the line
-public class layoutController {
+public class LayoutController {
     private static int noOfRows = 0;
     private static int noOfColumns = 0;
     public static ArrayList<String> seatsTaken = new ArrayList<String>();

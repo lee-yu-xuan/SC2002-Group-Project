@@ -1,4 +1,4 @@
-public class movieTicket{
+public class MovieTicket{
     private static int basePrice = 6;
 
     public enum TypeOfTicket{
@@ -21,7 +21,7 @@ public class movieTicket{
 
     
     //construct the movieTicket object
-    public movieTicket(String ticketID, String movieID, String date, String time, int cinemaID, String seatNo, TypeOfTicket ticketType, Restriction restriction) {
+    public MovieTicket(String ticketID, String movieID, String date, String time, int cinemaID, String seatNo, TypeOfTicket ticketType, Restriction restriction) {
         this.ticketID = ticketID;
         this.movieID = movieID;
         this.date = date;

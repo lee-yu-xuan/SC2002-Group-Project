@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class cinema extends cineplex{
+public class Cinema extends Cineplex{
     public enum ClassOfCinema {
         Platinum, Gold, Silver
     }
@@ -17,7 +17,7 @@ public class cinema extends cineplex{
     private Layout layout;
 
     //constructor
-    public cinema(int cinemaID, int numberOfSeats, int seatLeft,ClassOfCinema classOfCinema, Layout layout) {
+    public Cinema(int cinemaID, int numberOfSeats, int seatLeft,ClassOfCinema classOfCinema, Layout layout) {
         this.cinemaID = cinemaID;
         this.numberOfSeats = numberOfSeats;
         this.seatLeft = seatLeft;
