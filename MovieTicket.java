@@ -1,13 +1,7 @@
 public class MovieTicket{
     private static int basePrice = 6;
 
-    public enum TypeOfTicket{
-        Flat, Volume, GOLD
-    }
-
-    public enum Restriction{
-        PG, PG13, R
-    }
+  
 
     //Attributes
     private String ticketID;
@@ -19,7 +13,8 @@ public class MovieTicket{
     private TypeOfTicket ticketType;
     private Restriction restriction;
 
-    
+    //public MovieTicket(String ticketID, String movieID, String date, String time, int cinemaID, String seatNo, TypeOfTicket ticketType, Restriction restriction) {
+        
     //construct the movieTicket object
     public MovieTicket(String ticketID, String movieID, String date, String time, int cinemaID, String seatNo, TypeOfTicket ticketType, Restriction restriction) {
         this.ticketID = ticketID;

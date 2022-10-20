@@ -1,3 +1,3 @@
-﻿typeOfMovie,classOfCinema,ageOfMovieGoer,date,Time,Duration
-action,gold,18,19/10//2022,1500,90mins
-comedy,platinum,20,20/10/22,1700,70mins
+﻿ticketID,movieID,date,time,cinemaID,seatNo,ticketType,restriction
+829383,UI8,15-Oct,1340,28939D,A2,Flat,PG
+238283,OP0,19-Oct,1540,28482B,B4,Flat,PG

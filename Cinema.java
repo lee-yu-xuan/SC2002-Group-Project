@@ -1,26 +1,17 @@
 import java.util.List;
 
 public class Cinema extends Cineplex{
-    public enum ClassOfCinema {
-        Platinum, Gold, Silver
-    }
-
-    public enum Layout{
-        small, medium, large
-    }
-
+ 
     //attributes
     private int cinemaID;
     private int numberOfSeats;
-    private int seatLeft;
     private ClassOfCinema classOfCinema;
     private Layout layout;
 
     //constructor
-    public Cinema(int cinemaID, int numberOfSeats, int seatLeft,ClassOfCinema classOfCinema, Layout layout) {
+    public Cinema(int cinemaID, int numberOfSeats, ClassOfCinema classOfCinema, Layout layout) {
         this.cinemaID = cinemaID;
         this.numberOfSeats = numberOfSeats;
-        this.seatLeft = seatLeft;
         this.classOfCinema = classOfCinema;
         this.layout = layout;
     }
@@ -32,10 +23,6 @@ public class Cinema extends Cineplex{
 
     public int getNumberOfSeats() {
         return numberOfSeats;
-    }
-
-    public int getSeatLeft() {
-        return seatLeft;
     }
 
     public ClassOfCinema getClassOfCinema() {
@@ -54,10 +41,6 @@ public class Cinema extends Cineplex{
 
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
-    }
-
-    public void setSeatLeft(int seatLeft) {
-        this.seatLeft = seatLeft;
     }
 
     public void setClassOfCinema(ClassOfCinema classOfCinema) {
