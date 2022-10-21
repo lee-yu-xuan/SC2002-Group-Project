@@ -1,4 +1,4 @@
-package OODP;
+//package OODP;
 
 import java.util.List;
 import java.util.*;
@@ -6,7 +6,6 @@ import java.util.*;
 public class Staff extends constructUser
 { 
 	Scanner scan = new Scanner(System.in);
-	MovieController MC = new MovieController();
 	 public Staff(String name, String username, String password)
 	 {
 		 this.type = userType.STAFF;
@@ -64,17 +63,6 @@ public class Staff extends constructUser
 				 System.out.println("Please enter in string!");
 			 }
 			}while (Director.isEmpty());
-		 
-		
-		do {
-			System.out.println("Enter the reviews: ");
-			 try {
-				 reviews = scan.nextLine();
-			 }
-			 catch(NumberFormatException nfe) {
-				 System.out.println("Please enter in string!");
-			 }
-			}while (reviews.isEmpty());
 		
 		do {
 			System.out.println("Enter the showing time: ");
@@ -86,7 +74,7 @@ public class Staff extends constructUser
 			 }
 			}while (time.isEmpty());
 		 
-			//MC.add(String MovieName, Enum status, String Synopsis,String director,String Cast,double rating, String reviews); 
+			MovieManager.addMovie(MovieName, Synopsis, Director, Cast, time); 
 		 
 		
 		 

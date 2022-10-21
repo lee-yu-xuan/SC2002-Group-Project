@@ -8,6 +8,8 @@ public class Movie {
     private String director;
     private String cast;
     private Review review; 
+    private String movieID;
+    
     public Movie(){
         
     }
