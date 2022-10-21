@@ -119,7 +119,7 @@ public class Staff extends constructUser
 		 List<String[]> MovieListing = File_IO.readFile(path);
 		 int column = MovieListing.size();
 		 for(int i=0;i<column;i++) {
-			 if(this.MovieName.equals(MovieListing.get(i)[0])) {
+			 if(this.MovieName.equalsIgnoreCase(MovieListing.get(i)[0])) {
 				 MovieListing.get(i)[1] = "End Of Showing";
 			 }
 		 }
