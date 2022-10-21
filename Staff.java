@@ -12,16 +12,17 @@ public class Staff extends constructUser
 		 this.username = username;
 		 this.password = password;
 	 }
-	 public void addMovie(String transactionID, String mobileNumber)
+	 public void addMovie()
 	{
-			//MC.add(String MovieName, Enum status, String Synopsis,String director,String Cast,double rating, String reviews);
+		 
+		//MC.add(String MovieName, Enum status, String Synopsis,String director,String Cast,double rating, String reviews);
 	}
 	 
-	 public void removeMovie(String transactionID, String mobileNumber)
+	 public void removeMovie()
 	 {
 		 //MC.remove(String MovieName);
 	 }
-	 public void checkRating(String transactionID, String mobileNumber)
+	 public void checkRating()
 	 {
 		 //MC.getRating(String Moviename);
 	 }
