@@ -88,7 +88,7 @@ public class Staff extends constructUser
 		 
 			//MC.add(String MovieName, Enum status, String Synopsis,String director,String Cast,double rating, String reviews); 
 		 
-		String path = "/MovieListing/" + this.name;
+		String path = "/MovieListing/" + this.MovieName;
 		List<String[]> MovieListing = File_IO.readFile(path);
 		int column = MovieListing.size();
 		MovieListing.get(column)[0] = this.MovieName;
@@ -104,7 +104,27 @@ public class Staff extends constructUser
 	 
 	 public void removeMovie()
 	 {
+		 String MovieName="";
+		 do {
+			 System.out.println("Enter the name of the Movie: ");
+			 try {
+				 MovieName = scan.nextLine();
+			 }
+			 catch(NumberFormatException nfe) {
+				 System.out.println("Please enter in string!");
+			 }
+			}while (MovieName.isEmpty());
+			
+		 String path = "/MovieListing/" + this.MovieName;
+		 List<String[]> MovieListing = File_IO.readFile(path);
+		 int column = MovieListing.size();
+		 for(int i=0;i<column;i++) {
+			 if(this.MovieName.equals(MovieListing.get(i)[0])) {
+				 MovieListing.get(i)[1] = "End Of Showing";
+			 }
+		 }
 		 //MC.changeState();
+		 File_IO.writeFile(MovieListing,path);
 	 }
 	 public void topFiveMovies()
 	 {
