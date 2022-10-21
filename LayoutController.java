@@ -14,6 +14,7 @@ public class LayoutController {
         String pathName = "seatBooked";
         List<String[]>  movieList = File_IO.readFile(pathName);
         String seatsTaken = "";
+        int flag = 0;
 
         for(int i = 0; i < movieList.size(); i++){
             //get the 2 variable: cinemaID and timing of the movie
@@ -23,12 +24,12 @@ public class LayoutController {
                 seatsTaken = movieList.get(i)[4];
 
                 printLayout(noOfRows, noOfColumns, seatsTaken);
+                flag = 1;
             }
-            else{
-                System.out.println("No such cinemaID or timing");
-            }
-            
-        }      
+        }
+        if(flag==0){
+            System.out.println("No such movie or timing");
+        }
     }
 
     public static void printLayout(int noOfRows, int noOfColumns, String seatsTaken){
