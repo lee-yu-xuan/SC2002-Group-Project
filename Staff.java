@@ -99,7 +99,6 @@ public class Staff extends constructUser
 		MovieListing.get(column)[5] = this.rating;
 		MovieListing.get(column)[6] = this.time;
 		File_IO.writeFile(MovieListing,path);		
-		addToSales(this.movieName, Integer.parseInt(pax));
 		 
 	}
 	 
