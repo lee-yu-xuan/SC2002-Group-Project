@@ -88,7 +88,18 @@ public class Staff extends constructUser
 		 
 			//MC.add(String MovieName, Enum status, String Synopsis,String director,String Cast,double rating, String reviews); 
 		 
-		
+		String path = "/MovieListing/" + this.name;
+		List<String[]> MovieListing = File_IO.readFile(path);
+		int column = MovieListing.size();
+		MovieListing.get(column)[0] = this.MovieName;
+		MovieListing.get(column)[1] = this.Enum;
+		MovieListing.get(column)[2] = this.Synopsis;
+		MovieListing.get(column)[3] = this.director;
+		MovieListing.get(column)[4] = this.cast;
+		MovieListing.get(column)[5] = this.rating;
+		MovieListing.get(column)[6] = this.time;
+		File_IO.writeFile(MovieListing,path);		
+		addToSales(this.movieName, Integer.parseInt(pax));
 		 
 	}
 	 
