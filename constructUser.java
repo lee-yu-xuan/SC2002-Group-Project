@@ -1,12 +1,13 @@
-package SC2002Project;
+public abstract class constructUser {
+	// constructor
+	public constructUser() {
+	};
 
-public class constructUser
-{
-	protected  enum userType 
-	{
+	protected enum userType {
 		STAFF,
 		MOVEIGOER
 	};
+
 	protected String name;
 	protected String username;
 	protected String password;
