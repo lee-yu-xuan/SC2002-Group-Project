@@ -1,7 +1,7 @@
-public class MovieTicket{
-    private static int basePrice = 6;
+//yj
 
-  
+public class MovieTicket{
+    private static final int basePrice = 6;
 
     //Attributes
     private String ticketID;
@@ -12,8 +12,6 @@ public class MovieTicket{
     private String seatNo;
     private TypeOfTicket ticketType;
     private Restriction restriction;
-
-    //public MovieTicket(String ticketID, String movieID, String date, String time, int cinemaID, String seatNo, TypeOfTicket ticketType, Restriction restriction) {
         
     //construct the movieTicket object
     public MovieTicket(String ticketID, String movieID, String date, String time, int cinemaID, String seatNo, TypeOfTicket ticketType, Restriction restriction) {

@@ -76,13 +76,43 @@ public class Staff extends constructUser
 		 
 			MovieManager.addMovie(MovieName, Synopsis, Director, Cast, time); 
 		 
-		
+		String path = "/MovieListing/" + this.MovieName;
+		List<String[]> MovieListing = File_IO.readFile(path);
+		int column = MovieListing.size();
+		MovieListing.get(column)[0] = this.MovieName;
+		MovieListing.get(column)[1] = this.Enum;
+		MovieListing.get(column)[2] = this.Synopsis;
+		MovieListing.get(column)[3] = this.director;
+		MovieListing.get(column)[4] = this.cast;
+		MovieListing.get(column)[5] = this.rating;
+		MovieListing.get(column)[6] = this.time;
+		File_IO.writeFile(MovieListing,path);		
 		 
 	}
 	 
 	 public void removeMovie()
 	 {
+		 String MovieName="";
+		 do {
+			 System.out.println("Enter the name of the Movie: ");
+			 try {
+				 MovieName = scan.nextLine();
+			 }
+			 catch(NumberFormatException nfe) {
+				 System.out.println("Please enter in string!");
+			 }
+			}while (MovieName.isEmpty());
+			
+		 String path = "/MovieListing/" + this.MovieName;
+		 List<String[]> MovieListing = File_IO.readFile(path);
+		 int column = MovieListing.size();
+		 for(int i=0;i<column;i++) {
+			 if(this.MovieName.equalsIgnoreCase(MovieListing.get(i)[0])) {
+				 MovieListing.get(i)[1] = "End Of Showing";
+			 }
+		 }
 		 //MC.changeState();
+		 File_IO.writeFile(MovieListing,path);
 	 }
 	 public void topFiveMovies()
 	 {
