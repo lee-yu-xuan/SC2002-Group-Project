@@ -134,7 +134,7 @@ public class Staff extends constructUser
 			 //MC.showMovieByTicketSales();
 		 }
 		 if(choice ==2) {
-			 //MC.showMovieByRating();
+			MovieController.showMovieByRating();
 		 }
 	 }
 }
