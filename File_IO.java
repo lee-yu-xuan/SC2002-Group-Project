@@ -12,8 +12,6 @@ import com.opencsv.*;
 
 //to update the seatTaken, can concatenate to the String then update the line
 public class File_IO {
-  
-    public static ArrayList<String> seatsTaken = new ArrayList<String>();
     
     public static List<String[]> readFile(String pathName) { 
         
@@ -43,6 +41,7 @@ public class File_IO {
         
 
         try {
+            System.out.println("Writing to file...");
             FileWriter outputfile = new FileWriter(file); 
             CSVWriter writer = new CSVWriter(outputfile, CSVWriter.DEFAULT_SEPARATOR , CSVWriter.NO_QUOTE_CHARACTER, CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
             writer.writeAll(twoDList);
@@ -50,7 +49,7 @@ public class File_IO {
 
             writer.close();
         } catch (Exception e) {
-            System.out.println("Error with writing the file!");
+            System.out.println("\n\nError with writing the file!");
         }
     }
    

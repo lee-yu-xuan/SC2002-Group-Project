@@ -2,7 +2,7 @@
 
 import java.util.List;
 
-public class Cinema extends Cineplex{
+public class Cinema{
  
     //attributes
     private int cinemaID;
