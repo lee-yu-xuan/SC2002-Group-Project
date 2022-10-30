@@ -3,25 +3,28 @@ import java.util.List;
 /**
  * Movie
  */
-public class Movie implements MovieInterface{
+public class Movie{
     private String movieTitle;
     private ShowingStatus showingStatus;
     private String synopsis;
+    private String type;
     private String director;
     private String cast;
-    private Review review;
-    private String type;
+    private String rating;
     private String movieID;
 
-    public Movie(String movieTitle, String synopsis, String director, String cast, String type, String movieID){
+    public Movie(String movieTitle, String synopsis, String type,String director, String cast, String rating,String movieID){
         this.movieTitle = movieTitle;
         this.showingStatus = ShowingStatus.COMING_SOON;
-        this.director = director;
         this.synopsis = synopsis;
-        this.cast = cast;
-        this.review = null;
         this.type = type;
+        this.director = director;
+        this.cast = cast;
+        this.rating = rating;
         this.movieID = movieID;
+    }
+
+    public Movie(){
     }
 
     public void setTitle(String movieTitle){
@@ -44,9 +47,41 @@ public class Movie implements MovieInterface{
         this.cast = cast;
     }
 
-    public Review getReview(){
-        return this.review;
+    public void setRating(String rating){
+        this.rating = rating;
     }
 
-    public 
+    public String getMovieTitle(){
+        return movieTitle;
+    }
+    
+    public ShowingStatus getShowingStatus() {
+        return showingStatus;
+    }
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public String getCast() {
+        return cast;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public String getMovieID(){
+        return movieID;
+    }
+    
+
 }

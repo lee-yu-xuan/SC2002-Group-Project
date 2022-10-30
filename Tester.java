@@ -5,32 +5,49 @@ import java.util.Scanner;
 
 public class Tester {
     public static void main(String[] args) throws Exception {
-        List<String[]> movieCSV = File_IO.readFile("testMovieList");
-        System.out.println(movieCSV.size());
-        System.out.println();
-        for(int i =0;i<movieCSV.size();i++){
-            System.out.println(movieCSV.get(i).length);
-            for(int j = 0;j<movieCSV.get(i).length;j++){
-                System.out.println(movieCSV.get(i)[j]);
-            }
+        MovieListing.load();
+        List<Movie> movieList = MovieListing.getMovieList();
+        for(int i =0;i<movieList.size();i++){
+            System.out.println(movieList.get(i).getMovieTitle());
+            System.out.println(movieList.get(i).getShowingStatus());
+            System.out.println(movieList.get(i).getSynopsis());
+            System.out.println(movieList.get(i).getType());
+            System.out.println(movieList.get(i).getDirector());
+            System.out.println(movieList.get(i).getCast());
+            System.out.println(movieList.get(i).getRating());
+            System.out.println(movieList.get(i).getMovieID());
         }
     }
     public static void main4(String[] args) {
-        
-        List<String[]> temp = new ArrayList(); 
         while(true){
-            String[] data = new String[2];
             Scanner sc = new Scanner(System.in);
+
             System.out.println("Enter Title");
-            String input = sc.nextLine();
-            if(input.charAt(0) == '#'){
+            String movieTitle = sc.nextLine();
+            if(movieTitle.charAt(0) == '#'){
                 break;
             }
-            data[0] = input;
+
             System.out.println("Enter Sypnosis");
-            data[1] = sc.nextLine();
-            temp.add(data);
+            String sypnosis = sc.nextLine();
+            
+            System.out.println("Enter type");
+            String type = sc.nextLine();
+
+            System.out.println("Enter director");
+            String director = sc.nextLine();
+
+            System.out.println("Enter cast (seperate by comma -> ',' )");
+            String cast = sc.nextLine();
+
+            System.out.println("Enter rating");
+            String rating = sc.nextLine();
+            
+            System.out.println("Enter movieID");
+            String movieID = sc.nextLine();
+
+            MovieListing.add(new Movie(movieTitle, sypnosis, type, director, cast, rating, movieID));
         }
-        MovieManager.addMovie(temp);
+        MovieListing.save();
     }
 }
