@@ -11,6 +11,5 @@ public class Movie {
     private String movieID;
     
     public Movie(){
-        
     }
 }
