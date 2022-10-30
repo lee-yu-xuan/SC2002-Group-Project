@@ -4,7 +4,40 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Tester {
-    public static void main(String[] args) throws Exception {
+    public static void main3(String[] args) {
+        ReviewList.load();
+        for(int j = 0;j < ReviewList.getReview().size();j++){
+            System.out.println(ReviewList.getReview().get(j).getMovieID());
+            System.out.println(ReviewList.getReview().get(j).getRating());
+            System.out.println(ReviewList.getReview().get(j).getReview());
+        }
+    }
+    public static void main(String[] args) {
+        while(true){
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("Enter MovieID");
+            String movieID = sc.nextLine();
+            if(movieID.charAt(0) == '#'){
+                break;
+            }
+
+            System.out.println("Enter review");
+            String review = sc.nextLine();
+            
+            System.out.println("Enter rating");
+            int rating = sc.nextInt();
+
+            ReviewList.addRatingReview(movieID,review,rating);
+        }
+        for(int j = 0;j < ReviewList.getReview().size();j++){
+            System.out.println(ReviewList.getReview().get(j).getMovieID());
+            System.out.println(ReviewList.getReview().get(j).getRating());
+            System.out.println(ReviewList.getReview().get(j).getReview());
+        }
+        ReviewList.save();
+    }
+    public static void testCaseForReadMovie(String[] args) throws Exception {
         MovieListing.load();
         List<Movie> movieList = MovieListing.getMovieList();
         for(int i =0;i<movieList.size();i++){
@@ -18,7 +51,7 @@ public class Tester {
             System.out.println(movieList.get(i).getMovieID());
         }
     }
-    public static void main4(String[] args) {
+    public static void testCaseForWriteMovie(String[] args) {
         while(true){
             Scanner sc = new Scanner(System.in);
 
