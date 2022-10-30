@@ -20,12 +20,31 @@ public class MovieListing {
         movieList.add(movie);
     }
 
+    public static int deleteByName(String title){
+        for(int i = 0;i< movieList.size();i++){
+            if(movieList.get(i).getMovieTitle() == title){
+                movieList.remove(i); //title found
+                return 1;
+            }
+        }
+        return 0; //unable to find title
+    }
+
+    public static int deleteByID(String id){
+        for(int i = 0;i< movieList.size();i++){
+            if(movieList.get(i).getMovieID() == id){
+                movieList.remove(i); //id found
+                return 1;
+            }
+        }
+        return 0; //unable to find id
+    }
     public static void load(){
         if(movieList == null){
             System.out.println("The movieList is empty");
             movieList = new ArrayList<Movie>();
         }
-        
+
         movieCSV = File_IO.readFile("movieList");
 
         for(int i =0;i<movieCSV.size();i++){
