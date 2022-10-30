@@ -12,8 +12,6 @@ import com.opencsv.*;
 
 //to update the seatTaken, can concatenate to the String then update the line
 public class File_IO {
-  
-    public static ArrayList<String> seatsTaken = new ArrayList<String>();
     
     public static List<String[]> readFile(String pathName) { 
         

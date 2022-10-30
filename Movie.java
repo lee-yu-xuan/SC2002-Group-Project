@@ -9,6 +9,5 @@ public class Movie {
     private String cast;
     private Review review; 
     public Movie(){
-        
     }
 }
