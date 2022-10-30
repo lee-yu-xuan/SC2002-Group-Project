@@ -4,7 +4,13 @@ import java.util.List;
 
 public class classLoader {
 
-    public void LoadTicket() {
+    
+    public void load(){
+        LoadTicket();
+        LoadCinema();
+    }
+
+    public static void LoadTicket() {
         String pathName = "movieTicket";
         List<String[]>  movieTicket = File_IO.readFile(pathName);
 
@@ -12,7 +18,7 @@ public class classLoader {
         MovieTicketController.createInstances(movieTicket);
     }
 
-    public void LoadCinema(){
+    public static void LoadCinema(){
         String pathName = "cinema";
         List<String[]>  cinema = File_IO.readFile(pathName);
         
@@ -20,5 +26,6 @@ public class classLoader {
         CinemaController.createInstances(cinema);
     }
 
-   
+    
 }
+

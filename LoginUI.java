@@ -55,5 +55,9 @@ public class LoginUI {
     public static void main(String[] args) {
         LoginUI test = new LoginUI();
         test.UI();
+
+        //load all class
+        classLoader loader = new classLoader();
+        loader.load();
     }
 }

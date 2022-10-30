@@ -12,7 +12,7 @@ public class MovieTicket{
     private String seatNo;
     private TypeOfTicket ticketType;
     private Restriction restriction;
-        
+
     //construct the movieTicket object
     public MovieTicket(String ticketID, String movieID, String date, String time, int cinemaID, String seatNo, TypeOfTicket ticketType, Restriction restriction) {
         this.ticketID = ticketID;
