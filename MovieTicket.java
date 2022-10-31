@@ -8,13 +8,13 @@ public class MovieTicket{
     private String movieID;
     private String date;
     private String time;
-    private int cinemaID;
+    private String cinemaID;
     private String seatNo;
     private TypeOfTicket ticketType;
     private Restriction restriction;
 
     //construct the movieTicket object
-    public MovieTicket(String ticketID, String movieID, String date, String time, int cinemaID, String seatNo, TypeOfTicket ticketType, Restriction restriction) {
+    public MovieTicket(String ticketID, String movieID, String date, String time, String cinemaID, String seatNo, TypeOfTicket ticketType, Restriction restriction) {
         this.ticketID = ticketID;
         this.movieID = movieID;
         this.date = date;
@@ -60,7 +60,7 @@ public class MovieTicket{
         return time;
     }   
 
-    public int getcinemaID(){
+    public String getcinemaID(){
         return cinemaID;
     }   
 

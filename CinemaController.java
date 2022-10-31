@@ -5,69 +5,61 @@ import java.util.List;
 
 
 public class CinemaController {
-    public static List<String[]>  storage;
-    public static int totalNumberOfInstances;
-    public static ArrayList<Cinema> cinemas = new ArrayList<Cinema>();
+    public static List<Cinema> cinemaList;
+    public static List<String[]> cinemaCSV;
 
-    public static ArrayList<Cinema> createInstances(List<String[]> cinema){
-        storage = cinema;
-        
-        //loop to create instances
-
-        for(int h=1; h<cinema.size(); h++){
-            int cinemaID = Integer.parseInt(cinema.get(h)[0]);
-            int numberOfSeats = Integer.parseInt(cinema.get(h)[1]);
-            ClassOfCinema classOfCinema = ClassOfCinema.valueOf(cinema.get(h)[2]);
-            Layout layout = Layout.valueOf(cinema.get(h)[3]);
-            
-            cinemas.add(new Cinema(cinemaID, numberOfSeats, classOfCinema, layout));
-            totalNumberOfInstances++;
+    public static void load(){
+        if(cinemaList == null){
+            System.out.println("The cinemaList is empty");
+            cinemaList = new ArrayList<Cinema>();
         }
     
-        return cinemas;
-    }
+        cinemaCSV = File_IO.readFile("cinema");
 
-public static void remove(String cinemaID){
-    //find the corresponding ticketID and remove it from the 2D array
-    //no point deleting it from the class
-
-    System.out.println("\nCinemaController.remove() is called\n");
-    for(int h=0; h<storage.size(); h++){
-        if(storage.get(h)[0].equals(cinemaID)){
-            System.out.println("inside");
-            storage.remove(h);
-            totalNumberOfInstances--;
+        for(int h=0; h<cinemaCSV.size(); h++){
+            int cinemaID = Integer.parseInt(cinemaCSV.get(h)[0]);
+            int numberOfSeats = Integer.parseInt(cinemaCSV.get(h)[1]);
+            ClassOfCinema classOfCinema = ClassOfCinema.valueOf(cinemaCSV.get(h)[2]);
+            Layout layout = Layout.valueOf(cinemaCSV.get(h)[3]);
+            
+            cinemaList.add(new Cinema(cinemaID, numberOfSeats, classOfCinema, layout));
         }
     }
 
-    //print storage
-    for(int h=0; h<storage.size(); h++){
-        for(int i=0; i<storage.get(h).length; i++){
-            System.out.print(storage.get(h)[i] + " ");
+public static int deleteByID(String cinemaID){
+ 
+    for(int h=0; h<cinemaList.size(); h++){
+        if(cinemaList.get(h).getCinemaID() == Integer.parseInt(cinemaID)){
+            cinemaList.remove(h); //id found
+            return 1;
         }
-        System.out.println();
     }
+    return 0;
 }
 
 public static void updateNumberOfSeats(ArrayList<Cinema> cinemas, String cinemaID, String numberOfSeats){
-    //find the corresponding ticketID and update it from the 2D array
-    int location = 0;
+    //update the cinemaList
 
-    for(int h=0; h<storage.size(); h++){
-        if(storage.get(h)[0].equals(cinemaID)){
-            //find the location in 2D array
-            storage.get(h)[1] = numberOfSeats;  //update the seats in the 2d array
-            location = h;
+    for(int h=0; h<cinemas.size(); h++){
+        if(cinemas.get(h).getCinemaID() == Integer.parseInt(cinemaID)){
+            cinemas.get(h).setNumberOfSeats(Integer.parseInt(numberOfSeats));
         }
     }
-
-    cinemas.get(location).setNumberOfSeats(Integer.parseInt(numberOfSeats));
 }
 
 
 public static void exportToCSV(){
-    //export according to the storage original 2d array
-    File_IO.writeFile(storage, "cinema");
+    List<String[]> tempCSV = new ArrayList<String[]>();
+        
+        for(int i =0;i<cinemaList.size();i++){
+            String[] temp = new String[4];
+            temp[0] = String.valueOf(cinemaList.get(i).getCinemaID());
+            temp[1] = String.valueOf(cinemaList.get(i).getNumberOfSeats());
+            temp[2] = cinemaList.get(i).getClassOfCinema().toString();
+            temp[3] = cinemaList.get(i).getLayout().toString();
+            tempCSV.add(temp);
+        }
+        File_IO.writeFile(tempCSV, "cinema");
 }
 
 
