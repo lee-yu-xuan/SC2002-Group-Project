@@ -1,13 +1,40 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ShowTimeList {
     private static List<ShowTime> showTimeList;
     private static List<String[]> showTimeCSV;
 
+    private static void sortAfterAppend()
+	{
+        int position = showTimeList.size() - 1;
+        Comparable key = showTimeList.get(showTimeList.size() -1);
+        while (position > 0 && key.compareTo(showTimeList.get(position-1)) < 0)
+        {
+            Collections.swap(showTimeList, position, position-1);
+            position--;
+        }
+	}
+
     public static List<ShowTime> getShowTimeList(){
         return showTimeList;
+    }
+
+    public static List<ShowTime> getShowTimeByID(String movieID){
+        List<ShowTime> returnList = new ArrayList<ShowTime>();
+        System.out.println(movieID);
+        for(int i = 0;i<showTimeList.size();i++){
+            if(movieID.compareTo(showTimeList.get(i).getMovieID()) == 0){
+                while(i < showTimeList.size() && movieID.compareTo(showTimeList.get(i).getMovieID()) == 0){
+                    returnList.add(showTimeList.get(i));
+                    i++;
+                }
+                break;
+            }
+        }
+        return returnList;
     }
 
     public static void add(ShowTime showTime){
@@ -16,6 +43,7 @@ public class ShowTimeList {
             showTimeList = new ArrayList<ShowTime>();
         }
         showTimeList.add(showTime);
+        sortAfterAppend();
     }
 
     public static void load(){

@@ -1,14 +1,30 @@
-import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 
-public class ShowTime {
+public class ShowTime implements Comparable{
     private String movieID;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private ClassOfCinema classOfCinema;
     private double price;
     
-    
+    public int compareTo(Object o){
+        if(o == null){
+            return -1;
+        }
+        else if(!(o instanceof ShowTime)){
+            return -1;
+        }
+        else{
+            ShowTime inputShowTime = (ShowTime) o;
+            int diff = this.movieID.compareTo(inputShowTime.movieID);
+            if(diff!=0){
+                return diff;
+            }else{
+                return this.startTime.compareTo(inputShowTime.startTime);
+            }
+        }
+    }
+
     public ShowTime(String movieID, LocalDateTime startTime, LocalDateTime endTime, ClassOfCinema classOfCinema, double price){
         this.movieID = movieID;
         this.startTime = startTime;

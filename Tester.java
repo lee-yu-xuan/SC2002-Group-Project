@@ -6,6 +6,18 @@ import java.util.Scanner;
 public class Tester {
     public static void main(String[] args) {
         ShowTimeList.load();
+        List<ShowTime> timeList = ShowTimeList.getShowTimeByID("S0001");
+        for(int j = 0;j < timeList.size();j++){
+            System.out.println(timeList.get(j).getMovieID());
+            System.out.println(timeList.get(j).getStartTime());
+            System.out.println(timeList.get(j).getEndTime());
+            System.out.println(timeList.get(j).getClassOfCinema());
+            System.out.println(timeList.get(j).getPrice());
+        }
+    }
+    
+    public static void ShowTimeReadTest(String[] args) {
+        ShowTimeList.load();
         for(int j = 0;j < ShowTimeList.getShowTimeList().size();j++){
             System.out.println(ShowTimeList.getShowTimeList().get(j).getMovieID());
             System.out.println(ShowTimeList.getShowTimeList().get(j).getStartTime());
