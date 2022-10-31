@@ -4,58 +4,63 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MovieTicketController {
-public static List<String[]>  storage;
+public static List<MovieTicket> ticketList;
+public static List<String[]> ticketCSV;
 
-public static void createInstances(List<String[]> movieTicket){
-    storage = movieTicket;
 
-   //loop to create instances
-   MovieTicket[] tickets = new MovieTicket[movieTicket.size()];
 
-   for(int h=1; h<movieTicket.size(); h++){
-       String ticketID = movieTicket.get(h)[0];
-       String movieID = movieTicket.get(h)[1];
-       String date = movieTicket.get(h)[2];
-       String time = movieTicket.get(h)[3];
-       int cinemaID = Integer.parseInt(movieTicket.get(h)[4]);
-       String seatNo = movieTicket.get(h)[5];
-       TypeOfTicket ticketType = TypeOfTicket.valueOf(movieTicket.get(h)[6]);
-       Restriction restriction = Restriction.valueOf(movieTicket.get(h)[7]);
+public static void load(){ 
+    if(ticketList == null){
+        System.out.println("The ticketList is empty");
+        ticketList = new ArrayList<MovieTicket>();
+    }
+
+    ticketCSV = File_IO.readFile("movieTicket");
+
+
+   for(int h=0; h<ticketCSV.size(); h++){
+       String ticketID = ticketCSV.get(h)[0];
+       String movieID = ticketCSV.get(h)[1];
+       String date = ticketCSV.get(h)[2];
+       String time = ticketCSV.get(h)[3];
+       String cinemaID = ticketCSV.get(h)[4];
+       String seatNo = ticketCSV.get(h)[5];
+       TypeOfTicket ticketType = TypeOfTicket.valueOf(ticketCSV.get(h)[6]);
+       Restriction restriction = Restriction.valueOf(ticketCSV.get(h)[7]);
        
-       tickets[h] = new MovieTicket(ticketID, movieID, date, time, cinemaID, seatNo, ticketType, restriction);
+       ticketList.add(new MovieTicket(ticketID, movieID, date, time, cinemaID, seatNo, ticketType, restriction));
    }
 }
 
-public void remove(String ticketID){
+public static int deleteByID(String ticketID){
 
-
-    //find the corresponding ticketID and remove it from the 2D array
-    for(int h=0; h<storage.size(); h++){
-        if(storage.get(h)[0].equals(ticketID)){
-            storage.remove(h);
+    for(int h=0; h<ticketList.size(); h++){
+        if(ticketList.get(h).getTicketID()==(ticketID)){
+            ticketList.remove(h);
+            return 1;
         }
     }
-}
-
-//not the real version of exporting to csv
-public void exportToCSV(){
-    ArrayList<String> tmpHolder = new ArrayList<String>();
-    for(int i=0; i<storage.size(); i++){
-        for(int j=0; j<storage.get(i).length; j++){
-            tmpHolder.add(storage.get(i)[j]);
-        }
+    return 0;
     }
 
-    //convert the arraylist to string array
-    String[] array = tmpHolder.toArray(new String[tmpHolder.size()]);
 
-    //put all string[] into 2D array
-    List<String[]> twoDlist = new ArrayList<String[]>();
-    for(int i=0; i<array.length; i++){
-        twoDlist.add(new String[]{array[i]});
+
+public static void save(){
+    List<String[]> tempCSV = new ArrayList<String[]>();
+    
+    for(int i =0;i<ticketList.size();i++){
+        String[] temp = new String[8];
+        temp[0] = ticketList.get(i).getTicketID();
+        temp[1] = ticketList.get(i).getMovieID();
+        temp[2] = ticketList.get(i).getDate();
+        temp[3] = ticketList.get(i).getTime();
+        temp[4] = ticketList.get(i).getcinemaID();
+        temp[5] = ticketList.get(i).getSeatNo();
+        temp[6] = ticketList.get(i).getTicketType().toString();
+        temp[7] = ticketList.get(i).getRestriction().toString();
+        tempCSV.add(temp);
     }
+    File_IO.writeFile(tempCSV, "movieTicket");
 }
-
-
 
 }

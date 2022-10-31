@@ -10,9 +10,9 @@ import java.util.List;
 public class LayoutController {
     private static int noOfRows = 0;
     private static int noOfColumns = 0;
-    
-
-    public static void main(String[] args) {
+     
+//public void displayLayout
+    public static void displayLayout(String cinemaID, String timing) {
         String pathName = "seatBooked";
         List<String[]>  movieList = File_IO.readFile(pathName);
         String seatsTaken = "";
@@ -20,27 +20,16 @@ public class LayoutController {
 
         for(int i = 0; i < movieList.size(); i++){
             //get the 2 variable: cinemaID and timing of the movie
-            if(movieList.get(i)[0].equals("798B") && movieList.get(i)[5].equals("1930")){
+            if(movieList.get(i)[0].equals(cinemaID) && movieList.get(i)[5].equals(timing)){
                 noOfRows = Integer.parseInt(movieList.get(i)[2]);
                 noOfColumns = Integer.parseInt(movieList.get(i)[3]);
                 seatsTaken = movieList.get(i)[4];
 
-                printLayout(noOfRows, noOfColumns, seatsTaken);
-                flag = 1;
-            }
-        }
-        if(flag==0){
-            System.out.println("No such movie or timing");
-        }
-    }
-
-    public static void printLayout(int noOfRows, int noOfColumns, String seatsTaken){
-
-        List<String> items = Arrays.asList(seatsTaken.split("&"));
+                List<String> items = Arrays.asList(seatsTaken.split("&"));
 
            //initialize layout
            char[][] Layout = new char[noOfRows][noOfColumns];
-           for(int i=0; i<noOfRows; i++) {
+           for(i=0; i<noOfRows; i++) {
                //System.out.println(number);number++;
                for(int j=0; j<noOfColumns; j++) {
                    Layout[i][j] = '0';
@@ -48,7 +37,7 @@ public class LayoutController {
            }
 
            //mark the layout with the seats taken
-              for(int i=0; i<items.size(); i++) {
+              for(i=0; i<items.size(); i++) {
                 String[] temp = items.get(i).split("!");
                 int row = Integer.parseInt(temp[0])-1;
                 int column = Integer.parseInt(temp[1])-1;
@@ -56,12 +45,23 @@ public class LayoutController {
               }
 
             //print layout
-            for(int i=0; i<noOfRows; i++) {
+            for(i=0; i<noOfRows; i++) {
                 for(int j=0; j<noOfColumns; j++) {
                     System.out.print(Layout[i][j]+" ");
                 }
                 System.out.println();
             }
+
+
+                flag = 1;
+                break;
+            }
+        }
+        if(flag==0){
+            System.out.println("No such movie or timing");
+        }
     }
+
+   
    
 }
