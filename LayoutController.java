@@ -12,7 +12,7 @@ public class LayoutController {
     private static int noOfColumns = 0;
      
 //public void displayLayout
-    public void displayLayout(String cinemaID, String timing) {
+    public static void displayLayout(String cinemaID, String timing) {
         String pathName = "seatBooked";
         List<String[]>  movieList = File_IO.readFile(pathName);
         String seatsTaken = "";
