@@ -4,7 +4,51 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Tester {
-    public static void main3(String[] args) {
+    public static void main(String[] args) {
+        ShowTimeList.load();
+        for(int j = 0;j < ShowTimeList.getShowTimeList().size();j++){
+            System.out.println(ShowTimeList.getShowTimeList().get(j).getMovieID());
+            System.out.println(ShowTimeList.getShowTimeList().get(j).getStartTime());
+            System.out.println(ShowTimeList.getShowTimeList().get(j).getEndTime());
+            System.out.println(ShowTimeList.getShowTimeList().get(j).getClassOfCinema());
+            System.out.println(ShowTimeList.getShowTimeList().get(j).getPrice());
+        }
+    }
+    public static void ShowTimeWriteTest(String[] args) {
+        while(true){
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("Enter MovieID");
+            String movieID = sc.nextLine();
+            if(movieID.charAt(0) == '#'){
+                break;
+            }
+
+            System.out.println("Enter startTime");
+            String startTime = sc.nextLine();
+            
+            System.out.println("Enter endTime");
+            String endTime = sc.nextLine();
+
+            System.out.println("Enter classOfCinema");
+            ClassOfCinema classOfCinema = ClassOfCinema.valueOf(sc.nextLine());
+
+            System.out.println("Enter price");
+            double price = sc.nextDouble();
+
+            ShowTimeList.add(new ShowTime(movieID, startTime, endTime, classOfCinema, price));
+        }
+        for(int j = 0;j < ShowTimeList.getShowTimeList().size();j++){
+            System.out.println(ShowTimeList.getShowTimeList().get(j).getMovieID());
+            System.out.println(ShowTimeList.getShowTimeList().get(j).getStartTime());
+            System.out.println(ShowTimeList.getShowTimeList().get(j).getEndTime());
+            System.out.println(ShowTimeList.getShowTimeList().get(j).getClassOfCinema());
+            System.out.println(ShowTimeList.getShowTimeList().get(j).getPrice());
+        }
+        ShowTimeList.save();
+    }
+
+    public static void RatingReviewReadTest(String[] args) {
         ReviewList.load();
         for(int j = 0;j < ReviewList.getReview().size();j++){
             System.out.println(ReviewList.getReview().get(j).getMovieID());
@@ -12,7 +56,7 @@ public class Tester {
             System.out.println(ReviewList.getReview().get(j).getReview());
         }
     }
-    public static void main(String[] args) {
+    public static void RatingReviewWriteTest(String[] args) {
         while(true){
             Scanner sc = new Scanner(System.in);
 
