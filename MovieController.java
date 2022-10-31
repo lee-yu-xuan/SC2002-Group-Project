@@ -20,12 +20,8 @@ public class MovieController {
                 }
                 else break;
             }
-            
         }
-        for(int k = 0;k<movieList.size();k++){
-            System.out.println(movieList.get(k).getMovieTitle());
-            System.out.println(ReviewList.getAvgRating(movieList.get(k).getMovieID()));
-        }
+        
         return movieList;
     }
 
