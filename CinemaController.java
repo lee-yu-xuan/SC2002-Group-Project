@@ -23,7 +23,7 @@ public class CinemaController {
             cinemas.add(new Cinema(cinemaID, numberOfSeats, classOfCinema, layout));
             totalNumberOfInstances++;
         }
-        
+    
         return cinemas;
     }
 
