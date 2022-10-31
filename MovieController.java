@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class MovieController {
-    public static void showMovieByRating(){
+    public static List<Movie> showMovieByRating(){
         List<Movie> movieList = MovieListing.getMovieList();
         List<String> movieID = new ArrayList<String>();
         for(int i = 0;i<movieList.size();i++){
@@ -26,10 +26,10 @@ public class MovieController {
             System.out.println(movieList.get(k).getMovieTitle());
             System.out.println(ReviewList.getAvgRating(movieList.get(k).getMovieID()));
         }
-        
+        return movieList;
     }
 
-    public static void showMovieByTicketSales(){
+    public static List<Movie> showMovieByTicketSales(){
         
     }
 }
