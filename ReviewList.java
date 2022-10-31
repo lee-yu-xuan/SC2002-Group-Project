@@ -23,8 +23,8 @@ public class ReviewList {
         double total = 0;
         int ratingCount = 0;
         for(int i = 0;i<reviewList.size();i++){
-            if(reviewList.get(i).getMovieID() == movieID){
-                while(i < reviewList.size() && reviewList.get(i).getMovieID() == movieID){
+            if(movieID.compareTo(reviewList.get(i).getMovieID()) == 0){
+                while(i < reviewList.size() && movieID.compareTo(reviewList.get(i).getMovieID()) == 0){
                     total += reviewList.get(i).getRating();
                     ratingCount++;
                     i++;
