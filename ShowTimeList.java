@@ -24,7 +24,6 @@ public class ShowTimeList {
 
     public static List<ShowTime> getShowTimeByID(String movieID){
         List<ShowTime> returnList = new ArrayList<ShowTime>();
-        System.out.println(movieID);
         for(int i = 0;i<showTimeList.size();i++){
             if(movieID.compareTo(showTimeList.get(i).getMovieID()) == 0){
                 while(i < showTimeList.size() && movieID.compareTo(showTimeList.get(i).getMovieID()) == 0){
@@ -55,11 +54,13 @@ public class ShowTimeList {
         
         for(int i = 0;i<showTimeCSV.size();i++){
             String movieID = showTimeCSV.get(i)[0];
-            String startTime = showTimeCSV.get(i)[1];
-            String endTime = showTimeCSV.get(i)[2];
-            ClassOfCinema classOfCinema = ClassOfCinema.valueOf(showTimeCSV.get(i)[3]);
-            double price = Double.parseDouble(showTimeCSV.get(i)[4]);
-            ShowTime showTime = new ShowTime(movieID,
+            String cinemaID = showTimeCSV.get(i)[1];
+            String startTime = showTimeCSV.get(i)[2];
+            String endTime = showTimeCSV.get(i)[3];
+            ClassOfCinema classOfCinema = ClassOfCinema.valueOf(showTimeCSV.get(i)[4]);
+            double price = Double.parseDouble(showTimeCSV.get(i)[5]);
+            ShowTime showTime = new ShowTime(movieID, 
+                                        cinemaID,
                                         LocalDateTime.parse(startTime,_DateTimeFormatter.formatter),
                                         LocalDateTime.parse(endTime,_DateTimeFormatter.formatter),
                                         classOfCinema,
@@ -75,6 +76,8 @@ public class ShowTimeList {
             List<String> tempTimeList = new ArrayList<String>();
 
             tempTimeList.add(showTimeList.get(i).getMovieID());
+
+            tempTimeList.add(showTimeList.get(i).getCinemaID());
 
             LocalDateTime startTime = showTimeList.get(i).getStartTime();
             tempTimeList.add(startTime.format(_DateTimeFormatter.formatter));

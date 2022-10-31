@@ -9,6 +9,7 @@ public class Tester {
         List<ShowTime> timeList = ShowTimeList.getShowTimeByID("S0001");
         for(int j = 0;j < timeList.size();j++){
             System.out.println(timeList.get(j).getMovieID());
+            System.out.println(timeList.get(j).getCinemaID());
             System.out.println(timeList.get(j).getStartTime());
             System.out.println(timeList.get(j).getEndTime());
             System.out.println(timeList.get(j).getClassOfCinema());
@@ -36,6 +37,9 @@ public class Tester {
                 break;
             }
 
+            System.out.println("Enter cinemaID");
+            String cinemaID = sc.nextLine();
+
             System.out.println("Enter startTime");
             String startTime = sc.nextLine();
             
@@ -48,10 +52,11 @@ public class Tester {
             System.out.println("Enter price");
             double price = sc.nextDouble();
 
-            ShowTimeList.add(new ShowTime(movieID, startTime, endTime, classOfCinema, price));
+            ShowTimeList.add(new ShowTime(movieID, cinemaID,startTime, endTime, classOfCinema, price));
         }
         for(int j = 0;j < ShowTimeList.getShowTimeList().size();j++){
             System.out.println(ShowTimeList.getShowTimeList().get(j).getMovieID());
+            System.out.println(ShowTimeList.getShowTimeList().get(j).getCinemaID());
             System.out.println(ShowTimeList.getShowTimeList().get(j).getStartTime());
             System.out.println(ShowTimeList.getShowTimeList().get(j).getEndTime());
             System.out.println(ShowTimeList.getShowTimeList().get(j).getClassOfCinema());

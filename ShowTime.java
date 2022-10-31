@@ -2,6 +2,7 @@ import java.time.LocalDateTime;
 
 public class ShowTime implements Comparable{
     private String movieID;
+    private String cinemaID;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private ClassOfCinema classOfCinema;
@@ -25,20 +26,26 @@ public class ShowTime implements Comparable{
         }
     }
 
-    public ShowTime(String movieID, LocalDateTime startTime, LocalDateTime endTime, ClassOfCinema classOfCinema, double price){
+    public ShowTime(String movieID, String cinemaID, LocalDateTime startTime, LocalDateTime endTime, ClassOfCinema classOfCinema, double price){
         this.movieID = movieID;
+        this.cinemaID = cinemaID;
         this.startTime = startTime;
         this.endTime = endTime;
         this.classOfCinema = classOfCinema;
         this.price = Math.round(price * 100.0) / 100.0;
     }
 
-    public ShowTime(String movieID, String startTime, String endTime, ClassOfCinema classOfCinema, double price){
+    public ShowTime(String movieID, String cinemaID, String startTime, String endTime, ClassOfCinema classOfCinema, double price){
         this(movieID,
+            cinemaID,
             LocalDateTime.parse(startTime,_DateTimeFormatter.formatter),
             LocalDateTime.parse(endTime,_DateTimeFormatter.formatter),
             classOfCinema,
             price);
+    }
+
+    public void setCinemaID(String cinemaID) {
+        this.cinemaID = cinemaID;
     }
 
     public void setMovieID(String movieID){
@@ -72,6 +79,10 @@ public class ShowTime implements Comparable{
 
     public String getMovieID() {
         return movieID;
+    }
+
+    public String getCinemaID() {
+        return cinemaID;
     }
 
     public LocalDateTime getStartTime() {
