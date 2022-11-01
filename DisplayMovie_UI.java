@@ -10,27 +10,61 @@ public class DisplayMovie_UI {
         System.out.println("3. Search by movie title");
 
         int choice = sc.nextInt();
+        String movieID = "";
 
         switch (choice) {
             case 1:
                 //list top 5 movies by sales
-                listBySales();
+                movieID = listBySales();
                 break;
             case 2:
                 //list top 5 movies by rating
-                listByRating();
+                movieID = listByRating();
                 break;
             case 3:
                 //search by movie title
-                searchByTitle();
+                movieID = searchByTitle();
                 break;
             default:
                 System.out.println("Invalid choice");
                 break;
         }
+
+        List<ShowTime> tmp = ShowTimeController.showTimeByShowTime(movieID);
+        for(int i = 0;i<tmp.size();i++){
+            System.out.println(i+". "+tmp.get(i).getCinemaID()+" "+tmp.get(i).getStartTime());
+        }
+
+        //user select cinema and timing
+        System.out.println("Select your preferred cinema and timing");
+        choice = sc.nextInt();
+        String cinemaID = tmp.get(choice).getCinemaID();
+        LocalDateTime time = tmp.get(choice).getStartTime();
+  
+        //pass time, and cinema to displayLayout_UI   
+        LayoutController.displayLayout(cinemaID, time);
+
+        System.out.println("Select the row of your preferred seat");
+        int row = sc.next().charAt(0);
+        System.out.println("Select the column of your preferred seat");
+        int col = sc.nextInt();
+
+        //call payment method
+
+        //after calling payment UI, call this to update the seat
+        SeatBooked_Controller.updateSeatBooked(row, col, cinemaID, time);
+
+        //call a method to create a movieTicket
+        String ticketID = row+cinemaID+col+movieID;
+        String seat = Integer.toString(row+col);
+        MovieTicket ticket = new MovieTicket(ticketID, movieID, time, cinemaID, seat, TypeOfTicket.Flat, Restriction.PG13);
+        MovieTicketController.add(ticket);
+        
+        //call a method to add to booking history of the user which i dont know who doing
+        
     }
 
-    public static void listBySales(){
+    public static String listBySales(){
         //list top 5 movies by sales
         List<Movie> movieList = MovieController.showMovieByTicketSales();
         for(int i = 0;i<movieList.size();i++){
@@ -42,20 +76,11 @@ public class DisplayMovie_UI {
         int option = sc.nextInt();
         String movieID = movieList.get(option).getMovieID();
 
-        //display timing and cinema(sort by showtime) for that particular movie in the cinema from showTime CSV I assume
-        String cinemaID;
-        String time;
-
-
-        
-        //pass time, movieID and cinema to displayLayout_UI   
-        //LayoutController.displayLayout(cinemaID, time);
-        
-        //pass seatBooked, cinemaID, timing, movieID, userID to Booking_UI / Booking_Controller to proceed to payment
+        return movieID;
     }
 
     //working example
-    public static void listByRating(){
+    public static String listByRating(){
         //list top 5 movies by rating
         List<Movie> movieList = MovieController.showMovieByRating();
         for(int i = 0;i<movieList.size();i++){
@@ -67,27 +92,19 @@ public class DisplayMovie_UI {
         int option = sc.nextInt();
         String movieID = movieList.get(option).getMovieID();
 
-        List<ShowTime> tmp = ShowTimeController.showTimeByShowTime(movieID);
-        for(int i = 0;i<tmp.size();i++){
-            System.out.println(i+". "+tmp.get(i).getCinemaID()+" "+tmp.get(i).getStartTime());
-        }
-
-        //user select cinema and timing
-        System.out.println("Select your preferred cinema and timing");
-        int choice = sc.nextInt();
-        String cinemaID = tmp.get(choice).getCinemaID();
-        LocalDateTime time = tmp.get(choice).getStartTime();
-  
-         //pass time, and cinema to displayLayout_UI   
-         LayoutController.displayLayout(cinemaID, time);
+        return movieID;
     }
 
-    public static void searchByTitle(){
+    public static String searchByTitle(){
         //search by movie title
+
+        return "helloWorld";
     }
 
-    public void sortByTime(String movieID){
+    public String sortByTime(String movieID){
         //sort by time
+
+        return "helloWorld";
     }
 
 

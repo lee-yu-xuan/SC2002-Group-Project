@@ -35,7 +35,7 @@ public static void load(){
 
 }
 
-public static void updateSeatBooked(String newBookedSeats_row, String newBookedSeats_column, String cinemaID, LocalDateTime timing){
+public static void updateSeatBooked(int newBookedSeats_row, int newBookedSeats_column, String cinemaID, LocalDateTime timing){
     String oldBookedSeat = ""; int location = 0;
     
     for(int i=0; i<seatBookedList.size(); i++){
@@ -45,8 +45,12 @@ public static void updateSeatBooked(String newBookedSeats_row, String newBookedS
         }
     }
 
+    //convert int to string
+    String row = Integer.toString(newBookedSeats_row);
+    String col = Integer.toString(newBookedSeats_column);
+
     //append the newBookedSeats to the oldBookedSeat String
-    String updatedBookedSeats = oldBookedSeat + "&" + newBookedSeats_row + "!" + newBookedSeats_column;
+    String updatedBookedSeats = oldBookedSeat + "&" + row + "!" + col;
 
     //update the seatBookedList
     seatBookedList.get(location).setSeatsTaken(updatedBookedSeats);

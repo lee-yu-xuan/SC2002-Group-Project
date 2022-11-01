@@ -32,6 +32,14 @@ public static void load(){
    }
 }
 
+public static void add(MovieTicket ticket){
+    if(ticketList == null){
+        System.out.println("The ticketList is empty");
+        ticketList = new ArrayList<MovieTicket>();
+    }
+    ticketList.add(ticket);
+}
+
 public static int deleteByID(String ticketID){
 
     for(int h=0; h<ticketList.size(); h++){
