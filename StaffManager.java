@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -246,6 +247,80 @@ public class StaffManager {
 			ShowTimeList.add(ST);
 	 }
 	 public void removeShowTimes() {
+		 int no=0;
 		 
+		 System.out.println("Please choose one of the options:");
+		 System.out.println("1) Delete by movie index");
+		 System.out.println("2) Delete by movie info");
+		 no=scan.nextInt();
+		 
+		 switch(no) {
+		 case 1: int index=-1;
+				 do {
+					 System.out.println("Enter the name of the Movie: ");
+					 try {
+						 index = scan.nextInt();
+					 }
+					 catch(NumberFormatException nfe) {
+						 System.out.println("Please enter in integer!");
+					 }
+					}while (index<0);
+					
+				 ShowTimeList.deleteByIndex(index);
+				 break;
+				 
+		 case 2: String movieID ="";
+				String cinemaID ="";
+				String startTime="";
+				String endTime="";
+				String classOfCinema="";
+				String price = "";
+				
+				do {
+				 System.out.println("Enter the ID of the Movie: ");
+				 try {
+					 movieID = scan.nextLine();
+				 }
+				 catch(NumberFormatException nfe) {
+					 System.out.println("Please enter in string!");
+				 }
+				}while (movieID.isEmpty());
+				
+				 
+				do {
+					System.out.println("Enter the Cinema ID: ");
+					 try {
+						 cinemaID = scan.nextLine();
+					 }
+					 catch(NumberFormatException nfe) {
+						 System.out.println("Please enter in string!");
+					 }
+					}while (cinemaID.isEmpty());
+				
+				do {
+					System.out.println("Enter the startTime: ");
+					 try {
+						 startTime = scan.nextLine();
+					 }
+					 catch(NumberFormatException nfe) {
+						 System.out.println("Please enter in string!");
+					 }
+					}while (startTime.isEmpty());
+				 
+				do {
+					System.out.println("Enter the endTime of the movie: ");
+					 try {
+						 endTime = scan.nextLine();
+					 }
+					 catch(NumberFormatException nfe) {
+						 System.out.println("Please enter in string!");
+					 }
+					}while (endTime.isEmpty());
+				 
+				
+				
+				ShowTimeList.deleteByMovieInfo(movieID, cinemaID, LocalDateTime.parse(startTime,_DateTimeFormatter.formatter), LocalDateTime.parse(endTime,_DateTimeFormatter.formatter));
+		default: System.out.println("Wrong options");
+		 }	 
 	 }
 }
