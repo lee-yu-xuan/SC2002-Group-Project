@@ -5,16 +5,22 @@ import java.util.List;
 
 public class Cineplex {
     //input attributes
+    private String cineplexName;
     private List<Cinema> cinemaList;
     private List<Movie> movieList;
 
     //constructor
-    public Cineplex(List<Cinema> cinemaList, List<Movie> movieList) {
-        this.cinemaList = cinemaList;
-        this.movieList = movieList;
+    public Cineplex(String cineplexName, List<Cinema> cinemaList, List<Movie> movieList) {
+        this.cineplexName = cineplexName;
+        cinemaList = CinemaController.getCinemaList();
+        movieList = new ArrayList<Movie>();
     }
 
     //getter
+    public String getCineplexName() {
+        return cineplexName;
+    }
+
     public List<Cinema> getCinemaList() {
         return cinemaList;
     }
@@ -24,6 +30,9 @@ public class Cineplex {
     }
 
     //setter
+    public void setCineplexName(String cineplexName) {
+        this.cineplexName = cineplexName;
+    }
 
     public void setCinemaList(List<Cinema> cinemaList) {
         this.cinemaList = cinemaList;

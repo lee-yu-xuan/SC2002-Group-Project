@@ -1,24 +1,22 @@
+import java.time.LocalDateTime;
+
 //yj
 
 public class MovieTicket{
-    private static final int basePrice = 6;
-
     //Attributes
     private String ticketID;
     private String movieID;
-    private String date;
-    private String time;
+    private LocalDateTime dateTime;
     private String cinemaID;
     private String seatNo;
     private TypeOfTicket ticketType;
     private Restriction restriction;
 
     //construct the movieTicket object
-    public MovieTicket(String ticketID, String movieID, String date, String time, String cinemaID, String seatNo, TypeOfTicket ticketType, Restriction restriction) {
+    public MovieTicket(String ticketID, String movieID, LocalDateTime dateTime, String cinemaID, String seatNo, TypeOfTicket ticketType, Restriction restriction) {
         this.ticketID = ticketID;
         this.movieID = movieID;
-        this.date = date;
-        this.time = time;
+        this.dateTime = dateTime;
         this.cinemaID = cinemaID;
         this.seatNo = seatNo;
         this.ticketType = ticketType;
@@ -35,13 +33,9 @@ public class MovieTicket{
         return movieID;
     }   
 
-    public String getDate(){
-        return date;
-    }   
-
-    public String getTime(){
-        return time;
-    }   
+    public String getDateTime(){
+        return dateTime.toString();
+    }
 
     public String getcinemaID(){
         return cinemaID;
@@ -68,15 +62,11 @@ public class MovieTicket{
         this.movieID = movieID;
     }   
 
-    public void setDate(String date){
-        this.date = date;
-    }   
+    public void setDateTime(LocalDateTime dateTime){
+        this.dateTime = dateTime;
+    }
 
-    public void setTime(String time){
-        this.time = time;
-    }   
-
-    public void setcinemaID(int cinemaID){
+    public void setcinemaID(String cinemaID){
         this.cinemaID = cinemaID;
     }   
 

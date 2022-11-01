@@ -6,13 +6,15 @@ public class Cinema{
  
     //attributes
     private int cinemaID;
+    private String cineplexName;
     private int numberOfSeats;
     private ClassOfCinema classOfCinema;
     private Layout layout;
 
     //constructor
-    public Cinema(int cinemaID, int numberOfSeats, ClassOfCinema classOfCinema, Layout layout) {
+    public Cinema(int cinemaID, String cineplexName, int numberOfSeats, ClassOfCinema classOfCinema, Layout layout) {
         this.cinemaID = cinemaID;
+        this.cineplexName = cineplexName;
         this.numberOfSeats = numberOfSeats;
         this.classOfCinema = classOfCinema;
         this.layout = layout;
@@ -21,6 +23,10 @@ public class Cinema{
     //getter
     public int getCinemaID() {
         return cinemaID;
+    }
+
+    public String getCineplexName() {
+        return cineplexName;
     }
 
     public int getNumberOfSeats() {
@@ -41,6 +47,10 @@ public class Cinema{
         this.cinemaID = cinemaID;
     }
 
+    public void setCineplexName(String cineplexName) {
+        this.cineplexName = cineplexName;
+    }
+    
     public void setNumberOfSeats(int numberOfSeats) {
         this.numberOfSeats = numberOfSeats;
     }

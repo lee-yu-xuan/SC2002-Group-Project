@@ -35,6 +35,24 @@ public static void load(){
 
 }
 
+public static void updateSeatBooked(String newBookedSeats_row, String newBookedSeats_column, String cinemaID, LocalDateTime timing){
+    String oldBookedSeat = ""; int location = 0;
+    
+    for(int i=0; i<seatBookedList.size(); i++){
+        if(seatBookedList.get(i).getCinemaID().equals(cinemaID) && seatBookedList.get(i).getTiming().compareTo(timing)==0){
+            oldBookedSeat = seatBookedList.get(i).getSeatsTaken();
+            location = i;
+        }
+    }
+
+    //append the newBookedSeats to the oldBookedSeat String
+    String updatedBookedSeats = oldBookedSeat + "&" + newBookedSeats_row + "!" + newBookedSeats_column;
+
+    //update the seatBookedList
+    seatBookedList.get(location).setSeatsTaken(updatedBookedSeats);
+        
+}
+
 public static List<SeatBooked> getSeatBooked(){
     return seatBookedList;
 }

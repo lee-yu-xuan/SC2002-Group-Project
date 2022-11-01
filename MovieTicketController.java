@@ -1,5 +1,6 @@
 //yj
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,14 +22,13 @@ public static void load(){
    for(int h=0; h<ticketCSV.size(); h++){
        String ticketID = ticketCSV.get(h)[0];
        String movieID = ticketCSV.get(h)[1];
-       String date = ticketCSV.get(h)[2];
-       String time = ticketCSV.get(h)[3];
-       String cinemaID = ticketCSV.get(h)[4];
-       String seatNo = ticketCSV.get(h)[5];
-       TypeOfTicket ticketType = TypeOfTicket.valueOf(ticketCSV.get(h)[6]);
-       Restriction restriction = Restriction.valueOf(ticketCSV.get(h)[7]);
+       String dateTime = ticketCSV.get(h)[2];
+       String cinemaID = ticketCSV.get(h)[3];
+       String seatNo = ticketCSV.get(h)[4];
+       TypeOfTicket ticketType = TypeOfTicket.valueOf(ticketCSV.get(h)[5]);
+       Restriction restriction = Restriction.valueOf(ticketCSV.get(h)[6]);
        
-       ticketList.add(new MovieTicket(ticketID, movieID, date, time, cinemaID, seatNo, ticketType, restriction));
+       ticketList.add(new MovieTicket(ticketID, movieID, LocalDateTime.parse(dateTime,_DateTimeFormatter.formatter), cinemaID, seatNo, ticketType, restriction));
    }
 }
 
@@ -49,15 +49,14 @@ public static void save(){
     List<String[]> tempCSV = new ArrayList<String[]>();
     
     for(int i =0;i<ticketList.size();i++){
-        String[] temp = new String[8];
+        String[] temp = new String[7];
         temp[0] = ticketList.get(i).getTicketID();
         temp[1] = ticketList.get(i).getMovieID();
-        temp[2] = ticketList.get(i).getDate();
-        temp[3] = ticketList.get(i).getTime();
-        temp[4] = ticketList.get(i).getcinemaID();
-        temp[5] = ticketList.get(i).getSeatNo();
-        temp[6] = ticketList.get(i).getTicketType().toString();
-        temp[7] = ticketList.get(i).getRestriction().toString();
+        temp[2] = ticketList.get(i).getDateTime();
+        temp[3] = ticketList.get(i).getcinemaID();
+        temp[4] = ticketList.get(i).getSeatNo();
+        temp[5] = ticketList.get(i).getTicketType().toString();
+        temp[6] = ticketList.get(i).getRestriction().toString();
         tempCSV.add(temp);
     }
     File_IO.writeFile(tempCSV, "movieTicket");
