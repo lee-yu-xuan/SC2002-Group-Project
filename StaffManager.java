@@ -166,10 +166,86 @@ public class StaffManager {
 		 }while(choice>2 || choice<1);
 		 
 		 if(choice ==1) {
-			 //MC.showMovieByTicketSales();
+			MovieController.showMovieByTicketSales();
 		 }
 		 if(choice ==2) {
 			MovieController.showMovieByRating();
 		 }
+	 }
+	 public void addShowTimes() {
+			String movieID ="";
+			String cinemaID ="";
+			String startTime="";
+			String endTime="";
+			String classOfCinema="";
+			String price = "";
+			
+			do {
+			 System.out.println("Enter the ID of the Movie: ");
+			 try {
+				 movieID = scan.nextLine();
+			 }
+			 catch(NumberFormatException nfe) {
+				 System.out.println("Please enter in string!");
+			 }
+			}while (movieID.isEmpty());
+			
+			 
+			do {
+				System.out.println("Enter the Cinema ID: ");
+				 try {
+					 cinemaID = scan.nextLine();
+				 }
+				 catch(NumberFormatException nfe) {
+					 System.out.println("Please enter in string!");
+				 }
+				}while (cinemaID.isEmpty());
+			
+			do {
+				System.out.println("Enter the startTime: ");
+				 try {
+					 startTime = scan.nextLine();
+				 }
+				 catch(NumberFormatException nfe) {
+					 System.out.println("Please enter in string!");
+				 }
+				}while (startTime.isEmpty());
+			 
+			do {
+				System.out.println("Enter the endTime of the movie: ");
+				 try {
+					 endTime = scan.nextLine();
+				 }
+				 catch(NumberFormatException nfe) {
+					 System.out.println("Please enter in string!");
+				 }
+				}while (endTime.isEmpty());
+			 
+			do {
+				System.out.println("Enter the class of cinema: ");
+				 try {
+					 classOfCinema = scan.nextLine();
+				 }
+				 catch(NumberFormatException nfe) {
+					 System.out.println("Please enter in string!");
+				 }
+				}while (classOfCinema.isEmpty());
+			
+			do {
+				System.out.println("Enter the price: ");
+				 try {
+					 price = scan.nextLine();
+				 }
+				 catch(NumberFormatException nfe) {
+					 System.out.println("Please enter in string!");
+				 }
+				}while (price.isEmpty());
+			ClassOfCinema CC = ClassOfCinema.valueOf(classOfCinema);
+			double P = Double.valueOf(price);
+			ShowTime ST = new ShowTime(movieID, cinemaID, startTime, endTime, CC, P);
+			ShowTimeList.add(ST);
+	 }
+	 public void removeShowTimes() {
+		 
 	 }
 }
