@@ -1,9 +1,6 @@
-package SC2002Project;
+package SC2002_2;
 
-import java.util.List;
-
-public class Booking
-{
+public class Booking {
 	private String transactionID;
 	private String name;
 	private String movieName;
@@ -12,39 +9,95 @@ public class Booking
 	private String seats;
 	private String cost;
 	
-	public Booking(String transactionID, String name, String movieName, String cinema, int pax, String seats ,double cost)
+	public Booking()
+	{
+		this.transactionID = "";
+		this.name = "";
+		this.movieName = "";
+		this.cinema = "";
+		this.pax = "";
+		this.seats = "";
+		this.cost = "";
+	}
+	
+	public Booking(String transactionID, String name, String movieName, String cinema, String pax, String seats, String cost)
 	{
 		this.transactionID = transactionID;
 		this.name = name;
 		this.movieName = movieName;
 		this.cinema = cinema;
-		this.pax = String.valueOf(pax);
+		this.pax = pax;
 		this.seats = seats;
-		this.cost = String.valueOf(cost);
-		//File IO into database
+		this.cost = cost;
 	}
 	
-	public void addBooking()
+	public void setTransactionID(String transactionID)
 	{
-		String path = "/BookingHistory/" + this.name;
-		List<String[]> bookingHistory = File_IO.readFile(path);
-		int column = bookingHistory.size();
-		bookingHistory.get(column)[0] = this.transactionID;
-		bookingHistory.get(column)[1] = this.name;
-		bookingHistory.get(column)[2] = this.movieName;
-		bookingHistory.get(column)[3] = this.cinema;
-		bookingHistory.get(column)[4] = this.pax;
-		bookingHistory.get(column)[5] = this.seats;
-		bookingHistory.get(column)[6] = this.cost;
-		File_IO.writeFile(bookingHistory,path);		
-		addToSales(this.movieName, Integer.parseInt(pax));
+		this.transactionID = transactionID;
 	}
 	
-	public void addToSales(String movieName, int pax)
+	public void setName(String name)
 	{
-		String path = "movieSalesRanking";
-		List<String[]> salesRanking = File_IO.readFile(path);
-		//File I/O function to help find an element
-		//update the sales number of that movie by the number of pax
+		this.name = name;
+	}
+	
+	public void setMovieName(String movieName)
+	{
+		this.movieName = movieName;
+	}
+	
+	public void setCinema(String cinema)
+	{
+		this.cinema = cinema;
+	}
+	
+	public void setPax(String pax)
+	{
+		this.pax = pax;
+	}
+	
+	public void setSeats(String seats)
+	{
+		this.seats = seats;
+	}
+	
+	public void setCost(String cost)
+	{
+		this.cost = cost;
+	}
+	
+	public String getTransactionID()
+	{
+		return transactionID;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public String getMovieName()
+	{
+		return movieName;
+	}
+	
+	public String getCinema()
+	{
+		return cinema;
+	}
+	
+	public String getPax()
+	{
+		return pax;
+	}
+	
+	public String getSeats()
+	{
+		return seats;
+	}
+	
+	public String getCost()
+	{
+		return cost;
 	}
 }
