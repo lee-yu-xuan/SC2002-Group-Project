@@ -21,6 +21,15 @@ public class MovieListing {
         movieList.add(movie);
     }
 
+    public static int getMovieIndexByID(String movieID){
+        for(int i = 0;i<movieList.size();i++){
+            if(movieID == movieList.get(i).getMovieID()){
+                return i;
+            }
+        }
+        //movieID not found
+        return -1;
+    }
     public static int deleteByName(String title){
         for(int i = 0;i< movieList.size();i++){
             if(movieList.get(i).getMovieTitle() == title){
