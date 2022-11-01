@@ -18,7 +18,7 @@ public class User_UI {
             break;
         case 2:
             //view booking history
-            DisplayBookingHistory_UI.displayInformation();
+            //DisplayBookingHistory_UI.displayInformation();
             break;
         case 3:
             //exit

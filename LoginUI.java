@@ -53,15 +53,20 @@ public class LoginUI {
     }
 
     public static void main(String[] args) {
-        LoginUI test = new LoginUI();
-        test.UI();
+        //LoginUI test = new LoginUI();
+        //test.UI();
 
         //load all class
-        classLoader loader = new classLoader();
-        loader.load();
+        //classLoader loader = new classLoader();
+        //loader.load();
 
         //if user go user_UI
         //if staff go staff_UI
+        MovieListing.load();
+        ReviewList.load();
+        ShowTimeList.load();
+        SeatBooked_Controller.load();
+        MovieListing.load();
 
         User_UI.display_UI();
     }

@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,7 +30,7 @@ public class DisplayMovie_UI {
         }
     }
 
-    public void listBySales(){
+    public static void listBySales(){
         //list top 5 movies by sales
         List<Movie> movieList = MovieController.showMovieByTicketSales();
         for(int i = 0;i<movieList.size();i++){
@@ -48,16 +49,40 @@ public class DisplayMovie_UI {
 
         
         //pass time, movieID and cinema to displayLayout_UI   
-        LayoutController.displayLayout(cinemaID, time);
+        //LayoutController.displayLayout(cinemaID, time);
         
         //pass seatBooked, cinemaID, timing, movieID, userID to Booking_UI / Booking_Controller to proceed to payment
     }
 
-    public void listByRating(){
+    //working example
+    public static void listByRating(){
         //list top 5 movies by rating
+        List<Movie> movieList = MovieController.showMovieByRating();
+        for(int i = 0;i<movieList.size();i++){
+            System.out.println(i+". "+movieList.get(i).getMovieTitle());
+        }
+
+        //select movie
+        Scanner sc = new Scanner(System.in);
+        int option = sc.nextInt();
+        String movieID = movieList.get(option).getMovieID();
+
+        List<ShowTime> tmp = ShowTimeController.showTimeByShowTime(movieID);
+        for(int i = 0;i<tmp.size();i++){
+            System.out.println(i+". "+tmp.get(i).getCinemaID()+" "+tmp.get(i).getStartTime());
+        }
+
+        //user select cinema and timing
+        System.out.println("Select your preferred cinema and timing");
+        int choice = sc.nextInt();
+        String cinemaID = tmp.get(choice).getCinemaID();
+        LocalDateTime time = tmp.get(choice).getStartTime();
+  
+         //pass time, and cinema to displayLayout_UI   
+         LayoutController.displayLayout(cinemaID, time);
     }
 
-    public void searchByTitle(){
+    public static void searchByTitle(){
         //search by movie title
     }
 

@@ -25,23 +25,6 @@ public class MovieTicket{
         this.restriction = restriction;
     }
 
-    public double calculateFair(){
-        double fair = 0;
-        
-        switch(ticketType){
-            case Flat:
-                fair = basePrice;
-                break;
-            case Volume:
-                fair = basePrice * 1.5;
-                break;
-            case GOLD:
-                fair = basePrice * 2;
-                break;
-        }
-        
-        return fair;
-    }
 
     //getters
     public String getTicketID(){

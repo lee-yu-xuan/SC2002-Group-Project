@@ -2,6 +2,7 @@
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,18 +13,36 @@ public class LayoutController {
     private static int noOfColumns = 0;
      
 //public void displayLayout
-    public static void displayLayout(String cinemaID, String timing) {
-        String pathName = "seatBooked";
-        List<String[]>  movieList = File_IO.readFile(pathName);
+    public static void displayLayout(String cinemaID, LocalDateTime timing) {
+        
+        List<SeatBooked>  movieList = SeatBooked_Controller.getSeatBooked();
         String seatsTaken = "";
         int flag = 0;
-
+     
         for(int i = 0; i < movieList.size(); i++){
             //get the 2 variable: cinemaID and timing of the movie
-            if(movieList.get(i)[0].equals(cinemaID) && movieList.get(i)[5].equals(timing)){
-                noOfRows = Integer.parseInt(movieList.get(i)[2]);
-                noOfColumns = Integer.parseInt(movieList.get(i)[3]);
-                seatsTaken = movieList.get(i)[4];
+            LocalDateTime dt1 = movieList.get(i).getTiming();
+            LocalDateTime dt2 = timing;
+            int equal = 0;
+            if(dt1.compareTo(dt2)!=0){
+                equal = 0;
+            }else{
+                equal = 1;
+            }
+
+            String tmpCinemaID = movieList.get(i).getCinemaID();
+            String hi = tmpCinemaID;
+            int equal2 = 0;
+            if(tmpCinemaID.compareTo(cinemaID)==0){
+                equal2 = 1;
+            }else{
+                equal2 = 0;
+            }
+            
+            if(equal2==1 && equal == 1){
+                noOfRows = movieList.get(i).getNoOfRows();
+                noOfColumns = movieList.get(i).getNoOfColumns();
+                seatsTaken = movieList.get(i).getSeatsTaken();
 
                 List<String> items = Arrays.asList(seatsTaken.split("&"));
 

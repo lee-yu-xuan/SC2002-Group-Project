@@ -1,4 +1,3 @@
-﻿cinemaID,layoutType,noOfRows,noOfColumns,seatTaken,timing
-6787A,small,5,5,3!4&2!3,1530
-798B,medium,15,20,3!7&9!1,1530
-798B,medium,15,20,3!5&9!1,1930
+A1	small	5	5	3!4&2!3	2022-12-25 08:30
+A2	small	5	5	3!4&2!3	2022-12-25 08:30
+A3	small	5	5	3!4&2!3	2022-12-25 08:30
