@@ -45,6 +45,21 @@ public class ShowTimeList {
         sortAfterAppend();
     }
 
+    public static void deleteByIndex(int index){
+        showTimeList.remove(index);
+    }
+
+    public static void deleteByMovieInfo(String movieID, String cinemaID, LocalDateTime startTime, LocalDateTime endTime){
+        for(int i = 0;i<showTimeList.size();i++){
+            if(showTimeList.get(i).getMovieID() == movieID &&
+            showTimeList.get(i).getCinemaID() == cinemaID &&
+            showTimeList.get(i).getStartTime() == startTime &&
+            showTimeList.get(i).getEndTime() == endTime)
+                showTimeList.remove(i);
+        }
+        
+    }
+
     public static void load(){
         if(showTimeList == null){
             System.out.println("The reviewList is empty");
