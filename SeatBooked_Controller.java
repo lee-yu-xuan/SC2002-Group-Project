@@ -33,10 +33,6 @@ public static void load(){
        seatBookedList.add(seatBooked);
    }
 
-   //print seatBooked
-    for(int i=0; i<seatBookedList.size(); i++){
-         System.out.println(seatBookedList.get(i).toString());
-    }
 }
 
 public static List<SeatBooked> getSeatBooked(){
