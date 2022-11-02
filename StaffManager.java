@@ -164,6 +164,10 @@ public class StaffManager {
 		       TypeOfTicket ticketType = TypeOfTicket.valueOf(ticketCSV.get(h)[5]);
 		       Restriction restriction = Restriction.valueOf(ticketCSV.get(h)[6]);
 		       
+			   //Movie newMovie = new Movie(////);
+			   //then MovieListing.add(newMovie);
+
+			   //this is the part u update movie, u r touching ticket now instead
 		       ticketList.add(new MovieTicket(ticketID, movieID, LocalDateTime.parse(dateTime,_DateTimeFormatter.formatter), cinemaID, seatNo, ticketType, restriction));
 		   }
 		 
