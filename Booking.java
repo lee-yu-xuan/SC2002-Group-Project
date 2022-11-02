@@ -1,4 +1,4 @@
-package SC2002_2;
+
 
 public class Booking {
 	private String transactionID;

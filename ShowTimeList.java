@@ -62,7 +62,6 @@ public class ShowTimeList {
 
     public static void load(){
         if(showTimeList == null){
-            System.out.println("The reviewList is empty");
             showTimeList = new ArrayList<ShowTime>();
         }
         showTimeCSV = File_IO.readFile("showTime");

@@ -52,7 +52,6 @@ public class ReviewList {
 
     public static void addRatingReview(String movieID, String review, int rating){
         if(reviewList == null){
-            System.out.println("The reviewList is empty");
             reviewList = new ArrayList<Review>();
         }
         reviewList.add(new Review(movieID, rating, review));
@@ -69,7 +68,6 @@ public class ReviewList {
 
     public static void load(){
         if(reviewList == null){
-            System.out.println("The reviewList is empty");
             reviewList = new ArrayList<Review>();
         }
         reviewCSV = File_IO.readFile("movieReview");
