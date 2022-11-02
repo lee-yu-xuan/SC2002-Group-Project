@@ -24,6 +24,7 @@ public class LoginUI {
                 username = sc.next().trim();
                 System.out.println("Enter your Password: \t");
                 password = new Hash().HashPassword(sc.next());
+                // System.out.println("enter: " + username + " / " + String.valueOf(password));
                 success = verify(username, password);
                 if (!success)
                     System.out.println("Login Fail, Please try again...");
@@ -38,6 +39,11 @@ public class LoginUI {
         try {
             loginParticularCSV = File_IO.readFile("loginParticular");
             for (String[] user : loginParticularCSV){
+            //     for (int i = 0 ; i < user.length; i++){
+            //         System.out.print(user[i]);
+            //     }
+                System.out.println();
+                //System.out.println("db: " + user[1] + " / " + user[2]);
                 if (user[1].equals(username) && user[2].equals(String.valueOf(password))) return true;
             }
             return false;
@@ -48,8 +54,8 @@ public class LoginUI {
     }
 
     public static void main(String[] args) {
-        //LoginUI test = new LoginUI();
-        //test.UI();
+        LoginUI test = new LoginUI();
+        test.UI();
 
         //load all class
         //classLoader loader = new classLoader();
