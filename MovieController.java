@@ -26,7 +26,25 @@ public class MovieController {
     }
 
     public static List<Movie> showMovieByTicketSales(){
-        return null;
+        List<Movie> movieList = MovieListing.getMovieList();
+        List<String> movieID = new ArrayList<String>();
+        for(int i = 0;i<movieList.size();i++){
+            movieID.add(movieList.get(i).getMovieID());
+        }
+
+        //insertion sort
+        for(int i = 1;i<movieList.size();i++){
+            for(int j = i;j> 0;j--){
+                double curRating = SalesManager.getSalesByID(movieID.get(j));
+                double preRating = SalesManager.getSalesByID(movieID.get(j-1));
+                if(curRating < preRating){
+                    Collections.swap(movieList,j,j-1);
+                }
+                else break;
+            }
+        }
+        
+        return movieList;
     }
 
     
