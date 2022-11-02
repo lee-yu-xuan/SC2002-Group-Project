@@ -159,17 +159,24 @@ public class StaffManager {
 		 
 			 try {
 				 choice = scan.nextInt();
+				 System.out.println("he");
 			 }
 			 catch(NumberFormatException nfe) {
 				 System.out.println("Please enter a number!");
 			 }
 		 }while(choice>2 || choice<1);
 		 
+
+		 
 		 if(choice ==1) {
 			MovieController.showMovieByTicketSales();
 		 }
 		 if(choice ==2) {
-			MovieController.showMovieByRating();
+			List<Movie> movieList = MovieController.showMovieByRating();
+			for(int i = 0;i<movieList.size();i++){
+				System.out.println(i+". "+movieList.get(i).getMovieTitle());
+			}
+
 		 }
 	 }
 	 public static void addShowTimes() {

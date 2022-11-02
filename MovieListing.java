@@ -9,7 +9,6 @@ public class MovieListing {
     private static List<String[]> movieCSV;
 
     public static List<Movie> getMovieList(){
-        System.out.println("Activated");
         return movieList;
     }
 

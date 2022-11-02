@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class User_UI {
 
-    public static void display_UI(){
+    public static void display_UI(String userName){
     //display all options
     System.out.println("---Welcome to MOVIETICKETING SYSTEM---");
     System.out.println("1. List the Movies");
@@ -14,7 +14,7 @@ public class User_UI {
     switch (choice) {
         case 1:
             //list the movies
-            DisplayMovie_UI.displayInformation();
+            DisplayMovie_UI.displayInformation(userName);
             break;
         case 2:
             //view booking history

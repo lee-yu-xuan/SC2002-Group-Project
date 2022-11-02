@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class DisplayMovie_UI {
-    public static void displayInformation(){
+    public static void displayInformation(String userName) {
         Scanner sc = new Scanner(System.in);
         System.out.println("1. List top 5 movies by sales");
         System.out.println("2. List top 5 movies by rating");
@@ -66,15 +66,18 @@ public class DisplayMovie_UI {
         //call a method to create a movieTicket
         String ticketID = row+cinemaID+col+movieID;
         String seat = Integer.toString((row*10)+col);
-        MovieTicket ticket = new MovieTicket(ticketID, movieID, time, cinemaID, seat, TypeOfTicket.Flat, Restriction.PG13);
+        TypeOfTicket ticketType = MovieTicketController.getTicketType(movieID);
+
+        MovieTicket ticket = new MovieTicket(ticketID, movieID, time, cinemaID, seat, ticketType, Restriction.PG13);
         MovieTicketController.add(ticket);
         MovieTicketController.save();
         
         
-        String costs = "10";
+        //call a method to calculate the price
+        String price;
 
-        //call a method to add to booking history of the user which i dont know who doing
-        //Booking booking = new Booking(ticketID, name, movieID, cinemaID, "1", seat, costs);
+        //call a method to add to booking history of the user
+        //Booking booking = new Booking(ticketID, userName, movieID, cinemaID, "1", seat, price);
 
     }
 

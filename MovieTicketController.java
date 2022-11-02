@@ -51,7 +51,15 @@ public static int deleteByID(String ticketID){
     return 0;
     }
 
-
+public static TypeOfTicket getTicketType(String movieID){
+    TypeOfTicket ticketType;
+    for(int h=0; h<ticketList.size(); h++){
+        if(ticketList.get(h).getMovieID()==(movieID)){
+            ticketType = ticketList.get(h).getTicketType();
+        }
+    }
+    return ticketType;
+}
 
 public static void save(){
     List<String[]> tempCSV = new ArrayList<String[]>();
