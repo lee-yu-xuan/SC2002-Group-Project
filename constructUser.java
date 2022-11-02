@@ -1,7 +1,9 @@
-package SC2002_2;
-
 public class constructUser
 {
+	// constructor
+	public constructUser() {
+	};
+
 	protected  enum userType 
 	{
 		STAFF,
