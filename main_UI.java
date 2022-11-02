@@ -26,7 +26,7 @@ public class main_UI {
                 test.UI();
                 break;
             case 2:
-                
+                StaffUI.UI();
                 break;
         
             default:

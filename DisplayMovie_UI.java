@@ -74,7 +74,7 @@ public class DisplayMovie_UI {
         String costs = "10";
 
         //call a method to add to booking history of the user which i dont know who doing
-        Booking booking = new Booking(ticketID, name, movieID, cinemaID, "1", seat, costs);
+        //Booking booking = new Booking(ticketID, name, movieID, cinemaID, "1", seat, costs);
 
     }
 

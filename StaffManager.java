@@ -1,15 +1,14 @@
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import constructUser.userType;
-
 public class StaffManager {
 	
-	List<String[]> movie = new ArrayList<String[]>;
-	Scanner scan = new Scanner(System.in);
+	List<String[]> movie = new ArrayList<String[]>();
+	static Scanner scan = new Scanner(System.in);
 	 
-	 public void addMovie()
+	 public static void addMovie()
 	{
 		String MovieName="";
 		String Enum="Coming Soon";
@@ -110,7 +109,7 @@ public class StaffManager {
 			 */
 	}
 	 
-	 public void removeMovie()
+	 public static void removeMovie()
 	 {
 		 int no=0;
 		 
@@ -150,7 +149,7 @@ public class StaffManager {
 		default: System.out.println("Wrong options");
 		 }	 
 	 }
-	 public void topFiveMovies()
+	 public static void topFiveMovies()
 	 {
 		 int choice=0;
 		 do {
@@ -173,7 +172,7 @@ public class StaffManager {
 			MovieController.showMovieByRating();
 		 }
 	 }
-	 public void addShowTimes() {
+	 public static void addShowTimes() {
 			String movieID ="";
 			String cinemaID ="";
 			String startTime="";
@@ -246,7 +245,7 @@ public class StaffManager {
 			ShowTime ST = new ShowTime(movieID, cinemaID, startTime, endTime, CC, P);
 			ShowTimeList.add(ST);
 	 }
-	 public void removeShowTimes() {
+	 public static void removeShowTimes() {
 		 int no=0;
 		 
 		 System.out.println("Please choose one of the options:");
