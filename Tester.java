@@ -5,6 +5,10 @@ import java.util.Scanner;
 
 public class Tester {
     public static void main(String[] args) {
+        Payment_UI.display_UI();    
+    }
+
+    public static void RefreshTesting(String[] args) {
         ShowTimeList.load();
         MovieListing.load();
         ShowTimeController.refresh();
