@@ -47,6 +47,17 @@ public class LoginUI {
         }
     }
 
+    public static void loadAllClass(){
+
+        MovieListing.load();
+        ReviewList.load();
+        ShowTimeList.load();
+        SeatBooked_Controller.load();
+        MovieListing.load();
+        MovieTicketController.load();
+
+    }
+
     public static void main(String[] args) {
         //LoginUI test = new LoginUI();
         //test.UI();
@@ -57,12 +68,7 @@ public class LoginUI {
 
         //if user go user_UI
         //if staff go staff_UI
-        MovieListing.load();
-        ReviewList.load();
-        ShowTimeList.load();
-        SeatBooked_Controller.load();
-        MovieListing.load();
-        MovieTicketController.load();
+        loadAllClass();
 
         User_UI.display_UI();
     }
