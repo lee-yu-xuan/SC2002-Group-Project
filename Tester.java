@@ -5,6 +5,25 @@ import java.util.Scanner;
 
 public class Tester {
     public static void main(String[] args) {
+        SalesManager.load();
+        for(int i =0;i<SalesManager.getSalesList().size();i++){
+            System.out.println(SalesManager.getSalesList().get(i).getMovieID());
+            System.out.println(SalesManager.getSalesList().get(i).getTotalSales());
+        }
+    }
+    public static void SalesManagerWrite(String[] args) {
+        while(true){
+            System.out.println("Enter movieID");
+            Scanner sc = new Scanner(System.in);   
+            String movieID = sc.nextLine();
+            if(movieID.charAt(0) == '#'){
+                break;
+            }
+            SalesManager.addSalesByID(movieID);
+        }
+        SalesManager.save();
+    }
+    public static void PaymentUItest(String[] args) {
         Payment_UI.display_UI();    
     }
 
