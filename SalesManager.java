@@ -29,6 +29,22 @@ public class SalesManager
 		//Movie haven't made any sales, create new entries and + 1
 		salesList.add(new Sales(movieID,1));
 	}
+
+	public static int getSalesByID(String movieID){
+		if(salesList == null){
+			System.out.println("No sales are made for this movieID.");
+            return -1;
+        }
+		for(int i=0 ; i<salesList.size() ; i++)
+		{
+			if(salesList.get(i).getMovieID().equals(movieID))
+			{
+				return salesList.get(i).getTotalSales();
+			}
+		}
+		System.out.println("No sales are made for this movieID.");
+        return -1;
+	}
 	/** 
 	//a function to add Sales by Name. Deprecated for now.
 	public static void addByName(Sales sales)
