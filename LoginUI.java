@@ -15,10 +15,10 @@ public class LoginUI {
     };
 
     // methods
-    public int UI() {
+    public String[] UI() {
 
+        String[] success = new String[0];
         try {
-            int success = -1;
             do {
                 System.out.println("Enter your Username: \t");
                 username = sc.next().trim();
@@ -26,39 +26,38 @@ public class LoginUI {
                 password = new Hash().HashPassword(sc.next());
                 // System.out.println("enter: " + username + " / " + String.valueOf(password));
                 success = verify(username, password);
-                if (success == -1)
+                if (success.length == 0) {
                     System.out.println("Login Fail, Please try again...");
+                    continue;
+                }
                 return success;
-            } while (success == -1);
+            } while (success.length == 0);
 
         } catch (Exception e) {
             System.out.println("Error in LogIn UI\n");
-            return -1;
         }
+        return success;
 
     }
 
-    private int verify(String username, long password) {
+    private String[] verify(String username, long password) {
         try {
             loginParticularCSV = File_IO.readFile("loginParticular");
-            for (String[] user : loginParticularCSV){
-            //     for (int i = 0 ; i < user.length; i++){
-            //         System.out.print(user[i]);
-            //     }
+            for (String[] user : loginParticularCSV) {
+                // for (int i = 0 ; i < user.length; i++){
+                // System.out.print(user[i]);
+                // }
                 System.out.println();
-                //System.out.println("db: " + user[1] + " / " + user[2]);
-                if (user[1].equals(username) && user[2].equals(String.valueOf(password)))
-                {
+                // System.out.println("db: " + user[1] + " / " + user[2]);
+                if (user[1].equals(username) && user[2].equals(String.valueOf(password))) {
                     System.out.println("Login successful...");
-                    System.out.println(user[3]);
-                    if (user[3].equals("MOVIEGOER")) return 1;
-                    else return 0;
+                    return user;
                 }
             }
-            return -1;
+            return new String[0];
         } catch (Exception e) {
             System.out.println("Error Verifying...");
-            return -1;
+            return new String[0];
         }
     }
 }
