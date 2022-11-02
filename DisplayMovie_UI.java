@@ -56,29 +56,50 @@ public class DisplayMovie_UI {
         System.out.println("Select the column of your preferred seat");
         int col = sc.nextInt();
 
-        //call payment method
-        
-
-
         //after calling payment UI, call this to update the seat
         SeatBooked_Controller.updateSeatBooked(row, col, cinemaID, time);
         SeatBooked_Controller.save();
         //call a method to create a movieTicket
         String ticketID = row+cinemaID+col+movieID;
         String seat = Integer.toString((row*10)+col);
-        TypeOfTicket ticketType = MovieTicketController.getTicketType(movieID);
+        String tmpHolder = MovieTicketController.getTicketType(movieID);
 
-        MovieTicket ticket = new MovieTicket(ticketID, movieID, time, cinemaID, seat, ticketType, Restriction.PG13);
+        TypeOfTicket ticketType = TypeOfTicket.Normal;
+        //check movieID for the ticketType
+        if(movieID.charAt(0)=='S'){
+            ticketType = TypeOfTicket.Normal;
+        }
+        else if(movieID.charAt(0)=='T'){
+            ticketType = TypeOfTicket.ThreeD;
+        }
+        else if(movieID.charAt(0)=='P'){
+            ticketType = TypeOfTicket.Premium;
+        }
+
+        Restriction restriction = Restriction.PG;
+        //check movieID for the restriction
+        if(movieID.charAt(4)=='1'){
+            restriction = Restriction.PG;
+        }
+        else if(movieID.charAt(4)=='2'){
+            restriction = Restriction.PG13;
+        }
+        else if(movieID.charAt(4)=='3'){
+            restriction = Restriction.R21;
+        }
+        
+
+        MovieTicket ticket = new MovieTicket(ticketID, movieID, time, cinemaID, seat, ticketType, restriction);
         MovieTicketController.add(ticket);
         MovieTicketController.save();
         
-        
-        //call a method to calculate the price
-        String price;
+        //call payment method
+        Payment_UI.display_UI();
 
         //call a method to add to booking history of the user
-        //Booking booking = new Booking(ticketID, userName, movieID, cinemaID, "1", seat, price);
-
+        Booking booking = new Booking(ticketID, userName, movieID, cinemaID, "1", seat, "4");
+        BookingManager.addBooking(booking);
+        BookingManager.save(userName);
     }
 
     public static String listBySales(){
