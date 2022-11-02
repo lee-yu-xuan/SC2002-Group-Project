@@ -15,10 +15,10 @@ public class LoginUI {
     };
 
     // methods
-    public void UI() {
+    public int UI() {
 
         try {
-            boolean success = false;
+            int success = -1;
             do {
                 System.out.println("Enter your Username: \t");
                 username = sc.next().trim();
@@ -26,16 +26,19 @@ public class LoginUI {
                 password = new Hash().HashPassword(sc.next());
                 // System.out.println("enter: " + username + " / " + String.valueOf(password));
                 success = verify(username, password);
-                if (!success)
+                if (success == -1)
                     System.out.println("Login Fail, Please try again...");
-            } while (!success);
+                return success;
+            } while (success == -1);
+
         } catch (Exception e) {
             System.out.println("Error in LogIn UI\n");
+            return -1;
         }
 
     }
 
-    private boolean verify(String username, long password) {
+    private int verify(String username, long password) {
         try {
             loginParticularCSV = File_IO.readFile("loginParticular");
             for (String[] user : loginParticularCSV){
@@ -44,36 +47,18 @@ public class LoginUI {
             //     }
                 System.out.println();
                 //System.out.println("db: " + user[1] + " / " + user[2]);
-                if (user[1].equals(username) && user[2].equals(String.valueOf(password))) return true;
+                if (user[1].equals(username) && user[2].equals(String.valueOf(password)))
+                {
+                    System.out.println("Login successful...");
+                    System.out.println(user[3]);
+                    if (user[3].equals("MOVIEGOER")) return 1;
+                    else return 0;
+                }
             }
-            return false;
+            return -1;
         } catch (Exception e) {
             System.out.println("Error Verifying...");
-            return false;
+            return -1;
         }
-    }
-
-    public static void loadAllClass(){
-
-        MovieListing.load();
-        ReviewList.load();
-        ShowTimeList.load();
-        SeatBooked_Controller.load();
-   
-    }
-
-    public static void main(String[] args) {
-        LoginUI test = new LoginUI();
-        test.UI();
-
-        //load all class
-        //classLoader loader = new classLoader();
-        //loader.load();
-
-        //if user go user_UI
-        //if staff go staff_UI
-        loadAllClass();
-
-        User_UI.display_UI();
     }
 }
