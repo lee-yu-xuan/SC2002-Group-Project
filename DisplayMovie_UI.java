@@ -89,7 +89,8 @@ public class DisplayMovie_UI {
         }
         
         //call payment method
-        Payment_UI.display_UI(userName, ticketID);
+        double priceInDouble = Payment_UI.display_UI(userName, ticketID);
+        String fare = Double.toString(priceInDouble);
 
         MovieTicket ticket = new MovieTicket(ticketID, movieID, time, cinemaID, seat, ticketType, restriction);
         MovieTicketController.add(ticket);
@@ -98,7 +99,7 @@ public class DisplayMovie_UI {
         SalesManager.addSalesByID(movieID);
 
         //call a method to add to booking history of the user
-        Booking booking = new Booking(ticketID, userName, movieID, cinemaID, "1", seat, "4");
+        Booking booking = new Booking(ticketID, userName, movieID, cinemaID, "1", seat, fare);
         BookingManager.addBooking(booking);
         System.out.println("Booking successful");
 

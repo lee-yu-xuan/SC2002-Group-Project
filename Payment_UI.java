@@ -1,16 +1,17 @@
 import java.util.Scanner;
 
 public class Payment_UI {
-    public static void display_UI(String userName, String ticketID){
+    public static double display_UI(String userName, String ticketID){
 
         if(userName.equals("Guest")){
             System.out.println("Please enter your email address, so that we can send you the ticket after the payment.");
         }
 
+        double fare=0;
         int paymentDone = 0;
         while(paymentDone == 0){
             PaymentMethodInterface paymentMethod;
-            double fare = Price.getFare();
+            fare = Price.getFare();
             System.out.format("Your price for the movie is: %.2f\n",fare);
             System.out.println("Select your payment method:");
 
@@ -36,7 +37,9 @@ public class Payment_UI {
             }
         }
         System.out.println("Payment successful! Your ticket ID is: "+ticketID);
-
         
+        
+        return fare;
+ 
     }
 }
