@@ -23,9 +23,12 @@ public class main_UI {
         switch (choice) {
             case 1:
                 LoginUI test = new LoginUI();
-                // 1 - MOVIEGOER, 2 - STAFF
-                int typeInt = test.UI();
-                System.out.println(typeInt);
+                // 1 - MOVIEGOER, 0 - STAFF
+                String[] userStringArr = test.UI();
+                System.out.println(userStringArr);
+                for (int i = 0 ; i < userStringArr.length; i++){
+                System.out.print(userStringArr[i]);
+                }
                 break;
             case 2:
                 StaffUI.UI();
