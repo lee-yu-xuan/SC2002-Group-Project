@@ -1,4 +1,4 @@
 
 public enum TypeOfTicket {
-    Flat, Volume, GOLD
+    Normal, ThreeD, Premium
 }

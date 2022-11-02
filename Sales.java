@@ -1,38 +1,40 @@
-package SC2002_2;
-
 public class Sales
 {
-	private String movieName;
-	private String totalSales;
+	private String movieID;
+	private int totalSales;
 	
 	public Sales()
 	{
-		this.movieName = "";
-		this.totalSales = "";
+		this.movieID = "";
+		this.totalSales = 0;
 	}
 	
-	public Sales(String movieName, String totalSales)
+	public Sales(String movieID, int totalSales)
 	{
-		this.movieName = movieName;
+		this.movieID = movieID;
 		this.totalSales = totalSales;
 	}
 	
-	public void setMovieName(String movieName)
+	public void setmovieID(String movieID)
 	{
-		this.movieName = movieName;
+		this.movieID = movieID;
 	}
 	
-	public void setSales(String totalSales)
+	public void setSales(int totalSales)
 	{
 		this.totalSales = totalSales;
 	}
 	
-	public String getMovieName()
-	{
-		return movieName;
+	public void addSales(){
+		this.totalSales++;
 	}
 	
-	public String getTotalSales()
+	public String getMovieID()
+	{
+		return movieID;
+	}
+	
+	public int getTotalSales()
 	{
 		return totalSales;
 	}

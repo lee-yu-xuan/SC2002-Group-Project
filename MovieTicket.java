@@ -33,8 +33,8 @@ public class MovieTicket{
         return movieID;
     }   
 
-    public String getDateTime(){
-        return dateTime.toString();
+    public LocalDateTime getDateTime(){
+        return dateTime;
     }
 
     public String getcinemaID(){

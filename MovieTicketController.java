@@ -12,7 +12,7 @@ public static List<String[]> ticketCSV;
 
 public static void load(){ 
     if(ticketList == null){
-        System.out.println("The ticketList is empty");
+        //System.out.println("The ticketList is empty");
         ticketList = new ArrayList<MovieTicket>();
     }
 
@@ -34,7 +34,7 @@ public static void load(){
 
 public static void add(MovieTicket ticket){
     if(ticketList == null){
-        System.out.println("The ticketList is empty");
+        //System.out.println("The ticketList is empty");
         ticketList = new ArrayList<MovieTicket>();
     }
     ticketList.add(ticket);
@@ -51,11 +51,11 @@ public static int deleteByID(String ticketID){
     return 0;
     }
 
-public static TypeOfTicket getTicketType(String movieID){
-    TypeOfTicket ticketType;
+public static String getTicketType(String movieID){
+    String ticketType = "";
     for(int h=0; h<ticketList.size(); h++){
         if(ticketList.get(h).getMovieID()==(movieID)){
-            ticketType = ticketList.get(h).getTicketType();
+            ticketType = ticketList.get(h).getTicketType().toString();
         }
     }
     return ticketType;
@@ -68,7 +68,8 @@ public static void save(){
         String[] temp = new String[7];
         temp[0] = ticketList.get(i).getTicketID();
         temp[1] = ticketList.get(i).getMovieID();
-        temp[2] = ticketList.get(i).getDateTime().formatted(_DateTimeFormatter.formatter);
+        LocalDateTime dateTime = ticketList.get(i).getDateTime();
+        temp[2] = dateTime.format(_DateTimeFormatter.formatter);
         temp[3] = ticketList.get(i).getcinemaID();
         temp[4] = ticketList.get(i).getSeatNo();
         temp[5] = ticketList.get(i).getTicketType().toString();

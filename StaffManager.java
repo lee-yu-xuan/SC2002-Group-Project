@@ -1,4 +1,3 @@
-package oodp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -255,8 +254,27 @@ public class StaffManager {
 	            			break;
 	            		}
 
+<<<<<<< HEAD
 	            
 	        }
+=======
+
+		  for(int h=0; h<ticketCSV.size(); h++){
+		       String ticketID = ticketCSV.get(h)[0];
+		       String movieID = ticketCSV.get(h)[1];
+		       String dateTime = ticketCSV.get(h)[2];
+		       String cinemaID = ticketCSV.get(h)[3];
+		       String seatNo = ticketCSV.get(h)[4];
+		       TypeOfTicket ticketType = TypeOfTicket.valueOf(ticketCSV.get(h)[5]);
+		       Restriction restriction = Restriction.valueOf(ticketCSV.get(h)[6]);
+		       
+			   //Movie newMovie = new Movie(////);
+			   //then MovieListing.add(newMovie);
+
+			   //this is the part u update movie, u r touching ticket now instead
+		       ticketList.add(new MovieTicket(ticketID, movieID, LocalDateTime.parse(dateTime,_DateTimeFormatter.formatter), cinemaID, seatNo, ticketType, restriction));
+		   }
+>>>>>>> ea7dd62be35da7d54521aa2c572167df1fa0bde8
 		 
 		 
 	 }

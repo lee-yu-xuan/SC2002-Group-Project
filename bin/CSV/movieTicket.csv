@@ -1,0 +1,4 @@
+﻿ticketID,movieID,date,time,cinemaID,seatNo,ticketType,restriction
+829383,UI8,15-Oct,1340,28939,A2,Flat,PG
+238283,OP0,19-Oct,1540,28482,B4,Flat,PG
+3829328,School,20-Dec,1340,293021,H7,Flat,PG

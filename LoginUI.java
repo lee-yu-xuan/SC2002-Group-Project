@@ -20,6 +20,7 @@ public class LoginUI {
         String[] success = new String[0];
         try {
             do {
+                System.out.println("\n");
                 System.out.println("Enter your Username: \t");
                 username = sc.next().trim();
                 System.out.println("Enter your Password: \t");

@@ -4,6 +4,7 @@ public class User_UI {
 
     public static void display_UI(String userName){
     //display all options
+    System.out.println("\n");
     System.out.println("---Welcome to MOVIETICKETING SYSTEM---");
     System.out.println("1. List the Movies");
     System.out.println("2. View Booking History");

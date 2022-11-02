@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class DisplayMovie_UI {
     public static void displayInformation(String userName) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("\n");
         System.out.println("1. List top 5 movies by sales");
         System.out.println("2. List top 5 movies by rating");
         System.out.println("3. Search by movie title");
@@ -13,12 +14,12 @@ public class DisplayMovie_UI {
         String movieID = "";
 
         if(choice==3){
+            Scanner stringScanner = new Scanner(System.in).useDelimiter("\n");
             System.out.println("Enter movie title: ");
-            String movieTitle = sc.nextLine();
+            String movieTitle = stringScanner.next();
             movieID = MovieListing.getMovieID(movieTitle);
             if(movieID == null){
                 System.out.println("Movie not found");
-                return;
             }
         }
         else{
@@ -56,28 +57,51 @@ public class DisplayMovie_UI {
         System.out.println("Select the column of your preferred seat");
         int col = sc.nextInt();
 
-        //call payment method
-        
-
-
         //after calling payment UI, call this to update the seat
         SeatBooked_Controller.updateSeatBooked(row, col, cinemaID, time);
-        SeatBooked_Controller.save();
+  
         //call a method to create a movieTicket
         String ticketID = row+cinemaID+col+movieID;
         String seat = Integer.toString((row*10)+col);
-        TypeOfTicket ticketType = MovieTicketController.getTicketType(movieID);
 
-        MovieTicket ticket = new MovieTicket(ticketID, movieID, time, cinemaID, seat, ticketType, Restriction.PG13);
+        TypeOfTicket ticketType = TypeOfTicket.Normal;
+        //check movieID for the ticketType
+        if(movieID.charAt(0)=='S'){
+            ticketType = TypeOfTicket.Normal;
+        }
+        else if(movieID.charAt(0)=='T'){
+            ticketType = TypeOfTicket.ThreeD;
+        }
+        else if(movieID.charAt(0)=='P'){
+            ticketType = TypeOfTicket.Premium;
+        }
+
+        Restriction restriction = Restriction.PG;
+        //check movieID for the restriction
+        if(movieID.charAt(4)=='1'){
+            restriction = Restriction.PG;
+        }
+        else if(movieID.charAt(4)=='2'){
+            restriction = Restriction.PG13;
+        }
+        else if(movieID.charAt(4)=='3'){
+            restriction = Restriction.R21;
+        }
+        
+        //call payment method
+        double priceInDouble = Payment_UI.display_UI(userName, ticketID);
+        String fare = Double.toString(priceInDouble);
+
+        MovieTicket ticket = new MovieTicket(ticketID, movieID, time, cinemaID, seat, ticketType, restriction);
         MovieTicketController.add(ticket);
-        MovieTicketController.save();
-        
-        
-        //call a method to calculate the price
-        String price;
+
+        //increment sales
+        SalesManager.addSalesByID(movieID);
 
         //call a method to add to booking history of the user
-        //Booking booking = new Booking(ticketID, userName, movieID, cinemaID, "1", seat, price);
+        Booking booking = new Booking(ticketID, userName, movieID, cinemaID, "1", seat, fare);
+        BookingManager.addBooking(booking);
+        System.out.println("Booking successful");
 
     }
 
@@ -96,7 +120,6 @@ public class DisplayMovie_UI {
         return movieID;
     }
 
-    //working example
     public static String listByRating(){
         //list top 5 movies by rating
         List<Movie> movieList = MovieController.showMovieByRating();
