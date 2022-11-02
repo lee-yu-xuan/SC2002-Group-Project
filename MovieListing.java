@@ -31,6 +31,15 @@ public class MovieListing {
         return 0; //unable to find title
     }
 
+    public static String getMovieID(String title){
+        for(int i = 0;i< movieList.size();i++){
+            if(movieList.get(i).getMovieTitle() == title){
+                return movieList.get(i).getMovieID(); //title found
+            }
+        }
+        return null; //unable to find title
+    }
+
     public static int deleteByID(String id){
         for(int i = 0;i< movieList.size();i++){
             if(movieList.get(i).getMovieID() == id){

@@ -46,8 +46,11 @@ public static void updateSeatBooked(int newBookedSeats_row, int newBookedSeats_c
     }
 
     //convert int to string
+    
     String row = Integer.toString(newBookedSeats_row);
+    System.out.println("row: "+row);
     String col = Integer.toString(newBookedSeats_column);
+    System.out.println("col: "+col);
 
     //append the newBookedSeats to the oldBookedSeat String
     String updatedBookedSeats = oldBookedSeat + "&" + row + "!" + col;
@@ -71,9 +74,9 @@ public static void save(){
         temp[2] = Integer.toString(seatBookedList.get(i).getNoOfRows());
         temp[3] = Integer.toString(seatBookedList.get(i).getNoOfColumns());
         temp[4] = seatBookedList.get(i).getSeatsTaken();
-        temp[5] = seatBookedList.get(i).getTiming().toString();
+        temp[5] = seatBookedList.get(i).getTiming().format(_DateTimeFormatter.formatter);
         tempCSV.add(temp);
     }
-    File_IO.writeFile(tempCSV, "seatBookedList");
+    File_IO.writeFile(tempCSV, "seatBooked");
 }
 }

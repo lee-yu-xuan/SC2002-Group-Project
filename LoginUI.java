@@ -62,6 +62,7 @@ public class LoginUI {
         ShowTimeList.load();
         SeatBooked_Controller.load();
         MovieListing.load();
+        MovieTicketController.load();
 
         User_UI.display_UI();
     }
