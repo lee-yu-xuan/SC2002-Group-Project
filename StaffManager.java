@@ -1,10 +1,11 @@
+package oodp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class StaffManager {
-	
+	public static List<String[]> ticketCSV;
 	List<String[]> movie = new ArrayList<String[]>();
 	static Scanner scan = new Scanner(System.in);
 	 
@@ -148,6 +149,26 @@ public class StaffManager {
 				 break;
 		default: System.out.println("Wrong options");
 		 }	 
+	 }
+	 
+	 public static void update() {
+		 
+		 ticketCSV = File_IO.readFile("movieList");
+
+
+		  for(int h=0; h<ticketCSV.size(); h++){
+		       String ticketID = ticketCSV.get(h)[0];
+		       String movieID = ticketCSV.get(h)[1];
+		       String dateTime = ticketCSV.get(h)[2];
+		       String cinemaID = ticketCSV.get(h)[3];
+		       String seatNo = ticketCSV.get(h)[4];
+		       TypeOfTicket ticketType = TypeOfTicket.valueOf(ticketCSV.get(h)[5]);
+		       Restriction restriction = Restriction.valueOf(ticketCSV.get(h)[6]);
+		       
+		       ticketList.add(new MovieTicket(ticketID, movieID, LocalDateTime.parse(dateTime,_DateTimeFormatter.formatter), cinemaID, seatNo, ticketType, restriction));
+		   }
+		 
+		 
 	 }
 	 public static void topFiveMovies()
 	 {
