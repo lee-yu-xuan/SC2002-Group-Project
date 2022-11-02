@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class DisplayMovie_UI {
     public static void displayInformation(String userName) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("\n");
         System.out.println("1. List top 5 movies by sales");
         System.out.println("2. List top 5 movies by rating");
         System.out.println("3. Search by movie title");
@@ -58,7 +59,7 @@ public class DisplayMovie_UI {
 
         //after calling payment UI, call this to update the seat
         SeatBooked_Controller.updateSeatBooked(row, col, cinemaID, time);
-        SeatBooked_Controller.save();
+  
         //call a method to create a movieTicket
         String ticketID = row+cinemaID+col+movieID;
         String seat = Integer.toString((row*10)+col);
@@ -91,15 +92,19 @@ public class DisplayMovie_UI {
 
         MovieTicket ticket = new MovieTicket(ticketID, movieID, time, cinemaID, seat, ticketType, restriction);
         MovieTicketController.add(ticket);
-        MovieTicketController.save();
+    
         
         //call payment method
-        Payment_UI.display_UI();
+        Payment_UI.display_UI(userName);
+
+        //increment sales
+        SalesManager.addSalesByID(movieID);
 
         //call a method to add to booking history of the user
         Booking booking = new Booking(ticketID, userName, movieID, cinemaID, "1", seat, "4");
         BookingManager.addBooking(booking);
-        BookingManager.save(userName);
+        System.out.println("Booking successful");
+
     }
 
     public static String listBySales(){

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Payment_UI {
-    public static void display_UI(){
+    public static void display_UI(String userName){
         int paymentDone = 0;
         while(paymentDone == 0){
             PaymentMethodInterface paymentMethod;

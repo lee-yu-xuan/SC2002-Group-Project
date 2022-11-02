@@ -21,6 +21,7 @@ public class main_UI {
     public static void main(String[] args) {
         //loadAllClass();
         loadAllClass();
+        System.out.println("\n");
         System.out.println("--Welcome to MOVIETICKETING SYSTEM--");
         System.out.println("1. Login");
         System.out.println("2. Continue as Guest");
@@ -51,8 +52,10 @@ public class main_UI {
                 //}
                 break;
             case 2:
-                StaffUI.UI();
+                User_UI.display_UI("Guest");
                 break;
+            //StaffUI.UI();
+                
 
             default:
                 break;
