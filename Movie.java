@@ -1,3 +1,4 @@
+package oodp;
 import java.util.List;
 
 /**
@@ -49,6 +50,10 @@ public class Movie{
 
     public void setRating(String rating){
         this.rating = rating;
+    }
+    
+    public void setType(String type) {
+    	this.type=type;
     }
 
     public String getMovieTitle(){
