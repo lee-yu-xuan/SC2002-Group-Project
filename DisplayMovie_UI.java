@@ -57,6 +57,8 @@ public class DisplayMovie_UI {
         int col = sc.nextInt();
 
         //call payment method
+        
+
 
         //after calling payment UI, call this to update the seat
         SeatBooked_Controller.updateSeatBooked(row, col, cinemaID, time);
@@ -68,8 +70,12 @@ public class DisplayMovie_UI {
         MovieTicketController.add(ticket);
         MovieTicketController.save();
         
-        //call a method to add to booking history of the user which i dont know who doing
         
+        String costs = "10";
+
+        //call a method to add to booking history of the user which i dont know who doing
+        Booking booking = new Booking(ticketID, name, movieID, cinemaID, "1", seat, costs);
+
     }
 
     public static String listBySales(){

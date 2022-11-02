@@ -59,9 +59,7 @@ public class LoginUI {
         ReviewList.load();
         ShowTimeList.load();
         SeatBooked_Controller.load();
-        MovieListing.load();
-        MovieTicketController.load();
-
+   
     }
 
     public static void main(String[] args) {
