@@ -1,63 +1,64 @@
-package SC2002Project;
-import java.util.List;
-import java.time.format.DateTimeFormatter;  
-import java.time.LocalDateTime; 
+package SC2002_2;
 
-public class Moviegoer extends constructUser
+public class MovieGoer extends constructUser
 {
-	private List<Booking> bookingHistory;
+	private int age;
 	
-	public Moviegoer(String name, String username, String password)
+	public MovieGoer()
 	{
+		this.type = userType.MOVIEGOER;
+		this.age = 0;
+		this.name = "";
+		this.username = "";
+		this.password = "";
+	}
+	
+	public MovieGoer(String name, String username, String password, int age)
+	{
+		this.type = userType.MOVIEGOER;
 		this.name = name;
 		this.username = username;
 		this.password = password;
-		//File I/O to get bookingHistory
+		this.age = age;
 	}
 	
-	public void addBooking(String cinemaCode, String movieName, String cinema, int pax, String seats,double cost)
+	public void setName(String name)
 	{
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmm");  
-		LocalDateTime now = LocalDateTime.now();
-		String transactionID = cinemaCode + dtf.format(now);
-		bookingHistory.add(new Booking(transactionID, this.name, movieName, cinema, pax, seats, cost));
+		this.name = name;
 	}
 	
-	public void checkBookingHistory()
+	public void setUsername(String username)
 	{
-		for(int i = 0; i < bookingHistory.size() ; i++)
-		{
-			System.out.println(bookingHistory.get(i));
-		}
+		this.username = username;
 	}
 	
-	public void searchMovie(String movieName)
+	public void setAge(int age)
 	{
-		MovieController mc = new MovieController();
-		//MC.getSearchMovie(movieName);
+		this.age = age;
 	}
 	
-	public void listMovie()
+	public void setPassword(String password)
 	{
-		MovieController mc = new MovieController();
-		//mc.getMovieList(movieName);
+		this.password = password;
 	}
 	
-	public void showAvailability(String movieName, String movieClass)
+	public String getName()
 	{
-		LayoutController lc = new LayoutController();
-		//lc.showAvailability(movieName, movieClass);
+		return name;
 	}
 	
-	public void showSalesRanking()
+	public String getUsername()
 	{
-		LayoutController lc = new LayoutController();
-		//lc.showSalesRanking();
+		return username;
 	}
 	
-	public void showReviewRanking()
+	public String getPassword()
 	{
-		LayoutController lc = new LayoutController();
-		//lc.showReviewRanking();
+		return password;
+	}
+	
+	public int getAge()
+	{
+		return age;
 	}
 }
