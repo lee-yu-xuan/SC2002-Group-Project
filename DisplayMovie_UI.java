@@ -14,12 +14,12 @@ public class DisplayMovie_UI {
         String movieID = "";
 
         if(choice==3){
+            Scanner stringScanner = new Scanner(System.in).useDelimiter("\n");
             System.out.println("Enter movie title: ");
-            String movieTitle = sc.nextLine();
+            String movieTitle = stringScanner.next();
             movieID = MovieListing.getMovieID(movieTitle);
             if(movieID == null){
                 System.out.println("Movie not found");
-                return;
             }
         }
         else{

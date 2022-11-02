@@ -33,7 +33,7 @@ public class ReviewList {
             }
         }
         //not found
-        System.out.println("MovieID not found!");
+        //System.out.println("MovieID not found!");
         return -1.0;
     }
 

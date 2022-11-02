@@ -43,7 +43,7 @@ public class File_IO {
         File file = new File(path);
 
         try {
-            System.out.println("Writing to file...");
+            //System.out.println("Writing to file...");
             FileWriter outputfile = new FileWriter(file);
             CSVWriter writer = new CSVWriter(outputfile, '\t', CSVWriter.NO_QUOTE_CHARACTER,
                     CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);

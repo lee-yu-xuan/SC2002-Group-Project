@@ -41,7 +41,7 @@ public class MovieListing {
 
     public static String getMovieID(String title){
         for(int i = 0;i< movieList.size();i++){
-            if(movieList.get(i).getMovieTitle() == title){
+            if(movieList.get(i).getMovieTitle().equals(title)){
                 return movieList.get(i).getMovieID(); //title found
             }
         }
