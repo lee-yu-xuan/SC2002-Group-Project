@@ -32,7 +32,6 @@ public class SalesManager
 
 	public static int getSalesByID(String movieID){
 		if(salesList == null){
-			System.out.println("No sales are made for this movieID.");
             return -1;
         }
 		for(int i=0 ; i<salesList.size() ; i++)
@@ -42,7 +41,6 @@ public class SalesManager
 				return salesList.get(i).getTotalSales();
 			}
 		}
-		System.out.println("No sales are made for this movieID.");
         return -1;
 	}
 	/** 

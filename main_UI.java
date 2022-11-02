@@ -8,6 +8,7 @@ public class main_UI {
         ShowTimeList.load();
         SeatBooked_Controller.load();
         MovieTicketController.load();
+        SalesManager.load();
     }
 
     public static void saveAllClass(){
@@ -16,6 +17,7 @@ public class main_UI {
         ShowTimeList.save();
         SeatBooked_Controller.save();
         MovieTicketController.save();
+        SalesManager.save();
     }
 
     public static void main(String[] args) {

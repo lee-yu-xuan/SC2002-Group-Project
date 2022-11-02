@@ -1,7 +1,12 @@
 import java.util.Scanner;
 
 public class Payment_UI {
-    public static void display_UI(String userName){
+    public static void display_UI(String userName, String ticketID){
+
+        if(userName.equals("Guest")){
+            System.out.println("Please enter your email address, so that we can send you the ticket after the payment.");
+        }
+
         int paymentDone = 0;
         while(paymentDone == 0){
             PaymentMethodInterface paymentMethod;
@@ -30,6 +35,8 @@ public class Payment_UI {
                 System.out.println("The payment is unsucessful. Re-pick a payment method.");
             }
         }
+        System.out.println("Payment successful! Your ticket ID is: "+ticketID);
+
         
     }
 }

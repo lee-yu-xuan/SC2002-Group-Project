@@ -63,7 +63,6 @@ public class DisplayMovie_UI {
         //call a method to create a movieTicket
         String ticketID = row+cinemaID+col+movieID;
         String seat = Integer.toString((row*10)+col);
-        String tmpHolder = MovieTicketController.getTicketType(movieID);
 
         TypeOfTicket ticketType = TypeOfTicket.Normal;
         //check movieID for the ticketType
@@ -89,13 +88,11 @@ public class DisplayMovie_UI {
             restriction = Restriction.R21;
         }
         
+        //call payment method
+        Payment_UI.display_UI(userName, ticketID);
 
         MovieTicket ticket = new MovieTicket(ticketID, movieID, time, cinemaID, seat, ticketType, restriction);
         MovieTicketController.add(ticket);
-    
-        
-        //call payment method
-        Payment_UI.display_UI(userName);
 
         //increment sales
         SalesManager.addSalesByID(movieID);
@@ -122,7 +119,6 @@ public class DisplayMovie_UI {
         return movieID;
     }
 
-    //working example
     public static String listByRating(){
         //list top 5 movies by rating
         List<Movie> movieList = MovieController.showMovieByRating();
