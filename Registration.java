@@ -31,11 +31,11 @@ public class Registration extends constructUser {
 
     }
 
-    public static void main(String[] args) {
-        // Registration test = new Registration("ben", "tang", "BenTang", userType.MOVIEGOER);
-        // Registration test = new Registration("staff1", "staff1", "staffpass", userType.STAFF);
-        Registration test = new Registration("les", "ter", "password", userType.MOVIEGOER);
-        test.Register();
-    }
+    // public static void main(String[] args) {
+    //     Registration test = new Registration("ben", "tang", "BenTang", userType.MOVIEGOER);
+    //     Registration test = new Registration("staff1", "staff1", "staffpass", userType.STAFF);
+    //     Registration test = new Registration("les", "ter", "password", userType.MOVIEGOER);
+    //     test.Register();
+    // }
 
 }

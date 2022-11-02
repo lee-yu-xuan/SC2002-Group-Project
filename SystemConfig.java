@@ -54,11 +54,11 @@ public class SystemConfig {
         return price;
     }
 
-    public static void main(String[] args){
-        SystemConfig test = new SystemConfig("2022-12-29 17:59", "20", 0);
-        float cost = test.getPrice();
-        System.out.println(cost);
-    }
+    // public static void main(String[] args){
+    //     SystemConfig test = new SystemConfig("2022-12-29 17:59", "20", 0);
+    //     float cost = test.getPrice();
+    //     System.out.println(cost);
+    // }
 
 }
 
