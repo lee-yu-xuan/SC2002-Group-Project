@@ -10,7 +10,7 @@ public class CinemaController {
 
     public static void load(){
         if(cinemaList == null){
-            System.out.println("The cinemaList is empty");
+            //System.out.println("The cinemaList is empty");
             cinemaList = new ArrayList<Cinema>();
         }
     

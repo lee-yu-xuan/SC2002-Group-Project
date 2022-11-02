@@ -15,7 +15,7 @@ public class MovieListing {
 
     public static void add(Movie movie){
         if(movieList == null){
-            System.out.println("The movieList is empty");
+            //System.out.println("The movieList is empty");
             movieList = new ArrayList<Movie>();
         }
         movieList.add(movie);
@@ -51,7 +51,7 @@ public class MovieListing {
     }
     public static void load(){
         if(movieList == null){
-            System.out.println("The movieList is empty");
+            //System.out.println("The movieList is empty");
             movieList = new ArrayList<Movie>();
         }
 

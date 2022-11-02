@@ -39,7 +39,7 @@ public class BookingManager {
 	{
 		if(bookingHistory == null)
 		{
-			System.out.println("Booking history is empty");
+			//System.out.println("Booking history is empty");
 			bookingHistory = new ArrayList<Booking>();			
 		}
 		

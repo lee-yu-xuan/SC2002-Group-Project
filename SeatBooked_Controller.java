@@ -8,7 +8,7 @@ public static List<String[]> seatBookedCSV;
 
 public static void load(){ 
     if(seatBookedList == null){
-        System.out.println("The seatBookedList is empty");
+        //System.out.println("The seatBookedList is empty");
         seatBookedList = new ArrayList<SeatBooked>();
     }
 
