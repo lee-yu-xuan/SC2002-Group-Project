@@ -1,9 +1,11 @@
+import java.util.Scanner;
+
 public class PaymentPayLah implements PaymentMethodInterface{
     private int validationCount;
 
-    public int pay() {
+    public int pay(double fare) {
+        Scanner sc = new Scanner(System.in);
         validationCount = 0;
-        System.out.println("Enter your bank card details:");
 
         while(validationCount < 2){ //User have 2 chances to payByPayLah
             System.out.println("Please scan the QR code below");
@@ -13,7 +15,7 @@ public class PaymentPayLah implements PaymentMethodInterface{
             System.out.println("==================================");
             System.out.println();
             System.out.println("Press Enter after you have made the transaction...");
-
+            sc.nextLine();
             if(validation() == 1){
                 //payment successful
                 return 1;
