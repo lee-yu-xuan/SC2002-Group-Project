@@ -60,7 +60,7 @@ public static void save(){
         String[] temp = new String[7];
         temp[0] = ticketList.get(i).getTicketID();
         temp[1] = ticketList.get(i).getMovieID();
-        temp[2] = ticketList.get(i).getDateTime();
+        temp[2] = ticketList.get(i).getDateTime().formatted(_DateTimeFormatter.formatter);
         temp[3] = ticketList.get(i).getcinemaID();
         temp[4] = ticketList.get(i).getSeatNo();
         temp[5] = ticketList.get(i).getTicketType().toString();

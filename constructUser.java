@@ -1,13 +1,14 @@
-public abstract class constructUser {
+public class constructUser
+{
 	// constructor
 	public constructUser() {
 	};
 
-	protected enum userType {
+	protected  enum userType 
+	{
 		STAFF,
-		MOVEIGOER
+		MOVIEGOER
 	};
-
 	protected String name;
 	protected String username;
 	protected String password;

@@ -15,12 +15,21 @@ public class MovieListing {
 
     public static void add(Movie movie){
         if(movieList == null){
-            System.out.println("The movieList is empty");
+            //System.out.println("The movieList is empty");
             movieList = new ArrayList<Movie>();
         }
         movieList.add(movie);
     }
 
+    public static int getMovieIndexByID(String movieID){
+        for(int i = 0;i<movieList.size();i++){
+            if(movieID == movieList.get(i).getMovieID()){
+                return i;
+            }
+        }
+        //movieID not found
+        return -1;
+    }
     public static int deleteByName(String title){
         for(int i = 0;i< movieList.size();i++){
             if(movieList.get(i).getMovieTitle() == title){
@@ -29,6 +38,15 @@ public class MovieListing {
             }
         }
         return 0; //unable to find title
+    }
+
+    public static String getMovieID(String title){
+        for(int i = 0;i< movieList.size();i++){
+            if(movieList.get(i).getMovieTitle() == title){
+                return movieList.get(i).getMovieID(); //title found
+            }
+        }
+        return null; //unable to find title
     }
 
     public static int deleteByID(String id){
@@ -42,7 +60,7 @@ public class MovieListing {
     }
     public static void load(){
         if(movieList == null){
-            System.out.println("The movieList is empty");
+            //System.out.println("The movieList is empty");
             movieList = new ArrayList<Movie>();
         }
 

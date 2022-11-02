@@ -12,29 +12,36 @@ public class DisplayMovie_UI {
         int choice = sc.nextInt();
         String movieID = "";
 
-        switch (choice) {
-            case 1:
-                //list top 5 movies by sales
-                movieID = listBySales();
-                break;
-            case 2:
-                //list top 5 movies by rating
-                movieID = listByRating();
-                break;
-            case 3:
-                //search by movie title
-                movieID = searchByTitle();
-                break;
-            default:
-                System.out.println("Invalid choice");
-                break;
+        if(choice==3){
+            System.out.println("Enter movie title: ");
+            String movieTitle = sc.nextLine();
+            movieID = MovieListing.getMovieID(movieTitle);
+            if(movieID == null){
+                System.out.println("Movie not found");
+                return;
+            }
+        }
+        else{
+            switch (choice) {
+                case 1:
+                    //list top 5 movies by sales
+                    movieID = listBySales();
+                    break;
+                case 2:
+                    //list top 5 movies by rating
+                    movieID = listByRating();
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
         }
 
         List<ShowTime> tmp = ShowTimeController.showTimeByShowTime(movieID);
-        for(int i = 0;i<tmp.size();i++){
-            System.out.println(i+". "+tmp.get(i).getCinemaID()+" "+tmp.get(i).getStartTime());
-        }
-
+            for(int i = 0;i<tmp.size();i++){
+                System.out.println(i+". "+tmp.get(i).getCinemaID()+" "+tmp.get(i).getStartTime());
+            }
+        
         //user select cinema and timing
         System.out.println("Select your preferred cinema and timing");
         choice = sc.nextInt();
@@ -45,23 +52,30 @@ public class DisplayMovie_UI {
         LayoutController.displayLayout(cinemaID, time);
 
         System.out.println("Select the row of your preferred seat");
-        int row = sc.next().charAt(0);
+        int row = sc.nextInt();
         System.out.println("Select the column of your preferred seat");
         int col = sc.nextInt();
 
         //call payment method
+        
+
 
         //after calling payment UI, call this to update the seat
         SeatBooked_Controller.updateSeatBooked(row, col, cinemaID, time);
-
+        SeatBooked_Controller.save();
         //call a method to create a movieTicket
         String ticketID = row+cinemaID+col+movieID;
-        String seat = Integer.toString(row+col);
+        String seat = Integer.toString((row*10)+col);
         MovieTicket ticket = new MovieTicket(ticketID, movieID, time, cinemaID, seat, TypeOfTicket.Flat, Restriction.PG13);
         MovieTicketController.add(ticket);
+        MovieTicketController.save();
         
+        
+        String costs = "10";
+
         //call a method to add to booking history of the user which i dont know who doing
-        
+        Booking booking = new Booking(ticketID, name, movieID, cinemaID, "1", seat, costs);
+
     }
 
     public static String listBySales(){
@@ -95,17 +109,5 @@ public class DisplayMovie_UI {
         return movieID;
     }
 
-    public static String searchByTitle(){
-        //search by movie title
-
-        return "helloWorld";
-    }
-
-    public String sortByTime(String movieID){
-        //sort by time
-
-        return "helloWorld";
-    }
-
-
+  
 }

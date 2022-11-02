@@ -6,6 +6,12 @@ import java.util.Scanner;
 public class Tester {
     public static void main(String[] args) {
         ShowTimeList.load();
+        MovieListing.load();
+        ShowTimeController.refresh();
+
+    }
+    public static void ShowTimeReadTestByID(String[] args) {
+        ShowTimeList.load();
         List<ShowTime> timeList = ShowTimeList.getShowTimeByID("S0001");
         for(int j = 0;j < timeList.size();j++){
             System.out.println(timeList.get(j).getMovieID());

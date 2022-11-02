@@ -8,7 +8,7 @@ public class CineplexController {
 
     public static void load(){
         if(cineplexList == null){
-            System.out.println("The cinemaList is empty");
+            //System.out.println("The cinemaList is empty");
             cineplexList = new ArrayList<Cineplex>();
         }
     
