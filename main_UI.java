@@ -11,7 +11,7 @@ public class main_UI {
    
     }
     public static void main(String[] args) {
-        loadAllClass();
+        //loadAllClass();
 
         System.out.println("--Welcome to MOVIETICKETING SYSTEM--");
         System.out.println("1. Login");
@@ -23,12 +23,14 @@ public class main_UI {
         switch (choice) {
             case 1:
                 LoginUI test = new LoginUI();
-                test.UI();
+                // 1 - MOVIEGOER, 2 - STAFF
+                int typeInt = test.UI();
+                System.out.println(typeInt);
                 break;
             case 2:
                 StaffUI.UI();
                 break;
-        
+
             default:
                 break;
         }
