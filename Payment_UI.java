@@ -15,7 +15,7 @@ public class Payment_UI {
         int paymentDone = 0;
         while(paymentDone == 0){
             PaymentMethodInterface paymentMethod;
-            fare = Price.getFare();
+            fare = Price.getPrice();
             System.out.format("Your price for the movie is: %.2f\n",fare);
             System.out.println("Select your payment method:");
 
