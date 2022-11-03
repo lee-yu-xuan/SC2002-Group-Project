@@ -1,9 +1,11 @@
 package oodp;
+
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Price {
-
+	private static List<Price> BasePriceList;
     // holiday, day_of_week, time_of_day, age
     public float basePrice = 8.5f;
     public int day_of_week, time_of_day, holiday, age, threeD;
@@ -18,7 +20,7 @@ public class Price {
     }
 
     // constructor
-    public Price(String date, String yearsold, int three) {
+    /*public Price(String date, String yearsold, int three) {
         try {
             // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDateTime dateTime = LocalDateTime.parse(date, _DateTimeFormatter.formatter);
@@ -54,8 +56,48 @@ public class Price {
         if (day_of_week == 5 && age != 1 && age != 2)
             price += 1;
         return price;
+    }*/
+
+    public Price(int day,int time,int holiday,int age,int threeD){
+        this.day_of_week = day;
+        this.time_of_day = time;
+        this.holiday = holiday;
+        this.age = age;
+        this.threeD = threeD;
     }
 
+    public void setDay(int day) {
+    	this.day_of_week=day;
+    }
+    public void setTime(int time) {
+    	this.time_of_day=time;
+    }
+    public void setHoliday(int holiday) {
+    	this.holiday=holiday;
+    }
+    public void setAge(int age) {
+    	this.age=age;
+    }
+    public void setThreeD(int threeD) {
+    	this.threeD=threeD;
+    }
+    
+    public int getDay() {
+    	return day_of_week;
+    }
+    public int getTime() {
+    	return time_of_day;
+    }
+    public int getHoliday() {
+    	return holiday;
+    }
+    public int getAge() {
+    	return age;
+    }
+    public int getThreeD() {
+    	return threeD;
+    }
+   
     // public static void main(String[] args){
     //     SystemConfig test = new SystemConfig("2022-12-29 17:59", "20", 0);
     //     float cost = test.getPrice();
