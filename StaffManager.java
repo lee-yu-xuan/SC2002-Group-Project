@@ -406,8 +406,8 @@ public class StaffManager {
 		 
 		 switch(no) {
 		 case 1: int index=-1;
+		 		 System.out.println("Enter the name of the Movie: ");
 				 do {
-					 System.out.println("Enter the name of the Movie: ");
 					 try {
 						 index = scan.nextInt();
 					 }
@@ -425,9 +425,10 @@ public class StaffManager {
 				String endTime="";
 				String classOfCinema="";
 				String price = "";
+				int x=0;
+				System.out.println("Enter the ID of the Movie: ");
 				
 				do {
-				 System.out.println("Enter the ID of the Movie: ");
 				 try {
 					 movieID = scan.nextLine();
 				 }
@@ -448,28 +449,43 @@ public class StaffManager {
 					}while (cinemaID.isEmpty());
 				
 				do {
-					System.out.println("Enter the startTime: ");
+					System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
 					 try {
 						 startTime = scan.nextLine();
+						 LocalDateTime.parse(startTime,_DateTimeFormatter.formatter);
+						 x=0;
 					 }
 					 catch(NumberFormatException nfe) {
 						 System.out.println("Please enter in string!");
 					 }
-					}while (startTime.isEmpty());
+					 catch(java.time.format.DateTimeParseException e) {
+						 System.out.println("Please enter the correct format");
+						 System.out.println();
+						 x=1;
+					 }
+					}while (startTime.isEmpty()||x==1);
 				 
 				do {
-					System.out.println("Enter the endTime of the movie: ");
+					System.out.println("Enter the endTime of the movie (yyyy-MM-dd HH:mm): ");
 					 try {
 						 endTime = scan.nextLine();
+						 LocalDateTime.parse(endTime,_DateTimeFormatter.formatter);
+						 x=0;
 					 }
 					 catch(NumberFormatException nfe) {
 						 System.out.println("Please enter in string!");
 					 }
-					}while (endTime.isEmpty());
+					 catch(java.time.format.DateTimeParseException e) {
+						 System.out.println("Please enter the correct format");
+						 System.out.println();
+						 x=1;
+					 }
+					}while (endTime.isEmpty()||x==1);
 				 
 				
 				
 				ShowTimeList.deleteByMovieInfo(movieID, cinemaID, LocalDateTime.parse(startTime,_DateTimeFormatter.formatter), LocalDateTime.parse(endTime,_DateTimeFormatter.formatter));
+				break;
 		 		default: System.out.println("Wrong options");
 		 }	 
 	 }
