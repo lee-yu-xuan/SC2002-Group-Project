@@ -1,3 +1,4 @@
+package oodp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -113,7 +114,7 @@ public class StaffManager {
 	 public static void removeMovie()
 	 {
 		 int no=0;
-		 
+		 int R=0;
 		 System.out.println("Please choose one of the options:");
 		 System.out.println("1) Delete by movie title");
 		 System.out.println("2) Delete by movie ID");
@@ -121,8 +122,8 @@ public class StaffManager {
 		 
 		 switch(no) {
 		 case 1: String MovieName="";
+		 		 System.out.println("Enter the name of the Movie: ");
 				 do {
-					 System.out.println("Enter the name of the Movie: ");
 					 try {
 						 MovieName = scan.nextLine();
 					 }
@@ -131,12 +132,17 @@ public class StaffManager {
 					 }
 					}while (MovieName.isEmpty());
 					
-				 MovieListing.deleteByName(MovieName);
+				 R=MovieListing.deleteByName(MovieName);
+				 if(R==0) {
+					 System.out.println("Movie not found!!");
+					 System.out.println();
+					 return;
+				 }
 				 break;
 				 
 		 case 2: String MovieID="";
+		 		 System.out.println("Enter the ID of the Movie: ");
 				 do {
-					 System.out.println("Enter the ID of the Movie: ");
 					 try {
 						 MovieID = scan.nextLine();
 					 }
@@ -145,7 +151,12 @@ public class StaffManager {
 					 }
 					}while (MovieID.isEmpty());
 					
-				 MovieListing.deleteByID(MovieID);
+				 R=MovieListing.deleteByID(MovieID);
+				 if(R==0) {
+					 System.out.println("Movie not found!!");
+					 System.out.println();
+					 return;
+				 }
 				 break;
 		default: System.out.println("Wrong options");
 		 }	 
@@ -162,8 +173,9 @@ public class StaffManager {
 		 
 		 switch(no) {
 		 case 1: String MovieName="";
+				System.out.println("Enter the name of the Movie: ");
 				 do {
-					 System.out.println("Enter the name of the Movie: ");
+					 
 					 try {
 						 MovieName = scan.nextLine();
 					 }
@@ -172,12 +184,14 @@ public class StaffManager {
 					 }
 					}while (MovieName.isEmpty());
 				 index=MovieListing.getMovieIndexByTitle(MovieName);
-					
+				 if(index==-1) {
+					 return;
+				 }
 				 break;
 				 
 		 case 2: String MovieID="";
+		 		 System.out.println("Enter the ID of the Movie: ");
 				 do {
-					 System.out.println("Enter the ID of the Movie: ");
 					 try {
 						 MovieID = scan.nextLine();
 					 }
@@ -211,70 +225,44 @@ public class StaffManager {
 	            		case 1: System.out.println("Enter movie Name");
 	            				String namee = scan.nextLine();
 	            				MovieListing.getMovieList().get(index).setTitle(namee);
-	            				MovieListing.save();
 	            				break;
 	            		case 2: System.out.println("Enter movie status");
         						String statuss = scan.nextLine();
         						ShowingStatus s = ShowingStatus.valueOf(statuss);
         						MovieListing.getMovieList().get(index).setStatus(s);
-	            				MovieListing.save();
         						//movieCSV.get(i)[1]= statuss;
         						break;
 	            		case 3:System.out.println("Enter movie synopsis");
         						String synopsiss = scan.nextLine();
         						MovieListing.getMovieList().get(index).setSynopsis(synopsiss);
-	            				MovieListing.save();
         						//movieCSV.get(i)[2]= synopsiss;
         						break;
 	            		case 4:System.out.println("Enter movie type");
         						String typee = scan.nextLine();
         						MovieListing.getMovieList().get(index).setType(typee);
-	            				MovieListing.save();
         						//movieCSV.get(i)[3]= typee;
         						break;
 	            		case 5:System.out.println("Enter movie director");
         						String directorr = scan.nextLine();
         						MovieListing.getMovieList().get(index).setDirector(directorr);
-	            				MovieListing.save();
         						//movieCSV.get(i)[4]= directorr;
         						break;
 	            		case 6:System.out.println("Enter movie cast");
         						String castt = scan.nextLine();
         						MovieListing.getMovieList().get(index).setCast(castt);
-	            				MovieListing.save();
         						//movieCSV.get(i)[5]= castt;
         						break;
 	            		case 7:System.out.println("Enter movie ratingg");
         						String ratingg = scan.nextLine();
         						MovieListing.getMovieList().get(index).setRating(ratingg);
-	            				MovieListing.save();
         						//movieCSV.get(i)[6]= ratingg;
         						break;
 	            		case 8: x=false;
 	            			break;
 	            		}
 
-<<<<<<< HEAD
 	            
 	        }
-=======
-
-		  for(int h=0; h<ticketCSV.size(); h++){
-		       String ticketID = ticketCSV.get(h)[0];
-		       String movieID = ticketCSV.get(h)[1];
-		       String dateTime = ticketCSV.get(h)[2];
-		       String cinemaID = ticketCSV.get(h)[3];
-		       String seatNo = ticketCSV.get(h)[4];
-		       TypeOfTicket ticketType = TypeOfTicket.valueOf(ticketCSV.get(h)[5]);
-		       Restriction restriction = Restriction.valueOf(ticketCSV.get(h)[6]);
-		       
-			   //Movie newMovie = new Movie(////);
-			   //then MovieListing.add(newMovie);
-
-			   //this is the part u update movie, u r touching ticket now instead
-		       ticketList.add(new MovieTicket(ticketID, movieID, LocalDateTime.parse(dateTime,_DateTimeFormatter.formatter), cinemaID, seatNo, ticketType, restriction));
-		   }
->>>>>>> ea7dd62be35da7d54521aa2c572167df1fa0bde8
 		 
 		 
 	 }
@@ -456,7 +444,7 @@ public class StaffManager {
 				
 				
 				ShowTimeList.deleteByMovieInfo(movieID, cinemaID, LocalDateTime.parse(startTime,_DateTimeFormatter.formatter), LocalDateTime.parse(endTime,_DateTimeFormatter.formatter));
-		default: System.out.println("Wrong options");
+		 		default: System.out.println("Wrong options");
 		 }	 
 	 }
 }
