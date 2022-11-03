@@ -23,23 +23,9 @@ public class LayoutController {
             //get the 2 variable: cinemaID and timing of the movie
             LocalDateTime dt1 = movieList.get(i).getTiming();
             LocalDateTime dt2 = timing;
-            int equal = 0;
-            if(dt1.compareTo(dt2)!=0){
-                equal = 0;
-            }else{
-                equal = 1;
-            }
-
             String tmpCinemaID = movieList.get(i).getCinemaID();
-            String hi = tmpCinemaID;
-            int equal2 = 0;
-            if(tmpCinemaID.compareTo(cinemaID)==0){
-                equal2 = 1;
-            }else{
-                equal2 = 0;
-            }
-            
-            if(equal2==1 && equal == 1){
+  
+            if(tmpCinemaID.compareTo(cinemaID)==0 && dt1.compareTo(dt2)==0){
                 noOfRows = movieList.get(i).getNoOfRows();
                 noOfColumns = movieList.get(i).getNoOfColumns();
                 seatsTaken = movieList.get(i).getSeatsTaken();
