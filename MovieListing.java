@@ -12,6 +12,15 @@ public class MovieListing {
         return movieList;
     }
 
+    public static String getMovieName(String movieID){
+        for(int i=0; i<movieList.size(); i++){
+            if(movieList.get(i).getMovieID().equals(movieID)){
+                return movieList.get(i).getMovieTitle();
+            }
+        }
+        return "Movie not found";
+    }
+
     public static void add(Movie movie){
         if(movieList == null){
             //System.out.println("The movieList is empty");

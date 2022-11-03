@@ -1,9 +1,9 @@
 
 
 public class Booking {
-	private String transactionID;
+	private String ticketID;
 	private String name;
-	private String movieName;
+	private String movieID;
 	private String cinema;
 	private String pax;
 	private String seats;
@@ -11,29 +11,29 @@ public class Booking {
 	
 	public Booking()
 	{
-		this.transactionID = "";
+		this.ticketID = "";
 		this.name = "";
-		this.movieName = "";
+		this.movieID = "";
 		this.cinema = "";
 		this.pax = "";
 		this.seats = "";
 		this.cost = "";
 	}
 	
-	public Booking(String transactionID, String name, String movieName, String cinema, String pax, String seats, String cost)
+	public Booking(String ticketID, String name, String movieID, String cinema, String pax, String seats, String cost)
 	{
-		this.transactionID = transactionID;
+		this.ticketID = ticketID;
 		this.name = name;
-		this.movieName = movieName;
+		this.movieID = movieID;
 		this.cinema = cinema;
 		this.pax = pax;
 		this.seats = seats;
 		this.cost = cost;
 	}
 	
-	public void setTransactionID(String transactionID)
+	public void setticketID(String ticketID)
 	{
-		this.transactionID = transactionID;
+		this.ticketID = ticketID;
 	}
 	
 	public void setName(String name)
@@ -41,9 +41,9 @@ public class Booking {
 		this.name = name;
 	}
 	
-	public void setMovieName(String movieName)
+	public void setmovieID(String movieID)
 	{
-		this.movieName = movieName;
+		this.movieID = movieID;
 	}
 	
 	public void setCinema(String cinema)
@@ -66,9 +66,9 @@ public class Booking {
 		this.cost = cost;
 	}
 	
-	public String getTransactionID()
+	public String getTicketID()
 	{
-		return transactionID;
+		return ticketID;
 	}
 	
 	public String getName()
@@ -76,9 +76,9 @@ public class Booking {
 		return name;
 	}
 	
-	public String getMovieName()
+	public String getmovieID()
 	{
-		return movieName;
+		return movieID;
 	}
 	
 	public String getCinema()

@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class User_UI {
@@ -18,6 +19,13 @@ public class User_UI {
             DisplayMovie_UI.displayInformation(userName);
             break;
         case 2:
+            List<Booking> bookingHistory = BookingManager.getBookingHistory();
+            if(bookingHistory!=null){
+                for(int i=0 ; i<bookingHistory.size(); i++){
+                    System.out.println("Movie Name:"+MovieListing.getMovieName(bookingHistory.get(i).getmovieID())+"\t"+"TicketID: "+bookingHistory.get(i).getTicketID());
+                    System.out.println("Your seat number is: "+bookingHistory.get(i).getSeats());
+                }
+            }
             //view booking history
             //DisplayBookingHistory_UI.displayInformation();
             break;
