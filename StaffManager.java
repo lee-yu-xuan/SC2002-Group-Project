@@ -304,6 +304,7 @@ public class StaffManager {
 			String endTime="";
 			String classOfCinema="";
 			String price = "";
+			int x=0;
 			
 			do {
 			 System.out.println("Enter the ID of the Movie: ");
@@ -327,32 +328,53 @@ public class StaffManager {
 				}while (cinemaID.isEmpty());
 			
 			do {
-				System.out.println("Enter the startTime: ");
+				System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
 				 try {
 					 startTime = scan.nextLine();
+					 LocalDateTime.parse(startTime,_DateTimeFormatter.formatter);
+					 x=0;
 				 }
 				 catch(NumberFormatException nfe) {
 					 System.out.println("Please enter in string!");
 				 }
-				}while (startTime.isEmpty());
+				 catch(java.time.format.DateTimeParseException e) {
+					 System.out.println("Please enter the correct format");
+					 System.out.println();
+					 x=1;
+				 }
+				}while (startTime.isEmpty()|| x==1);
 			 
 			do {
-				System.out.println("Enter the endTime of the movie: ");
+				System.out.println("Enter the endTime of the movie (yyyy-MM-dd HH:mm): ");
 				 try {
 					 endTime = scan.nextLine();
+					 LocalDateTime.parse(endTime,_DateTimeFormatter.formatter);
+					 x=0;
 				 }
 				 catch(NumberFormatException nfe) {
 					 System.out.println("Please enter in string!");
 				 }
-				}while (endTime.isEmpty());
+				 catch(java.time.format.DateTimeParseException e) {
+					 System.out.println("Please enter the correct format");
+					 System.out.println();
+					 x=1;
+				 }
+				}while (endTime.isEmpty()|| x==1);
 			 
 			do {
 				System.out.println("Enter the class of cinema: ");
 				 try {
 					 classOfCinema = scan.nextLine();
+					 ClassOfCinema.valueOf(classOfCinema);
+					 x=0;
 				 }
 				 catch(NumberFormatException nfe) {
 					 System.out.println("Please enter in string!");
+				 }
+				 catch(java.lang.IllegalArgumentException e) {
+					 System.out.println("Please enter the correct format");
+					 System.out.println();
+					 x=1;
 				 }
 				}while (classOfCinema.isEmpty());
 			
@@ -360,11 +382,15 @@ public class StaffManager {
 				System.out.println("Enter the price: ");
 				 try {
 					 price = scan.nextLine();
+					 Double.valueOf(price);
+					 x=0;
 				 }
 				 catch(NumberFormatException nfe) {
 					 System.out.println("Please enter in string!");
+					 System.out.println();
+					 x=1;
 				 }
-				}while (price.isEmpty());
+				}while (price.isEmpty()||x==1);
 			ClassOfCinema CC = ClassOfCinema.valueOf(classOfCinema);
 			double P = Double.valueOf(price);
 			ShowTime ST = new ShowTime(movieID, cinemaID, startTime, endTime, CC, P);
