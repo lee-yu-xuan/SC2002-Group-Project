@@ -27,6 +27,7 @@ public class main_UI {
         System.out.println("--Welcome to MOVIETICKETING SYSTEM--");
         System.out.println("1. Login");
         System.out.println("2. Continue as Guest");
+        System.out.println("3. Temporary staff UI");
 
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
@@ -57,6 +58,9 @@ public class main_UI {
                 User_UI.display_UI("Guest");
                 break;
             //StaffUI.UI();
+            case 3:
+                StaffUI.UI();
+                break;
                 
 
             default:

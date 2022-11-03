@@ -20,6 +20,16 @@ public class MovieListing {
         movieList.add(movie);
     }
 
+    public static int getMovieIndexByTitle(String movieTitle){ 
+        for(int i = 0;i<movieList.size();i++){ 
+            if(movieTitle.equalsIgnoreCase(movieList.get(i).getMovieTitle())){ 
+                return i; 
+            } 
+        } 
+        //movieTitle not found 
+        return -1; 
+    }
+
     public static int getMovieIndexByID(String movieID){
         for(int i = 0;i<movieList.size();i++){
             if(movieID == movieList.get(i).getMovieID()){
