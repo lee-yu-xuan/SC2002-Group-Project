@@ -16,13 +16,13 @@ public class Price {
     }
 
     // constructor
-    public Price(double basePrice, String date, String yearsold, int three, int cinemaClass ) {
+    public Price(LocalDateTime date, String yearsold, int three, int cinemaClass ) {
         try {
             // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDateTime dateTime = LocalDateTime.parse(date, _DateTimeFormatter.formatter);
-            this.basePrice = basePrice;
-            day_of_week = dateTime.getDayOfWeek().getValue();
-            time_of_day = (dateTime.getHour() >= 18) ? 1 : 0;
+            // LocalDateTime dateTime = LocalDateTime.parse(date, _DateTimeFormatter.formatter);
+            this.basePrice = SystemConfigController.getBasePrice();
+            day_of_week = date.getDayOfWeek().getValue();
+            time_of_day = (date.getHour() >= 18) ? 1 : 0;
             age = (Integer.valueOf(yearsold) > 18) ? (Integer.valueOf(yearsold) < 65) ? 0 : 2 : 1;
             threeD = three;
             holiday = (Holiday.isHoliday(date)) ? 1 : 0;

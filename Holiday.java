@@ -40,11 +40,12 @@ public class Holiday {
 		}
 	}
 
-	public static boolean isHoliday(String date){
+	public static boolean isHoliday(LocalDateTime date){
 		for (String[] var : days){
-			LocalDateTime dateTime = LocalDateTime.parse(date, _DateTimeFormatter.formatter);
-			if (dateTime.isAfter(LocalDateTime.parse(var[0], _DateTimeFormatter.formatter).minusDays(1)) &&
-				dateTime.isBefore(LocalDateTime.parse(var[1], _DateTimeFormatter.formatter))) return true;
+			// LocalDateTime dateTime = LocalDateTime.parse(date, _DateTimeFormatter.formatter);
+			// if it is a public holiday or eve of ph return true
+			if (date.isAfter(LocalDateTime.parse(var[0], _DateTimeFormatter.formatter).minusDays(1)) &&
+				date.isBefore(LocalDateTime.parse(var[1], _DateTimeFormatter.formatter))) return true;
 	
 		}return false;
 	}
