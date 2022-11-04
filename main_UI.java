@@ -1,3 +1,6 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class main_UI {
@@ -21,7 +24,14 @@ public class main_UI {
     }
 
     public static void main(String[] args) {
-        //loadAllClass();
+        //get current DateTime  for booking history
+        //if havent pass current DateTime, display under upcoming
+        //if passed, display under history
+        //this implementation has not been done yet
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        Calendar cal = Calendar.getInstance();
+        System.out.println(dateFormat.format(cal.getTime())); 
+
         loadAllClass();
         System.out.println("\n");
         System.out.println("--Welcome to MOVIETICKETING SYSTEM--");
