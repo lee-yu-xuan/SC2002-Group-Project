@@ -2,8 +2,8 @@ import java.time.LocalDateTime;
 
 public class Price {
     // holiday, day_of_week, time_of_day, age
-    public double basePrice;
-    public int day_of_week, time_of_day, holiday, age, threeD, cinemaClass;
+    public static double basePrice;
+    public static int day_of_week, time_of_day, holiday, age, threeD, cinemaClass;
 
     // default constructor
     public Price() {
@@ -16,24 +16,24 @@ public class Price {
     }
 
     // constructor
-    public Price(LocalDateTime date, String yearsold, int three, int cinemaClass ) {
+    public Price(LocalDateTime date, String yearsold, int three, int CinemaClass ) {
         try {
             // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             // LocalDateTime dateTime = LocalDateTime.parse(date, _DateTimeFormatter.formatter);
-            this.basePrice = SystemConfigController.getBasePrice();
+            basePrice = SystemConfigController.getBasePrice();
             day_of_week = date.getDayOfWeek().getValue();
             time_of_day = (date.getHour() >= 18) ? 1 : 0;
             age = (Integer.valueOf(yearsold) > 18) ? (Integer.valueOf(yearsold) < 65) ? 0 : 2 : 1;
             threeD = three;
             holiday = (Holiday.isHoliday(date)) ? 1 : 0;
-            this.cinemaClass = cinemaClass;
+            cinemaClass = CinemaClass;
 
         } catch (Exception e) {
             System.out.println("Error!!" + e.getMessage());
         }
     }
 
-    public double getPrice() {
+    public static double getPrice() {
         // System.out.println("day of week: " + day_of_week);
         // System.out.println("ph: " + holiday);
         if (day_of_week > 5 || holiday == 1)

@@ -87,7 +87,9 @@ public class DisplayMovie_UI {
         else if(movieID.charAt(4)=='3'){
             restriction = Restriction.R21;
         }
-        
+        // pass price arguments
+        new Price(time, "20", 1, SystemConfigController.getClassMulti(tmp.get(choice).getClassOfCinema().toString()));
+
         //call payment method
         double priceInDouble = Payment_UI.display_UI(userName, ticketID);
         String fare = Double.toString(priceInDouble);
