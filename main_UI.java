@@ -12,7 +12,8 @@ public class main_UI {
         SeatBooked_Controller.load();
         MovieTicketController.load();
         SalesManager.load();
-        Holiday.loadHoliday();
+        Holiday.load();
+        SystemConfigController.load();
     }
 
     public static void saveAllClass() {
@@ -23,6 +24,7 @@ public class main_UI {
         MovieTicketController.save();
         SalesManager.save();
         Holiday.save();
+        SystemConfigController.save();
     }
 
     public static void main(String[] args) {
@@ -59,9 +61,6 @@ public class main_UI {
 
                     if (userStringArr[3].equals("MOVIEGOER")) {
                         userName = userStringArr[0];
-
-                        //check if BookingHistory csv exist for this user
-
                         BookingManager.load(userName);
                         User_UI.display_UI(userName);
                         BookingManager.save(userName);
