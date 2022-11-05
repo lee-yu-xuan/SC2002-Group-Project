@@ -530,7 +530,7 @@ public class StaffManager {
 					SystemConfig.setClassWeight(plat, gold, silv);
 					break;
 				default:
-					System.out.println("error404");
+					System.out.println("Invalid choice!");
 			}
 		} catch (Exception e) {
 			System.out.println("error " + e.getMessage());

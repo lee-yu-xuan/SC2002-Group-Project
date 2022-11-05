@@ -20,6 +20,7 @@ public class Holiday {
 		day[0] = start;
 		day[1] = end;
 		days.add(day);
+		System.out.println(start + " " + end + " holiday added.");
 	}
 
 	public static void loadHoliday() {
