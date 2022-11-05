@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,10 +13,11 @@ public class DisplayMovie_UI {
         String movieID = "";
 
         if(choice==3){
-            Scanner stringScanner = new Scanner(System.in).useDelimiter("\n");
-            System.out.println("Enter movie title: ");
-            String movieTitle = stringScanner.next();
-            movieID = MovieListing.getMovieID(movieTitle);
+            try (Scanner stringScanner = new Scanner(System.in).useDelimiter("\n")) {
+                System.out.println("Enter movie title: ");
+                String movieTitle = stringScanner.next();
+                movieID = MovieListing.getMovieID(movieTitle);
+            }
             if(movieID == null){
                 System.out.println("Movie not found");
             }
@@ -38,73 +38,32 @@ public class DisplayMovie_UI {
             }
         }
 
-        List<ShowTime> tmp = ShowTimeController.showTimeByShowTime(movieID);
-            for(int i = 0;i<tmp.size();i++){
-                System.out.println(i+". "+tmp.get(i).getCinemaID()+" "+tmp.get(i).getStartTime());
-            }
-        
-        //user select cinema and timing
-        System.out.println("Select your preferred cinema and timing");
-        choice = sc.nextInt();
-        String cinemaID = tmp.get(choice).getCinemaID();
-        LocalDateTime time = tmp.get(choice).getStartTime();
-  
-        //pass time, and cinema to displayLayout_UI   
-        LayoutController.displayLayout(cinemaID, time);
+        System.out.println("1. View movie details");
+        System.out.println("2. Add ratings and reviews");
+        System.out.println("3. Book tickets");
 
-        System.out.println("Select the row of your preferred seat");
-        int row = sc.nextInt();
-        System.out.println("Select the column of your preferred seat");
-        int col = sc.nextInt();
+        int choice2 = sc.nextInt();
 
-        //after calling payment UI, call this to update the seat
-        SeatBooked_Controller.updateSeatBooked(row, col, cinemaID, time);
-  
-        //call a method to create a movieTicket
-        String ticketID = row+cinemaID+col+movieID;
-        String seat = Integer.toString((row*10)+col);
-
-        TypeOfTicket ticketType = TypeOfTicket.Normal;
-        //check movieID for the ticketType
-        if(movieID.charAt(0)=='S'){
-            ticketType = TypeOfTicket.Normal;
+        switch (choice2) {
+            case 1:
+                //view movie details
+                MovieListing.getMovieDetails(movieID);
+                User_UI.display_UI(userName);
+                break;
+            case 2:
+                //add ratings and reviews
+                Review_UI.display_UI(movieID);
+                User_UI.display_UI(userName);
+                break;
+            case 3:
+                //book tickets
+                BuyTicket_UI.purchaseTicket(movieID, userName);
+                User_UI.display_UI(userName);
+                break;
+            default:
+                System.out.println("Invalid choice");
+                break;
         }
-        else if(movieID.charAt(0)=='T'){
-            ticketType = TypeOfTicket.ThreeD;
-        }
-        else if(movieID.charAt(0)=='P'){
-            ticketType = TypeOfTicket.Premium;
-        }
-
-        Restriction restriction = Restriction.PG;
-        //check movieID for the restriction
-        if(movieID.charAt(4)=='1'){
-            restriction = Restriction.PG;
-        }
-        else if(movieID.charAt(4)=='2'){
-            restriction = Restriction.PG13;
-        }
-        else if(movieID.charAt(4)=='3'){
-            restriction = Restriction.R21;
-        }
-        // pass price arguments
-        new Price(time, "20", 1, SystemConfigController.getClassMulti(tmp.get(choice).getClassOfCinema().toString()));
-
-        //call payment method
-        double priceInDouble = Payment_UI.display_UI(userName, ticketID);
-        String fare = Double.toString(priceInDouble);
-
-        MovieTicket ticket = new MovieTicket(ticketID, movieID, time, cinemaID, seat, ticketType, restriction);
-        MovieTicketController.add(ticket);
-
-        //increment sales
-        SalesManager.addSalesByID(movieID);
-
-        //call a method to add to booking history of the user
-        Booking booking = new Booking(ticketID, userName, movieID, cinemaID, "1", seat, fare);
-        BookingManager.addBooking(booking);
-        System.out.println("Booking successful");
-
     }
 
     public static String listBySales(){
