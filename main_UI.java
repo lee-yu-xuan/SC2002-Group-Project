@@ -54,11 +54,12 @@ public class main_UI {
                     userName = userStringArr[0];
                     BookingManager.load(userName);
                     User_UI.display_UI(userName);
+                    BookingManager.save(userName);
                 }
                 else if(userStringArr[3].equals("STAFF")){
-                    //staffUI.UI();
+                    StaffUI.UI();
                 }
-
+                
 
                 //for (int i = 0 ; i < userStringArr.length; i++){
                 //System.out.print(userStringArr[i]);
@@ -79,7 +80,6 @@ public class main_UI {
 
         //save all instances
         saveAllClass();
-        BookingManager.save(userName);
     }
 }
 
