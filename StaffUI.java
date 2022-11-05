@@ -36,7 +36,7 @@ public class StaffUI {
 				break;
 				default: System.out.println("Invalid choice");
 			}
-		}while( no > 0 && no < 7);
+		}while( no > 0 && no < 8);
 		
 	}
 	
