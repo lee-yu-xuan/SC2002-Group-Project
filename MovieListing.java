@@ -48,6 +48,21 @@ public class MovieListing {
         //movieID not found
         return -1;
     }
+
+    public static void getMovieDetails(String movieID){
+        int index = getMovieIndexByID(movieID);
+        if(index != 1){
+            Movie movie = movieList.get(index);
+            
+            System.out.println(movie.getMovieTitle());
+            System.out.println(movie.getSynopsis());
+            System.out.println(movie.getType());
+            System.out.println(movie.getDirector());
+            System.out.println(movie.getCast());
+            System.out.println(movie.getRating());
+        }
+    }
+
     public static int deleteByName(String title){
         for(int i = 0;i< movieList.size();i++){
             if(movieList.get(i).getMovieTitle() == title){
