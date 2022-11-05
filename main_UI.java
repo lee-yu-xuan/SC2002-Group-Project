@@ -28,11 +28,14 @@ public class main_UI {
         //if havent pass current DateTime, display under upcoming
         //if passed, display under history
         //this implementation has not been done yet
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        Calendar cal = Calendar.getInstance();
-        System.out.println(dateFormat.format(cal.getTime())); 
+        
+        //DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        //Calendar cal = Calendar.getInstance();
+        //System.out.println(dateFormat.format(cal.getTime())); 
 
         loadAllClass();
+        ShowTimeController.refresh();
+
         System.out.println("\n");
         System.out.println("--Welcome to MOVIETICKETING SYSTEM--");
         System.out.println("1. Login");

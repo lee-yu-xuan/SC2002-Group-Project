@@ -29,10 +29,10 @@ public class ShowTimeController {
                 i--;
 
                 //debug message 
-                System.out.println("This show is over.");
+                //System.out.println("This show is over.");
             }else{
                 //debug message
-                System.out.println("Show haven't started.");
+                //System.out.println("Show haven't started.");
             }
         }
     }
