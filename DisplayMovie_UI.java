@@ -48,17 +48,14 @@ public class DisplayMovie_UI {
             case 1:
                 //view movie details
                 MovieListing.getMovieDetails(movieID);
-                User_UI.display_UI(userName);
                 break;
             case 2:
                 //add ratings and reviews
                 Review_UI.display_UI(movieID);
-                User_UI.display_UI(userName);
                 break;
             case 3:
                 //book tickets
                 BuyTicket_UI.purchaseTicket(movieID, userName);
-                User_UI.display_UI(userName);
                 break;
             default:
                 System.out.println("Invalid choice");

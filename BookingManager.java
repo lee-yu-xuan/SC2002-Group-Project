@@ -9,7 +9,7 @@ public class BookingManager {
 	public static List<Booking> getBookingHistory()
 	{
 		if(bookingHistory==null){
-			System.out.println("You have not done any booking yet");
+			//System.out.println("You have not done any booking yet");
 			return null;
 		}
 		return bookingHistory;
@@ -39,12 +39,19 @@ public class BookingManager {
 	
 	public static void load(String name)
 	{
-		if(bookingHistory == null)
+		/*
+		 * if(bookingHistory == null)
 		{
 			//System.out.println("Booking history is empty");
 			bookingHistory = new ArrayList<Booking>();			
 		}
+		 */
 		
+		
+		if(bookingHistory==null) {
+			System.out.println("You have not done any booking yet");
+			return;
+		}
 		bookingHistoryCSV = File_IO.readFile("BookingHistory/"+name);
 		
 		for(int i=0 ; i<bookingHistoryCSV.size(); i++)

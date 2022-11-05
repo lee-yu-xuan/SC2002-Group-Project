@@ -18,20 +18,23 @@ public class User_UI {
 
         switch (choice) {
             case 1:
-                //list the movies
+
                 DisplayMovie_UI.displayInformation(userName);
                 break;
+                
             case 2:
+
                 List<Booking> bookingHistory = BookingManager.getBookingHistory();
                 if(bookingHistory!=null){
                     for(int i=0 ; i<bookingHistory.size(); i++){
                         System.out.println("Movie Name:"+MovieListing.getMovieName(bookingHistory.get(i).getmovieID())+"\t"+"TicketID: "+bookingHistory.get(i).getTicketID());
                         System.out.println("Your seat number is: "+bookingHistory.get(i).getSeats());
                     }
+                }else{
+                    System.out.println("You have not done any booking yet");
                 }
                 User_UI.display_UI(userName);
-                //view booking history
-                //DisplayBookingHistory_UI.displayInformation();
+            
                 break;
             case 3:
                 //exit

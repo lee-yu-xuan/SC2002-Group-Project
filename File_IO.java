@@ -32,7 +32,8 @@ public class File_IO {
             br.close();
 
         } catch (Exception e) {
-            System.out.println("Error with reading the file!");
+            return null;
+            //System.out.println("Error with reading the file!");
 
         }
         return twoDlist;
