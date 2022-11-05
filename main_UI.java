@@ -38,13 +38,12 @@ public class main_UI {
         boolean quit = false;
         while (!quit) {
             System.out.println("\n");
-            System.out.println("--Welcome to MOVIETICKETING SYSTEM--");
+            System.out.println("--Welcome to MovieTickeing Application--");
             System.out.println("1. Login");
             System.out.println("2. Continue as Guest");
-            System.out.println("3. Temporary staff UI");
-            System.out.println("4. Register new User");
-            System.out.println("5. Quit Application");
-            System.out.println("------------------------------------");
+            System.out.println("3. Register new User");
+            System.out.println("4. Quit Application");
+            System.out.println("----------------------------------------");
 
             Scanner sc = new Scanner(System.in);
             int choice = sc.nextInt();
@@ -72,14 +71,11 @@ public class main_UI {
                     break;
 
                 case 3:
-                    StaffUI.UI();
-                    break;
-
-                case 4:
                     RegistrationUI.UI();
                     break;
 
-                case 5:
+                case 4:
+                    System.out.println("Thank you for using our application!");
                     quit = true;
                     break;
 
