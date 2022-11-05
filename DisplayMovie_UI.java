@@ -41,7 +41,7 @@ public class DisplayMovie_UI {
 
         System.out.println("1. View movie details");
         System.out.println("2. Add ratings and reviews");
-        System.out.println("3. Book tickets");
+        //System.out.println("3. Book tickets");
 
         int choice2 = sc.nextInt();
 
@@ -54,10 +54,12 @@ public class DisplayMovie_UI {
                 //add ratings and reviews
                 Review_UI.display_UI(movieID);
                 break;
+            /** 
             case 3:
                 //book tickets
                 BuyTicket_UI.purchaseTicket(movieID, userName);
                 break;
+            */
             default:
                 System.out.println("Invalid choice");
                 break;
