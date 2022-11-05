@@ -1,3 +1,5 @@
+package src.main.java.movie;
+
 public class Sales
 {
 	private String movieID;

@@ -1,4 +1,8 @@
+package src.main.java.ui;
+
 import java.util.*;
+import src.main.java.user.*;
+import src.main.java.enums.*;
 
 public class RegistrationUI {
     private static String name;

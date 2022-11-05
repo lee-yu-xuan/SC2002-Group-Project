@@ -1,4 +1,7 @@
+package src.main.java.booking;
+
 import java.time.LocalDateTime;
+import src.main.java.sysconfig.*;
 
 public class Price {
     // holiday, day_of_week, time_of_day, age
@@ -45,52 +48,5 @@ public class Price {
             price += 1;
         return price * cinemaClass;
     }
-
-    // public Price(int day,int time,int holiday,int age,int threeD){
-    //     this.day_of_week = day;
-    //     this.time_of_day = time;
-    //     this.holiday = holiday;
-    //     this.age = age;
-    //     this.threeD = threeD;
-    // }
-
-    // public void setDay(int day) {
-    // 	this.day_of_week=day;
-    // }
-    // public void setTime(int time) {
-    // 	this.time_of_day=time;
-    // }
-    // public void setHoliday(int holiday) {
-    // 	this.holiday=holiday;
-    // }
-    // public void setAge(int age) {
-    // 	this.age=age;
-    // }
-    // public void setThreeD(int threeD) {
-    // 	this.threeD=threeD;
-    // }
-    
-    // public int getDay() {
-    // 	return day_of_week;
-    // }
-    // public int getTime() {
-    // 	return time_of_day;
-    // }
-    // public int getHoliday() {
-    // 	return holiday;
-    // }
-    // public int getAge() {
-    // 	return age;
-    // }
-    // public int getThreeD() {
-    // 	return threeD;
-    // }
-   
-    // public static void main(String[] args){
-    //     SystemConfig test = new SystemConfig("2022-12-29 17:59", "20", 0);
-    //     float cost = test.getPrice();
-    //     System.out.println(cost);
-    // }
-
 
 }

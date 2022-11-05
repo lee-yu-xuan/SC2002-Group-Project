@@ -1,6 +1,7 @@
-import java.time.LocalDateTime;
+package src.main.java.booking;
 
-//yj
+import java.time.LocalDateTime;
+import src.main.java.enums.*;
 
 public class MovieTicket{
     //Attributes

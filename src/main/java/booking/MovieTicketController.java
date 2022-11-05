@@ -1,8 +1,11 @@
-//yj
+package src.main.java.booking;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import src.main.java.enums.*;
+import src.main.java.helper.*;
+
 
 public class MovieTicketController {
 public static List<MovieTicket> ticketList;

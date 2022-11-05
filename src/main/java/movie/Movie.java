@@ -1,5 +1,6 @@
+package src.main.java.movie;
 
-import java.util.List;
+import src.main.java.enums.ShowingStatus;
 
 /**
  * Movie

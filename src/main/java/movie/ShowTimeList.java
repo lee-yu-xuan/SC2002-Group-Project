@@ -1,7 +1,11 @@
+package src.main.java.movie;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import src.main.java.helper.*;
+import src.main.java.enums.*;
 
 public class ShowTimeList {
     private static List<ShowTime> showTimeList;

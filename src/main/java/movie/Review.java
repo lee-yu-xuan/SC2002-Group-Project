@@ -1,3 +1,5 @@
+package src.main.java.movie;
+
 public class Review implements Comparable{
     private int rating;
     private String review;

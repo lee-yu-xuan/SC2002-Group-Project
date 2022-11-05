@@ -1,7 +1,9 @@
+package src.main.java.booking;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import src.main.java.helper.*;
 
 public class BookingManager {
 	private static List<Booking> bookingHistory;

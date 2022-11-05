@@ -1,10 +1,14 @@
+package src.main.java.user;
+
+import src.main.java.enums.*;
+
 public class MovieGoer extends ConstructUser
 {
 	private int age;
 	
 	public MovieGoer()
 	{
-		this.type = userType.MOVIEGOER;
+		this.type = UserType.MOVIEGOER;
 		this.age = 0;
 		this.name = "";
 		this.username = "";
@@ -13,7 +17,7 @@ public class MovieGoer extends ConstructUser
 	
 	public MovieGoer(String name, String username, String password, int age)
 	{
-		this.type = userType.MOVIEGOER;
+		this.type = UserType.MOVIEGOER;
 		this.name = name;
 		this.username = username;
 		this.password = password;

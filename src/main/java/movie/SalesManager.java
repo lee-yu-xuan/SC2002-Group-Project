@@ -1,5 +1,8 @@
+package src.main.java.movie;
+
 import java.util.ArrayList;
 import java.util.List;
+import src.main.java.helper.*;
 
 public class SalesManager
 {

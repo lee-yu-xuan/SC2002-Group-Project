@@ -1,4 +1,8 @@
+package src.main.java.movie;
+
 import java.time.LocalDateTime;
+import src.main.java.enums.*;
+import src.main.java.helper.*;
 
 public class ShowTime implements Comparable{
     private String movieID;

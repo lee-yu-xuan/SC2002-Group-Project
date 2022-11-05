@@ -1,9 +1,6 @@
-//yj
+package src.main.java.booking;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 

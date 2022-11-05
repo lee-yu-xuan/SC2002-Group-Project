@@ -1,3 +1,5 @@
+package src.main.java.booking;
+
 import java.time.LocalDateTime;
 
 public class SeatBooked {

@@ -1,8 +1,13 @@
+package src.main.java.movie;
+
 // Relation with Movie -> Deck and Card relationsip
 // MovieListing -> Deck
 // Movie -> Card
 import java.util.ArrayList;
 import java.util.List;
+
+import src.main.java.enums.ShowingStatus;
+import src.main.java.helper.*;
 
 public class MovieListing {
     private static List<Movie> movieList;

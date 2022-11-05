@@ -1,11 +1,15 @@
+package src.main.java.user;
+
 import java.util.*;
+import src.main.java.enums.*;
+import src.main.java.helper.*;
 
 // Purpose of Registration is to create a account and update particular to CSV in CSV folder.
-public class Registration extends constructUser {
+public class Registration extends ConstructUser {
 
     public List<String[]> loginParticularCSV;
 
-    public Registration(String name, String username, String password, userType usertype) {
+    public Registration(String name, String username, String password, UserType usertype) {
         this.name = name;
         this.username = username;
         this.password = password;

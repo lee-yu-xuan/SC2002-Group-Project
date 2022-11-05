@@ -1,5 +1,9 @@
+package src.main.java.movie;
+
 import java.time.LocalDateTime;
 import java.util.List;
+
+import src.main.java.enums.ShowingStatus;
 
 public class ShowTimeController {
     public static List<ShowTime> showTimeByShowTime(String movieID){

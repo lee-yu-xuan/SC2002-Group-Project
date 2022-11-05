@@ -1,3 +1,7 @@
+package src.main.java.user;
+
+import src.main.java.enums.*;
+
 public class ConstructUser
 {
 	// constructor

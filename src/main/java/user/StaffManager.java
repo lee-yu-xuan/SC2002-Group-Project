@@ -1,8 +1,13 @@
-//package oodp;
+package src.main.java.user;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import src.main.java.movie.*;
+import src.main.java.helper.*;
+import src.main.java.sysconfig.*;
+import src.main.java.enums.*;
 
 public class StaffManager {
 	private static List<Movie> movieList;

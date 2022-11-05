@@ -1,14 +1,15 @@
-import java.util.List;
-import java.util.*;
+package src.main.java.user;
+
+import src.main.java.enums.*;
 
 public class Staff extends ConstructUser
 { 
 	public Staff(String Name, String Username, String Password)
 	 {
-		 this.type = userType.STAFF;
-		 this.name = name;
-		 this.username = username;
-		 this.password = password;
+		 this.type = UserType.STAFF;
+		 this.name = Name;
+		 this.username = Username;
+		 this.password = Password;
 	 }
 	
 	public String getName() {
