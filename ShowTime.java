@@ -6,7 +6,6 @@ public class ShowTime implements Comparable{
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private ClassOfCinema classOfCinema;
-    private double price;
     
     public int compareTo(Object o){
         if(o == null){
@@ -26,22 +25,20 @@ public class ShowTime implements Comparable{
         }
     }
 
-    public ShowTime(String movieID, String cinemaID, LocalDateTime startTime, LocalDateTime endTime, ClassOfCinema classOfCinema, double price){
+    public ShowTime(String movieID, String cinemaID, LocalDateTime startTime, LocalDateTime endTime, ClassOfCinema classOfCinema){
         this.movieID = movieID;
         this.cinemaID = cinemaID;
         this.startTime = startTime;
         this.endTime = endTime;
         this.classOfCinema = classOfCinema;
-        this.price = Math.round(price * 100.0) / 100.0;
     }
 
-    public ShowTime(String movieID, String cinemaID, String startTime, String endTime, ClassOfCinema classOfCinema, double price){
+    public ShowTime(String movieID, String cinemaID, String startTime, String endTime, ClassOfCinema classOfCinema){
         this(movieID,
             cinemaID,
             LocalDateTime.parse(startTime,_DateTimeFormatter.formatter),
             LocalDateTime.parse(endTime,_DateTimeFormatter.formatter),
-            classOfCinema,
-            price);
+            classOfCinema);
     }
 
     public void setCinemaID(String cinemaID) {
@@ -72,11 +69,6 @@ public class ShowTime implements Comparable{
         this.classOfCinema = classOfCinema;
     }
 
-    public void setPrice(double price){
-        //double decimal place guard
-        this.price = Math.round(price * 100.0) / 100.0;
-    }
-
     public String getMovieID() {
         return movieID;
     }
@@ -95,9 +87,5 @@ public class ShowTime implements Comparable{
 
     public ClassOfCinema getClassOfCinema() {
         return classOfCinema;
-    }
-
-    public double getPrice() {
-        return price;
     }
 }

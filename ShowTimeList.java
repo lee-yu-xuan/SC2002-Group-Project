@@ -72,13 +72,11 @@ public class ShowTimeList {
             String startTime = showTimeCSV.get(i)[2];
             String endTime = showTimeCSV.get(i)[3];
             ClassOfCinema classOfCinema = ClassOfCinema.valueOf(showTimeCSV.get(i)[4]);
-            double price = Double.parseDouble(showTimeCSV.get(i)[5]);
             ShowTime showTime = new ShowTime(movieID, 
                                         cinemaID,
                                         LocalDateTime.parse(startTime,_DateTimeFormatter.formatter),
                                         LocalDateTime.parse(endTime,_DateTimeFormatter.formatter),
-                                        classOfCinema,
-                                        price);
+                                        classOfCinema);
             showTimeList.add(showTime);
         }
     }
@@ -101,9 +99,6 @@ public class ShowTimeList {
 
             ClassOfCinema classOfCinema = showTimeList.get(i).getClassOfCinema();
             tempTimeList.add(classOfCinema.toString());
-
-            double price = showTimeList.get(i).getPrice();
-            tempTimeList.add(String.format("%.2f",price));
 
             writeBackCSV.add(tempTimeList.toArray(new String[0]));
         }
