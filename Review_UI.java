@@ -21,7 +21,7 @@ public class Review_UI {
             if(rating < 0 && rating > 5){
                 System.out.println("Your rating has to be within 1 to 5!");
             }
-		}while (rating < 0 && rating > 5);
+		}while (rating < 0 || rating > 5);
         
         ReviewList.addRatingReview(movieID, review, rating);
     }
