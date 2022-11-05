@@ -28,6 +28,7 @@ public class User_UI {
                         System.out.println("Your seat number is: "+bookingHistory.get(i).getSeats());
                     }
                 }
+                User_UI.display_UI(userName);
                 //view booking history
                 //DisplayBookingHistory_UI.displayInformation();
                 break;

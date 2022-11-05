@@ -12,8 +12,8 @@ public class Cineplex {
     //constructor
     public Cineplex(String cineplexName, List<Cinema> cinemaList, List<Movie> movieList) {
         this.cineplexName = cineplexName;
-        cinemaList = CinemaController.getCinemaList();
-        movieList = new ArrayList<Movie>();
+        this.cinemaList = cinemaList;
+        this.movieList = movieList;
     }
 
     //getter
