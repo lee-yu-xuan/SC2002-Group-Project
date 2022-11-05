@@ -12,6 +12,17 @@ public class MovieListing {
         return movieList;
     }
 
+    public static List<Movie> getAvailableMovieList(){
+        List<Movie> tempList = new ArrayList<Movie>();
+        for(int i=0; i<movieList.size(); i++){
+            if( movieList.get(i).getShowingStatus() == ShowingStatus.PREVIEW ||
+            movieList.get(i).getShowingStatus() == ShowingStatus.NOW_SHOWING){
+                tempList.add(movieList.get(i));
+            }
+        }
+        return tempList;
+    }
+
     public static String getMovieName(String movieID){
         for(int i=0; i<movieList.size(); i++){
             if(movieList.get(i).getMovieID().equals(movieID)){
@@ -49,6 +60,14 @@ public class MovieListing {
         return -1;
     }
 
+    public static ShowingStatus getShowingStatus(String movieID){
+        int index = getMovieIndexByID(movieID);
+        if(index != -1){
+            return movieList.get(index).getShowingStatus();
+        }
+        return null;
+    }
+    
     public static void getMovieDetails(String movieID){
         int index = getMovieIndexByID(movieID);
         if(index != 1){
