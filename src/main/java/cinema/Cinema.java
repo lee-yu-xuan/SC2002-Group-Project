@@ -1,6 +1,6 @@
-//yj
+package src.main.java.cinema;
 
-import java.util.List;
+import src.main.java.enums.*;
 
 public class Cinema{
  

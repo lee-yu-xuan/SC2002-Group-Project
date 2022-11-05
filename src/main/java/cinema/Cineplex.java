@@ -1,7 +1,7 @@
-//yj
+package src.main.java.cinema;
 
-import java.util.ArrayList;
 import java.util.List;
+import src.main.java.movie.*;
 
 public class Cineplex {
     //input attributes

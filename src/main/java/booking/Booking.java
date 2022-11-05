@@ -73,7 +73,7 @@ public class Booking {
 
 	public void setDateTime(LocalDateTime date)
 	{
-		this.dateTime = dateTime;
+		this.dateTime = date;
 	}
 	
 	public String getTicketID()

@@ -1,7 +1,9 @@
-//yj
+package src.main.java.cinema;
 
 import java.util.ArrayList;
 import java.util.List;
+import src.main.java.enums.*;
+import src.main.java.helper.*;
 
 
 public class CinemaController {
