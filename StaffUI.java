@@ -34,7 +34,7 @@ public class StaffUI {
 				break;
 				case 7: StaffManager.editSysCon();
 				break;
-				default: System.out.println("Wrong choice");
+				default: System.out.println("Invalid choice");
 			}
 		}while( no > 0 && no < 7);
 		

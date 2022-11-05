@@ -473,4 +473,67 @@ public class StaffManager {
 		 		default: System.out.println("Wrong options");
 		 }	 
 	 }
+
+	 public static void editSysCon() {
+		int no = 0, i, plat, gold, silv;
+		double price;
+		String start, end;
+		String[] classW;
+		try {
+			System.out.println("Please choose one of the options:");
+			System.out.println("1) Print public holidays");
+			System.out.println("2) Remove prublic holidays");
+			System.out.println("3) Add public holidays");
+			System.out.println("4) Set base price");
+			System.out.println("5) Get base price");
+			System.out.println("6) get class weight");
+			System.out.println("7) set class weight");
+
+			no = scan.nextInt();
+
+			switch (no) {
+
+				case 1:
+					SystemConfig.printHolidayList();
+					break;
+				case 2:
+					SystemConfig.removeHolidays();
+					break;
+				case 3:
+					System.out.println("Enter holiday start and end (yyyy-MM-dd yyyy-MM-dd):");
+					start = scan.next();
+					end = scan.next();
+					SystemConfig.addHoliday(start, end);
+					break;
+				case 4:
+					price = scan.nextDouble();
+					SystemConfig.setBasePrice(price);
+					break;
+				case 5:
+					price = SystemConfig.getBasePrice();
+					System.out.println("base price: " + price);
+					break;
+				case 6:
+					classW = SystemConfig.getClassWeight();
+					for (i = 0; i < classW.length; i += 2) {
+						System.out.print(classW[i] + ": " + classW[i + 1]);
+					}
+					break;
+				case 7:
+					System.out.println("Enter int multiplier for respective Cinema class");
+					System.out.print("Platinum: ");
+					plat = scan.nextInt();
+					System.out.print("Gold: ");
+					gold = scan.nextInt();
+					System.out.print("Silver: ");
+					silv = scan.nextInt();
+					SystemConfig.setClassWeight(plat, gold, silv);
+					break;
+				default:
+					System.out.println("error404");
+			}
+		} catch (Exception e) {
+			System.out.println("error " + e.getMessage());
+		}
+	}
 }
