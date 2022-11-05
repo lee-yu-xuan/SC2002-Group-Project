@@ -13,71 +13,69 @@ public class MovieListing {
     private static List<Movie> movieList;
     private static List<String[]> movieCSV;
 
-    public static List<Movie> getMovieList(){
+    public static List<Movie> getMovieList() {
         return movieList;
     }
 
-    public static List<Movie> getAvailableMovieList(){
+    public static List<Movie> getAvailableMovieList() {
         List<Movie> tempList = new ArrayList<Movie>();
-        for(int i=0; i<movieList.size(); i++){
-            if( movieList.get(i).getShowingStatus() == ShowingStatus.PREVIEW ||
-            movieList.get(i).getShowingStatus() == ShowingStatus.NOW_SHOWING){
+        for (int i = 0; i < movieList.size(); i++) {
+            if (movieList.get(i).getShowingStatus() == ShowingStatus.PREVIEW ||
+                    movieList.get(i).getShowingStatus() == ShowingStatus.NOW_SHOWING) {
                 tempList.add(movieList.get(i));
             }
         }
         return tempList;
     }
 
-    
-
-    public static String getMovieName(String movieID){
-        for(int i=0; i<movieList.size(); i++){
-            if(movieList.get(i).getMovieID().equals(movieID)){
+    public static String getMovieName(String movieID) {
+        for (int i = 0; i < movieList.size(); i++) {
+            if (movieList.get(i).getMovieID().equals(movieID)) {
                 return movieList.get(i).getMovieTitle();
             }
         }
         return "Movie not found";
     }
 
-    public static void add(Movie movie){
-        if(movieList == null){
-            //System.out.println("The movieList is empty");
+    public static void add(Movie movie) {
+        if (movieList == null) {
+            // System.out.println("The movieList is empty");
             movieList = new ArrayList<Movie>();
         }
         movieList.add(movie);
     }
 
-    public static int getMovieIndexByTitle(String movieTitle){ 
-        for(int i = 0;i<movieList.size();i++){ 
-            if(movieTitle.equalsIgnoreCase(movieList.get(i).getMovieTitle())){ 
-                return i; 
-            } 
-        } 
-        //movieTitle not found 
-        return -1; 
-    }
-
-    public static int getMovieIndexByID(String movieID){
-        for(int i = 0;i<movieList.size();i++){
-            if(movieID.equals(movieList.get(i).getMovieID())){
+    public static int getMovieIndexByTitle(String movieTitle) {
+        for (int i = 0; i < movieList.size(); i++) {
+            if (movieTitle.equalsIgnoreCase(movieList.get(i).getMovieTitle())) {
                 return i;
             }
         }
-        //movieID not found
+        // movieTitle not found
         return -1;
     }
 
-    public static ShowingStatus getShowingStatus(String movieID){
+    public static int getMovieIndexByID(String movieID) {
+        for (int i = 0; i < movieList.size(); i++) {
+            if (movieID.equals(movieList.get(i).getMovieID())) {
+                return i;
+            }
+        }
+        // movieID not found
+        return -1;
+    }
+
+    public static ShowingStatus getShowingStatus(String movieID) {
         int index = getMovieIndexByID(movieID);
-        if(index != -1){
+        if (index != -1) {
             return movieList.get(index).getShowingStatus();
         }
         return null;
     }
-    
-    public static void getMovieDetails(String movieID){
+
+    public static void getMovieDetails(String movieID) {
         int index = getMovieIndexByID(movieID);
-        if(index != 1){
+        if (index != 1) {
             Movie movie = movieList.get(index);
 
             System.out.println(movie.getMovieTitle());
@@ -89,53 +87,57 @@ public class MovieListing {
         }
     }
 
-    public static int deleteByName(String title){
-        for(int i = 0;i< movieList.size();i++){
-            if(movieList.get(i).getMovieTitle() == title){
-                movieList.remove(i); //title found
+    public static int deleteByName(String title) {
+        for (int i = 0; i < movieList.size(); i++) {
+            if (movieList.get(i).getMovieTitle() == title) {
+                movieList.remove(i); // title found
                 return 1;
             }
         }
-        return 0; //unable to find title
+        return 0; // unable to find title
     }
 
-    public static String getMovieID(String title){
-        for(int i = 0;i< movieList.size();i++){
-            if(movieList.get(i).getMovieTitle().equals(title)){
-                return movieList.get(i).getMovieID(); //title found
+    public static String getMovieID(String title) {
+        for (int i = 0; i < movieList.size(); i++) {
+            if (movieList.get(i).getMovieTitle().equals(title)) {
+                return movieList.get(i).getMovieID(); // title found
             }
         }
-        return null; //unable to find title
+        return null; // unable to find title
     }
 
-    public static String getAvailableMovieID(String title){
+    public static String getAvailableMovieID(String title) {
         List<Movie> tempList = getAvailableMovieList();
-        for(int i = 0;i< tempList.size();i++){
-            if(tempList.get(i).getMovieTitle().equals(title)){
-                return tempList.get(i).getMovieID(); //title found
+        for (int i = 0; i < tempList.size(); i++) {
+            if (tempList.get(i).getMovieTitle().equals(title)) {
+                return tempList.get(i).getMovieID(); // title found
             }
         }
-        return null; 
+        return null;
     }
 
-    public static int deleteByID(String id){
-        for(int i = 0;i< movieList.size();i++){
-            if(movieList.get(i).getMovieID() == id){
-                movieList.remove(i); //id found
+    public static int deleteByID(String id) {
+        for (int i = 0; i < movieList.size(); i++) {
+            if (movieList.get(i).getMovieID() == id) {
+                movieList.remove(i); // id found
                 return 1;
             }
         }
-        return 0; //unable to find id
+        return 0; // unable to find id
     }
-    public static void load(){
-        if(movieList == null){
-            //System.out.println("The movieList is empty");
-            movieList = new ArrayList<Movie>();
+
+    public static void load() {
+        try {
+            if (movieList == null) {
+                // System.out.println("The movieList is empty");
+                movieList = new ArrayList<Movie>();
+            }
+
+            movieCSV = File_IO.readFile("movieList");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-
-        movieCSV = File_IO.readFile("movieList");
-
-        for(int i =0;i<movieCSV.size();i++){
+        for (int i = 0; i < movieCSV.size(); i++) {
             String movieTitle = movieCSV.get(i)[0];
             ShowingStatus showingStatus = ShowingStatus.valueOf(movieCSV.get(i)[1]);
             String synopsis = movieCSV.get(i)[2];
@@ -144,14 +146,14 @@ public class MovieListing {
             String cast = movieCSV.get(i)[5];
             String rating = movieCSV.get(i)[6];
             String movieID = movieCSV.get(i)[7];
-            movieList.add(new Movie(movieTitle, showingStatus,synopsis, type, director, cast, rating, movieID));
+            movieList.add(new Movie(movieTitle, showingStatus, synopsis, type, director, cast, rating, movieID));
         }
     }
 
-    public static void save(){
+    public static void save() {
         List<String[]> tempCSV = new ArrayList<String[]>();
-        
-        for(int i =0;i<movieList.size();i++){
+
+        for (int i = 0; i < movieList.size(); i++) {
             String[] temp = new String[8];
             temp[0] = movieList.get(i).getMovieTitle();
             temp[1] = movieList.get(i).getShowingStatus().toString();

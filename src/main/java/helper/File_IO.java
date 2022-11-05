@@ -6,14 +6,17 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
-import com.opencsv.*;
+//import java.nio.file.*;
+
+import com.opencsv.CSVWriter;
 
 //to update the seatTaken, can concatenate to the String then update the line
 public class File_IO {
 
     public static List<String[]> readFile(String pathName) {
 
-        String path = "../csv/" + pathName + ".csv";
+        //String cwd = Path.of("").toAbsolutePath().toString();
+        String path = "src/main/java/csv/" + pathName + ".csv";
         String line = "";
         List<String[]> twoDlist = new ArrayList<String[]>();
 
@@ -35,7 +38,7 @@ public class File_IO {
     }
 
     public static void writeFile(List<String[]> twoDList, String pathName) {
-        String path = "csv/" + pathName + ".csv";
+        String path = "src/main/java/csv/" + pathName + ".csv";
         File file = new File(path);
 
         try {

@@ -20,6 +20,7 @@ public class StaffUI {
 			System.out.println("5) Add ShowTime");
 			System.out.println("6) Remove ShowTime");
 			System.out.println("7) Edit System Configuration");
+			System.out.println("8) Log out of staff account");
 			no=sc.nextInt();
 			switch(no) {
 				case 1: StaffManager.addMovie();
@@ -36,7 +37,7 @@ public class StaffUI {
 				break;
 				case 7: StaffManager.editSysCon();
 				break;
-				default: System.out.println("Invalid choice");
+				default: System.out.println("Logging out of Staff account ...");
 			}
 		}while( no > 0 && no < 8);
 		
