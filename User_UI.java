@@ -8,10 +8,11 @@ public class User_UI {
     int choice;
     do{
         System.out.println("\n");
-        System.out.println("---Welcome to MOVIETICKETING SYSTEM---");
+        System.out.println("---Welcome to Our User application---");
         System.out.println("1. List the Movies");
         System.out.println("2. View Booking History");
         System.out.println("3. Exit");
+        System.out.println("-------------------------------------");
         Scanner sc = new Scanner(System.in);
         choice = sc.nextInt();
 
