@@ -1,5 +1,8 @@
+package src.main.java.ui;
+
 import java.util.List;
 import java.util.Scanner;
+import src.main.java.movie.*;
 
 public class DisplayMovieBooking_UI {
     public static void displayInformation(String userName) {

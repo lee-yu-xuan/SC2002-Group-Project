@@ -1,9 +1,11 @@
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Scanner;
+package src.main.java.ui;
 
-public class main_UI {
+import java.util.Scanner;
+import src.main.java.movie.*;
+import src.main.java.booking.*;
+import src.main.java.sysconfig.*;
+
+public class Main_UI {
 
     public static void loadAllClass() {
         MovieListing.load();

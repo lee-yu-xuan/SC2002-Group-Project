@@ -1,4 +1,8 @@
+package src.main.java.ui;
+
 import java.util.Scanner;
+import src.main.java.payment.*;
+import src.main.java.booking.*;
 
 public class Payment_UI {
     public static double display_UI(String userName, String ticketID){

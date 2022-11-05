@@ -1,6 +1,8 @@
+package src.main.java.ui;
 
-//Lester
 import java.util.*;
+import src.main.java.user.*;
+import src.main.java.helper.*;
 
 //input login interface for startup for the program
 public class LoginUI {

@@ -1,3 +1,5 @@
+package src.main.java.payment;
+
 import java.util.Scanner;
 
 public class PaymentPayLah implements PaymentMethodInterface{

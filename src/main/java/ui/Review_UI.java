@@ -1,4 +1,7 @@
+package src.main.java.ui;
+
 import java.util.Scanner;
+import src.main.java.movie.*;
 
 public class Review_UI {
     public static void display_UI(String movieID){

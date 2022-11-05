@@ -1,6 +1,15 @@
+package src.main.java.ui;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
+import src.main.java.movie.*;
+import src.main.java.booking.*;
+import src.main.java.enums.*;
+import src.main.java.sysconfig.*;
+ 
+
+
 
 public class BuyTicket_UI {
     public static void purchaseTicket(String movieID, String userName){

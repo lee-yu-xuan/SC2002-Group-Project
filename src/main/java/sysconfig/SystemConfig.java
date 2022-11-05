@@ -1,5 +1,8 @@
+package src.main.java.sysconfig;
+
 import java.util.*;
 import java.util.ArrayList;
+import src.main.java.enums.*;
 
 public class SystemConfig {
 	List<String[]> days = new ArrayList<>();

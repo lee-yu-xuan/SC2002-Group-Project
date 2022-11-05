@@ -1,5 +1,10 @@
+package src.main.java.ui;
+
 import java.util.List;
 import java.util.Scanner;
+import src.main.java.booking.*;
+import src.main.java.movie.*;
+
 public class User_UI {
     public static void display_UI(String userName){
     //display all options

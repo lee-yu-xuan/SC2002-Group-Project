@@ -1,13 +1,14 @@
 package src.main.java.helper;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
+import src.main.java.ui.*;
+import src.main.java.movie.*;
+import src.main.java.enums.*;
 
 public class Tester {
     public static void main(String[] args) {//refreshFunctionTest
-        main_UI.loadAllClass();
+        Main_UI.loadAllClass();
         ShowTimeController.refresh();
         List<Movie> movieList = MovieListing.getMovieList();
         for(int i =0;i<movieList.size();i++){
