@@ -54,7 +54,6 @@ public class main_UI {
                     LoginUI test = new LoginUI();
                     // 1 - MOVIEGOER, 0 - STAFF
                     String[] userStringArr = test.UI();
-                    System.out.println(userStringArr);
 
                     if (userStringArr[3].equals("MOVIEGOER")) {
                         userName = userStringArr[0];
