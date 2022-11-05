@@ -17,6 +17,7 @@ public class StaffUI {
 			System.out.println("4) List top 5 movie");
 			System.out.println("5) Add ShowTime");
 			System.out.println("6) Remove ShowTime");
+			System.out.println("7) Edit System Configuration");
 			no=sc.nextInt();
 			switch(no) {
 				case 1: StaffManager.addMovie();
@@ -30,6 +31,8 @@ public class StaffUI {
 				case 5: StaffManager.addShowTimes();
 				break;
 				case 6: StaffManager.removeShowTimes();
+				break;
+				case 7: StaffManager.editSysCon();
 				break;
 				default: System.out.println("Wrong choice");
 			}

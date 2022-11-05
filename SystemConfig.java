@@ -5,13 +5,6 @@ public class SystemConfig {
 	List<String[]> days = new ArrayList<>();
     // constructor
     public SystemConfig(){}
-
-    // in yyyy-MM-dd;
-	/*
-	 * public void Add(String date){ String start = date + " 00:00"; String end =
-	 * date + " 23:59"; String[] day = new String[2]; System.out.println(start +
-	 * "\\" + end); day[0] = start; day[1] = end; days.add(day); }
-	 */
     
     public static void printHolidayList(){
         Holiday.printHoliday();

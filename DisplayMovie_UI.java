@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class DisplayMovie_UI {
     public static void displayInformation(String userName) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("\n\n");
+        System.out.println("\n");
         System.out.println("1. List top 5 movies by sales");
         System.out.println("2. List top 5 movies by rating");
         System.out.println("3. Search by movie title");
@@ -66,8 +66,9 @@ public class DisplayMovie_UI {
     public static String listBySales(){
         //list top 5 movies by sales
         List<Movie> movieList = MovieController.showMovieByTicketSales();
+        System.out.print( "\n\n\n" );
         for(int i = 0;i<movieList.size();i++){
-            System.out.println(i+". "+movieList.get(i).getMovieTitle());
+            System.out.println((i+1) + ". "+movieList.get(i).getMovieTitle());
         }
 
         //select movie
@@ -81,8 +82,9 @@ public class DisplayMovie_UI {
     public static String listByRating(){
         //list top 5 movies by rating
         List<Movie> movieList = MovieController.showMovieByRating();
+        System.out.print( "\n\n\n" );
         for(int i = 0;i<movieList.size();i++){
-            System.out.println(i+". "+movieList.get(i).getMovieTitle());
+            System.out.println((i+1) +". "+movieList.get(i).getMovieTitle());
         }
 
         //select movie

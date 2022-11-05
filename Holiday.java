@@ -17,7 +17,6 @@ public class Holiday {
 		start = Start + " 00:00";
 		end = End + " 23:59";
 		String[] day = new String[2];
-		System.out.println(start + "\\" + end);
 		day[0] = start;
 		day[1] = end;
 		days.add(day);
@@ -36,7 +35,7 @@ public class Holiday {
 			if (hol.length != 2)
 				continue;
 			System.out.print("Start of Holiday: " + hol[0]);
-			System.out.println("End of Holiday: " + hol[1]);
+			System.out.println(" End of Holiday: " + hol[1]);
 		}
 	}
 
@@ -50,7 +49,7 @@ public class Holiday {
 		}return false;
 	}
 
-	public static void updateCSV() {
+	public static void save() {
 		File_IO.writeFile(days, "PublicHoliday");
 	}
 

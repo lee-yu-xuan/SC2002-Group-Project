@@ -12,6 +12,7 @@ public class main_UI {
         SeatBooked_Controller.load();
         MovieTicketController.load();
         SalesManager.load();
+        Holiday.loadHoliday();
     }
 
     public static void saveAllClass() {
@@ -21,6 +22,7 @@ public class main_UI {
         SeatBooked_Controller.save();
         MovieTicketController.save();
         SalesManager.save();
+        Holiday.save();
     }
 
     public static void main(String[] args) {
