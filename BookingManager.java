@@ -1,4 +1,5 @@
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,6 +7,37 @@ public class BookingManager {
 	private static List<Booking> bookingHistory;
 	private static List<String[]> bookingHistoryCSV;
 	
+	public static List<Booking> showUpcomingBooking(){
+		bookingHistory = BookingManager.getBookingHistory();
+		//get current dateTime
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		List<Booking> upcomingBooking = new ArrayList<Booking>();
+		int existUpComingBooking = 0;
+		for(int i=0; i<bookingHistory.size(); i++){
+			if(bookingHistory.get(i).getDateTime().isAfter(currentDateTime)){
+				upcomingBooking.add(bookingHistory.get(i));
+				existUpComingBooking = 1;
+			}
+		}
+		if(existUpComingBooking==0) return null;
+		return upcomingBooking;
+	}
+
+	public static List<Booking> showPastBooking(){
+		bookingHistory = BookingManager.getBookingHistory();
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		List<Booking> upcomingBooking = new ArrayList<Booking>();
+		int existUpComingBooking = 0;
+		for(int i=0; i<bookingHistory.size(); i++){
+			if(bookingHistory.get(i).getDateTime().isBefore(currentDateTime)){
+				upcomingBooking.add(bookingHistory.get(i));
+				existUpComingBooking = 1;
+			}
+		}
+		if(existUpComingBooking==0) return null;
+		return upcomingBooking;
+	}
+
 	public static List<Booking> getBookingHistory()
 	{
 		if(bookingHistory==null){
@@ -39,20 +71,13 @@ public class BookingManager {
 	
 	public static void load(String name)
 	{
-		/*
-		 * if(bookingHistory == null)
-		{
-			//System.out.println("Booking history is empty");
-			bookingHistory = new ArrayList<Booking>();			
-		}
-		 */
 		
-		
-		if(bookingHistory==null) {
-			System.out.println("You have not done any booking yet");
+		bookingHistory = new ArrayList<Booking>();	
+		bookingHistoryCSV = File_IO.readFile("BookingHistory/"+name);
+		if(bookingHistoryCSV==null) {
+			//System.out.println("You have not done any booking yet");
 			return;
 		}
-		bookingHistoryCSV = File_IO.readFile("BookingHistory/"+name);
 		
 		for(int i=0 ; i<bookingHistoryCSV.size(); i++)
 		{
@@ -63,7 +88,8 @@ public class BookingManager {
 			String pax = bookingHistoryCSV.get(i)[4];;
 			String seats = bookingHistoryCSV.get(i)[5];
 			String cost = bookingHistoryCSV.get(i)[6];
-			bookingHistory.add(new Booking(ticketID, user_name, movieName, cinema, pax, seats, cost));
+			String dateTime = bookingHistoryCSV.get(i)[7];
+			bookingHistory.add(new Booking(ticketID, user_name, movieName, cinema, pax, seats, cost, LocalDateTime.parse(dateTime,_DateTimeFormatter.formatter)));
 		}
 	}
 	
@@ -73,7 +99,7 @@ public class BookingManager {
 		
 		for(int i=0 ; i<bookingHistory.size() ; i++)
 		{
-			String[] temp = new String[7];
+			String[] temp = new String[8];
 			temp[0] = bookingHistory.get(i).getTicketID();
 			temp[1] = bookingHistory.get(i).getName();
 			temp[2] = bookingHistory.get(i).getmovieID();
@@ -81,6 +107,8 @@ public class BookingManager {
 			temp[4] = bookingHistory.get(i).getPax();
 			temp[5] = bookingHistory.get(i).getSeats();
 			temp[6] = bookingHistory.get(i).getCost();
+			LocalDateTime dateTime = bookingHistory.get(i).getDateTime();
+			temp[7] = dateTime.format(_DateTimeFormatter.formatter);
 			tempCSV.add(temp);
 		}
 		File_IO.writeFile(tempCSV, "BookingHistory/"+name);

@@ -1,4 +1,4 @@
-
+import java.time.LocalDateTime;
 
 public class Booking {
 	private String ticketID;
@@ -8,6 +8,7 @@ public class Booking {
 	private String pax;
 	private String seats;
 	private String cost;
+	private LocalDateTime dateTime;
 	
 	public Booking()
 	{
@@ -18,9 +19,10 @@ public class Booking {
 		this.pax = "";
 		this.seats = "";
 		this.cost = "";
+		this.dateTime = LocalDateTime.now();
 	}
 	
-	public Booking(String ticketID, String name, String movieID, String cinema, String pax, String seats, String cost)
+	public Booking(String ticketID, String name, String movieID, String cinema, String pax, String seats, String cost, LocalDateTime dateTime)
 	{
 		this.ticketID = ticketID;
 		this.name = name;
@@ -29,6 +31,7 @@ public class Booking {
 		this.pax = pax;
 		this.seats = seats;
 		this.cost = cost;
+		this.dateTime = dateTime;
 	}
 	
 	public void setticketID(String ticketID)
@@ -65,6 +68,11 @@ public class Booking {
 	{
 		this.cost = cost;
 	}
+
+	public void setDateTime(LocalDateTime date)
+	{
+		this.dateTime = dateTime;
+	}
 	
 	public String getTicketID()
 	{
@@ -99,5 +107,10 @@ public class Booking {
 	public String getCost()
 	{
 		return cost;
+	}
+
+	public LocalDateTime getDateTime()
+	{
+		return dateTime;
 	}
 }

@@ -59,6 +59,9 @@ public class main_UI {
 
                     if (userStringArr[3].equals("MOVIEGOER")) {
                         userName = userStringArr[0];
+
+                        //check if BookingHistory csv exist for this user
+
                         BookingManager.load(userName);
                         User_UI.display_UI(userName);
                         BookingManager.save(userName);
