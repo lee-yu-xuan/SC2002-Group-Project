@@ -14,6 +14,24 @@ public class ShowTimeController {
 
         for(int i = 0;i<showTime.size();i++){
 
+            int diff = now.compareTo(showTime.get(i).getStartTime());
+
+            if(diff > 0){ // current Time already past start Time
+                String currentMovieID = showTime.get(i).getMovieID();
+                
+                if(ShowTimeList.getShowTimeByID(currentMovieID).size() != 0){
+                    int index = MovieListing.getMovieIndexByID(currentMovieID);
+                    if(index != -1){
+                        MovieListing.getMovieList().get(index).setStatus(ShowingStatus.NOW_SHOWING);
+                    }
+                }
+                //debug message 
+                //System.out.println("This show is over.");
+            }
+        }
+
+        for(int i = 0;i<showTime.size();i++){
+
             int diff = now.compareTo(showTime.get(i).getEndTime());
 
             if(diff > 0){ // current Time already past End Time
@@ -30,11 +48,10 @@ public class ShowTimeController {
 
                 //debug message 
                 //System.out.println("This show is over.");
-            }else{
-                //debug message
-                //System.out.println("Show haven't started.");
             }
         }
+
+        
     }
 }
 

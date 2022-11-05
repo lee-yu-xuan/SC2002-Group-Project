@@ -41,7 +41,7 @@ public class MovieListing {
 
     public static int getMovieIndexByID(String movieID){
         for(int i = 0;i<movieList.size();i++){
-            if(movieID == movieList.get(i).getMovieID()){
+            if(movieID.equals(movieList.get(i).getMovieID())){
                 return i;
             }
         }
@@ -53,7 +53,7 @@ public class MovieListing {
         int index = getMovieIndexByID(movieID);
         if(index != 1){
             Movie movie = movieList.get(index);
-            
+
             System.out.println(movie.getMovieTitle());
             System.out.println(movie.getSynopsis());
             System.out.println(movie.getType());
@@ -108,7 +108,7 @@ public class MovieListing {
             String cast = movieCSV.get(i)[5];
             String rating = movieCSV.get(i)[6];
             String movieID = movieCSV.get(i)[7];
-            movieList.add(new Movie(movieTitle, synopsis, type, director, cast, rating, movieID));
+            movieList.add(new Movie(movieTitle, showingStatus,synopsis, type, director, cast, rating, movieID));
         }
     }
 

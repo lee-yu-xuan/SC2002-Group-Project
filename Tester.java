@@ -4,7 +4,18 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Tester {
-    public static void main(String[] args) {
+    public static void main(String[] args) {//refreshFunctionTest
+        main_UI.loadAllClass();
+        ShowTimeController.refresh();
+        List<Movie> movieList = MovieListing.getMovieList();
+        for(int i =0;i<movieList.size();i++){
+            System.out.println(movieList.get(i).getMovieID());
+            System.out.println(movieList.get(i).getMovieTitle());
+            System.out.println(movieList.get(i).getShowingStatus());
+        }
+    }
+
+    public static void SalesManagerRead(String[] args) {
         SalesManager.load();
         for(int i =0;i<SalesManager.getSalesList().size();i++){
             System.out.println(SalesManager.getSalesList().get(i).getMovieID());
@@ -24,7 +35,7 @@ public class Tester {
         SalesManager.save();
     }
     public static void PaymentUItest(String[] args) {
-        Payment_UI.display_UI();    
+        //Payment_UI.display_UI();    
     }
 
     public static void RefreshTesting(String[] args) {
@@ -42,7 +53,6 @@ public class Tester {
             System.out.println(timeList.get(j).getStartTime());
             System.out.println(timeList.get(j).getEndTime());
             System.out.println(timeList.get(j).getClassOfCinema());
-            System.out.println(timeList.get(j).getPrice());
         }
     }
     
@@ -53,7 +63,6 @@ public class Tester {
             System.out.println(ShowTimeList.getShowTimeList().get(j).getStartTime());
             System.out.println(ShowTimeList.getShowTimeList().get(j).getEndTime());
             System.out.println(ShowTimeList.getShowTimeList().get(j).getClassOfCinema());
-            System.out.println(ShowTimeList.getShowTimeList().get(j).getPrice());
         }
     }
     public static void ShowTimeWriteTest(String[] args) {
@@ -78,10 +87,7 @@ public class Tester {
             System.out.println("Enter classOfCinema");
             ClassOfCinema classOfCinema = ClassOfCinema.valueOf(sc.nextLine());
 
-            System.out.println("Enter price");
-            double price = sc.nextDouble();
-
-            ShowTimeList.add(new ShowTime(movieID, cinemaID,startTime, endTime, classOfCinema, price));
+            ShowTimeList.add(new ShowTime(movieID, cinemaID,startTime, endTime, classOfCinema));
         }
         for(int j = 0;j < ShowTimeList.getShowTimeList().size();j++){
             System.out.println(ShowTimeList.getShowTimeList().get(j).getMovieID());
@@ -89,7 +95,6 @@ public class Tester {
             System.out.println(ShowTimeList.getShowTimeList().get(j).getStartTime());
             System.out.println(ShowTimeList.getShowTimeList().get(j).getEndTime());
             System.out.println(ShowTimeList.getShowTimeList().get(j).getClassOfCinema());
-            System.out.println(ShowTimeList.getShowTimeList().get(j).getPrice());
         }
         ShowTimeList.save();
     }

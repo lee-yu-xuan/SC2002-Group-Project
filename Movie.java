@@ -16,7 +16,7 @@ public class Movie{
 
     public Movie(String movieTitle, String synopsis, String type,String director, String cast, String rating,String movieID){
         this.movieTitle = movieTitle;
-        this.showingStatus = ShowingStatus.COMING_SOON;
+        //this.showingStatus = ShowingStatus.COMING_SOON;
         this.synopsis = synopsis;
         this.type = type;
         this.director = director;
@@ -24,8 +24,15 @@ public class Movie{
         this.rating = rating;
         this.movieID = movieID;
     }
-
-    public Movie(){
+    public Movie(String movieTitle, ShowingStatus showingStatus, String synopsis, String type,String director, String cast, String rating,String movieID){
+        this.movieTitle = movieTitle;
+        this.showingStatus = showingStatus;
+        this.synopsis = synopsis;
+        this.type = type;
+        this.director = director;
+        this.cast = cast;
+        this.rating = rating;
+        this.movieID = movieID;
     }
 
     public void setTitle(String movieTitle){

@@ -303,7 +303,6 @@ public class StaffManager {
 			String startTime="";
 			String endTime="";
 			String classOfCinema="";
-			String price = "";
 			int x=0;
 			
 			do {
@@ -378,22 +377,8 @@ public class StaffManager {
 				 }
 				}while (classOfCinema.isEmpty());
 			
-			do {
-				System.out.println("Enter the price: ");
-				 try {
-					 price = scan.nextLine();
-					 Double.valueOf(price);
-					 x=0;
-				 }
-				 catch(NumberFormatException nfe) {
-					 System.out.println("Please enter in string!");
-					 System.out.println();
-					 x=1;
-				 }
-				}while (price.isEmpty()||x==1);
 			ClassOfCinema CC = ClassOfCinema.valueOf(classOfCinema);
-			double P = Double.valueOf(price);
-			ShowTime ST = new ShowTime(movieID, cinemaID, startTime, endTime, CC, P);
+			ShowTime ST = new ShowTime(movieID, cinemaID, startTime, endTime, CC);
 			ShowTimeList.add(ST);
 	 }
 	 public static void removeShowTimes() {
@@ -424,7 +409,6 @@ public class StaffManager {
 				String startTime="";
 				String endTime="";
 				String classOfCinema="";
-				String price = "";
 				int x=0;
 				System.out.println("Enter the ID of the Movie: ");
 				
