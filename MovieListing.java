@@ -23,6 +23,8 @@ public class MovieListing {
         return tempList;
     }
 
+    
+
     public static String getMovieName(String movieID){
         for(int i=0; i<movieList.size(); i++){
             if(movieList.get(i).getMovieID().equals(movieID)){
@@ -99,6 +101,16 @@ public class MovieListing {
             }
         }
         return null; //unable to find title
+    }
+
+    public static String getAvailableMovieID(String title){
+        List<Movie> tempList = getAvailableMovieList();
+        for(int i = 0;i< tempList.size();i++){
+            if(tempList.get(i).getMovieTitle().equals(title)){
+                return tempList.get(i).getMovieID(); //title found
+            }
+        }
+        return null; 
     }
 
     public static int deleteByID(String id){

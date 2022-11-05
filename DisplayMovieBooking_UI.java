@@ -38,36 +38,12 @@ public class DisplayMovieBooking_UI {
                     break;
             }
         }
-
-        
-        System.out.println("1. View movie details");
-        System.out.println("2. Add ratings and reviews");
-        System.out.println("3. Book tickets");
-
-        int choice2 = sc.nextInt();
-
-        switch (choice2) {
-            case 1:
-                //view movie details
-                MovieListing.getMovieDetails(movieID);
-                break;
-            case 2:
-                //add ratings and reviews
-                Review_UI.display_UI(movieID);
-                break;
-            case 3:
-                //book tickets
-                BuyTicket_UI.purchaseTicket(movieID, userName);
-                break;
-            default:
-                System.out.println("Invalid choice");
-                break;
-        }
+        BuyTicket_UI.purchaseTicket(movieID, userName);
     }
 
     public static String listBySales(){
         //list top 5 movies by sales
-        List<Movie> movieList = MovieController.showAvailableMovieByTicketSales();
+        List<Movie> movieList = MovieController.showMovieByTicketSales();
         for(int i = 0;i<movieList.size();i++){
             System.out.println(i+". "+movieList.get(i).getMovieTitle());
         }
@@ -82,7 +58,7 @@ public class DisplayMovieBooking_UI {
 
     public static String listByRating(){
         //list top 5 movies by rating
-        List<Movie> movieList = MovieController.showAvailableMovieByRating();
+        List<Movie> movieList = MovieController.showMovieByRating();
         for(int i = 0;i<movieList.size();i++){
             System.out.println(i+". "+movieList.get(i).getMovieTitle());
         }
