@@ -13,13 +13,14 @@ public class DisplayMovie_UI {
         String movieID = "";
 
         if(choice==3){
-            try (Scanner stringScanner = new Scanner(System.in).useDelimiter("\n")) {
+                Scanner stringScanner = new Scanner(System.in).useDelimiter("\n");
                 System.out.println("Enter movie title: ");
-                String movieTitle = stringScanner.next();
+                String movieTitle = stringScanner.nextLine();
                 movieID = MovieListing.getMovieID(movieTitle);
-            }
+            
             if(movieID == null){
                 System.out.println("Movie not found");
+                return;
             }
         }
         else{
