@@ -1,3 +1,5 @@
+package src.main.java.user;
+
 public class Hash {
 
     // constructor

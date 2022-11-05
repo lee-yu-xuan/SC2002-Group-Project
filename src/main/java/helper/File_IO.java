@@ -13,7 +13,7 @@ public class File_IO {
 
     public static List<String[]> readFile(String pathName) {
 
-        String path = "csv/" + pathName + ".csv";
+        String path = "../csv/" + pathName + ".csv";
         String line = "";
         List<String[]> twoDlist = new ArrayList<String[]>();
 
