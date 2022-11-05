@@ -20,7 +20,7 @@ public class RegistrationUI {
         type = sc.next().charAt(0);
 
         Registration reg = new Registration(name, username, password,
-                (type == 'y') ? userType.MOVIEGOER : userType.STAFF);
+                (type == 'y') ? UserType.MOVIEGOER : UserType.STAFF);
         reg.Register();
     }
 }
