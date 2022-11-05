@@ -6,7 +6,7 @@ public class SystemConfigController {
 
     public SystemConfigController(){}
 
-    public static void loadSystemCon(){
+    public static void load(){
         syscon = File_IO.readFile("SystemConfig");
     }
 
@@ -29,14 +29,14 @@ public class SystemConfigController {
     }
 
     public static int getClassMulti(String x){
-        loadSystemCon();
+        load();
         if (x.equals(syscon.get(1)[0])) return Integer.valueOf(syscon.get(1)[1]);
         else if (x.equals(syscon.get(1)[2])) return Integer.valueOf(syscon.get(1)[3]);
         else if (x.equals(syscon.get(1)[4])) return Integer.valueOf(syscon.get(1)[5]);
         else return -1;
     }
 
-    public static void updateSysCon(){
+    public static void save(){
         File_IO.writeFile(syscon, "SystemConfig");
     }
 }

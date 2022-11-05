@@ -23,7 +23,7 @@ public class Holiday {
 		System.out.println(start + " " + end + " holiday added.");
 	}
 
-	public static void loadHoliday() {
+	public static void load() {
 		days = File_IO.readFile("PublicHoliday");
 	}
 
