@@ -22,7 +22,11 @@ public class User_UI {
                 DisplayMovieBooking_UI.displayInformation(userName);
                 break;
             case 3:
-                List<Booking> bookingHistory = BookingManager.getBookingHistory();
+                if(userName=="Guest"){
+                    System.out.println("You are not logged in. Please login to view your booking history.");
+                }
+                else{
+                    List<Booking> bookingHistory = BookingManager.getBookingHistory();
                 if(bookingHistory!=null){
                      //show upcoming booking
                      List<Booking> upcomingBooking = BookingManager.showUpcomingBooking();
@@ -51,6 +55,8 @@ public class User_UI {
                     
                 
                     break;
+                }
+                
                     case 4:
                     System.out.println("Thank you for using our application!");
                     return;
