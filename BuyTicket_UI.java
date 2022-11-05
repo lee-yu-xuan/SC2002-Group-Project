@@ -56,7 +56,11 @@ public class BuyTicket_UI {
             restriction = Restriction.R21;
         }
         // pass price arguments
-        new Price(time, "20", 1, SystemConfigController.getClassMulti(tmp.get(choice).getClassOfCinema().toString()));
+        //get the movieGoer's age since he/she might be booking for another person
+        System.out.println("Please enter the age of the movieGoer");
+        sc.nextLine();
+        String age = sc.nextLine();
+        new Price(time, age, 1, SystemConfigController.getClassMulti(tmp.get(choice).getClassOfCinema().toString()));
 
         //call payment method
         double priceInDouble = Payment_UI.display_UI(userName, ticketID);
@@ -69,8 +73,9 @@ public class BuyTicket_UI {
         SalesManager.addSalesByID(movieID);
 
         //call a method to add to booking history of the user
-        Booking booking = new Booking(ticketID, userName, movieID, cinemaID, "1", seat, fare);
+        Booking booking = new Booking(ticketID, userName, movieID, cinemaID, "1", seat, fare, time);
         BookingManager.addBooking(booking);
         System.out.println("Booking successful");
+        BookingManager.save(userName);
     }
 }

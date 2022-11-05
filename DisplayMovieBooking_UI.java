@@ -43,30 +43,31 @@ public class DisplayMovieBooking_UI {
 
     public static String listBySales(){
         //list top 5 movies by sales
-        List<Movie> movieList = MovieController.showMovieByTicketSales();
+        List<Movie> movieList = MovieController.showAvailableMovieByTicketSales();
         for(int i = 0;i<movieList.size();i++){
-            System.out.println(i+". "+movieList.get(i).getMovieTitle());
+            System.out.println((i+1) + ". "+movieList.get(i).getMovieTitle());
+
         }
 
         //select movie
         Scanner sc = new Scanner(System.in);
         int option = sc.nextInt();
-        String movieID = movieList.get(option).getMovieID();
+        String movieID = movieList.get(option-1).getMovieID();
 
         return movieID;
     }
 
     public static String listByRating(){
         //list top 5 movies by rating
-        List<Movie> movieList = MovieController.showMovieByRating();
+        List<Movie> movieList = MovieController.showAvailableMovieByRating();
         for(int i = 0;i<movieList.size();i++){
-            System.out.println(i+". "+movieList.get(i).getMovieTitle());
+            System.out.println((i+1) +". "+movieList.get(i).getMovieTitle());
         }
 
         //select movie
         Scanner sc = new Scanner(System.in);
         int option = sc.nextInt();
-        String movieID = movieList.get(option).getMovieID();
+        String movieID = movieList.get(option-1).getMovieID();
 
         return movieID;
     }

@@ -77,7 +77,7 @@ public class DisplayMovie_UI {
         //select movie
         Scanner sc = new Scanner(System.in);
         int option = sc.nextInt();
-        String movieID = movieList.get(option).getMovieID();
+        String movieID = movieList.get(option-1).getMovieID();
 
         return movieID;
     }
@@ -93,7 +93,7 @@ public class DisplayMovie_UI {
         //select movie
         Scanner sc = new Scanner(System.in);
         int option = sc.nextInt();
-        String movieID = movieList.get(option).getMovieID();
+        String movieID = movieList.get(option-1).getMovieID();
 
         return movieID;
     }
