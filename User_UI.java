@@ -10,8 +10,9 @@ public class User_UI {
         System.out.println("\n");
         System.out.println("---Welcome to Our User application---");
         System.out.println("1. List the Movies");
-        System.out.println("2. View Booking History");
-        System.out.println("3. Exit");
+        System.out.println("2. Book Tickets");
+        System.out.println("3. View Booking History");
+        System.out.println("4. Exit");
         System.out.println("-------------------------------------");
         Scanner sc = new Scanner(System.in);
         choice = sc.nextInt();
@@ -23,7 +24,9 @@ public class User_UI {
                 break;
                 
             case 2:
-
+                DisplayMovieBooking_UI.displayInformation(userName);
+                break;
+            case 3:
                 List<Booking> bookingHistory = BookingManager.getBookingHistory();
                 if(bookingHistory!=null){
                     for(int i=0 ; i<bookingHistory.size(); i++){
@@ -36,13 +39,13 @@ public class User_UI {
                 User_UI.display_UI(userName);
             
                 break;
-            case 3:
+            case 4:
                 //exit
                 break;
             default:
                 System.out.println("Invalid choice");
                 break;
         }
-    }while(choice > 0 || choice < 3);
+    }while(choice > 0 || choice < 4);
     }
 }
