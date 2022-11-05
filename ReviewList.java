@@ -23,8 +23,8 @@ public class ReviewList {
         double total = 0;
         int ratingCount = 0;
         for(int i = 0;i<reviewList.size();i++){
-            if(movieID.compareTo(reviewList.get(i).getMovieID()) == 0){
-                while(i < reviewList.size() && movieID.compareTo(reviewList.get(i).getMovieID()) == 0){
+            if(movieID.equals(reviewList.get(i).getMovieID())){
+                while(i < reviewList.size() && movieID.equals(reviewList.get(i).getMovieID())){
                     total += reviewList.get(i).getRating();
                     ratingCount++;
                     i++;
@@ -40,7 +40,7 @@ public class ReviewList {
     public static List<Review> getReviewByID(String movieID){
         List<Review> returnMovieList = new ArrayList<Review>();
         for(int i = 0;i<reviewList.size();i++){
-            if(reviewList.get(i).getMovieID() == movieID){
+            if(movieID.equals(reviewList.get(i).getMovieID())){
                 while(i < reviewList.size() && reviewList.get(i).getMovieID() == movieID){
                     returnMovieList.add(reviewList.get(i));
                 }
