@@ -4,11 +4,26 @@ import java.util.*;
 import src.main.java.enums.*;
 import src.main.java.helper.*;
 
-// Purpose of Registration is to create a account and update particular to CSV in CSV folder.
+/**
+ * Regsitration Class to create an account and update particular to database.
+ * @author Lester Lee
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class Registration extends ConstructUser {
 
+    /**
+     * List of all the valid login information.
+     */
     public List<String[]> loginParticularCSV;
 
+    /**
+     * Constructor for Registration for a newly registered user.
+     * @param name User's name.
+     * @param username User's username.
+     * @param password User's password.
+     * @param usertype User's type.
+     */
     public Registration(String name, String username, String password, UserType usertype) {
         this.name = name;
         this.username = username;
@@ -16,6 +31,9 @@ public class Registration extends ConstructUser {
         this.type = usertype;
     }
 
+    /**
+     * Save user's information to database.
+     */
     public void Register() {
         // Hash the password, store the password into CSV pegged to the other
         // particulars
