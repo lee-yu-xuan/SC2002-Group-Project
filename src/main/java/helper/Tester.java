@@ -1,13 +1,73 @@
 package src.main.java.helper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Scanner;
 import src.main.java.ui.*;
 import src.main.java.movie.*;
+import src.main.java.payment.PromoCode;
+import src.main.java.payment.PromoCodeList;
 import src.main.java.enums.*;
 
 public class Tester {
-    public static void main(String[] args) {//refreshFunctionTest
+    public static void main(String[] args) {
+        PromoCodeList.load();
+        for(int j = 0;j < PromoCodeList.getPromoCodeList().size();j++){
+            System.out.println(PromoCodeList.getPromoCodeList().get(j).getPromoCode());
+            System.out.println(PromoCodeList.getPromoCodeList().get(j).getOffer());
+            System.out.println(PromoCodeList.getPromoCodeList().get(j).getStartTime());
+            System.out.println(PromoCodeList.getPromoCodeList().get(j).getEndTime());
+            System.out.println(PromoCodeList.getPromoCodeList().get(j).getPromoCodeStatus());
+            System.out.println(PromoCodeList.getPromoCodeList().get(j).getCount());
+        }
+    }
+    public static void TestPromoWrite(String[] args) {
+        
+        while(true){
+            
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("Enter DiscountCode");
+            String code = sc.nextLine();
+            if(code.charAt(0) == '#'){
+                break;
+            }
+
+            System.out.println("Enter offer");
+            double offer = sc.nextDouble();
+
+            sc.nextLine();
+            System.out.println("Enter startTime");
+            String startTime = sc.nextLine();
+            
+            System.out.println("Enter endTime");
+            String endTime = sc.nextLine();
+
+            System.out.println("Enter count");
+            int count = sc.nextInt();
+
+            sc.nextLine();
+            System.out.println("Enter status");
+            PromoCodeStatus status = PromoCodeStatus.valueOf(sc.nextLine());
+
+            PromoCodeList.add(new PromoCode(code,
+                                            offer,
+                                            count,
+                                            LocalDateTime.parse(startTime,_DateTimeFormatter.formatter),
+                                            LocalDateTime.parse(endTime,_DateTimeFormatter.formatter),
+                                            status));
+        }
+        for(int j = 0;j < PromoCodeList.getPromoCodeList().size();j++){
+            System.out.println(PromoCodeList.getPromoCodeList().get(j).getPromoCode());
+            System.out.println(PromoCodeList.getPromoCodeList().get(j).getOffer());
+            System.out.println(PromoCodeList.getPromoCodeList().get(j).getStartTime());
+            System.out.println(PromoCodeList.getPromoCodeList().get(j).getEndTime());
+            System.out.println(PromoCodeList.getPromoCodeList().get(j).getPromoCodeStatus());
+            System.out.println(PromoCodeList.getPromoCodeList().get(j).getCount());
+        }
+        PromoCodeList.save();
+    }
+    public static void movielistRefreshTest(String[] args) {//refreshFunctionTest
         Main_UI.loadAllClass();
         ShowTimeController.refresh();
         List<Movie> movieList = MovieListing.getMovieList();
