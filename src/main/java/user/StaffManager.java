@@ -43,50 +43,47 @@ public class StaffManager {
 		String reviews = "";
 		String rating = "";
 		String movieID = "";
-		do {
-			System.out.println("Enter the name of the Movie: ");
+		
+		System.out.println("Enter the name of the Movie: ");
 			
-				MovieName = ExceptionHandling.checkForAlphabet(1);
-		} while (MovieName.isEmpty());
+		MovieName = ExceptionHandling.checkForAlphabet(1);
+			
 
-		do {
-			System.out.println("Enter the Synopsis: ");
+		
+		System.out.println("Enter the Synopsis: ");
 			
-				Synopsis = ExceptionHandling.checkForAlphabet(1);
-			
-		} while (Synopsis.isEmpty());
+		Synopsis = ExceptionHandling.checkForAlphabet(1);
+		
 
-		do {
-			System.out.println("Enter the Type: ");
+		
+		System.out.println("Enter the Type: ");
 			
-				Type = ExceptionHandling.checkForAlphabet(1);
-			
-			
-		} while (Type.isEmpty());
+		Type = ExceptionHandling.checkForAlphabet(1);
+		
 
-		do {
-			System.out.println("Enter the name of the director: ");
-			Director = ExceptionHandling.checkForAlphabet(1);
-		} while (Director.isEmpty());
+		
+		System.out.println("Enter the name of the director: ");
+			
+		Director = ExceptionHandling.checkForAlphabet(1);
+			
 
-		do {
-			System.out.println("Enter the Cast: ");
+		
+		System.out.println("Enter the Cast: ");
 			
-				Cast = ExceptionHandling.checkForAlphabet(1);
-		} while (Cast.isEmpty());
+		Cast = ExceptionHandling.checkForAlphabet(1);
+			
 
-		do {
-			System.out.println("Enter the rating: ");
+		
+		System.out.println("Enter the rating: ");
 			
-				rating = ExceptionHandling.checkForAlphabet(1);;
+		rating = ExceptionHandling.checkForAlphabet(1);
 			
-		} while (rating.isEmpty());
 
-		do {
-			System.out.println("Enter the movieID: ");
+		
+		System.out.println("Enter the movieID: ");
 			
-				movieID = ExceptionHandling.checkForAlphabet(1);
-		} while (movieID.isEmpty());
+		movieID = ExceptionHandling.checkForAlphabet(2);
+			
 
 		Movie movie = new Movie(MovieName, Synopsis, Type, Director, Cast, rating, movieID);
 

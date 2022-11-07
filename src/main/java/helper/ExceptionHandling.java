@@ -65,7 +65,7 @@ public class ExceptionHandling {
         }
 
         while(num<0 || num>upperBound){
-            System.out.println("Please enter a number between 0 and "+upperBound);
+            System.out.println("Please enter a number between 1 and "+upperBound);
             num = scanner.nextInt();
         }
 
