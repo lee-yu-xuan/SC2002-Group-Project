@@ -1,6 +1,7 @@
 package src.main.java.payment;
 
 import java.util.Scanner;
+import src.main.java.helper.*;
 
 public class PaymentBankCard implements PaymentMethodInterface{
     private int validationCount;
@@ -9,18 +10,18 @@ public class PaymentBankCard implements PaymentMethodInterface{
     private String expiredDate;
 
     public int pay(double fare) {
-        Scanner sc = new Scanner(System.in);
+       
         validationCount = 0;
 
         while(validationCount < 2){ //User have 2 chances to payByPayLah
             System.out.println("Enter your bank card details:");
             System.out.println();
             System.out.format("Your bank card number:");
-            bankCardNumber = sc.nextLine();
+            bankCardNumber = ExceptionHandling.StringScanner();
             System.out.format("CVV number:");
-            CVV = sc.nextLine();
+            CVV = ExceptionHandling.StringScanner();
             System.out.format("Expired Date:");
-            expiredDate = sc.nextLine();
+            expiredDate = ExceptionHandling.StringScanner();
 
             if(validation() == 1){
                 //payment successful

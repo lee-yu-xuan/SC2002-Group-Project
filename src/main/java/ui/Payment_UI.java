@@ -3,6 +3,7 @@ package src.main.java.ui;
 import java.util.Scanner;
 import src.main.java.payment.*;
 import src.main.java.booking.*;
+import src.main.java.helper.*;
 
 public class Payment_UI {
     public static double display_UI(String userName, String ticketID){
@@ -11,8 +12,7 @@ public class Payment_UI {
         String email = "";
         if(userName.equals("Guest")){
             System.out.println("Please enter your email address, so that we can send you the ticket after the payment.");
-            Scanner sc = new Scanner(System.in);
-            email = sc.nextLine();
+            email = ExceptionHandling.StringScanner();
         }
 
         double fare=0;

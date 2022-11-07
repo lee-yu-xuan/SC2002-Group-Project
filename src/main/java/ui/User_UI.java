@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 import src.main.java.booking.*;
 import src.main.java.movie.*;
+import src.main.java.sysconfig.*;
+import src.main.java.helper.*;
 
 public class User_UI {
     public static void display_UI(String userName){
@@ -17,8 +19,7 @@ public class User_UI {
         System.out.println("3. View Booking History");
         System.out.println("4. Exit");
         System.out.println("-------------------------------------");
-        Scanner sc = new Scanner(System.in);
-        choice = sc.nextInt();
+        choice = ExceptionHandling.IntegerScannerRangeOfFunction(4);
         switch (choice) {
             case 1:
                 DisplayMovie_UI.displayInformation(userName);

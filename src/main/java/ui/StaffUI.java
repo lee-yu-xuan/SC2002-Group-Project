@@ -1,11 +1,12 @@
 package src.main.java.ui;
 
 import java.util.Scanner;
+import src.main.java.helper.*;
 import src.main.java.user.*;
 
 public class StaffUI {
 	static int no=0;
-	static Scanner sc = new Scanner(System.in);
+	
 	
 	
 	
@@ -21,7 +22,7 @@ public class StaffUI {
 			System.out.println("6) Remove ShowTime");
 			System.out.println("7) Edit System Configuration");
 			System.out.println("8) Log out of staff account");
-			no=sc.nextInt();
+			no=ExceptionHandling.IntegerScannerRangeOfFunction(8);
 			switch(no) {
 				case 1: StaffManager.addMovie();
 				break;

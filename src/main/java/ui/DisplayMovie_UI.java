@@ -3,16 +3,17 @@ package src.main.java.ui;
 import java.util.List;
 import java.util.Scanner;
 import src.main.java.movie.*;
+import src.main.java.helper.*;
 
 public class DisplayMovie_UI {
     public static void displayInformation(String userName) {
-        Scanner sc = new Scanner(System.in);
+       
         System.out.println("\n");
         System.out.println("1. List top 5 movies by sales");
         System.out.println("2. List top 5 movies by rating");
         System.out.println("3. Search by movie title");
 
-        int choice = sc.nextInt();
+        int choice = ExceptionHandling.IntegerScannerRangeOfFunction(3);
         String movieID = "";
 
         if(choice==3){
@@ -46,7 +47,7 @@ public class DisplayMovie_UI {
         System.out.println("2. Add ratings and reviews");
         //System.out.println("3. Book tickets");
 
-        int choice2 = sc.nextInt();
+        int choice2 = ExceptionHandling.IntegerScannerRangeOfFunction(2);
 
         switch (choice2) {
             case 1:
@@ -78,8 +79,8 @@ public class DisplayMovie_UI {
         }
 
         //select movie
-        Scanner sc = new Scanner(System.in);
-        int option = sc.nextInt();
+     
+        int option = ExceptionHandling.IntegerScannerRangeOfFunction(movieList.size());
         String movieID = movieList.get(option-1).getMovieID();
 
         return movieID;
@@ -94,8 +95,8 @@ public class DisplayMovie_UI {
         }
 
         //select movie
-        Scanner sc = new Scanner(System.in);
-        int option = sc.nextInt();
+        
+        int option = ExceptionHandling.IntegerScannerRangeOfFunction(movieList.size());
         String movieID = movieList.get(option-1).getMovieID();
 
         return movieID;
