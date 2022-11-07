@@ -6,7 +6,7 @@ import src.main.java.sysconfig.*;
 public class Price {
     // holiday, day_of_week, time_of_day, age
     public static double basePrice;
-    public static int day_of_week, time_of_day, holiday, age, threeD, cinemaClass;
+    public static int day_of_week, time_of_day, holiday, age, threeD, cinemaClass, row;
 
     // default constructor
     public Price() {
@@ -16,10 +16,11 @@ public class Price {
         holiday = 1; // default public holiday
         age = 0; // age of buyer default is 0 - adult, 1 - student, 2 - senior
         threeD = 0; // 2D or 3D
+        row = 0;
     }
 
     // constructor
-    public Price(LocalDateTime date, String yearsold, int three, int CinemaClass ) {
+    public Price(LocalDateTime date, String yearsold, int three, int CinemaClass , int rowNo) {
         try {
             // DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             // LocalDateTime dateTime = LocalDateTime.parse(date, _DateTimeFormatter.formatter);
@@ -30,6 +31,7 @@ public class Price {
             threeD = three;
             holiday = (Holiday.isHoliday(date)) ? 1 : 0;
             cinemaClass = CinemaClass;
+            row = rowNo;
 
         } catch (Exception e) {
             System.out.println("Error!!" + e.getMessage());
@@ -39,6 +41,7 @@ public class Price {
     public static double getPrice() {
         // System.out.println("day of week: " + day_of_week);
         // System.out.println("ph: " + holiday);
+        int discount = (row < 3) ? 2 : 0;
         if (day_of_week > 5 || holiday == 1)
             return basePrice + 4.5 + threeD * 4;
         double price = basePrice + time_of_day * 2.5 + threeD * 4;
@@ -46,7 +49,7 @@ public class Price {
             price -= age * 2;
         if (day_of_week == 5 && age != 1 && age != 2)
             price += 1;
-        return price * cinemaClass;
+        return ((price * cinemaClass) - discount);
     }
 
 }

@@ -69,7 +69,7 @@ public class BuyTicket_UI {
         System.out.println("Please enter the age of the movieGoer");
         sc.nextLine();
         String age = ExceptionHandling.StringScanner();
-        new Price(time, age, 1, SystemConfigController.getClassMulti(tmp.get(choice).getClassOfCinema().toString()));
+        new Price(time, age, 1, SystemConfigController.getClassMulti(tmp.get(choice).getClassOfCinema().toString()), row);
 
         //call payment method
         double priceInDouble = Payment_UI.display_UI(userName, ticketID);
