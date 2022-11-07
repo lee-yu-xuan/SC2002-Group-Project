@@ -21,6 +21,7 @@ public class BuyTicket_UI {
         LayoutController.displayLayout(cinemaID, time);
 
         System.out.println("Select the row of your preferred seat");
+        System.out.println("*Note that the first two rows will be cheaper by $2");
         int row = sc.nextInt();
         System.out.println("Select the column of your preferred seat");
         int col = sc.nextInt();
