@@ -17,7 +17,7 @@ public class ExceptionHandling {
     }
 
     public static String checkForAlphabet(int option){
-        //0 means expect characters, 1 means expect alphabets
+        //2 means expect characters, 1 means expect alphabets
         Scanner scanner = new Scanner(System.in);
         String str = "";
         
@@ -30,7 +30,8 @@ public class ExceptionHandling {
                     throw new InputMismatchException();
                 }
             }catch(InputMismatchException e){
-                System.out.println("You did not enter a character.");
+                System.out.println("Please enter the correct character.");
+                str = ExceptionHandling.checkForAlphabet(1);
             }
                 break;
             
@@ -42,7 +43,8 @@ public class ExceptionHandling {
                     throw new InputMismatchException();
                 }
             }catch(InputMismatchException e){
-                System.out.println("You did not enter an alphabet.");
+                System.out.println("You did not enter numerical number.");
+                str = ExceptionHandling.checkForAlphabet(2);
             }
                 break;
             default:

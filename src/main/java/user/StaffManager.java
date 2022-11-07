@@ -45,65 +45,47 @@ public class StaffManager {
 		String movieID = "";
 		do {
 			System.out.println("Enter the name of the Movie: ");
-			try {
-				MovieName = scan.nextLine();
-			} catch (NumberFormatException nfe) {
-				System.out.println("Please enter in string!");
-			}
+			
+				MovieName = ExceptionHandling.checkForAlphabet(1);
 		} while (MovieName.isEmpty());
 
 		do {
 			System.out.println("Enter the Synopsis: ");
-			try {
-				Synopsis = scan.nextLine();
-			} catch (NumberFormatException nfe) {
-				System.out.println("Please enter in string!");
-			}
+			
+				Synopsis = ExceptionHandling.checkForAlphabet(1);
+			
 		} while (Synopsis.isEmpty());
 
 		do {
 			System.out.println("Enter the Type: ");
-			try {
-				Type = scan.nextLine();
-			} catch (NumberFormatException nfe) {
-				System.out.println("Please enter in string!");
-			}
+			
+				Type = ExceptionHandling.checkForAlphabet(1);
+			
+			
 		} while (Type.isEmpty());
 
 		do {
 			System.out.println("Enter the name of the director: ");
-			try {
-				Director = scan.nextLine();
-			} catch (NumberFormatException nfe) {
-				System.out.println("Please enter in string!");
-			}
+			Director = ExceptionHandling.checkForAlphabet(1);
 		} while (Director.isEmpty());
 
 		do {
 			System.out.println("Enter the Cast: ");
-			try {
-				Cast = scan.nextLine();
-			} catch (NumberFormatException nfe) {
-				System.out.println("Please enter in string!");
-			}
+			
+				Cast = ExceptionHandling.checkForAlphabet(1);
 		} while (Cast.isEmpty());
 
 		do {
 			System.out.println("Enter the rating: ");
-			try {
-				rating = scan.nextLine();
-			} catch (NumberFormatException nfe) {
-				System.out.println("Please enter in string!");
-			}
+			
+				rating = ExceptionHandling.checkForAlphabet(1);;
+			
 		} while (rating.isEmpty());
 
 		do {
 			System.out.println("Enter the movieID: ");
-			try {
-				movieID = scan.nextLine();
-			} catch (NumberFormatException nfe) {
-				System.out.println("Please enter in string!");
-			}
+			
+				movieID = ExceptionHandling.checkForAlphabet(1);
 		} while (movieID.isEmpty());
 
 		Movie movie = new Movie(MovieName, Synopsis, Type, Director, Cast, rating, movieID);
