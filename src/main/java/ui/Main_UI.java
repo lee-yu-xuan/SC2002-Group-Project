@@ -2,6 +2,8 @@ package src.main.java.ui;
 
 import java.util.Scanner;
 import src.main.java.movie.*;
+import src.main.java.payment.PromoCode;
+import src.main.java.payment.PromoCodeList;
 import src.main.java.booking.*;
 import src.main.java.cinema.Cinema;
 import src.main.java.cinema.CinemaController;
@@ -20,6 +22,7 @@ public class Main_UI {
         Holiday.load();
         CinemaController.load();
         SystemConfigController.load();
+        PromoCodeList.load();
     }
 
     public static void saveAllClass() {
@@ -32,6 +35,7 @@ public class Main_UI {
         Holiday.save();
         CinemaController.save();
         SystemConfigController.save();
+        PromoCodeList.save();
     }
 
     public static void main(String[] args) {
