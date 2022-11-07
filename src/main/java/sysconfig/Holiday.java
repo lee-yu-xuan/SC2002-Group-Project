@@ -5,16 +5,39 @@ import java.util.ArrayList;
 import java.util.List;
 import src.main.java.helper.*;
 
+/**
+ * A Holiday class to create Holiday object.
+ * @author Boon Hian Lim
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class Holiday {
 
+	/**
+	 * Start of the holiday.
+	 */
 	static String start;
+	/**
+	 * End of the holiday.
+	 */
 	static String end;
+	/**
+	 * List of all the holiday added into the system.
+	 */
 	static List<String[]> days;
 	// double modifier;
 
+	/**
+	 * Default constructor for Holiday object.
+	 */
 	public Holiday() {
 	}
 
+	/**
+	 * Function to add a Holiday to the system.
+	 * @param Start Start date of holiday.
+	 * @param End	End date of holiday.
+	 */
 	// in yyyy-MM-dd;
 	public static void Add(String Start, String End) {
 		start = Start + " 00:00";
@@ -26,14 +49,23 @@ public class Holiday {
 		System.out.println(start + " " + end + " holiday added.");
 	}
 
+	/**
+	 * Function to read all the holiday in that year from database.
+	 */
 	public static void load() {
 		days = File_IO.readFile("PublicHoliday");
 	}
 
+	/**
+	 * Function to clear all the Holidays in the database.
+	 */
 	public static void removeHoliday() {
 		days = new ArrayList<>();
 	}
 
+	/**
+	 * Display all the Holidays that has been added into the database.
+	 */
 	public static void printHoliday() {
 		for (String[] hol : days) {
 			if (hol.length != 2)
@@ -43,6 +75,11 @@ public class Holiday {
 		}
 	}
 
+	/**
+	 * Check if a particular data is a holiday.
+	 * @param date Date to be checked.
+	 * @return Boolean represetation if a date is a holiday.
+	 */
 	public static boolean isHoliday(LocalDateTime date){
 		for (String[] var : days){
 			// LocalDateTime dateTime = LocalDateTime.parse(date, _DateTimeFormatter.formatter);
@@ -53,6 +90,9 @@ public class Holiday {
 		}return false;
 	}
 
+	/**
+	 * Save all the Holiday added into the database
+	 */
 	public static void save() {
 		File_IO.writeFile(days, "PublicHoliday");
 	}

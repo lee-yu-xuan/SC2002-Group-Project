@@ -3,34 +3,68 @@ package src.main.java.sysconfig;
 import java.util.*;
 import src.main.java.helper.*;
 
+/**
+ * System Configuration Controller Class.
+ * @author Boon Hian Lim
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class SystemConfigController {
     
+    /**
+     * All System information.
+     */
     public static List<String[]> syscon;
 
     public SystemConfigController(){}
 
+    /**
+     * Load all information pertaining to system configuration into the program.
+     */
     public static void load(){
         syscon = File_IO.readFile("SystemConfig");
     }
 
+    /**
+     * Get the base price of the system currently.
+     */
     public static double getBasePrice(){
         return Double.valueOf(syscon.get(0)[0]);
     }
 
+    /**
+     * Set the base price for the system.
+     * @param bp base price to be implemented.
+     */
     public static void setBasePrice(double bp){
         syscon.get(0)[0] = String.valueOf(bp);
     }
 
+    /**
+     * Get the Price multiplier for the different classes.
+     * @return
+     */
     public static String[] getClassMultiplier(){
         return syscon.get(1);
     }
 
+    /**
+     * Set the price difference for every Class of Cinema.
+     * @param plat Price multiplier for Platinum Cinema.
+     * @param gold Price multiplier for Gold Cinema.
+     * @param silv Price multiplier for Silver Cinema.
+     */
     public static void setClassMultiplier(int plat, int gold, int silv){
         syscon.get(1)[1] = String.valueOf(plat);
         syscon.get(1)[3] = String.valueOf(gold);
         syscon.get(1)[5] = String.valueOf(silv);
     }
 
+    /**
+     * Get the Class Multiplier for a particular class.
+     * @param x Class of cinema to get the price difference for.
+     * @return Price multiplier for that particular class.
+     */
     public static int getClassMulti(String x){
         load();
         if (x.equals(syscon.get(1)[0])) return Integer.valueOf(syscon.get(1)[1]);
@@ -39,6 +73,9 @@ public class SystemConfigController {
         else return -1;
     }
 
+    /**
+     * Save all System Configuration.
+     */
     public static void save(){
         File_IO.writeFile(syscon, "SystemConfig");
     }
