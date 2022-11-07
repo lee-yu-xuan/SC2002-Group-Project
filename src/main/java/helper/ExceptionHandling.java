@@ -16,18 +16,39 @@ public class ExceptionHandling {
         return num;
     }
 
-    public static String checkForAlphabet(){
+    public static String checkForAlphabet(int option){
+        //0 means expect characters, 1 means expect alphabets
         Scanner scanner = new Scanner(System.in);
         String str = "";
-        try{
-            str = scanner.nextLine();
-            //check if str is alphabet
-            if(str.matches("[a-zA-Z]+")){
-                throw new InputMismatchException();
+        
+        switch (option) {
+            case 1:
+            try{
+                //check if str is character
+                str = scanner.nextLine();
+                if(!str.matches("[a-zA-Z]+")){
+                    throw new InputMismatchException();
+                }
+            }catch(InputMismatchException e){
+                System.out.println("You did not enter a character.");
             }
-        }catch(InputMismatchException e){
-            System.out.println("You did not enter an alphabet.");
+                break;
+            
+            case 2:
+            try{
+                //check if str is alphabet
+                str = scanner.nextLine();
+                if(str.matches("[a-zA-Z]+")){
+                    throw new InputMismatchException();
+                }
+            }catch(InputMismatchException e){
+                System.out.println("You did not enter an alphabet.");
+            }
+                break;
+            default:
+                break;
         }
+
         return str;
     }
 
