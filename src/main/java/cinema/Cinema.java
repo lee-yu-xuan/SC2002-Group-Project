@@ -5,14 +5,14 @@ import src.main.java.enums.*;
 public class Cinema{
  
     //attributes
-    private int cinemaID;
+    private String cinemaID;
     private String cineplexName;
     private int numberOfSeats;
     private ClassOfCinema classOfCinema;
     private Layout layout;
 
     //constructor
-    public Cinema(int cinemaID, String cineplexName, int numberOfSeats, ClassOfCinema classOfCinema, Layout layout) {
+    public Cinema(String cinemaID, String cineplexName, int numberOfSeats, ClassOfCinema classOfCinema, Layout layout) {
         this.cinemaID = cinemaID;
         this.cineplexName = cineplexName;
         this.numberOfSeats = numberOfSeats;
@@ -21,7 +21,7 @@ public class Cinema{
     }
 
     //getter
-    public int getCinemaID() {
+    public String getCinemaID() {
         return cinemaID;
     }
 
@@ -43,7 +43,7 @@ public class Cinema{
 
     //setter
 
-    public void setCinemaID(int cinemaID) {
+    public void setCinemaID(String cinemaID) {
         this.cinemaID = cinemaID;
     }
 

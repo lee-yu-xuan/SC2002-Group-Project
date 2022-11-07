@@ -19,7 +19,7 @@ public class CinemaController {
         cinemaCSV = File_IO.readFile("cinema");
 
         for(int h=0; h<cinemaCSV.size(); h++){
-            int cinemaID = Integer.parseInt(cinemaCSV.get(h)[0]);
+            String cinemaID = cinemaCSV.get(h)[0];
             String cineplexName = cinemaCSV.get(h)[1];
             int numberOfSeats = Integer.parseInt(cinemaCSV.get(h)[2]);
             ClassOfCinema classOfCinema = ClassOfCinema.valueOf(cinemaCSV.get(h)[3]);
@@ -52,6 +52,28 @@ public static int deleteByID(String cinemaID){
         }
     }
     return 0;
+}
+
+public static String[] checklayout(String cinemaID){
+    String[] rowColumn = new String[2];
+    for(int h=0; h<cinemaList.size(); h++){
+        if(cinemaList.get(h).getCinemaID().equals(cinemaID)){
+            Layout layout = cinemaList.get(h).getLayout();
+            if(layout==Layout.small){
+                rowColumn[0] = "5";
+                rowColumn[1] = "5";
+            }
+            else if(layout==Layout.medium){
+                rowColumn[0] = "10";
+                rowColumn[1] = "10";
+            }
+            else if(layout==Layout.large){
+                rowColumn[0] = "15";
+                rowColumn[1] = "15";
+            }
+        }
+    }
+    return rowColumn;
 }
 
 public static void updateNumberOfSeats(ArrayList<Cinema> cinemas, String cinemaID, String numberOfSeats){

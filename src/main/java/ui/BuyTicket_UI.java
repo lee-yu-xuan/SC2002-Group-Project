@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import src.main.java.movie.*;
 import src.main.java.booking.*;
+import src.main.java.cinema.CinemaController;
 import src.main.java.enums.*;
 import src.main.java.helper.ExceptionHandling;
 import src.main.java.sysconfig.*;
@@ -29,10 +30,13 @@ public class BuyTicket_UI {
         LayoutController.displayLayout(cinemaID, time);
 
         System.out.println("Select the row of your preferred seat");
-        System.out.println("*Note that the first 2 rows will have a price deduction off $2");
-        int row = ExceptionHandling.IntegerScanner();
+        System.out.println("*Note that the first 2 rows will have a price deduction of $2");
+        String[] rowColumn = CinemaController.checklayout(cinemaID);
+        int rowUpperbound = Integer.parseInt(rowColumn[0]);
+        int columnUpperbound = Integer.parseInt(rowColumn[1]);
+        int row = ExceptionHandling.IntegerScannerRangeOfFunction(rowUpperbound);
         System.out.println("Select the column of your preferred seat");
-        int col = ExceptionHandling.IntegerScanner();
+        int col = ExceptionHandling.IntegerScannerRangeOfFunction(columnUpperbound);
 
         //after calling payment UI, call this to update the seat
         SeatBooked_Controller.updateSeatBooked(row, col, cinemaID, time);
@@ -67,7 +71,6 @@ public class BuyTicket_UI {
         // pass price arguments
         //get the movieGoer's age since he/she might be booking for another person
         System.out.println("Please enter the age of the movieGoer");
-        sc.nextLine();
         String age = ExceptionHandling.StringScanner();
         new Price(time, age, 1, SystemConfigController.getClassMulti(tmp.get(choice).getClassOfCinema().toString()), row);
 

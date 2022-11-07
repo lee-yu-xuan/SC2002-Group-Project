@@ -16,6 +16,21 @@ public class ExceptionHandling {
         return num;
     }
 
+    public static String checkForAlphabet(){
+        Scanner scanner = new Scanner(System.in);
+        String str = "";
+        try{
+            str = scanner.nextLine();
+            //check if str is alphabet
+            if(str.matches("[a-zA-Z]+")){
+                throw new InputMismatchException();
+            }
+        }catch(InputMismatchException e){
+            System.out.println("You did not enter an alphabet.");
+        }
+        return str;
+    }
+
     public static int IntegerScannerRangeOfFunction(int upperBound){
         Scanner scanner = new Scanner(System.in);
         int num=0;

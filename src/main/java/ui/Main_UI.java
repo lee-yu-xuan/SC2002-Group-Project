@@ -3,6 +3,8 @@ package src.main.java.ui;
 import java.util.Scanner;
 import src.main.java.movie.*;
 import src.main.java.booking.*;
+import src.main.java.cinema.Cinema;
+import src.main.java.cinema.CinemaController;
 import src.main.java.sysconfig.*;
 import src.main.java.helper.*;
 
@@ -16,6 +18,7 @@ public class Main_UI {
         MovieTicketController.load();
         SalesManager.load();
         Holiday.load();
+        CinemaController.load();
         SystemConfigController.load();
     }
 
@@ -27,6 +30,7 @@ public class Main_UI {
         MovieTicketController.save();
         SalesManager.save();
         Holiday.save();
+        CinemaController.save();
         SystemConfigController.save();
     }
 
