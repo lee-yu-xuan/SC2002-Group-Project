@@ -12,7 +12,7 @@ import src.main.java.enums.*;
 /**
  * StaffManager Class. Intermediary for Staff function.
  * 
- * @author Yong Jian
+ * @author Yong Jian Loke
  * @version 1.0
  * @since 2022-11-01
  */
