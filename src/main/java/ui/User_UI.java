@@ -7,7 +7,17 @@ import src.main.java.movie.*;
 import src.main.java.sysconfig.*;
 import src.main.java.helper.*;
 
+/**
+ * User Interface for MovieGoer.
+ * @author Lester Lee
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class User_UI {
+    /**
+     * Display User Interface for MovieGoer.
+     * @param userName Username of the MovieGoer.
+     */
     public static void display_UI(String userName){
     //display all options
     int choice;

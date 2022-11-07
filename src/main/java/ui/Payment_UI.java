@@ -5,7 +5,19 @@ import src.main.java.payment.*;
 import src.main.java.booking.*;
 import src.main.java.helper.*;
 
+/**
+ * User Interface for Payment Class.
+ * @author Lester Lee
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class Payment_UI {
+    /**
+     * Display User Interface for Payment Class.
+     * @param userName Username of the MovieGoer.
+     * @param ticketID Ticket that is being charged for.
+     * @return cost of the movie ticket.
+     */
     public static double display_UI(String userName, String ticketID){
 
 

@@ -10,7 +10,18 @@ import src.main.java.enums.*;
 import src.main.java.helper.ExceptionHandling;
 import src.main.java.sysconfig.*;
  
+/**
+ * User interface for purchase of Ticket.
+ * @author Lester Lee
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class BuyTicket_UI {
+    /**
+     * Display the user interface to buy tickets.
+     * @param movieID ID for chosen Movie.
+     * @param userName Username of the user.
+     */
     public static void purchaseTicket(String movieID, String userName){
         Scanner sc = new Scanner(System.in);
         List<ShowTime> tmp = ShowTimeController.showTimeByShowTime(movieID);

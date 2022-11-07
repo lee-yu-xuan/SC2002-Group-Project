@@ -5,12 +5,21 @@ import src.main.java.user.*;
 import src.main.java.enums.*;
 import src.main.java.helper.*;
 
+/**
+ * User Interface for Registration of new account.
+ * @author Lester Lee
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class RegistrationUI {
     private static String name;
     private static String password;
     private static String username;
     private static char type;
 
+    /**
+     * Display Registration User Interface.
+     */
     public static void UI() {
 
         Scanner sc = new Scanner(System.in);

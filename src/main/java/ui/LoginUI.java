@@ -4,6 +4,12 @@ import java.util.*;
 import src.main.java.user.*;
 import src.main.java.helper.*;
 
+/**
+ * Login User Interface.
+ * @author Lester Lee
+ * @version 1.0
+ * @since 2022-11-01
+ */
 //input login interface for startup for the program
 public class LoginUI {
 
@@ -12,10 +18,17 @@ public class LoginUI {
     private String username;
     private long password;
 
+    /**
+     * Default constructor for LoginUI.
+     */
     // consturctor
     public LoginUI() {
     };
 
+    /**
+     * Display Login User Interface.
+     * @return Detail of the user who has logged in.
+     */
     // methods
     public String[] UI() {
 
@@ -43,6 +56,12 @@ public class LoginUI {
 
     }
 
+    /**
+     * Private method to verify if the login particular entered by User is correct.
+     * @param username Username entered by user.
+     * @param password  Password entered by user.
+     * @return Details of user upon sucessful log in.
+     */
     private String[] verify(String username, long password) {
         try {
             loginParticularCSV = File_IO.readFile("loginParticular");

@@ -5,7 +5,17 @@ import java.util.Scanner;
 import src.main.java.movie.*;
 import src.main.java.helper.*;
 
+/**
+ * User Interface for Movie Booking.
+ * @author Lester Lee
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class DisplayMovieBooking_UI {
+    /**
+     * Display user interface for MovieBooking.
+     * @param userName username of the user.
+     */
     public static void displayInformation(String userName) {
         Scanner sc = new Scanner(System.in);
         System.out.println("\n\n");
@@ -45,6 +55,10 @@ public class DisplayMovieBooking_UI {
         BuyTicket_UI.purchaseTicket(movieID, userName);
     }
 
+    /**
+     * Arrange the movie by Sales.
+     * @return MovieID that is selected.
+     */
     public static String listBySales(){
         //list top 5 movies by sales
         List<Movie> movieList = MovieController.showAvailableMovieByTicketSales();
@@ -61,6 +75,10 @@ public class DisplayMovieBooking_UI {
         return movieID;
     }
 
+    /**
+     * Arrange the movie by Ratings.
+     * @return MovieID that is selected.
+     */
     public static String listByRating(){
         //list top 5 movies by rating
         List<Movie> movieList = MovieController.showAvailableMovieByRating();

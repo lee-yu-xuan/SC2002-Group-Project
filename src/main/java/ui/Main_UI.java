@@ -10,8 +10,17 @@ import src.main.java.cinema.CinemaController;
 import src.main.java.sysconfig.*;
 import src.main.java.helper.*;
 
+/**
+ * Main Application User Interface.
+ * @author Lester Lee
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class Main_UI {
 
+    /**
+     * Load all the necessary information pirior to Application start up.
+     */
     public static void loadAllClass() {
         MovieListing.load();
         ReviewList.load();
@@ -25,6 +34,9 @@ public class Main_UI {
         PromoCodeList.load();
     }
 
+    /**
+     * Unload and save all the necessary information before closing program.
+     */
     public static void saveAllClass() {
         MovieListing.save();
         ReviewList.save();
@@ -38,6 +50,9 @@ public class Main_UI {
         PromoCodeList.save();
     }
 
+    /**
+     * Display the main application user interface.
+     */
     public static void main(String[] args) {
         // get current DateTime for booking history
         // if havent pass current DateTime, display under upcoming

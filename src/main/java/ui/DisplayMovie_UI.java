@@ -5,7 +5,17 @@ import java.util.Scanner;
 import src.main.java.movie.*;
 import src.main.java.helper.*;
 
+/**
+ * User Interface for Movie.
+ * @author Lester Lee
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class DisplayMovie_UI {
+    /**
+     * Display user interface to show movie particular.
+     * @param userName
+     */
     public static void displayInformation(String userName) {
        
         System.out.println("\n");
@@ -69,7 +79,10 @@ public class DisplayMovie_UI {
                 break;
         }
     }
-
+    /**
+     * Arrange the movie by Sales.
+     * @return MovieID that is selected.
+     */
     public static String listBySales(){
         //list top 5 movies by sales
         List<Movie> movieList = MovieController.showMovieByTicketSales();
@@ -86,6 +99,10 @@ public class DisplayMovie_UI {
         return movieID;
     }
 
+    /**
+     * Arrange the movie by Ratings.
+     * @return The MovieID that is selected.
+     */
     public static String listByRating(){
         //list top 5 movies by rating
         List<Movie> movieList = MovieController.showMovieByRating();
