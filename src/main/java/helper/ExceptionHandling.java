@@ -1,4 +1,5 @@
 package src.main.java.helper;
+import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,6 +15,23 @@ public class ExceptionHandling {
         }
 
         return num;
+    }
+
+
+    public static LocalDateTime checkDateTime(){
+        Scanner sc = new Scanner(System.in);
+        String temp = "";
+        LocalDateTime dateTime;
+        try {
+            temp = sc.nextLine();
+            //convert string to datetime
+            dateTime = LocalDateTime.parse(temp, _DateTimeFormatter.formatter);
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println("Please enter according to the format 'yyyy-MM-dd HH:mm'!");
+            dateTime = ExceptionHandling.checkDateTime();
+        }
+        return dateTime;
     }
 
     public static String checkForAlphabet(int option){

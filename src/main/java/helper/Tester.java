@@ -10,7 +10,7 @@ import src.main.java.payment.PromoCodeList;
 import src.main.java.enums.*;
 
 public class Tester {
-    public static void main(String[] args) {
+    public static void TestPromoRead(String[] args) {
         PromoCodeList.load();
         for(int j = 0;j < PromoCodeList.getPromoCodeList().size();j++){
             System.out.println(PromoCodeList.getPromoCodeList().get(j).getPromoCode());
@@ -21,7 +21,7 @@ public class Tester {
             System.out.println(PromoCodeList.getPromoCodeList().get(j).getCount());
         }
     }
-    public static void TestPromoWrite(String[] args) {
+    public static void main(String[] args) {
         
         while(true){
             
@@ -38,10 +38,10 @@ public class Tester {
 
             sc.nextLine();
             System.out.println("Enter startTime");
-            String startTime = sc.nextLine();
+            LocalDateTime startTime = ExceptionHandling.checkDateTime();
             
             System.out.println("Enter endTime");
-            String endTime = sc.nextLine();
+            LocalDateTime endTime = ExceptionHandling.checkDateTime();
 
             System.out.println("Enter count");
             int count = sc.nextInt();
@@ -53,8 +53,8 @@ public class Tester {
             PromoCodeList.add(new PromoCode(code,
                                             offer,
                                             count,
-                                            LocalDateTime.parse(startTime,_DateTimeFormatter.formatter),
-                                            LocalDateTime.parse(endTime,_DateTimeFormatter.formatter),
+                                            startTime,
+                                            endTime,
                                             status));
         }
         for(int j = 0;j < PromoCodeList.getPromoCodeList().size();j++){
