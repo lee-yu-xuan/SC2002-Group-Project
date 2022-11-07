@@ -17,17 +17,48 @@ public class Payment_UI {
 
         double fare=0;
         int paymentDone = 0;
+        int choice = 0;
         while(paymentDone == 0){
+
             PaymentMethodInterface paymentMethod;
             fare = Price.getPrice();
-            System.out.format("Your price for the movie is: %.2f\n",fare);
+                
+            do{
+                System.out.format("Your price for the movie is: %.2f\n",fare);
+                System.out.println("Do you want to claim the promo code? (1: No, 2: Yes)");
+                choice = ExceptionHandling.IntegerScannerRangeOfFunction(2);
+
+                if(choice == 0){
+                    break;
+                }
+                
+                System.out.println("Enter your promo code:");
+                String promoCode = ExceptionHandling.StringScanner();
+
+                double offer = PromoCodeList.checkPromoCode(promoCode);
+                if(offer < 0){
+                    System.out.println("The promo code is invalid!");
+                }else{
+                    //Current Approach: Only one promo code is allowed.
+                    fare -= offer;
+                    if(fare < 0){
+                        fare = 0;
+                    }
+                    PromoCodeList.usePromoCode(promoCode);
+                    System.out.format("Your price for the movie is updated: %.2f\n",fare);
+                    break; //remove this to allow multiple promo code
+                }
+                
+            }while(choice == 1);
+           
+            
             System.out.println("Select your payment method:");
 
             //Choices of payment method:
             System.out.println("1. Paylah");
             System.out.println("2. Credit Card");
-
-            int choice = ExceptionHandling.IntegerScannerRangeOfFunction(2);
+            
+            choice = ExceptionHandling.IntegerScannerRangeOfFunction(2);
             switch(choice){
                 case 1:
                     paymentMethod = new PaymentPayLah();

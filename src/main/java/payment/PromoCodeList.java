@@ -43,17 +43,18 @@ public class PromoCodeList {
         return returnPromoList;
     }
 
-    public static boolean checkPromoCode(String promoCode){
+    public static double checkPromoCode(String promoCode){
+
         refresh();
 
         for(int i = 0; i < promoCodeList.size();i++){
             if(promoCodeList.get(i).getPromoCode().equals(promoCode) &&
                 promoCodeList.get(i).getPromoCodeStatus() == PromoCodeStatus.AVAILABLE)
             {
-                return true;
+                return promoCodeList.get(i).getOffer();
             }
         }
-        return false;
+        return -1;
     }
 
     public static void add(PromoCode promoCode){
@@ -65,10 +66,19 @@ public class PromoCodeList {
         refresh();
     }   
 
+    public static void usePromoCode(String promoCode){
+        for(int i = 0;i< promoCodeList.size(); i++){
+            if(promoCodeList.get(i).getPromoCode().equals(promoCode)){
+                promoCodeList.get(i).useOne();
+            }
+        }
+        refresh();
+    }
     public static void removePromoCodeByCode(String promoCode){
         for(int i = 0;i< promoCodeList.size(); i++){
             if(promoCodeList.get(i).getPromoCode().equals(promoCode)){
-                promoCodeList.remove(i);
+                promoCodeList.get(i).setCount(i);;
+                break;
             }
         }
     }
@@ -77,6 +87,7 @@ public class PromoCodeList {
         for(int i = 0;i< promoCodeList.size();i++){
             if(promoCodeList.get(i).getPromoCode().equals(promoCode)){
                 promoCodeList.get(i).setCount(count);
+                break;
             }
         }
     }
@@ -85,6 +96,7 @@ public class PromoCodeList {
         for(int i = 0;i< promoCodeList.size();i++){
             if(promoCodeList.get(i).getPromoCode().equals(promoCode)){
                 promoCodeList.get(i).setPromoCodeStatus(promoCodeStatus);
+                break;
             }
         }
     }
@@ -94,6 +106,7 @@ public class PromoCodeList {
             if(promoCodeList.get(i).getPromoCode().equals(promoCode)){
                 promoCodeList.get(i).setStartTime(starTime);
                 promoCodeList.get(i).setEndTime(endTime);
+                break;
             }
         }
     }
@@ -126,11 +139,13 @@ public class PromoCodeList {
 
         for(int i =0;i<promoCodeCSV.size();i++){
             String promoCode = promoCodeCSV.get(i)[0];
-            int count = Integer.parseInt(promoCodeCSV.get(i)[1]);
-            String startTime = promoCodeCSV.get(i)[2];
-            String endTime = promoCodeCSV.get(i)[3];
-            PromoCodeStatus showingStatus = PromoCodeStatus.valueOf(promoCodeCSV.get(i)[4]);
+            double offer = Double.parseDouble(promoCodeCSV.get(i)[1]);
+            int count = Integer.parseInt(promoCodeCSV.get(i)[2]);
+            String startTime = promoCodeCSV.get(i)[3];
+            String endTime = promoCodeCSV.get(i)[4];
+            PromoCodeStatus showingStatus = PromoCodeStatus.valueOf(promoCodeCSV.get(i)[5]);
             PromoCode tempPromoCode = new PromoCode(promoCode, 
+                                        offer,
                                         count,
                                         LocalDateTime.parse(startTime,_DateTimeFormatter.formatter),
                                         LocalDateTime.parse(endTime,_DateTimeFormatter.formatter),
@@ -148,6 +163,8 @@ public class PromoCodeList {
             List<String> tempCodeList = new ArrayList<String>();
 
             tempCodeList.add(promoCodeList.get(i).getPromoCode());
+
+            tempCodeList.add(Double.toString(promoCodeList.get(i).getOffer()));
 
             tempCodeList.add(Integer.toString(promoCodeList.get(i).getCount()));
 
