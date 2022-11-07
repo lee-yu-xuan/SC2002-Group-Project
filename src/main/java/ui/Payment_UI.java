@@ -41,6 +41,9 @@ public class Payment_UI {
                 }else{
                     //Current Approach: Only one promo code is allowed.
                     fare -= offer;
+                    if(fare < 0){
+                        fare = 0;
+                    }
                     PromoCodeList.usePromoCode(promoCode);
                     System.out.format("Your price for the movie is updated: %.2f\n",fare);
                     break; //remove this to allow multiple promo code
