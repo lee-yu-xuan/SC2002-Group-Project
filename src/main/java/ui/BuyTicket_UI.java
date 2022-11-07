@@ -9,11 +9,9 @@ import src.main.java.enums.*;
 import src.main.java.helper.ExceptionHandling;
 import src.main.java.sysconfig.*;
  
-
-
-
 public class BuyTicket_UI {
     public static void purchaseTicket(String movieID, String userName){
+        Scanner sc = new Scanner(System.in);
         List<ShowTime> tmp = ShowTimeController.showTimeByShowTime(movieID);
             for(int i = 0;i<tmp.size();i++){
                 System.out.println(i+". "+tmp.get(i).getCinemaID()+" "+tmp.get(i).getStartTime());

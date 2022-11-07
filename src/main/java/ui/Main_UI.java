@@ -4,6 +4,7 @@ import java.util.Scanner;
 import src.main.java.movie.*;
 import src.main.java.booking.*;
 import src.main.java.sysconfig.*;
+import src.main.java.helper.*;
 
 public class Main_UI {
 
@@ -51,8 +52,7 @@ public class Main_UI {
             System.out.println("4. Quit Application");
             System.out.println("----------------------------------------");
 
-            Scanner sc = new Scanner(System.in);
-            int choice = sc.nextInt();
+            int choice = ExceptionHandling.IntegerScannerRangeOfFunction(4);
             String userName = "";
 
             switch (choice) {

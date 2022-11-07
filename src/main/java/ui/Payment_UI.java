@@ -27,8 +27,7 @@ public class Payment_UI {
             System.out.println("1. Paylah");
             System.out.println("2. Credit Card");
 
-            Scanner sc = new Scanner(System.in);
-            int choice = sc.nextInt();
+            int choice = ExceptionHandling.IntegerScannerRangeOfFunction(2);
             switch(choice){
                 case 1:
                     paymentMethod = new PaymentPayLah();
