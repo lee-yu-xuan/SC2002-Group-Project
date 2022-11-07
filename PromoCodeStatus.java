@@ -1,0 +1,1 @@
+public enum PromoCodeStatus {READY,AVAILABLE};
