@@ -46,7 +46,7 @@ public class CinemaController {
 public static int deleteByID(String cinemaID){
  
     for(int h=0; h<cinemaList.size(); h++){
-        if(cinemaList.get(h).getCinemaID() == Integer.parseInt(cinemaID)){
+        if(cinemaList.get(h).getCinemaID().equals(cinemaID)){
             cinemaList.remove(h); //id found
             return 1;
         }
@@ -80,14 +80,14 @@ public static void updateNumberOfSeats(ArrayList<Cinema> cinemas, String cinemaI
     //update the cinemaList
 
     for(int h=0; h<cinemas.size(); h++){
-        if(cinemas.get(h).getCinemaID() == Integer.parseInt(cinemaID)){
+        if(cinemas.get(h).getCinemaID().equals(cinemaID)){
             cinemas.get(h).setNumberOfSeats(Integer.parseInt(numberOfSeats));
         }
     }
 }
 
 
-public static void exportToCSV(){
+public static void save(){
     List<String[]> tempCSV = new ArrayList<String[]>();
         
         for(int i =0;i<cinemaList.size();i++){
