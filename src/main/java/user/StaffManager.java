@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import src.main.java.movie.*;
+import src.main.java.payment.PromoCode;
+import src.main.java.payment.PromoCodeList;
 import src.main.java.helper.*;
 import src.main.java.sysconfig.*;
 import src.main.java.enums.*;
@@ -22,6 +24,7 @@ public class StaffManager {
 	 * List of movies.
 	 */
 	private static List<Movie> movieList;
+	private static List<PromoCode> promoList;
 
 	/**
 	 * Array of movie details.
@@ -524,5 +527,82 @@ public class StaffManager {
 		} catch (Exception e) {
 			System.out.println("error " + e.getMessage());
 		}
+	}
+
+	public static void addPromo() {
+		String promoCode = "";
+    int count = 0;
+    LocalDateTime startTime;
+    LocalDateTime endTime;
+    PromoCodeStatus promoCodeStatus = PromoCodeStatus.READY;
+		double offer = 1.0;
+		int flag = 0;
+
+		System.out.println("Enter the name of the Promo Code: ");
+		promoCode = ExceptionHandling.checkForAlphabet(1);
+
+		System.out.println("Enter the count of the Promo Code: ");
+		count = Integer.valueOf(ExceptionHandling.checkForAlphabet(2));
+
+		System.out.println("Enter the startTime of the Promo Code (yyyy-MM-dd HH:mm): ");
+		startTime =  ExceptionHandling.checkDateTime();
+
+		System.out.println("Enter the endTime of the Promo Code (yyyy-MM-dd HH:mm): ");
+		endTime =  ExceptionHandling.checkDateTime();
+		
+		do {
+			String status;
+			System.out.println("Enter the status of the Promo Code :");
+			status = scan.nextLine();
+			if(status.toLowerCase().equals("ready"))
+			{
+				promoCodeStatus = PromoCodeStatus.READY;
+				flag = 1;
+			}
+			else if(status.toLowerCase().equals("available"))
+			{
+				promoCodeStatus = PromoCodeStatus.AVAILABLE;
+				flag = 1;
+			}
+			else if(status.toLowerCase().equals("blocked"))
+			{
+				promoCodeStatus = PromoCodeStatus.BLOCKED;
+				flag = 1;
+			}
+			else
+			{
+				System.out.println("Invalid input! Enter either Ready, Available or Blocked");
+			}
+		}while(flag == 0);
+
+		
+		System.out.println("Enter the offer of the Promo Code: ");
+		offer = Double.valueOf(ExceptionHandling.checkForAlphabet(2));
+
+		PromoCode promo = new PromoCode(promoCode,offer,count,startTime,endTime,promoCodeStatus);
+
+		PromoCodeList.add(promo);
+	}
+	
+	public static void viewAllPromo()
+	{
+		promoList = PromoCodeList.getPromoCodeList();
+
+		if(promoList.size() == 0)
+		{
+			System.out.println("No promo codes in database");
+		}
+		else
+		{
+			for(int i=0 ; i<promoList.size() ; i++)
+			{
+				System.out.println((i+1) +". " + promoList.get(i).getPromoCode() + " : " + promoList.get(i).getOffer() + " (" + promoList.get(i).getPromoCodeStatus() +")" );
+			}
+		}
+	}
+
+	public static void deletePromo()
+	{
+
 	}
 }
