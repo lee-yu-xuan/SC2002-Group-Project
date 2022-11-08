@@ -82,7 +82,7 @@ public class ExceptionHandling {
             System.out.println("You did not enter an integer.");
         }
 
-        while(num<0 || num>upperBound){
+        while(num<=0 || num>upperBound){
             System.out.println("Please enter a number between 1 and "+upperBound);
             num = scanner.nextInt();
         }

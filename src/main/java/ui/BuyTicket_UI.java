@@ -33,7 +33,7 @@ public class BuyTicket_UI {
         System.out.println("Select your preferred cinema and timing");
    
         int choice=0;
-        choice = ExceptionHandling.IntegerScanner();    //this need additional exception
+        choice = ExceptionHandling.IntegerScannerRangeOfFunction(tmp.size());
         String cinemaID = tmp.get(choice).getCinemaID();
         LocalDateTime time = tmp.get(choice).getStartTime();
   
