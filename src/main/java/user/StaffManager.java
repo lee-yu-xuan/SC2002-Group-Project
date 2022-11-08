@@ -108,13 +108,8 @@ public class StaffManager {
 			case 1:
 				String MovieName = "";
 				System.out.println("Enter the name of the Movie: ");
-				do {
-					try {
-						MovieName = scan.nextLine();
-					} catch (NumberFormatException nfe) {
-						System.out.println("Please enter in string!");
-					}
-				} while (MovieName.isEmpty());
+				
+				MovieName = ExceptionHandling.checkForAlphabet(1);
 
 				R = MovieListing.deleteByName(MovieName);
 				if (R == 0) {
@@ -127,13 +122,7 @@ public class StaffManager {
 			case 2:
 				String MovieID = "";
 				System.out.println("Enter the ID of the Movie: ");
-				do {
-					try {
-						MovieID = scan.nextLine();
-					} catch (NumberFormatException nfe) {
-						System.out.println("Please enter in string!");
-					}
-				} while (MovieID.isEmpty());
+				MovieID = ExceptionHandling.checkForAlphabet(2);
 
 				R = MovieListing.deleteByID(MovieID);
 				if (R == 0) {
@@ -163,14 +152,7 @@ public class StaffManager {
 			case 1:
 				String MovieName = "";
 				System.out.println("Enter the name of the Movie: ");
-				do {
-
-					try {
-						MovieName = scan.nextLine();
-					} catch (NumberFormatException nfe) {
-						System.out.println("Please enter in string!");
-					}
-				} while (MovieName.isEmpty());
+				MovieName = ExceptionHandling.checkForAlphabet(1);
 				index = MovieListing.getMovieIndexByTitle(MovieName);
 				if (index == -1) {
 					return;
@@ -180,13 +162,7 @@ public class StaffManager {
 			case 2:
 				String MovieID = "";
 				System.out.println("Enter the ID of the Movie: ");
-				do {
-					try {
-						MovieID = scan.nextLine();
-					} catch (NumberFormatException nfe) {
-						System.out.println("Please enter in string!");
-					}
-				} while (MovieID.isEmpty());
+				MovieID = ExceptionHandling.checkForAlphabet(2);
 				index = MovieListing.getMovieIndexByID(MovieID);
 				if (index == -1) {
 					return;
@@ -304,23 +280,17 @@ public class StaffManager {
 		String classOfCinema = "";
 		int x = 0;
 
-		do {
+		
 			System.out.println("Enter the ID of the Movie: ");
-			try {
-				movieID = scan.nextLine();
-			} catch (NumberFormatException nfe) {
-				System.out.println("Please enter in string!");
-			}
-		} while (movieID.isEmpty());
+			
+			movieID = ExceptionHandling.checkForAlphabet(2);
+			
 
-		do {
+		
 			System.out.println("Enter the Cinema ID: ");
-			try {
-				cinemaID = scan.nextLine();
-			} catch (NumberFormatException nfe) {
-				System.out.println("Please enter in string!");
-			}
-		} while (cinemaID.isEmpty());
+			
+			cinemaID = ExceptionHandling.checkForAlphabet(2);
+			
 
 		do {
 			System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
@@ -407,22 +377,15 @@ public class StaffManager {
 				int x = 0;
 				System.out.println("Enter the ID of the Movie: ");
 
-				do {
-					try {
-						movieID = scan.nextLine();
-					} catch (NumberFormatException nfe) {
-						System.out.println("Please enter in string!");
-					}
-				} while (movieID.isEmpty());
+				
+				movieID = ExceptionHandling.checkForAlphabet(2);
+					
 
-				do {
-					System.out.println("Enter the Cinema ID: ");
-					try {
-						cinemaID = scan.nextLine();
-					} catch (NumberFormatException nfe) {
-						System.out.println("Please enter in string!");
-					}
-				} while (cinemaID.isEmpty());
+				
+				System.out.println("Enter the Cinema ID: ");
+					
+				cinemaID = ExceptionHandling.checkForAlphabet(2);
+					
 
 				do {
 					System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
