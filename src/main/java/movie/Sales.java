@@ -29,6 +29,7 @@ public class Sales
 		this.totalSales = totalSales;
 	}
 	/**
+	 * set the movie ID
 	 * @param movieID String movie ID
 	 */
 	public void setmovieID(String movieID)
@@ -36,6 +37,7 @@ public class Sales
 		this.movieID = movieID;
 	}
 	/**
+	 * set the total sales of a movie
 	 * @param totalSales int total sales
 	 */
 	public void setSales(int totalSales)
@@ -49,6 +51,7 @@ public class Sales
 		this.totalSales++;
 	}
 	/**
+	 * return the movie id
 	 * @return the movie id
 	 */
 	public String getMovieID()
@@ -56,6 +59,7 @@ public class Sales
 		return movieID;
 	}
 	/**
+	 * return the total sales
 	 * @return return the totalSales
 	 */
 	public int getTotalSales()
