@@ -104,7 +104,7 @@ public class StaffManager {
 		System.out.println("Please choose one of the options:");
 		System.out.println("1) Delete by movie title");
 		System.out.println("2) Delete by movie ID");
-		no = scan.nextInt();
+		no = ExceptionHandling.IntegerScannerRangeOfFunction(2);
 
 		switch (no) {
 			case 1:
@@ -148,7 +148,7 @@ public class StaffManager {
 		System.out.println("Please choose one of the options:");
 		System.out.println("1) Update by movie title");
 		System.out.println("2) Update by movie ID");
-		no = scan.nextInt();
+		no = ExceptionHandling.IntegerScannerRangeOfFunction(2);
 
 		switch (no) {
 			case 1:
@@ -186,48 +186,48 @@ public class StaffManager {
 			System.out.println("8) Exit");
 
 			System.out.println("Enter your choice:");
-			int choice = scan.nextInt();
+			int choice = ExceptionHandling.IntegerScannerRangeOfFunction(8);
 			scan.nextLine();
 			switch (choice) {
 				case 1:
 					System.out.println("Enter movie Name");
-					String namee = scan.nextLine();
+					String namee = ExceptionHandling.StringScanner();
 					MovieListing.getMovieList().get(index).setTitle(namee);
 					break;
 				case 2:
 					System.out.println("Enter movie status");
-					String statuss = scan.nextLine();
+					String statuss = ExceptionHandling.StringScanner();
 					ShowingStatus s = ShowingStatus.valueOf(statuss);
 					MovieListing.getMovieList().get(index).setStatus(s);
 					// movieCSV.get(i)[1]= statuss;
 					break;
 				case 3:
 					System.out.println("Enter movie synopsis");
-					String synopsiss = scan.nextLine();
+					String synopsiss = ExceptionHandling.StringScanner();
 					MovieListing.getMovieList().get(index).setSynopsis(synopsiss);
 					// movieCSV.get(i)[2]= synopsiss;
 					break;
 				case 4:
 					System.out.println("Enter movie type");
-					String typee = scan.nextLine();
+					String typee = ExceptionHandling.StringScanner();
 					MovieListing.getMovieList().get(index).setType(typee);
 					// movieCSV.get(i)[3]= typee;
 					break;
 				case 5:
 					System.out.println("Enter movie director");
-					String directorr = scan.nextLine();
+					String directorr = ExceptionHandling.StringScanner();
 					MovieListing.getMovieList().get(index).setDirector(directorr);
 					// movieCSV.get(i)[4]= directorr;
 					break;
 				case 6:
 					System.out.println("Enter movie cast");
-					String castt = scan.nextLine();
+					String castt = ExceptionHandling.StringScanner();
 					MovieListing.getMovieList().get(index).setCast(castt);
 					// movieCSV.get(i)[5]= castt;
 					break;
 				case 7:
 					System.out.println("Enter movie ratingg");
-					String ratingg = scan.nextLine();
+					String ratingg = ExceptionHandling.StringScanner();
 					MovieListing.getMovieList().get(index).setRating(ratingg);
 					// movieCSV.get(i)[6]= ratingg;
 					break;
@@ -251,7 +251,7 @@ public class StaffManager {
 			System.out.println("2) Ranked by reviewers rating");
 
 			try {
-				choice = scan.nextInt();
+				choice = ExceptionHandling.IntegerScannerRangeOfFunction(2);
 
 			} catch (NumberFormatException nfe) {
 				System.out.println("Please enter a number!");
@@ -297,7 +297,7 @@ public class StaffManager {
 		do {
 			System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
 			try {
-				startTime = scan.nextLine();
+				startTime = ExceptionHandling.StringScanner();
 				LocalDateTime.parse(startTime, _DateTimeFormatter.formatter);
 				x = 0;
 			} catch (NumberFormatException nfe) {
@@ -312,7 +312,7 @@ public class StaffManager {
 		do {
 			System.out.println("Enter the endTime of the movie (yyyy-MM-dd HH:mm): ");
 			try {
-				endTime = scan.nextLine();
+				endTime = ExceptionHandling.StringScanner();
 				LocalDateTime.parse(endTime, _DateTimeFormatter.formatter);
 				x = 0;
 			} catch (NumberFormatException nfe) {
@@ -327,7 +327,7 @@ public class StaffManager {
 		do {
 			System.out.println("Enter the class of cinema: ");
 			try {
-				classOfCinema = scan.nextLine();
+				classOfCinema = ExceptionHandling.StringScanner();
 				ClassOfCinema.valueOf(classOfCinema);
 				x = 0;
 			} catch (NumberFormatException nfe) {
@@ -353,7 +353,7 @@ public class StaffManager {
 		System.out.println("Please choose one of the options:");
 		System.out.println("1) Delete by movie index");
 		System.out.println("2) Delete by movie info");
-		no = scan.nextInt();
+		no = ExceptionHandling.IntegerScannerRangeOfFunction(2);
 
 		switch (no) {
 			case 1:
@@ -361,7 +361,7 @@ public class StaffManager {
 				System.out.println("Enter the name of the Movie: ");
 				do {
 					try {
-						index = scan.nextInt();
+						index = ExceptionHandling.StringScanner();
 					} catch (NumberFormatException nfe) {
 						System.out.println("Please enter in integer!");
 					}
@@ -392,7 +392,7 @@ public class StaffManager {
 				do {
 					System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
 					try {
-						startTime = scan.nextLine();
+						startTime = ExceptionHandling.StringScanner();
 						LocalDateTime.parse(startTime, _DateTimeFormatter.formatter);
 						x = 0;
 					} catch (NumberFormatException nfe) {
@@ -407,7 +407,7 @@ public class StaffManager {
 				do {
 					System.out.println("Enter the endTime of the movie (yyyy-MM-dd HH:mm): ");
 					try {
-						endTime = scan.nextLine();
+						endTime = ExceptionHandling.StringScanner();
 						LocalDateTime.parse(endTime, _DateTimeFormatter.formatter);
 						x = 0;
 					} catch (NumberFormatException nfe) {
@@ -446,7 +446,7 @@ public class StaffManager {
 			System.out.println("6) get class weight");
 			System.out.println("7) set class weight");
 
-			no = scan.nextInt();
+			no = ExceptionHandling.IntegerScannerRangeOfFunction(7);
 
 			switch (no) {
 
@@ -458,8 +458,8 @@ public class StaffManager {
 					break;
 				case 3:
 					System.out.println("Enter holiday start and end (yyyy-MM-dd yyyy-MM-dd):");
-					start = scan.next();
-					end = scan.next();
+					start = ExceptionHandling.StringScanner();
+					end = ExceptionHandling.StringScanner();
 					SystemConfig.addHoliday(start, end);
 					break;
 				case 4:
@@ -479,11 +479,11 @@ public class StaffManager {
 				case 7:
 					System.out.println("Enter int multiplier for respective Cinema class");
 					System.out.print("Platinum: ");
-					plat = scan.nextInt();
+					plat = ExceptionHandling.IntegerScanner();
 					System.out.print("Gold: ");
-					gold = scan.nextInt();
+					gold = ExceptionHandling.IntegerScanner();
 					System.out.print("Silver: ");
-					silv = scan.nextInt();
+					silv = ExceptionHandling.IntegerScanner();
 					SystemConfig.setClassWeight(plat, gold, silv);
 					break;
 				default:
@@ -518,7 +518,7 @@ public class StaffManager {
 		do {
 			String status;
 			System.out.println("Enter the status of the Promo Code :");
-			status = scan.nextLine();
+			status = ExceptionHandling.StringScanner();
 			if(status.toLowerCase().equals("ready"))
 			{
 				promoCodeStatus = PromoCodeStatus.READY;
