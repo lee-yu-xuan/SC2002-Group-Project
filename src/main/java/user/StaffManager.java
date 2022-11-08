@@ -358,7 +358,7 @@ public class StaffManager {
 		switch (no) {
 			case 1:
 				int index = -1;
-				System.out.println("Enter the name of the Movie: ");
+				System.out.println("Enter the index of the Movie: ");
 				do {
 					try {
 						index = ExceptionHandling.IntegerScanner();
@@ -373,8 +373,8 @@ public class StaffManager {
 			case 2:
 				String movieID = "";
 				String cinemaID = "";
-				String startTime = "";
-				String endTime = "";
+				LocalDateTime startTime;
+				LocalDateTime endTime;
 				String classOfCinema = "";
 				int x = 0;
 				System.out.println("Enter the ID of the Movie: ");
@@ -389,39 +389,14 @@ public class StaffManager {
 				cinemaID = ExceptionHandling.checkForAlphabet(2);
 					
 
-				do {
-					System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
-					try {
-						startTime = ExceptionHandling.StringScanner();
-						LocalDateTime.parse(startTime, _DateTimeFormatter.formatter);
-						x = 0;
-					} catch (NumberFormatException nfe) {
-						System.out.println("Please enter in string!");
-					} catch (java.time.format.DateTimeParseException e) {
-						System.out.println("Please enter the correct format");
-						System.out.println();
-						x = 1;
-					}
-				} while (startTime.isEmpty() || x == 1);
+				System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
+				startTime = ExceptionHandling.checkDateTime();
 
-				do {
-					System.out.println("Enter the endTime of the movie (yyyy-MM-dd HH:mm): ");
-					try {
-						endTime = ExceptionHandling.StringScanner();
-						LocalDateTime.parse(endTime, _DateTimeFormatter.formatter);
-						x = 0;
-					} catch (NumberFormatException nfe) {
-						System.out.println("Please enter in string!");
-					} catch (java.time.format.DateTimeParseException e) {
-						System.out.println("Please enter the correct format");
-						System.out.println();
-						x = 1;
-					}
-				} while (endTime.isEmpty() || x == 1);
+				
+				System.out.println("Enter the endTime of the movie (yyyy-MM-dd HH:mm): ");
+				endTime = ExceptionHandling.checkDateTime();
 
-				ShowTimeList.deleteByMovieInfo(movieID, cinemaID,
-						LocalDateTime.parse(startTime, _DateTimeFormatter.formatter),
-						LocalDateTime.parse(endTime, _DateTimeFormatter.formatter));
+				ShowTimeList.deleteByMovieInfo(movieID, cinemaID,startTime,endTime);
 				break;
 			default:
 				System.out.println("Wrong options");
@@ -566,10 +541,6 @@ public class StaffManager {
 		}
 	}
 
-	public static void deletePromo()
-	{
-
-	}
 
 	public static void addCinema() {
 		String cinemaID = "";
