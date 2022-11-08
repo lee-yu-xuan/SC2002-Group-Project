@@ -8,10 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
 
+/**
+ * A List class to store all available promo code.
+ * @author Boon Hian Lim
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class PromoCodeList {
     private static List<PromoCode> promoCodeList;
     private static List<String[]> promoCodeCSV;
 
+    /**
+     * Sort the promo code order.
+     */
     private static void sortAfterAppend()
 	{
         int position = promoCodeList.size() - 1;
@@ -23,12 +32,20 @@ public class PromoCodeList {
         }
 	}
 
+    /**
+     * Get List of promo codes.
+     * @return Get List of all PromoCode in the system.
+     */
     public static List<PromoCode> getPromoCodeList(){
         refresh();
 
         return promoCodeList;
     }
 
+    /**
+     * Get List of all available promo codes.
+     * @return Get list of all available PromoCode in the system.
+     */
     public static List<PromoCode> getAvailableCodeList(){
         List<PromoCode> returnPromoList = new ArrayList<PromoCode>();
         
@@ -43,6 +60,11 @@ public class PromoCodeList {
         return returnPromoList;
     }
 
+    /**
+     * Check the value of a particular promo code.
+     * @param promoCode String representation of a promo code.
+     * @return Value of the promo code.
+     */
     public static double checkPromoCode(String promoCode){
 
         refresh();
@@ -57,6 +79,10 @@ public class PromoCodeList {
         return -1;
     }
 
+    /**
+     * Add a new promocode to the system.
+     * @param promoCode PromoCode to be added.
+     */
     public static void add(PromoCode promoCode){
         if(promoCodeList == null){
             promoCodeList = new ArrayList<PromoCode>();
@@ -66,6 +92,10 @@ public class PromoCodeList {
         refresh();
     }   
 
+    /**
+     * Function to use a particular promo code.
+     * @param promoCode String representation of a promo code.
+     */
     public static void usePromoCode(String promoCode){
         for(int i = 0;i< promoCodeList.size(); i++){
             if(promoCodeList.get(i).getPromoCode().equals(promoCode)){
@@ -74,6 +104,11 @@ public class PromoCodeList {
         }
         refresh();
     }
+
+    /**
+     * Remove a promo code from the system.
+     * @param promoCode String representation of promo code to be removed.
+     */
     public static void removePromoCodeByCode(String promoCode){
         for(int i = 0;i< promoCodeList.size(); i++){
             if(promoCodeList.get(i).getPromoCode().equals(promoCode)){
@@ -83,6 +118,11 @@ public class PromoCodeList {
         }
     }
 
+    /**
+     * Update the number of promo code.
+     * @param promoCode PromoCode to be updated.
+     * @param count Count for the PromoCode.
+     */
     public static void updateCountByCode(String promoCode, int count){
         for(int i = 0;i< promoCodeList.size();i++){
             if(promoCodeList.get(i).getPromoCode().equals(promoCode)){
@@ -92,6 +132,11 @@ public class PromoCodeList {
         }
     }
 
+    /**
+     * Update the status of a promo code.
+     * @param promoCode PromoCode to be updated.
+     * @param promoCodeStatus PromoCode enum status.
+     */
     public static void updateStatusByCode(String promoCode, PromoCodeStatus promoCodeStatus){
         for(int i = 0;i< promoCodeList.size();i++){
             if(promoCodeList.get(i).getPromoCode().equals(promoCode)){
@@ -101,6 +146,12 @@ public class PromoCodeList {
         }
     }
 
+    /**
+     * Update the availability period for a promocode.
+     * @param promoCode PromoCode to be updated.
+     * @param starTime Start date time for the promo.
+     * @param endTime End date time for the promo.
+     */
     public static void updateTimeByCode(String promoCode, LocalDateTime starTime, LocalDateTime endTime){
         for(int i = 0;i< promoCodeList.size();i++){
             if(promoCodeList.get(i).getPromoCode().equals(promoCode)){
@@ -110,6 +161,10 @@ public class PromoCodeList {
             }
         }
     }
+
+    /**
+     * Function to remove outdated promo and update availble promo.
+     */
     public static void refresh(){
         //get current time
         LocalDateTime now = LocalDateTime.now();
@@ -129,6 +184,9 @@ public class PromoCodeList {
         }
     }
 
+    /**
+     * Load all the Promocode.
+     */
     public static void load(){
         if(promoCodeList == null){
             //System.out.println("The movieList is empty");
@@ -156,6 +214,9 @@ public class PromoCodeList {
         refresh(); //update the promoCodeList
     }
 
+    /**
+     * Save all Promo code in system to database before closing app.
+     */
     public static void save(){
         List<String[]> writeBackCSV = new ArrayList<String[]>();
         
