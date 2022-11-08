@@ -10,6 +10,11 @@ import src.main.java.payment.PromoCodeList;
 import src.main.java.enums.*;
 
 public class Tester {
+    public static void PaymentUITest(String[] args) {
+        PromoCodeList.load();
+        
+        Payment_UI.display_UI("Guest", null);
+    }
     public static void TestPromoRead(String[] args) {
         PromoCodeList.load();
         for(int j = 0;j < PromoCodeList.getPromoCodeList().size();j++){
@@ -21,7 +26,7 @@ public class Tester {
             System.out.println(PromoCodeList.getPromoCodeList().get(j).getCount());
         }
     }
-    public static void main(String[] args) {
+    public static void TestPromoWrite(String[] args) {
         
         while(true){
             
