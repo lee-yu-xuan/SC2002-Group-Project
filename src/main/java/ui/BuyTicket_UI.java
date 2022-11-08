@@ -26,28 +26,33 @@ public class BuyTicket_UI {
         Scanner sc = new Scanner(System.in);
         List<ShowTime> tmp = ShowTimeController.showTimeByShowTime(movieID);
             for(int i = 0;i<tmp.size();i++){
-                System.out.println(i+". "+tmp.get(i).getCinemaID()+" "+tmp.get(i).getStartTime());
+                System.out.println((i+1)+". "+tmp.get(i).getCinemaID()+" "+tmp.get(i).getStartTime());
             }
         
         //user select cinema and timing
         System.out.println("Select your preferred cinema and timing");
    
         int choice=0;
-        choice = ExceptionHandling.IntegerScannerRangeOfFunction(tmp.size());
+        choice = ExceptionHandling.IntegerScannerRangeOfFunction(tmp.size())-1;
         String cinemaID = tmp.get(choice).getCinemaID();
         LocalDateTime time = tmp.get(choice).getStartTime();
   
         //pass time, and cinema to displayLayout_UI   
         LayoutController.displayLayout(cinemaID, time);
 
-        System.out.println("Select the row of your preferred seat");
-        System.out.println("*Note that the first 2 rows will have a price deduction of $2");
-        String[] rowColumn = CinemaController.checklayout(cinemaID);
-        int rowUpperbound = Integer.parseInt(rowColumn[0]);
-        int columnUpperbound = Integer.parseInt(rowColumn[1]);
-        int row = ExceptionHandling.IntegerScannerRangeOfFunction(rowUpperbound);
-        System.out.println("Select the column of your preferred seat");
-        int col = ExceptionHandling.IntegerScannerRangeOfFunction(columnUpperbound);
+        boolean duplicateSeat = true; int row=0; int col=0;
+        while(duplicateSeat==true){
+            System.out.println("Select the row of your preferred seat");
+            System.out.println("*Note that the first 2 rows will have a price deduction of $2");
+            String[] rowColumn = CinemaController.checklayout(cinemaID);
+            int rowUpperbound = Integer.parseInt(rowColumn[0]);
+            int columnUpperbound = Integer.parseInt(rowColumn[1]);
+            row = ExceptionHandling.IntegerScannerRangeOfFunction(rowUpperbound);
+            System.out.println("Select the column of your preferred seat");
+            col = ExceptionHandling.IntegerScannerRangeOfFunction(columnUpperbound);
+            duplicateSeat = LayoutController.checkIfDuplicateSeats(row, col, cinemaID);
+            if(duplicateSeat==true) System.out.println("Seat is taken, please choose another seat");
+        }
 
         //after calling payment UI, call this to update the seat
         SeatBooked_Controller.updateSeatBooked(row, col, cinemaID, time);
