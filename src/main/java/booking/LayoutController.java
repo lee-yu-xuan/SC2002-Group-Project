@@ -68,14 +68,15 @@ public class LayoutController {
         }
     }
 
-    public static boolean checkIfDuplicateSeats(int row, int column, String cinemaID){
+    public static boolean checkIfDuplicateSeats(int row, int column, String cinemaID, LocalDateTime timing) {
         //check if duplicate seats
         List<SeatBooked>  movieList = SeatBooked_Controller.getSeatBooked();
         String seatsTaken = "";
         for(int i=0; i<movieList.size(); i++){
             //get the 2 variable: cinemaID and timing of the movie
             String tmpCinemaID = movieList.get(i).getCinemaID();
-            if(tmpCinemaID.compareTo(cinemaID)==0){
+            LocalDateTime dt1 = movieList.get(i).getTiming();
+            if(tmpCinemaID.compareTo(cinemaID)==0 && dt1.compareTo(timing)==0){
                 seatsTaken = movieList.get(i).getSeatsTaken();
                 List<String> items = Arrays.asList(seatsTaken.split("&"));
                 for(int j=0; j<items.size(); j++){

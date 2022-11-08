@@ -50,7 +50,8 @@ public class BuyTicket_UI {
             row = ExceptionHandling.IntegerScannerRangeOfFunction(rowUpperbound);
             System.out.println("Select the column of your preferred seat");
             col = ExceptionHandling.IntegerScannerRangeOfFunction(columnUpperbound);
-            duplicateSeat = LayoutController.checkIfDuplicateSeats(row, col, cinemaID);
+            duplicateSeat = LayoutController.checkIfDuplicateSeats(row, col, cinemaID, time);
+            System.out.println("\n");
             if(duplicateSeat==true) System.out.println("Seat is taken, please choose another seat");
         }
 
