@@ -361,7 +361,7 @@ public class StaffManager {
 				System.out.println("Enter the name of the Movie: ");
 				do {
 					try {
-						index = ExceptionHandling.StringScanner();
+						index = ExceptionHandling.IntegerScanner();
 					} catch (NumberFormatException nfe) {
 						System.out.println("Please enter in integer!");
 					}
