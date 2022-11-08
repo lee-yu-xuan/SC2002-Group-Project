@@ -4,12 +4,20 @@ import java.util.Scanner;
 import src.main.java.helper.*;
 import src.main.java.user.*;
 
+/**
+ * User Interface for Staff.
+ * @author Lester Lee
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class StaffUI {
 	static int no=0;
 	
 	
 	
-	
+	/**
+	 * Display User Interface for Staff.
+	 */
 	public static void UI() {
 		do{
 			StaffManager SM = new StaffManager();
