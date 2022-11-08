@@ -29,6 +29,14 @@ public class CinemaController {
         }
     }
 
+    public static void add(Cinema cinema) {
+        if (cinemaList == null) {
+            // System.out.println("The movieList is empty");
+            cinemaList = new ArrayList<Cinema>();
+        }
+        cinemaList.add(cinema);
+    }
+
     public static List<Cinema> getCinemaList(){
         return cinemaList;
     }

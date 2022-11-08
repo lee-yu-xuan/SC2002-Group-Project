@@ -9,6 +9,8 @@ import src.main.java.payment.PromoCode;
 import src.main.java.payment.PromoCodeList;
 import src.main.java.helper.*;
 import src.main.java.sysconfig.*;
+import src.main.java.cinema.Cinema;
+import src.main.java.cinema.CinemaController;
 import src.main.java.enums.*;
 
 /**
@@ -95,7 +97,7 @@ public class StaffManager {
 
 	/**
 	 * Staff's function to remove movie from database.
-	 */
+	 */	
 	public static void removeMovie() {
 		int no = 0;
 		int R = 0;
@@ -567,5 +569,41 @@ public class StaffManager {
 	public static void deletePromo()
 	{
 
+	}
+
+	public static void addCinema() {
+		String cinemaID = "";
+		String branch = "";
+		int numberOfSeats = 0;
+		String tmp_classOfCinema = "";
+		String tmp_layout = "";
+		
+		System.out.println("Enter the cinemaID: ");
+		cinemaID = ExceptionHandling.StringScanner();
+		
+		System.out.println("Enter the branch: ");
+		branch = ExceptionHandling.checkForAlphabet(1);
+		
+		System.out.println("Enter the number of seats ");	
+		numberOfSeats = ExceptionHandling.IntegerScanner();
+	
+		System.out.println("Enter the class of cinema: ");	
+		tmp_classOfCinema = ExceptionHandling.checkForAlphabet(1);
+		ClassOfCinema classOfCinema = ClassOfCinema.valueOf(tmp_classOfCinema);
+
+		System.out.println("Enter the layout type: ");
+		tmp_layout = ExceptionHandling.checkForAlphabet(1);
+		Layout layout = Layout.valueOf(tmp_layout);
+	
+		Cinema cinema = new Cinema(cinemaID, branch, numberOfSeats, classOfCinema, layout);
+
+		CinemaController.add(cinema);
+	}
+
+	public static void removeCinema(){
+		String cinemaID = "";
+		System.out.println("Enter the cinemaID that you want to remove: ");
+		cinemaID = ExceptionHandling.StringScanner();
+		CinemaController.deleteByID(cinemaID);
 	}
 }
