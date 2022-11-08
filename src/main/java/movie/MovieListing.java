@@ -9,14 +9,27 @@ import java.util.List;
 import src.main.java.enums.ShowingStatus;
 import src.main.java.helper.*;
 
+/**
+ * A MovieListing Class.
+ * @author Boon Hian Lim
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class MovieListing {
     private static List<Movie> movieList;
     private static List<String[]> movieCSV;
 
+    /**
+     * Get a list of movie function.
+     * @return List<Movie>.
+     */ 
     public static List<Movie> getMovieList() {
         return movieList;
     }
-
+    /**
+     * Get a list of available movie function.
+     * @return List<Movie>.
+     */ 
     public static List<Movie> getAvailableMovieList() {
         List<Movie> tempList = new ArrayList<Movie>();
         for (int i = 0; i < movieList.size(); i++) {
@@ -27,7 +40,11 @@ public class MovieListing {
         }
         return tempList;
     }
-
+    /**
+     * Get a list of movie of a specific ID.
+     * @param movieID movie ID
+     * @return List<Movie> of specific movie.
+     */ 
     public static String getMovieName(String movieID) {
         for (int i = 0; i < movieList.size(); i++) {
             if (movieList.get(i).getMovieID().equals(movieID)) {
@@ -36,7 +53,10 @@ public class MovieListing {
         }
         return "Movie not found";
     }
-
+    /**
+     * Add a new movie function.
+     * @param movie Movie class object.
+     */
     public static void add(Movie movie) {
         if (movieList == null) {
             // System.out.println("The movieList is empty");
@@ -44,7 +64,11 @@ public class MovieListing {
         }
         movieList.add(movie);
     }
-
+    /**
+     * Get a index of movie of a specific name.
+     * @param movieTitle String title of movie
+     * @return index of movie.
+     */ 
     public static int getMovieIndexByTitle(String movieTitle) {
         for (int i = 0; i < movieList.size(); i++) {
             if (movieTitle.equalsIgnoreCase(movieList.get(i).getMovieTitle())) {
@@ -54,7 +78,11 @@ public class MovieListing {
         // movieTitle not found
         return -1;
     }
-
+    /**
+     * Get a index of movie of a specific name.
+     * @param movieID d of movie
+     * @return index of movie.
+     */ 
     public static int getMovieIndexByID(String movieID) {
         for (int i = 0; i < movieList.size(); i++) {
             if (movieID.equals(movieList.get(i).getMovieID())) {
@@ -64,7 +92,11 @@ public class MovieListing {
         // movieID not found
         return -1;
     }
-
+    /**
+     * Get a the showing status of a specific movie.
+     * @param movieID d of movie
+     * @return Enum showingStatus.
+     */ 
     public static ShowingStatus getShowingStatus(String movieID) {
         int index = getMovieIndexByID(movieID);
         if (index != -1) {
@@ -72,7 +104,10 @@ public class MovieListing {
         }
         return null;
     }
-
+    /**
+     * Get the details of a specific movie.
+     * @param movieID id of movie
+     */ 
     public static void getMovieDetails(String movieID) {
         int index = getMovieIndexByID(movieID);
         if (index != 1) {
@@ -86,7 +121,11 @@ public class MovieListing {
             System.out.println(movie.getRating());
         }
     }
-
+    /**
+     * Delete a movie by name.
+     * @param title title of movie
+     * @return success/failure.
+     */ 
     public static int deleteByName(String title) {
         for (int i = 0; i < movieList.size(); i++) {
             if (movieList.get(i).getMovieTitle() == title) {
@@ -96,7 +135,11 @@ public class MovieListing {
         }
         return 0; // unable to find title
     }
-
+    /**
+     * Get the id of a movie by name.
+     * @param title title of movie
+     * @return id of movie.
+     */ 
     public static String getMovieID(String title) {
         for (int i = 0; i < movieList.size(); i++) {
             if (movieList.get(i).getMovieTitle().equals(title)) {
@@ -105,7 +148,11 @@ public class MovieListing {
         }
         return null; // unable to find title
     }
-
+    /**
+     * Get the status of a movie by name.
+     * @param title title of movie
+     * @return success of operation.
+     */ 
     public static String getAvailableMovieID(String title) {
         List<Movie> tempList = getAvailableMovieList();
         for (int i = 0; i < tempList.size(); i++) {
@@ -115,7 +162,11 @@ public class MovieListing {
         }
         return null;
     }
-
+    /**
+     * Delete a movie by name.
+     * @param id id of movie
+     * @return success of operation.
+     */ 
     public static int deleteByID(String id) {
         for (int i = 0; i < movieList.size(); i++) {
             if (movieList.get(i).getMovieID() == id) {
@@ -126,6 +177,9 @@ public class MovieListing {
         return 0; // unable to find id
     }
 
+    /**
+     * Load the content of movie list CSV into the system
+     */ 
     public static void load() {
         try {
             if (movieList == null) {
@@ -150,6 +204,9 @@ public class MovieListing {
         }
     }
 
+    /**
+     * Save the content of the system into the movie list CSV
+     */ 
     public static void save() {
         List<String[]> tempCSV = new ArrayList<String[]>();
 
