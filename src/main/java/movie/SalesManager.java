@@ -3,17 +3,27 @@ package src.main.java.movie;
 import java.util.ArrayList;
 import java.util.List;
 import src.main.java.helper.*;
-
+/**
+ * A SalesManager Class.
+ * @author Lee Yu Xuan
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class SalesManager
 {
 	private static List<Sales> salesList;
 	private static List<String[]> salesCSV;
-	
+	/**
+	 * @return a list of movie sales
+	 */
 	public static List<Sales> getSalesList()
 	{
 		return salesList;
 	}
-	
+	/**
+	 * increase the sale of a specific movie by ID
+	 * @param movieID String of movieID
+	 */
 	public static void addSalesByID(String movieID){
 		if(salesList == null){
             System.out.println("The salesList is empty");
@@ -32,7 +42,11 @@ public class SalesManager
 		//Movie haven't made any sales, create new entries and + 1
 		salesList.add(new Sales(movieID,1));
 	}
-
+	/**
+	 * increase the sale of a specific movie by ID
+	 * @param movieID String of movieID
+	 * @return the number of sales from a specific movie
+	 */
 	public static int getSalesByID(String movieID){
 		if(salesList == null){
             return -1;
@@ -70,7 +84,9 @@ public class SalesManager
 		salesList.add(sales); //if no match found, create a new entry
 	}
 	**/
-	
+	  /**
+     * Load the content of sale list CSV into the system
+     */ 
 	public static void load()
 	{
 		if(salesList == null)
@@ -88,7 +104,9 @@ public class SalesManager
 			salesList.add(new Sales(movieID, totalSale));
 		}
 	}
-	
+	/**
+  * Save the content of the system into the sale list CSV
+  */	
 	public static void save()
 	{
 		List<String[]> tempCSV = new ArrayList<String[]>();

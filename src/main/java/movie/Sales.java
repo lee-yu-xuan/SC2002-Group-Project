@@ -1,6 +1,6 @@
 package src.main.java.movie;
 /**
- * A MovieListing Class.
+ * A Sales Class.
  * @author Lee Yu Xuan
  * @version 1.0
  * @since 2022-11-01
