@@ -4,11 +4,24 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import src.main.java.enums.ShowingStatus;
-
+/**
+ * A ShowTimeController Class.
+ * @author Luke Yong Jian
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class ShowTimeController {
+    /**
+     * return a list of show time for a specfiic movie
+     * @param movieID id of a movie
+     * @return the list of showtime for the movie
+     */
     public static List<ShowTime> showTimeByShowTime(String movieID){
         return ShowTimeList.getShowTimeByID(movieID);
     }
+    /**
+     * refreshes the list of showtime
+     */
     public static void refresh(){
         //debug
         //LocalDateTime now = LocalDateTime.parse("2023-01-03 12:00",_DateTimeFormatter.formatter);

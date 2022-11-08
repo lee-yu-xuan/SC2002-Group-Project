@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import src.main.java.enums.*;
 import src.main.java.helper.*;
 /**
- * A ReviewList Class.
+ * A ShowTime Class.
  * @author Luke Yong Jian
  * @version 1.0
  * @since 2022-11-01
