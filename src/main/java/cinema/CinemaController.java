@@ -1,15 +1,24 @@
 package src.main.java.cinema;
-
 import java.util.ArrayList;
 import java.util.List;
 import src.main.java.enums.*;
 import src.main.java.helper.*;
+
+/**
+ * Cinema Controller Class.
+ * @author Yong Jian loke
+ * @version 1.0
+ * @since 2022-11-01
+ */
 
 
 public class CinemaController {
     public static List<Cinema> cinemaList;
     public static List<String[]> cinemaCSV;
 
+    /**
+     * Load function. Use the date from the CSV file to create the cinema objects.
+     */
     public static void load(){
         if(cinemaList == null){
             //System.out.println("The cinemaList is empty");
@@ -29,6 +38,10 @@ public class CinemaController {
         }
     }
 
+    /**
+     * Add new cinema to the cinema class(used by admin).
+     * @param cinema cinema objects that the admin has typed in.
+     */
     public static void add(Cinema cinema) {
         if (cinemaList == null) {
             // System.out.println("The movieList is empty");
@@ -37,10 +50,19 @@ public class CinemaController {
         cinemaList.add(cinema);
     }
 
+    /**
+     * Get the list of cinema objects
+     * @return the list of cinema objects
+     */
     public static List<Cinema> getCinemaList(){
         return cinemaList;
     }
 
+    /**
+     * Get the list of cinemas that are belong to the cineplex
+     * @param cineplexName that is linked to the cinema
+     * @return List of cinema object related to the cineplex
+     */
     public static List<Cinema> getCinemaListByCineplex(String cineplexName){
         List<Cinema> cinemaListByCineplex = new ArrayList<Cinema>();
         for(int i=0; i<cinemaList.size(); i++){
@@ -51,6 +73,11 @@ public class CinemaController {
         return cinemaListByCineplex;
     }    
 
+/**
+ * For admin to delete the cinema by cinemaID.
+ * @param cinemaID cinemaID that admin has typed in
+ * @return
+ */
 public static int deleteByID(String cinemaID){
  
     for(int h=0; h<cinemaList.size(); h++){
@@ -62,6 +89,11 @@ public static int deleteByID(String cinemaID){
     return 0;
 }
 
+/**
+ * Check the size of the cinema
+ * @param cinemaID cinemaID that the user has chosen
+ * @return the number of rows and columns of the cinema 
+ */
 public static String[] checklayout(String cinemaID){
     String[] rowColumn = new String[2];
     for(int h=0; h<cinemaList.size(); h++){
@@ -84,6 +116,12 @@ public static String[] checklayout(String cinemaID){
     return rowColumn;
 }
 
+/**
+ * Update the number of seats in the cinema (By the admin).
+ * @param cinemas<> cinamas array that the function will search through
+ * @param cinemaID cinemaID that the admin has chosen
+ * @param numberOfSeats number of seats that the admin wants to update
+ */
 public static void updateNumberOfSeats(ArrayList<Cinema> cinemas, String cinemaID, String numberOfSeats){
     //update the cinemaList
 
@@ -94,7 +132,9 @@ public static void updateNumberOfSeats(ArrayList<Cinema> cinemas, String cinemaI
     }
 }
 
-
+/**
+* Save function. Save the cinema objects to the CSV file.
+*/
 public static void save(){
     List<String[]> tempCSV = new ArrayList<String[]>();
         
