@@ -2,9 +2,20 @@ package src.main.java.payment;
 
 import java.util.Scanner;
 
+/**
+ * A Paylah Payment class.
+ * @author Boon Hian Lim
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class PaymentPayLah implements PaymentMethodInterface{
     private int validationCount;
 
+    /**
+     * Payment method for bank card.
+     * @param fare Price for the ticket.
+     * @return Integer representation of payment status.
+     */
     public int pay(double fare) {
         Scanner sc = new Scanner(System.in);
         validationCount = 0;
@@ -30,6 +41,10 @@ public class PaymentPayLah implements PaymentMethodInterface{
         return -1;
     }
     
+    /**
+     * Validation function to check if payment is successful.
+     * @return Integer representation of payment validation.
+     */
     public int validation(){
         //go to API and check if the payment go through
         //We assume it is always successful here.
