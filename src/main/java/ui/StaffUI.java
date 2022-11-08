@@ -31,8 +31,10 @@ public class StaffUI {
 			System.out.println("7) View Promo Codes");
 			System.out.println("8) Add Promo Codes");
 			System.out.println("9) Edit System Configuration");
-			System.out.println("10) Log out of staff account");
-			no=ExceptionHandling.IntegerScannerRangeOfFunction(10);
+			System.out.println("10) Add new cinema");
+			System.out.println("11) Remove cinema");
+			System.out.println("12) Log out of staff account");
+			no=ExceptionHandling.IntegerScannerRangeOfFunction(12);
 			switch(no) {
 				case 1: StaffManager.addMovie();
 				break;
@@ -52,9 +54,13 @@ public class StaffUI {
 				break;
 				case 9: StaffManager.editSysCon();
 				break;
+				case 10: StaffManager.addCinema();
+				break;
+				case 11: StaffManager.removeCinema();
+				break;
 				default: System.out.println("Logging out of Staff account ...");
 			}
-		}while( no > 0 && no < 10);
+		}while( no > 0 && no < 12);
 		
 	}
 	
