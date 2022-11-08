@@ -48,9 +48,10 @@ public class LayoutController {
             
             //print layout
             System.out.print("col:\t");
-            for (i = Layout.length; i > 0; i--) System.out.printf(" %d ", i);
+            for (i = 1; i <= Layout.length; i++) System.out.printf("  %d ", i);
+            System.out.println();
             for(i=0; i<noOfRows; i++) {
-                System.out.printf("row: %d\t|", i);
+                System.out.printf("row: %d\t|", i+1);
                 for(int j=0; j<noOfColumns; j++) {
                     System.out.print(" "+ Layout[i][j]+" |");
                 }
