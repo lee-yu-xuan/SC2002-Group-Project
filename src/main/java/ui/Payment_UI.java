@@ -34,13 +34,16 @@ public class Payment_UI {
 
             PaymentMethodInterface paymentMethod;
             fare = Price.getPrice();
-                
-            do{
+            if(fare < 0){
+                fare = 0;
+            }
+            
+            while(true){
                 System.out.format("Your price for the movie is: %.2f\n",fare);
                 System.out.println("Do you want to claim the promo code? (1: No, 2: Yes)");
                 choice = ExceptionHandling.IntegerScannerRangeOfFunction(2);
 
-                if(choice == 0){
+                if(choice == 1){
                     break;
                 }
                 
@@ -60,8 +63,7 @@ public class Payment_UI {
                     System.out.format("Your price for the movie is updated: %.2f\n",fare);
                     break; //remove this to allow multiple promo code
                 }
-                
-            }while(choice == 1);
+            }
            
             
             System.out.println("Select your payment method:");
