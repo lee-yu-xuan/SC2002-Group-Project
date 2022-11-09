@@ -570,8 +570,7 @@ public class StaffManager {
 		numberOfSeats = ExceptionHandling.IntegerScanner();
 	
 		System.out.println("Enter the class of cinema: ");	
-		tmp_classOfCinema = ExceptionHandling.checkForAlphabet(1);
-		ClassOfCinema classOfCinema = ClassOfCinema.valueOf(tmp_classOfCinema);
+		ClassOfCinema classOfCinema = ExceptionHandling.checkClassOfCinema();
 
 		System.out.println("Enter the layout type: ");
 		tmp_layout = ExceptionHandling.checkForAlphabet(1);

@@ -3,9 +3,12 @@ import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import src.main.java.enums.ClassOfCinema;
+import src.main.java.enums.Layout;
+
 /**
  * A Payment Interface.
- * @author Yao Xian Zhang
+ * @author Lim Yao Xian
  * @version 1.0
  * @since 2022-11-01
  */
@@ -22,9 +25,37 @@ public class ExceptionHandling {
             //System.out.println("You entered: " + num);
         } catch (InputMismatchException e) {
             System.out.println("You did not enter an integer.");
+            num = ExceptionHandling.IntegerScanner();
         }
 
         return num;
+    }
+
+    public static Layout checkLayout(){
+        Scanner scanner = new Scanner(System.in);
+        Layout layout;
+        try {
+            layout = Layout.valueOf(scanner.nextLine());
+            //System.out.println("You entered: " + num);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Please enter one of the following: ");
+            System.out.println("small, medium, large");
+            layout = ExceptionHandling.checkLayout();
+        }
+        return layout;
+    }
+
+    public static ClassOfCinema checkClassOfCinema(){
+        Scanner scanner = new Scanner(System.in);
+        ClassOfCinema cinemaClass;
+        try {
+            cinemaClass = ClassOfCinema.valueOf(scanner.nextLine());
+        } catch (Exception e) {
+            System.out.println("Please enter one of the following: ");
+            System.out.println("Platinum, Gold, Silver, Normal");
+            cinemaClass = ExceptionHandling.checkClassOfCinema();
+        }
+        return cinemaClass;
     }
 
     /**
