@@ -7,7 +7,7 @@ import src.main.java.enums.*;
  * @version 1.0
  * @since 2022-11-01
  */
-public class ConstructUser
+public abstract class ConstructUser
 {
 	/**
 	 * Default constructor for user.
