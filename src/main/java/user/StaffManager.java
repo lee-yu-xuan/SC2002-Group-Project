@@ -11,6 +11,8 @@ import src.main.java.helper.*;
 import src.main.java.sysconfig.*;
 import src.main.java.cinema.Cinema;
 import src.main.java.cinema.CinemaController;
+import src.main.java.cinema.Cineplex;
+import src.main.java.cinema.CineplexController;
 import src.main.java.enums.*;
 
 /**
@@ -589,4 +591,20 @@ public class StaffManager {
 		cinemaID = ExceptionHandling.StringScanner();
 		CinemaController.deleteByID(cinemaID);
 	}
+
+	public static void addCineplex(){
+		String cineplexName = "";
+		System.out.println("Please enter the name of the new cineplex that you wish to add: ");
+		cineplexName = ExceptionHandling.checkForAlphabet(1);
+		Cineplex cineplex = new Cineplex(cineplexName);
+		CineplexController.add(cineplex);
+	}
+
+	public static void removeCineplex(){
+		String cineplexName = "";
+		System.out.println("Enter the cineplex name that you want to remove: ");
+		cineplexName = ExceptionHandling.StringScanner();
+		CineplexController.deleteByName(cineplexName);
+	}
+
 }

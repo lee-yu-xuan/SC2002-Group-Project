@@ -27,6 +27,10 @@ public class Cineplex {
         this.movieList = movieList;
     }
 
+    public Cineplex(String cineplexName){
+        this.cineplexName = cineplexName;
+    }
+
     /**
      * Get the name of the cineplex
      * @return the name of the cineplex
