@@ -592,6 +592,9 @@ public class StaffManager {
 		CinemaController.deleteByID(cinemaID);
 	}
 
+	/**
+	 * Add Cineplex function for Staff.
+	 */
 	public static void addCineplex(){
 		String cineplexName = "";
 		System.out.println("Please enter the name of the new cineplex that you wish to add: ");
@@ -600,6 +603,9 @@ public class StaffManager {
 		CineplexController.add(cineplex);
 	}
 
+	/**
+	 * Remove Cineplex function for Staff.
+	 */
 	public static void removeCineplex(){
 		String cineplexName = "";
 		System.out.println("Enter the cineplex name that you want to remove: ");
