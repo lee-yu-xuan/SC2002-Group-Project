@@ -50,47 +50,34 @@ public class StaffManager {
 		String reviews = "";
 		String rating = "";
 		String movieID = "";
-		
+
 		System.out.println("Enter the name of the Movie: ");
-			
+
 		MovieName = ExceptionHandling.checkForAlphabet(1);
-			
 
-		
 		System.out.println("Enter the Synopsis: ");
-			
+
 		Synopsis = ExceptionHandling.checkForAlphabet(1);
-		
 
-		
 		System.out.println("Enter the Type: ");
-			
+
 		Type = ExceptionHandling.checkForAlphabet(1);
-		
 
-		
 		System.out.println("Enter the name of the director: ");
-			
+
 		Director = ExceptionHandling.checkForAlphabet(1);
-			
 
-		
 		System.out.println("Enter the Cast: ");
-			
+
 		Cast = ExceptionHandling.checkForAlphabet(1);
-			
 
-		
 		System.out.println("Enter the rating: ");
-			
-		rating = ExceptionHandling.checkForAlphabet(1);
-			
 
-		
+		rating = ExceptionHandling.checkForAlphabet(1);
+
 		System.out.println("Enter the movieID: ");
-			
+
 		movieID = ExceptionHandling.checkForAlphabet(2);
-			
 
 		Movie movie = new Movie(MovieName, Synopsis, Type, Director, Cast, rating, movieID);
 
@@ -99,7 +86,7 @@ public class StaffManager {
 
 	/**
 	 * Staff's function to remove movie from database.
-	 */	
+	 */
 	public static void removeMovie() {
 		int no = 0;
 		int R = 0;
@@ -112,7 +99,7 @@ public class StaffManager {
 			case 1:
 				String MovieName = "";
 				System.out.println("Enter the name of the Movie: ");
-				
+
 				MovieName = ExceptionHandling.checkForAlphabet(1);
 
 				R = MovieListing.deleteByName(MovieName);
@@ -284,17 +271,13 @@ public class StaffManager {
 		String classOfCinema = "";
 		int x = 0;
 
-		
-			System.out.println("Enter the ID of the Movie: ");
-			
-			movieID = ExceptionHandling.checkForAlphabet(2);
-			
+		System.out.println("Enter the ID of the Movie: ");
 
-		
-			System.out.println("Enter the Cinema ID: ");
-			
-			cinemaID = ExceptionHandling.checkForAlphabet(2);
-			
+		movieID = ExceptionHandling.checkForAlphabet(2);
+
+		System.out.println("Enter the Cinema ID: ");
+
+		cinemaID = ExceptionHandling.checkForAlphabet(2);
 
 		do {
 			System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
@@ -381,24 +364,19 @@ public class StaffManager {
 				int x = 0;
 				System.out.println("Enter the ID of the Movie: ");
 
-				
 				movieID = ExceptionHandling.checkForAlphabet(2);
-					
 
-				
 				System.out.println("Enter the Cinema ID: ");
-					
+
 				cinemaID = ExceptionHandling.checkForAlphabet(2);
-					
 
 				System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
 				startTime = ExceptionHandling.checkDateTime();
 
-				
 				System.out.println("Enter the endTime of the movie (yyyy-MM-dd HH:mm): ");
 				endTime = ExceptionHandling.checkDateTime();
 
-				ShowTimeList.deleteByMovieInfo(movieID, cinemaID,startTime,endTime);
+				ShowTimeList.deleteByMovieInfo(movieID, cinemaID, startTime, endTime);
 				break;
 			default:
 				System.out.println("Wrong options");
@@ -499,36 +477,39 @@ public class StaffManager {
 			String status;
 			System.out.println("Enter the status of the Promo Code :");
 			status = ExceptionHandling.StringScanner();
-			if(status.toLowerCase().equals("ready"))
-			{
-				promoCodeStatus = PromoCodeStatus.READY;
-				flag = 1;
-			}
-			else if(status.toLowerCase().equals("available"))
-			{
-				promoCodeStatus = PromoCodeStatus.AVAILABLE;
-				flag = 1;
-			}
-			else if(status.toLowerCase().equals("blocked"))
-			{
-				promoCodeStatus = PromoCodeStatus.BLOCKED;
-				flag = 1;
-			}
-			else
-			{
+			try {
+				promoCodeStatus = PromoCodeStatus.valueOf(status);
+			} catch (Exception e) {
+				// TODO: handle exception
 				System.out.println("Invalid input! Enter either Ready, Available or Blocked");
+				continue;
 			}
-		}while(flag == 0);
+			flag = 1;
+			// if(status.toLowerCase().equals("ready"))
+			// {
+			// 	promoCodeStatus = PromoCodeStatus.READY;
+			// 	flag = 1;
+			// }
+			// else if(status.toLowerCase().equals("available"))
+			// {
+			// 	promoCodeStatus = PromoCodeStatus.AVAILABLE;
+			// 	flag = 1;
+			// }
+			// else if(status.toLowerCase().equals("blocked"))
+			// {
+			// 	promoCodeStatus = PromoCodeStatus.BLOCKED;
+			// 	flag = 1;
+			// }
+			// else
+			// {
+			// 	System.out.println("Invalid input! Enter either Ready, Available or Blocked");
+		}while(flag==0);
 
-		
-		System.out.println("Enter the offer of the Promo Code: ");
-		offer = Double.valueOf(ExceptionHandling.checkForAlphabet(2));
+	PromoCode promo = new PromoCode(promoCode, offer, count, startTime, endTime, promoCodeStatus);
 
-		PromoCode promo = new PromoCode(promoCode,offer,count,startTime,endTime,promoCodeStatus);
-
-		PromoCodeList.add(promo);
+	PromoCodeList.add(promo);
 	}
-	
+
 	/**
 	 * View all promo code function for Staff.
 	 */
@@ -548,7 +529,6 @@ public class StaffManager {
 			}
 		}
 	}
-
 
 	/**
 	 * Add Cinema function for Staff.
