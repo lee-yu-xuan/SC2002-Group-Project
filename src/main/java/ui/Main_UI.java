@@ -7,6 +7,7 @@ import src.main.java.payment.PromoCodeList;
 import src.main.java.booking.*;
 import src.main.java.cinema.Cinema;
 import src.main.java.cinema.CinemaController;
+import src.main.java.cinema.CineplexController;
 import src.main.java.sysconfig.*;
 import src.main.java.helper.*;
 
@@ -32,6 +33,7 @@ public class Main_UI {
         CinemaController.load();
         SystemConfigController.load();
         PromoCodeList.load();
+        CineplexController.load();
     }
 
     /**

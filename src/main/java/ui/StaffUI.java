@@ -32,8 +32,10 @@ public class StaffUI {
 			System.out.println("9) Edit System Configuration");
 			System.out.println("10) Add new cinema");
 			System.out.println("11) Remove cinema");
-			System.out.println("12) Log out of staff account");
-			no = ExceptionHandling.IntegerScannerRangeOfFunction(12);
+			System.out.println("12) Add new cineplex");
+			System.out.println("13) Remove cineplex");
+			System.out.println("14) Log out of staff account");
+			no = ExceptionHandling.IntegerScannerRangeOfFunction(14);
 			switch (no) {
 				case 1:
 					StaffManager.addMovie();
@@ -67,6 +69,12 @@ public class StaffUI {
 					break;
 				case 11:
 					StaffManager.removeCinema();
+					break;
+				case 12:
+					StaffManager.addCineplex();
+					break;
+				case 13:
+					StaffManager.removeCineplex();
 					break;
 				default:
 					System.out.println("Logging out of Staff account ...");
