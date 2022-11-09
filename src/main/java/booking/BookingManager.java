@@ -5,10 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 import src.main.java.helper.*;
 
+/**
+ * A BookingManager class.
+ * @author Yong Jian Loke
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class BookingManager {
 	private static List<Booking> bookingHistory;
 	private static List<String[]> bookingHistoryCSV;
 	
+	/**
+	 * Upcomingmovie booking.
+	 * @return List of Upcoming Movie Booking.
+	 */
 	public static List<Booking> showUpcomingBooking(){
 		bookingHistory = BookingManager.getBookingHistory();
 		//get current dateTime
@@ -25,6 +35,10 @@ public class BookingManager {
 		return upcomingBooking;
 	}
 
+	/**
+	 * Past movie bookings.
+	 * @return List of Past Movie booking.
+	 */
 	public static List<Booking> showPastBooking(){
 		bookingHistory = BookingManager.getBookingHistory();
 		LocalDateTime currentDateTime = LocalDateTime.now();
@@ -40,6 +54,10 @@ public class BookingManager {
 		return upcomingBooking;
 	}
 
+	/**
+	 * Booking history of user.
+	 * @return List of Booking history made by a user.
+	 */
 	public static List<Booking> getBookingHistory()
 	{
 		if(bookingHistory==null){
@@ -49,6 +67,10 @@ public class BookingManager {
 		return bookingHistory;
 	}
 	
+	/**
+	 * Add booking details to the existing booking
+	 * @param booking Booking class of the new booking.
+	 */
 	public static void addBooking(Booking booking)
 	{
 		if(bookingHistory == null)
@@ -58,6 +80,11 @@ public class BookingManager {
 		bookingHistory.add(booking);
 	}
 	
+	/**
+	 * Remove booking history.
+	 * @param ticketID TicketID of booking class to be removed.
+	 * @return Integer representation if removal is successful.
+	 */
 	public static int deleteBooking(String ticketID)
 	{
 		for(int i=0 ; i<bookingHistory.size(); i++)
@@ -71,6 +98,10 @@ public class BookingManager {
 		return 0;
 	}
 	
+	/**
+	 * Load all booking history.
+	 * @param name Username of user history to be loaded.
+	 */
 	public static void load(String name)
 	{
 		
@@ -95,6 +126,10 @@ public class BookingManager {
 		}
 	}
 	
+	/**
+	 * Save booking history details.
+	 * @param name Username of user that made a booking.
+	 */
 	public static void save(String name)
 	{
 		List<String[]> tempCSV = new ArrayList<String[]>();

@@ -4,11 +4,22 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * A Layout Controller class.
+ * @author Yong Jian Loke
+ * @version 1.0
+ * @since 2022-11-01
+ */
 //to update the seatTaken, can concatenate to the String then update the line
 public class LayoutController {
     private static int noOfRows = 0;
     private static int noOfColumns = 0;
 
+    /**
+     * Print the layout of the cinema of a particular movie.
+     * @param cinemaID CinemaID of the movie.
+     * @param timing DateTime of the movie.
+     */
     // public void displayLayout
     public static void displayLayout(String cinemaID, LocalDateTime timing) {
 
@@ -68,6 +79,14 @@ public class LayoutController {
         }
     }
 
+    /**
+     * Check if the seat has been previously booked.
+     * @param row Row of the seat.
+     * @param column Col of the seat.
+     * @param cinemaID CinemaID of the booking.
+     * @param timing DateTime of the movie.
+     * @return True, False of seat status.
+     */
     public static boolean checkIfDuplicateSeats(int row, int column, String cinemaID, LocalDateTime timing) {
         // check if duplicate seats
         List<SeatBooked> movieList = SeatBooked_Controller.getSeatBooked();

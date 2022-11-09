@@ -3,11 +3,20 @@ package src.main.java.booking;
 import java.time.LocalDateTime;
 import src.main.java.sysconfig.*;
 
+/**
+ * A Price class.
+ * @author Yong Jian Loke
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class Price {
     // holiday, day_of_week, time_of_day, age
     public static double basePrice;
     public static int day_of_week, time_of_day, holiday, age, threeD, cinemaClass, row;
 
+    /**
+     * Default constructor for price class.
+     */
     // default constructor
     public Price() {
         basePrice = 8.5d;
@@ -19,6 +28,14 @@ public class Price {
         row = 0;
     }
 
+    /**
+     * Constructor for price class.
+     * @param date Date of the movie.
+     * @param yearsold Age of the moviegoer.
+     * @param three Int represenation if movie is 3D.
+     * @param CinemaClass Class of the movie show.
+     * @param rowNo Row number of the seat.
+     */
     // constructor
     public Price(LocalDateTime date, String yearsold, int three, int CinemaClass , int rowNo) {
         try {
@@ -38,6 +55,10 @@ public class Price {
         }
     }
 
+    /**
+     * Get price for the ticket.
+     * @return Price of the ticket.
+     */
     public static double getPrice() {
         // System.out.println("day of week: " + day_of_week);
         // System.out.println("ph: " + holiday);
