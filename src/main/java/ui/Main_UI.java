@@ -50,6 +50,7 @@ public class Main_UI {
         CinemaController.save();
         SystemConfigController.save();
         PromoCodeList.save();
+        CineplexController.save();
     }
 
     /**
