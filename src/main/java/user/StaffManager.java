@@ -50,47 +50,34 @@ public class StaffManager {
 		String reviews = "";
 		String rating = "";
 		String movieID = "";
-		
+
 		System.out.println("Enter the name of the Movie: ");
-			
+
 		MovieName = ExceptionHandling.checkForAlphabet(1);
-			
 
-		
 		System.out.println("Enter the Synopsis: ");
-			
+
 		Synopsis = ExceptionHandling.checkForAlphabet(1);
-		
 
-		
 		System.out.println("Enter the Type: ");
-			
+
 		Type = ExceptionHandling.checkForAlphabet(1);
-		
 
-		
 		System.out.println("Enter the name of the director: ");
-			
+
 		Director = ExceptionHandling.checkForAlphabet(1);
-			
 
-		
 		System.out.println("Enter the Cast: ");
-			
+
 		Cast = ExceptionHandling.checkForAlphabet(1);
-			
 
-		
 		System.out.println("Enter the rating: ");
-			
-		rating = ExceptionHandling.checkForAlphabet(1);
-			
 
-		
+		rating = ExceptionHandling.checkForAlphabet(1);
+
 		System.out.println("Enter the movieID: ");
-			
+
 		movieID = ExceptionHandling.checkForAlphabet(2);
-			
 
 		Movie movie = new Movie(MovieName, Synopsis, Type, Director, Cast, rating, movieID);
 
@@ -99,7 +86,7 @@ public class StaffManager {
 
 	/**
 	 * Staff's function to remove movie from database.
-	 */	
+	 */
 	public static void removeMovie() {
 		int no = 0;
 		int R = 0;
@@ -112,7 +99,7 @@ public class StaffManager {
 			case 1:
 				String MovieName = "";
 				System.out.println("Enter the name of the Movie: ");
-				
+
 				MovieName = ExceptionHandling.checkForAlphabet(1);
 
 				R = MovieListing.deleteByName(MovieName);
@@ -284,17 +271,13 @@ public class StaffManager {
 		String classOfCinema = "";
 		int x = 0;
 
-		
-			System.out.println("Enter the ID of the Movie: ");
-			
-			movieID = ExceptionHandling.checkForAlphabet(2);
-			
+		System.out.println("Enter the ID of the Movie: ");
 
-		
-			System.out.println("Enter the Cinema ID: ");
-			
-			cinemaID = ExceptionHandling.checkForAlphabet(2);
-			
+		movieID = ExceptionHandling.checkForAlphabet(2);
+
+		System.out.println("Enter the Cinema ID: ");
+
+		cinemaID = ExceptionHandling.checkForAlphabet(2);
 
 		do {
 			System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
@@ -381,24 +364,19 @@ public class StaffManager {
 				int x = 0;
 				System.out.println("Enter the ID of the Movie: ");
 
-				
 				movieID = ExceptionHandling.checkForAlphabet(2);
-					
 
-				
 				System.out.println("Enter the Cinema ID: ");
-					
+
 				cinemaID = ExceptionHandling.checkForAlphabet(2);
-					
 
 				System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
 				startTime = ExceptionHandling.checkDateTime();
 
-				
 				System.out.println("Enter the endTime of the movie (yyyy-MM-dd HH:mm): ");
 				endTime = ExceptionHandling.checkDateTime();
 
-				ShowTimeList.deleteByMovieInfo(movieID, cinemaID,startTime,endTime);
+				ShowTimeList.deleteByMovieInfo(movieID, cinemaID, startTime, endTime);
 				break;
 			default:
 				System.out.println("Wrong options");
@@ -416,7 +394,7 @@ public class StaffManager {
 		try {
 			System.out.println("Please choose one of the options:");
 			System.out.println("1) Print public holidays");
-			System.out.println("2) Remove prublic holidays");
+			System.out.println("2) Remove public holidays");
 			System.out.println("3) Add public holidays");
 			System.out.println("4) Set base price");
 			System.out.println("5) Get base price");
@@ -499,36 +477,39 @@ public class StaffManager {
 			String status;
 			System.out.println("Enter the status of the Promo Code :");
 			status = ExceptionHandling.StringScanner();
-			if(status.toLowerCase().equals("ready"))
-			{
-				promoCodeStatus = PromoCodeStatus.READY;
-				flag = 1;
-			}
-			else if(status.toLowerCase().equals("available"))
-			{
-				promoCodeStatus = PromoCodeStatus.AVAILABLE;
-				flag = 1;
-			}
-			else if(status.toLowerCase().equals("blocked"))
-			{
-				promoCodeStatus = PromoCodeStatus.BLOCKED;
-				flag = 1;
-			}
-			else
-			{
+			try {
+				promoCodeStatus = PromoCodeStatus.valueOf(status);
+			} catch (Exception e) {
+				// TODO: handle exception
 				System.out.println("Invalid input! Enter either Ready, Available or Blocked");
+				continue;
 			}
-		}while(flag == 0);
+			flag = 1;
+			// if(status.toLowerCase().equals("ready"))
+			// {
+			// 	promoCodeStatus = PromoCodeStatus.READY;
+			// 	flag = 1;
+			// }
+			// else if(status.toLowerCase().equals("available"))
+			// {
+			// 	promoCodeStatus = PromoCodeStatus.AVAILABLE;
+			// 	flag = 1;
+			// }
+			// else if(status.toLowerCase().equals("blocked"))
+			// {
+			// 	promoCodeStatus = PromoCodeStatus.BLOCKED;
+			// 	flag = 1;
+			// }
+			// else
+			// {
+			// 	System.out.println("Invalid input! Enter either Ready, Available or Blocked");
+		}while(flag==0);
 
-		
-		System.out.println("Enter the offer of the Promo Code: ");
-		offer = Double.valueOf(ExceptionHandling.checkForAlphabet(2));
+	PromoCode promo = new PromoCode(promoCode, offer, count, startTime, endTime, promoCodeStatus);
 
-		PromoCode promo = new PromoCode(promoCode,offer,count,startTime,endTime,promoCodeStatus);
-
-		PromoCodeList.add(promo);
+	PromoCodeList.add(promo);
 	}
-	
+
 	/**
 	 * View all promo code function for Staff.
 	 */
@@ -549,7 +530,6 @@ public class StaffManager {
 		}
 	}
 
-
 	/**
 	 * Add Cinema function for Staff.
 	 */
@@ -558,7 +538,7 @@ public class StaffManager {
 		String branch = "";
 		int numberOfSeats = 0;
 		String tmp_classOfCinema = "";
-		String tmp_layout = "";
+		Layout tmp_layout;
 		
 		System.out.println("Enter the cinemaID: ");
 		cinemaID = ExceptionHandling.StringScanner();
@@ -573,11 +553,14 @@ public class StaffManager {
 		ClassOfCinema classOfCinema = ExceptionHandling.checkClassOfCinema();
 
 		System.out.println("Enter the layout type: ");
-		Layout layout = ExceptionHandling.checkLayout();
+		tmp_layout = ExceptionHandling.checkForAlphabet(1);
+		Layout layout = Layout.valueOf(tmp_layout);
 	
-		Cinema cinema = new Cinema(cinemaID, branch, numberOfSeats, classOfCinema, layout);
+		Cinema cinema = new Cinema(cinemaID, branch, numberOfSeats, classOfCinema, tmp_layout);
 
 		CinemaController.add(cinema);
+
+		System.out.println("Cinema has been added successfully!");
 	}
 
 	/**
@@ -588,6 +571,10 @@ public class StaffManager {
 		System.out.println("Enter the cinemaID that you want to remove: ");
 		cinemaID = ExceptionHandling.StringScanner();
 		CinemaController.deleteByID(cinemaID);
+		if(CinemaController.deleteByID(cinemaID)==0){
+			System.out.println("Cinema not found!");
+			System.out.println();
+		}
 	}
 
 	/**
@@ -599,6 +586,9 @@ public class StaffManager {
 		cineplexName = ExceptionHandling.checkForAlphabet(1);
 		Cineplex cineplex = new Cineplex(cineplexName);
 		CineplexController.add(cineplex);
+
+		System.out.println("Cineplex has been added successfully!");
+		System.out.println();
 	}
 
 	/**
@@ -609,6 +599,10 @@ public class StaffManager {
 		System.out.println("Enter the cineplex name that you want to remove: ");
 		cineplexName = ExceptionHandling.StringScanner();
 		CineplexController.deleteByName(cineplexName);
+		if(CineplexController.deleteByName(cineplexName)==0){
+			System.out.println("Cineplex not found!");
+			System.out.println();
+		}
 	}
 
 }
