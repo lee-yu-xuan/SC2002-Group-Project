@@ -558,7 +558,7 @@ public class StaffManager {
 		String branch = "";
 		int numberOfSeats = 0;
 		String tmp_classOfCinema = "";
-		String tmp_layout = "";
+		Layout tmp_layout;
 		
 		System.out.println("Enter the cinemaID: ");
 		cinemaID = ExceptionHandling.StringScanner();
@@ -573,10 +573,9 @@ public class StaffManager {
 		ClassOfCinema classOfCinema = ExceptionHandling.checkClassOfCinema();
 
 		System.out.println("Enter the layout type: ");
-		tmp_layout = ExceptionHandling.checkForAlphabet(1);
-		Layout layout = Layout.valueOf(tmp_layout);
+		tmp_layout = ExceptionHandling.checkLayout();
 	
-		Cinema cinema = new Cinema(cinemaID, branch, numberOfSeats, classOfCinema, layout);
+		Cinema cinema = new Cinema(cinemaID, branch, numberOfSeats, classOfCinema, tmp_layout);
 
 		CinemaController.add(cinema);
 

@@ -65,6 +65,7 @@ public class Main_UI {
         // DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         // Calendar cal = Calendar.getInstance();
         // System.out.println(dateFormat.format(cal.getTime()));
+        
 
         loadAllClass();
         ShowTimeController.refresh();
