@@ -24,7 +24,7 @@ public class ExceptionHandling {
             num = scanner.nextInt();
             //System.out.println("You entered: " + num);
         } catch (InputMismatchException e) {
-            System.out.println("You did not enter an integer.");
+            System.out.println("Please enter an integer.");
             num = ExceptionHandling.IntegerScanner();
         }
 
