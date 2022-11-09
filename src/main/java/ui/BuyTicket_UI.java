@@ -27,6 +27,8 @@ public class BuyTicket_UI {
     public static void purchaseTicket(String movieID, String userName) {
         Scanner sc = new Scanner(System.in);
         List<ShowTime> tmp = ShowTimeController.showTimeByShowTime(movieID);
+        System.out.println("\nShowtimes");
+        System.out.println("--------------------");
         for (int i = 0; i < tmp.size(); i++) {
             System.out.println((i + 1) + ". " + tmp.get(i).getCinemaID() + " " + tmp.get(i).getStartTime());
         }

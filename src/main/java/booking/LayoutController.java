@@ -58,6 +58,8 @@ public class LayoutController {
                 }
 
                 // print layout
+                System.out.println("\nCinema layout");
+                System.out.println("--------------------");
                 System.out.print("col:\t");
                 for (i = 1; i <= Layout.length; i++)
                     System.out.printf("  %d ", i);
@@ -114,3 +116,4 @@ public class LayoutController {
 
     // 3!4&2!3
 }
+
