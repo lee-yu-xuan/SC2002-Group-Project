@@ -46,8 +46,8 @@ public class BuyTicket_UI {
         int row = 0;
         int col = 0;
         while (duplicateSeat == true) {
-            System.out.println("Select the row of your preferred seat");
             System.out.println("*Note that the first 2 rows will have a price deduction of $2");
+            System.out.println("Select the row of your preferred seat");
             String[] rowColumn = CinemaController.checklayout(cinemaID);
             int rowUpperbound = Integer.parseInt(rowColumn[0]);
             int columnUpperbound = Integer.parseInt(rowColumn[1]);
