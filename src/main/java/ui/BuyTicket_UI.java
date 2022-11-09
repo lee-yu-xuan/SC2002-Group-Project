@@ -27,6 +27,8 @@ public class BuyTicket_UI {
     public static void purchaseTicket(String movieID, String userName) {
         Scanner sc = new Scanner(System.in);
         List<ShowTime> tmp = ShowTimeController.showTimeByShowTime(movieID);
+        System.out.println("\nShowtimes");
+        System.out.println("--------------------");
         for (int i = 0; i < tmp.size(); i++) {
             System.out.println((i + 1) + ". " + tmp.get(i).getCinemaID() + " " + tmp.get(i).getStartTime());
         }
@@ -46,8 +48,8 @@ public class BuyTicket_UI {
         int row = 0;
         int col = 0;
         while (duplicateSeat == true) {
-            System.out.println("Select the row of your preferred seat");
             System.out.println("*Note that the first 2 rows will have a price deduction of $2");
+            System.out.println("Select the row of your preferred seat");
             String[] rowColumn = CinemaController.checklayout(cinemaID);
             int rowUpperbound = Integer.parseInt(rowColumn[0]);
             int columnUpperbound = Integer.parseInt(rowColumn[1]);

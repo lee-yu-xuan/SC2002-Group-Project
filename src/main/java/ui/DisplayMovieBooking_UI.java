@@ -62,6 +62,8 @@ public class DisplayMovieBooking_UI {
     public static String listBySales(){
         //list top 5 movies by sales
         List<Movie> movieList = MovieController.showAvailableMovieByTicketSales();
+        System.out.println("\nMovies");
+        System.out.println("--------------------");
         for(int i = 0;i<movieList.size();i++){
             System.out.println((i+1) + ". "+movieList.get(i).getMovieTitle());
 
@@ -82,6 +84,8 @@ public class DisplayMovieBooking_UI {
     public static String listByRating(){
         //list top 5 movies by rating
         List<Movie> movieList = MovieController.showAvailableMovieByRating();
+        System.out.println("\nMovies");
+        System.out.println("--------------------");
         for(int i = 0;i<movieList.size();i++){
             System.out.println((i+1) +". "+movieList.get(i).getMovieTitle());
         }
