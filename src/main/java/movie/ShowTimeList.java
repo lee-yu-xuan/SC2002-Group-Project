@@ -8,7 +8,7 @@ import src.main.java.helper.*;
 import src.main.java.enums.*;
 /**
  * A ShowTimeController Class.
- * @author Luke Yong Jian
+ * @author Yong Jian Loke
  * @version 1.0
  * @since 2022-11-01
  */
