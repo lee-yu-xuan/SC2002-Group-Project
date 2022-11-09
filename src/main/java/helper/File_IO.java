@@ -10,9 +10,21 @@ import java.util.List;
 
 import com.opencsv.CSVWriter;
 
+
+/**
+ * A File input output class.
+ * @author Yong Jian Loke
+ * @version 1.0
+ * @since 2022-11-01
+ */
 //to update the seatTaken, can concatenate to the String then update the line
 public class File_IO {
 
+    /**
+     * Function to read file of records in .csv format.
+     * @param pathName name of the file.
+     * @return List of String Array stored in csv file.
+     */
     public static List<String[]> readFile(String pathName) {
 
         //String cwd = Path.of("").toAbsolutePath().toString();
@@ -37,6 +49,11 @@ public class File_IO {
         return twoDlist;
     }
 
+    /**
+     * Function to write file of records in .csv format.
+     * @param twoDList List of String Array to be recorded and saved.
+     * @param pathName Csv file name.
+     */
     public static void writeFile(List<String[]> twoDList, String pathName) {
         String path = "src/main/java/csv/" + pathName + ".csv";
         File file = new File(path);
