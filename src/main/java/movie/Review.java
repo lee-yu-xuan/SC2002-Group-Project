@@ -2,7 +2,7 @@ package src.main.java.movie;
 
 /**
  * A MovieListing Class.
- * @author Luke Yong Jian
+ * @author Yong Jian Loke
  * @version 1.0
  * @since 2022-11-01
  */

@@ -6,7 +6,7 @@ import java.util.List;
 import src.main.java.enums.ShowingStatus;
 /**
  * A ShowTimeController Class.
- * @author Luke Yong Jian
+ * @author Yong Jian Loke
  * @version 1.0
  * @since 2022-11-01
  */

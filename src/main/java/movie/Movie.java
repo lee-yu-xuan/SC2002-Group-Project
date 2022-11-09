@@ -4,7 +4,7 @@ import src.main.java.enums.ShowingStatus;
 
 /**
  * A Movie Class.
- * @author Yong Jian
+ * @author Yong Jian Loke
  * @version 1.0
  * @since 2022-11-01
  */

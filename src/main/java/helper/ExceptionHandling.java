@@ -3,7 +3,17 @@ import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * A Payment Interface.
+ * @author Yao Xian Zhang
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class ExceptionHandling {
+    /**
+     * Integer scanner method with exception handling.
+     * @return User Integer input.
+     */
     public static int IntegerScanner() {
         Scanner scanner = new Scanner(System.in);
         int num=0;
@@ -17,7 +27,10 @@ public class ExceptionHandling {
         return num;
     }
 
-
+    /**
+     * LocalDateTime scanner method with exception handling.
+     * @return User LocalDateTime input.
+     */
     public static LocalDateTime checkDateTime(){
         Scanner sc = new Scanner(System.in);
         String temp = "";
@@ -34,6 +47,11 @@ public class ExceptionHandling {
         return dateTime;
     }
 
+    /**
+     * String and Character scanner method with exception handling.
+     * @param option Checker invoked.
+     * @return User String input.
+     */
     public static String checkForAlphabet(int option){
         //2 means expect characters, 1 means expect alphabets
         Scanner scanner = new Scanner(System.in);
@@ -72,6 +90,11 @@ public class ExceptionHandling {
         return str;
     }
 
+    /**
+     * Interger Scanner with bounded valid input.
+     * @param upperBound Highest valid Integer input.
+     * @return User Integer input.
+     */
     public static int IntegerScannerRangeOfFunction(int upperBound){
         Scanner scanner = new Scanner(System.in);
         int num=0;
@@ -90,6 +113,10 @@ public class ExceptionHandling {
         return num;
     }
 
+    /**
+     * String scanner with exception handling.
+     * @return User String input.
+     */
     public static String StringScanner(){
 	Scanner scanner = new Scanner(System.in);
 	String str="";

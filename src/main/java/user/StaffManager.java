@@ -471,6 +471,9 @@ public class StaffManager {
 		}
 	}
 
+	/**
+	 * Add promo code function for Staff.
+	 */
 	public static void addPromo() {
 		String promoCode = "";
     int count = 0;
@@ -526,6 +529,9 @@ public class StaffManager {
 		PromoCodeList.add(promo);
 	}
 	
+	/**
+	 * View all promo code function for Staff.
+	 */
 	public static void viewAllPromo()
 	{
 		promoList = PromoCodeList.getPromoCodeList();
@@ -544,6 +550,9 @@ public class StaffManager {
 	}
 
 
+	/**
+	 * Add Cinema function for Staff.
+	 */
 	public static void addCinema() {
 		String cinemaID = "";
 		String branch = "";
@@ -573,6 +582,9 @@ public class StaffManager {
 		CinemaController.add(cinema);
 	}
 
+	/**
+	 * Remove Cinema function for Staff.
+	 */
 	public static void removeCinema(){
 		String cinemaID = "";
 		System.out.println("Enter the cinemaID that you want to remove: ");
