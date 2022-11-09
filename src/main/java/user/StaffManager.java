@@ -553,8 +553,7 @@ public class StaffManager {
 		ClassOfCinema classOfCinema = ExceptionHandling.checkClassOfCinema();
 
 		System.out.println("Enter the layout type: ");
-		tmp_layout = ExceptionHandling.checkForAlphabet(1);
-		Layout layout = Layout.valueOf(tmp_layout);
+		Layout layout = ExceptionHandling.checkLayout();
 	
 		Cinema cinema = new Cinema(cinemaID, branch, numberOfSeats, classOfCinema, tmp_layout);
 
