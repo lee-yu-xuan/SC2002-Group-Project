@@ -6,11 +6,18 @@ import java.util.Collections;
 import java.util.List;
 import src.main.java.helper.*;
 import src.main.java.enums.*;
-
+/**
+ * A ShowTimeController Class.
+ * @author Luke Yong Jian
+ * @version 1.0
+ * @since 2022-11-01
+ */
 public class ShowTimeList {
     private static List<ShowTime> showTimeList;
     private static List<String[]> showTimeCSV;
-
+    /**
+     * sorts the list of show time after a new one has been added in
+     */
     private static void sortAfterAppend()
 	{
         int position = showTimeList.size() - 1;
@@ -21,11 +28,18 @@ public class ShowTimeList {
             position--;
         }
 	}
-
+    /**
+     * returns a list of showtime
+     * @return a list of showtime
+     */
     public static List<ShowTime> getShowTimeList(){
         return showTimeList;
     }
-
+    /**
+     * return a list of showtime for a specific movie
+     * @param movieID id of the movie
+     * @return the lsit of showtime for the specific movie
+     */
     public static List<ShowTime> getShowTimeByID(String movieID){
         List<ShowTime> returnList = new ArrayList<ShowTime>();
         for(int i = 0;i<showTimeList.size();i++){
@@ -39,7 +53,10 @@ public class ShowTimeList {
         }
         return returnList;
     }
-
+    /**
+     * add a showTime
+     * @param showTime Showtime show time of the movie
+     */
     public static void add(ShowTime showTime){
         if(showTimeList == null){
             System.out.println("The showTimeList is empty");
@@ -48,11 +65,20 @@ public class ShowTimeList {
         showTimeList.add(showTime);
         sortAfterAppend();
     }
-
+    /**
+     * delete a show time via id
+     * @param index index of the showtime
+     */
     public static void deleteByIndex(int index){
         showTimeList.remove(index);
     }
-
+    /**
+     * delete a show time via movie info
+     * @param movieID String movie id
+     * @param cinemaID String cinema id
+     * @param startTime LocalDateTime start time of the movie
+     * @param endTime LocalDateTIme end time of the movie
+     */
     public static void deleteByMovieInfo(String movieID, String cinemaID, LocalDateTime startTime, LocalDateTime endTime){
         for(int i = 0;i<showTimeList.size();i++){
             if(showTimeList.get(i).getMovieID() == movieID &&
@@ -63,7 +89,9 @@ public class ShowTimeList {
         }
         
     }
-
+   /**
+     * Load the content of showtime list CSV into the system
+     */ 
     public static void load(){
         if(showTimeList == null){
             showTimeList = new ArrayList<ShowTime>();
@@ -84,7 +112,9 @@ public class ShowTimeList {
             showTimeList.add(showTime);
         }
     }
-
+    /**
+    * Save the content of the system into the showtime list CSV
+    */	
     public static void save(){
         List<String[]> writeBackCSV = File_IO.readFile("showTime");
 
