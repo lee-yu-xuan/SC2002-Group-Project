@@ -4,7 +4,7 @@ import src.main.java.enums.*;
 /**
  * 
  * Staff Class.
- * @author Yao Xian Zhang
+ * @author Lim Yao Xian
  * @version 1.0
  * @since 2022-11-01
  */
