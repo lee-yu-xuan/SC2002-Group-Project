@@ -52,7 +52,7 @@ public class ExceptionHandling {
             cinemaClass = ClassOfCinema.valueOf(scanner.nextLine());
         } catch (Exception e) {
             System.out.println("Please enter one of the following: ");
-            System.out.println("Platinum, Gold, Silver, Normal");
+            System.out.println("Platinum, Gold, Silver");
             cinemaClass = ExceptionHandling.checkClassOfCinema();
         }
         return cinemaClass;

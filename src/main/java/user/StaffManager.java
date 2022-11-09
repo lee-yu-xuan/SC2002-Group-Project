@@ -416,7 +416,7 @@ public class StaffManager {
 		try {
 			System.out.println("Please choose one of the options:");
 			System.out.println("1) Print public holidays");
-			System.out.println("2) Remove prublic holidays");
+			System.out.println("2) Remove public holidays");
 			System.out.println("3) Add public holidays");
 			System.out.println("4) Set base price");
 			System.out.println("5) Get base price");
@@ -579,6 +579,8 @@ public class StaffManager {
 		Cinema cinema = new Cinema(cinemaID, branch, numberOfSeats, classOfCinema, layout);
 
 		CinemaController.add(cinema);
+
+		System.out.println("Cinema has been added successfully!");
 	}
 
 	/**
@@ -589,6 +591,10 @@ public class StaffManager {
 		System.out.println("Enter the cinemaID that you want to remove: ");
 		cinemaID = ExceptionHandling.StringScanner();
 		CinemaController.deleteByID(cinemaID);
+		if(CinemaController.deleteByID(cinemaID)==0){
+			System.out.println("Cinema not found!");
+			System.out.println();
+		}
 	}
 
 	/**
@@ -600,6 +606,9 @@ public class StaffManager {
 		cineplexName = ExceptionHandling.checkForAlphabet(1);
 		Cineplex cineplex = new Cineplex(cineplexName);
 		CineplexController.add(cineplex);
+
+		System.out.println("Cineplex has been added successfully!");
+		System.out.println();
 	}
 
 	/**
@@ -610,6 +619,10 @@ public class StaffManager {
 		System.out.println("Enter the cineplex name that you want to remove: ");
 		cineplexName = ExceptionHandling.StringScanner();
 		CineplexController.deleteByName(cineplexName);
+		if(CineplexController.deleteByName(cineplexName)==0){
+			System.out.println("Cineplex not found!");
+			System.out.println();
+		}
 	}
 
 }
