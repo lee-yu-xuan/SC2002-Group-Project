@@ -14,7 +14,7 @@ import src.main.java.helper.*;
 public class DisplayMovie_UI {
     /**
      * Display user interface to show movie particular.
-     * @param userName
+     * @param userName Username of user.
      */
     public static void displayInformation(String userName) {
        

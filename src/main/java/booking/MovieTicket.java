@@ -123,7 +123,7 @@ public class MovieTicket{
 
     /**
      * Set ID for Cinema.
-     * @return String of cinemaID for ticket.
+     * @param cinemaID of cinemaID for ticket.
      */
     public void setcinemaID(String cinemaID){
         this.cinemaID = cinemaID;

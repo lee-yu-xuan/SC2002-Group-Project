@@ -21,14 +21,14 @@ public class MovieListing {
 
     /**
      * Get a list of movie function.
-     * @return List<Movie>.
+     * @return List of Movie.
      */ 
     public static List<Movie> getMovieList() {
         return movieList;
     }
     /**
      * Get a list of available movie function.
-     * @return List<Movie>.
+     * @return List of Movie.
      */ 
     public static List<Movie> getAvailableMovieList() {
         List<Movie> tempList = new ArrayList<Movie>();
@@ -43,7 +43,7 @@ public class MovieListing {
     /**
      * Get a list of movie of a specific ID.
      * @param movieID movie ID
-     * @return List<Movie> of specific movie.
+     * @return List of specific movie.
      */ 
     public static String getMovieName(String movieID) {
         for (int i = 0; i < movieList.size(); i++) {

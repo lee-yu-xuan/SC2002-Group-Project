@@ -55,6 +55,7 @@ public class Main_UI {
 
     /**
      * Display the main application user interface.
+     * @param args caller for static main method.
      */
     public static void main(String[] args) {
         // get current DateTime for booking history

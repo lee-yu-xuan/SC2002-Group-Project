@@ -27,6 +27,7 @@ public class SystemConfigController {
 
     /**
      * Get the base price of the system currently.
+     * @return Base Price of ticket.
      */
     public static double getBasePrice(){
         return Double.valueOf(syscon.get(0)[0]);
@@ -42,7 +43,7 @@ public class SystemConfigController {
 
     /**
      * Get the Price multiplier for the different classes.
-     * @return
+     * @return String array of the class multiplier.
      */
     public static String[] getClassMultiplier(){
         return syscon.get(1);

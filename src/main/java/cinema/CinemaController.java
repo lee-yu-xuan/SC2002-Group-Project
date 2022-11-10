@@ -76,7 +76,7 @@ public class CinemaController {
 /**
  * For admin to delete the cinema by cinemaID.
  * @param cinemaID cinemaID that admin has typed in
- * @return
+ * @return Integer representation of deletion status.
  */
 public static int deleteByID(String cinemaID){
  
@@ -118,7 +118,7 @@ public static String[] checklayout(String cinemaID){
 
 /**
  * Update the number of seats in the cinema (By the admin).
- * @param cinemas<> cinamas array that the function will search through
+ * @param cinemas cinamas array that the function will search through
  * @param cinemaID cinemaID that the admin has chosen
  * @param numberOfSeats number of seats that the admin wants to update
  */

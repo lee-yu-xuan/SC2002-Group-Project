@@ -21,8 +21,8 @@ public class Cinema{
      * @param cinemaID id for the cinema
      * @param cineplexName cineplex that the cinema belongs to
      * @param numberOfSeats number of seats inside the cinema
-     * @param cinemaClass class of the cinema(Platinum, Gold, Silver)
-     * @param Layout layout and size of the cinema(small, medium, large)
+     * @param classOfCinema class of the cinema(Platinum, Gold, Silver)
+     * @param layout layout and size of the cinema(small, medium, large)
      */
     public Cinema(String cinemaID, String cineplexName, int numberOfSeats, ClassOfCinema classOfCinema, Layout layout) {
         this.cinemaID = cinemaID;

@@ -45,6 +45,7 @@ public class MovieTicketController {
 
     /**
      * Add ticket to list of movie tickets.
+     * @param ticket Movieticket to be added.
      */
     public static void add(MovieTicket ticket) {
         if (ticketList == null) {
