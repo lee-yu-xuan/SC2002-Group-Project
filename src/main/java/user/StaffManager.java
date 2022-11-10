@@ -58,20 +58,19 @@ public class StaffManager {
 		status = ExceptionHandling.checkShowingStatus();
 
 		System.out.println("Enter the Synopsis: ");
-		Synopsis = ExceptionHandling.StringScanner();
+		Synopsis = ExceptionHandling.StringScannerWithSpace();
 
 		System.out.println("Enter the Type: ");
 		Type = ExceptionHandling.StringScanner();
 
 		System.out.println("Enter the name of the director: ");
-		Director = ExceptionHandling.checkForAlphabet(1);
+		Director = ExceptionHandling.StringScannerWithSpace();
 
 		System.out.println("Enter the Cast: ");
-		Cast = ExceptionHandling.StringScanner();
+		Cast = ExceptionHandling.StringScannerWithSpace();
 
 		System.out.println("Enter the rating: ");
 		rating = ExceptionHandling.StringScanner();
-
 
 		System.out.println("Enter the movieID: ");
 		movieID = ExceptionHandling.StringScanner();
