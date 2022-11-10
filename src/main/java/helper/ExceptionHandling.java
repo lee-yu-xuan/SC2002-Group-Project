@@ -178,7 +178,10 @@ public class ExceptionHandling {
 
         return str;
     }
-
+    /**
+     * Check for input string that contains space.
+     * @return Valid string input.
+     */
     public static String StringScannerWithSpace() {
         Scanner stringScanner = new Scanner(System.in).useDelimiter("\n");
         String str = "";
@@ -191,6 +194,10 @@ public class ExceptionHandling {
         return str;
     }
 
+    /**
+     * Check for Valid showing status for movie.
+     * @return Valid ShowingStatus Enum.
+     */
     public static ShowingStatus checkShowingStatus() {
         Scanner scanner = new Scanner(System.in);
         ShowingStatus showingStatus = null;
