@@ -41,7 +41,7 @@ public class StaffManager {
 	 */
 	public static void addMovie() {
 		String MovieName = "";
-		String Enum = "Coming Soon";
+		ShowingStatus status = null;
 		String Synopsis = "";
 		String Type = "";
 		String Director = "";
@@ -52,34 +52,31 @@ public class StaffManager {
 		String movieID = "";
 
 		System.out.println("Enter the name of the Movie: ");
+		MovieName = ExceptionHandling.StringScannerWithSpace();
 
-		MovieName = ExceptionHandling.checkForAlphabet(1);
+		System.out.println("Enter the showing status of the Movie");
+		status = ExceptionHandling.checkShowingStatus();
 
 		System.out.println("Enter the Synopsis: ");
-
-		Synopsis = ExceptionHandling.checkForAlphabet(1);
+		Synopsis = ExceptionHandling.StringScanner();
 
 		System.out.println("Enter the Type: ");
-
-		Type = ExceptionHandling.checkForAlphabet(1);
+		Type = ExceptionHandling.StringScanner();
 
 		System.out.println("Enter the name of the director: ");
-
 		Director = ExceptionHandling.checkForAlphabet(1);
 
 		System.out.println("Enter the Cast: ");
-
-		Cast = ExceptionHandling.checkForAlphabet(1);
+		Cast = ExceptionHandling.StringScanner();
 
 		System.out.println("Enter the rating: ");
+		rating = ExceptionHandling.StringScanner();
 
-		rating = ExceptionHandling.checkForAlphabet(1);
 
 		System.out.println("Enter the movieID: ");
+		movieID = ExceptionHandling.StringScanner();
 
-		movieID = ExceptionHandling.checkForAlphabet(2);
-
-		Movie movie = new Movie(MovieName, Synopsis, Type, Director, Cast, rating, movieID);
+		Movie movie = new Movie(MovieName, status, Synopsis, Type, Director, Cast, rating, movieID);
 
 		MovieListing.add(movie);
 	}

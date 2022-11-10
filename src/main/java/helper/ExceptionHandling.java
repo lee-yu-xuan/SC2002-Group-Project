@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import src.main.java.enums.ClassOfCinema;
 import src.main.java.enums.Layout;
+import src.main.java.enums.ShowingStatus;
 
 /**
  * A Payment Interface.
@@ -176,6 +177,32 @@ public class ExceptionHandling {
         }
 
         return str;
+    }
+
+    public static String StringScannerWithSpace() {
+        Scanner stringScanner = new Scanner(System.in).useDelimiter("\n");
+        String str = "";
+        try {
+            str = stringScanner.next();
+        } catch (Exception e) {
+            System.out.println("Please enter a valid string");
+            str = ExceptionHandling.StringScannerWithSpace();
+        }
+        return str;
+    }
+
+    public static ShowingStatus checkShowingStatus() {
+        Scanner scanner = new Scanner(System.in);
+        ShowingStatus showingStatus = null;
+        try {
+            showingStatus = ShowingStatus.valueOf(scanner.nextLine());
+            // System.out.println("You entered: " + num);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Please enter one of the following: ");
+            System.out.println("COMING_SOON, PREVIEW, NOW_SHOWING, END_OF_SHOWING");
+            showingStatus = ExceptionHandling.checkShowingStatus();
+        }
+        return showingStatus;
     }
 
 }
