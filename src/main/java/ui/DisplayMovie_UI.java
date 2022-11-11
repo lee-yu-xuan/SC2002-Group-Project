@@ -55,9 +55,10 @@ public class DisplayMovie_UI {
 
         System.out.println("1. View movie details");
         System.out.println("2. Add ratings and reviews");
+        System.out.println("3. Show Reviews");
         //System.out.println("3. Book tickets");
 
-        int choice2 = ExceptionHandling.IntegerScannerRangeOfFunction(2);
+        int choice2 = ExceptionHandling.IntegerScannerRangeOfFunction(3);
 
         switch (choice2) {
             case 1:
@@ -66,14 +67,12 @@ public class DisplayMovie_UI {
                 break;
             case 2:
                 //add ratings and reviews
-                Review_UI.display_UI(movieID);
+                Review_UI.addReview(movieID);
                 break;
-            /** 
             case 3:
-                //book tickets
-                BuyTicket_UI.purchaseTicket(movieID, userName);
+                //display ratings and reviews
+                Review_UI.displayReview(movieID);
                 break;
-            */
             default:
                 System.out.println("Invalid choice");
                 break;

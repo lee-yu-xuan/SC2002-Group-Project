@@ -66,6 +66,7 @@ public class ReviewList {
             if(movieID.equals(reviewList.get(i).getMovieID())){
                 while(i < reviewList.size() && reviewList.get(i).getMovieID().equals(movieID)){
                     returnMovieList.add(reviewList.get(i));
+                    i++;
                 }
                 break;
             }
