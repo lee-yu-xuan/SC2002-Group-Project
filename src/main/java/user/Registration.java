@@ -16,7 +16,10 @@ public class Registration extends ConstructUser {
      * List of all the valid login information.
      */
     public List<String[]> loginParticularCSV;
-
+    /**
+	 * Create instance of File_IO.
+	 */
+	private static File_IOInterface file_IO = new CSVFile_IO();
     /**
      * Constructor for Registration for a newly registered user.
      * @param name User's name.
@@ -42,10 +45,10 @@ public class Registration extends ConstructUser {
 
         // read CSV and add to last line of CSV
         try {
-            loginParticularCSV = File_IO.readFile("loginParticular");
+            loginParticularCSV = file_IO.readFile("loginParticular");
             String[] temp = { name, username, String.valueOf(hashPass), type.toString() };
             loginParticularCSV.add(temp);
-            File_IO.writeFile(loginParticularCSV, "loginParticular");
+            file_IO.writeFile(loginParticularCSV, "loginParticular");
         } catch (Exception e) {
             System.out.println("registration fail, please try again!");
         }

@@ -14,6 +14,10 @@ import src.main.java.helper.*;
 public class Holiday {
 
 	/**
+	 * Create instance of File_IO.
+	 */
+	private static File_IOInterface file_IO = new CSVFile_IO();
+	/**
 	 * Start of the holiday.
 	 */
 	static String start;
@@ -26,7 +30,7 @@ public class Holiday {
 	 */
 	static List<String[]> days;
 	// double modifier;
-
+	
 	/**
 	 * Default constructor for Holiday object.
 	 */
@@ -53,7 +57,7 @@ public class Holiday {
 	 * Function to read all the holiday in that year from database.
 	 */
 	public static void load() {
-		days = File_IO.readFile("PublicHoliday");
+		days = file_IO.readFile("PublicHoliday");
 	}
 
 	/**
@@ -94,7 +98,7 @@ public class Holiday {
 	 * Save all the Holiday added into the database
 	 */
 	public static void save() {
-		File_IO.writeFile(days, "PublicHoliday");
+		file_IO.writeFile(days, "PublicHoliday");
 	}
 
 }

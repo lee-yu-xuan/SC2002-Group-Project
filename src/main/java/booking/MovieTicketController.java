@@ -16,17 +16,21 @@ import src.main.java.helper.*;
 public class MovieTicketController {
     public static List<MovieTicket> ticketList;
     public static List<String[]> ticketCSV;
-
+    /**
+	 * Create instance of File_IO.
+	 */
+    private static File_IOInterface file_IO = new CSVFile_IO();
     /**
      * Load all tickets that has been booked.
      */
     public static void load() {
+        
         if (ticketList == null) {
             // System.out.println("The ticketList is empty");
             ticketList = new ArrayList<MovieTicket>();
         }
 
-        ticketCSV = File_IO.readFile("movieTicket");
+        ticketCSV = file_IO.readFile("movieTicket");
 
         for (int h = 0; h < ticketCSV.size(); h++) {
             String ticketID = ticketCSV.get(h)[0];
@@ -106,7 +110,7 @@ public class MovieTicketController {
             temp[6] = ticketList.get(i).getRestriction().toString();
             tempCSV.add(temp);
         }
-        File_IO.writeFile(tempCSV, "movieTicket");
+        file_IO.writeFile(tempCSV, "movieTicket");
     }
 
 }

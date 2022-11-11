@@ -183,10 +183,10 @@ public class ExceptionHandling {
      * @return Valid string input.
      */
     public static String StringScannerWithSpace() {
-        Scanner stringScanner = new Scanner(System.in).useDelimiter("\n");
+        Scanner stringScanner = new Scanner(System.in);
         String str = "";
         try {
-            str = stringScanner.next();
+            str = stringScanner.nextLine();
         } catch (Exception e) {
             System.out.println("Please enter a valid string");
             str = ExceptionHandling.StringScannerWithSpace();

@@ -15,14 +15,17 @@ public class SystemConfigController {
      * All System information.
      */
     public static List<String[]> syscon;
-
+    /**
+	 * Create instance of File_IO.
+	 */
+	private static File_IOInterface file_IO = new CSVFile_IO();
     public SystemConfigController(){}
 
     /**
      * Load all information pertaining to system configuration into the program.
      */
     public static void load(){
-        syscon = File_IO.readFile("SystemConfig");
+        syscon = file_IO.readFile("SystemConfig");
     }
 
     /**
@@ -78,6 +81,6 @@ public class SystemConfigController {
      * Save all System Configuration.
      */
     public static void save(){
-        File_IO.writeFile(syscon, "SystemConfig");
+        file_IO.writeFile(syscon, "SystemConfig");
     }
 }

@@ -15,7 +15,11 @@ import src.main.java.helper.*;
 public class ReviewList {
     private static List<Review> reviewList;
     private static List<String[]> reviewCSV;
-
+    /**
+	 * Create instance of File_IO.
+	 */
+    private static File_IOInterface file_IO = new CSVFile_IO();
+    
     /*
      * sort the list after inserting new review
      */
@@ -103,7 +107,7 @@ public class ReviewList {
         if(reviewList == null){
             reviewList = new ArrayList<Review>();
         }
-        reviewCSV = File_IO.readFile("movieReview");
+        reviewCSV = file_IO.readFile("movieReview");
 
         for(int i = 0;i<reviewCSV.size();i++){
             reviewList.add(new Review(reviewCSV.get(i)[0],
@@ -128,6 +132,6 @@ public class ReviewList {
             writeBackReview.add(tempReview.toArray(new String[0]));
         }
 
-        File_IO.writeFile(writeBackReview, "movieReview");
+        file_IO.writeFile(writeBackReview, "movieReview");
     }
 }

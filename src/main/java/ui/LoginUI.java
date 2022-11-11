@@ -17,7 +17,10 @@ public class LoginUI {
     public List<String[]> loginParticularCSV;
     private String username;
     private long password;
-
+    /**
+	 * Create instance of File_IO.
+	 */
+	private static File_IOInterface file_IO = new CSVFile_IO();
     /**
      * Default constructor for LoginUI.
      */
@@ -64,7 +67,7 @@ public class LoginUI {
      */
     private String[] verify(String username, long password) {
         try {
-            loginParticularCSV = File_IO.readFile("loginParticular");
+            loginParticularCSV = file_IO.readFile("loginParticular");
             for (String[] user : loginParticularCSV) {
                 // for (int i = 0 ; i < user.length; i++){
                 // System.out.print(user[i]);

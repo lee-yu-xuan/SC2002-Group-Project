@@ -18,7 +18,10 @@ import src.main.java.helper.*;
 public class MovieListing {
     private static List<Movie> movieList;
     private static List<String[]> movieCSV;
-
+    /**
+	 * Create instance of File_IO.
+	 */
+    private static File_IOInterface file_IO = new CSVFile_IO();
     /**
      * Get a list of movie function.
      * @return List of Movie.
@@ -187,7 +190,7 @@ public class MovieListing {
                 movieList = new ArrayList<Movie>();
             }
 
-            movieCSV = File_IO.readFile("movieList");
+            movieCSV = file_IO.readFile("movieList");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -222,6 +225,6 @@ public class MovieListing {
             temp[7] = movieList.get(i).getMovieID();
             tempCSV.add(temp);
         }
-        File_IO.writeFile(tempCSV, "movieList");
+        file_IO.writeFile(tempCSV, "movieList");
     }
 }
