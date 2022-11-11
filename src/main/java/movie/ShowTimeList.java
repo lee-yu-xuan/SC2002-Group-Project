@@ -116,8 +116,7 @@ public class ShowTimeList {
     * Save the content of the system into the showtime list CSV
     */	
     public static void save(){
-        List<String[]> writeBackCSV = File_IO.readFile("showTime");
-
+        List<String[]> writeBackCSV = new ArrayList<String[]>();
         for(int i =0;i<showTimeList.size();i++){
             List<String> tempTimeList = new ArrayList<String>();
 
@@ -136,7 +135,7 @@ public class ShowTimeList {
 
             writeBackCSV.add(tempTimeList.toArray(new String[0]));
         }
-
+        
         File_IO.writeFile(writeBackCSV, "showTime");
     }
 }
