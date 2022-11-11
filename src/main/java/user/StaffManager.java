@@ -174,7 +174,7 @@ public class StaffManager {
 			System.out.println("4) type");
 			System.out.println("5) director");
 			System.out.println("6) cast");
-			System.out.println("7) rating");
+			System.out.println("7) restriction");
 			System.out.println("8) Exit");
 
 			System.out.println("Enter your choice:");
