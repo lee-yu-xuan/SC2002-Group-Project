@@ -564,11 +564,15 @@ public class StaffManager {
 		String cinemaID = "";
 		System.out.println("Enter the cinemaID that you want to remove: ");
 		cinemaID = ExceptionHandling.StringScanner();
-		CinemaController.deleteByID(cinemaID);
 		if(CinemaController.deleteByID(cinemaID)==0){
 			System.out.println("Cinema not found!");
 			System.out.println();
 		}
+		else{
+			System.out.println("Cinema deleted!");
+			System.out.println();
+		}
+		
 	}
 
 	/**
