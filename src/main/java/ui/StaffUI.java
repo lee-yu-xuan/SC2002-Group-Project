@@ -100,7 +100,7 @@ public class StaffUI {
 				default:
 					System.out.println("Logging out of Staff account ...");
 			}
-		} while (no > 0 && no < 12);
+		} while (no > 0 && no < 14);
 
 	}
 
