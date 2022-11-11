@@ -97,7 +97,7 @@ public class StaffManager {
 				String MovieName = "";
 				System.out.println("Enter the name of the Movie: ");
 
-				MovieName = ExceptionHandling.checkForAlphabet(1);
+				MovieName = ExceptionHandling.StringScannerWithSpace();
 
 				R = MovieListing.deleteByName(MovieName);
 				if (R == 0) {

@@ -121,17 +121,3 @@ public class Main_UI {
         saveAllClass();
     }
 }
-
-/*
- * 
- * Start With:
- * S - Normal
- * X - ThreeD
- * W - Premium
- * 
- * 2nd number:
- * 00 - PGs
- * 01 - PG13
- * 02 - R21
- * 
- */
