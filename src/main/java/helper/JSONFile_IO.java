@@ -35,7 +35,7 @@ public class JSONFile_IO implements File_IOInterface{
     /**
      * Function to write file of records in .JSON format.
      * @param twoDList List of String Array to be recorded and saved.
-     * @param pathName Csv file name.
+     * @param pathName JSON file name.
      */
     public void writeFile(List<String[]> twoDList, String pathName) {
         String path = "src/main/java/csv/" + pathName + ".json";
