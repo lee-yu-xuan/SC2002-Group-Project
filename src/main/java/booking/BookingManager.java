@@ -14,7 +14,10 @@ import src.main.java.helper.*;
 public class BookingManager {
 	private static List<Booking> bookingHistory;
 	private static List<String[]> bookingHistoryCSV;
-	
+	/**
+	 * Create instance of File_IO.
+	 */
+	private static File_IOInterface file_IO = new CSVFile_IO();
 	/**
 	 * Upcomingmovie booking.
 	 * @return List of Upcoming Movie Booking.
@@ -104,9 +107,8 @@ public class BookingManager {
 	 */
 	public static void load(String name)
 	{
-		
 		bookingHistory = new ArrayList<Booking>();	
-		bookingHistoryCSV = File_IO.readFile("BookingHistory/"+name);
+		bookingHistoryCSV = file_IO.readFile("BookingHistory/"+name);
 		if(bookingHistoryCSV==null) {
 			//System.out.println("You have not done any booking yet");
 			return;
@@ -148,6 +150,6 @@ public class BookingManager {
 			temp[7] = dateTime.format(_DateTimeFormatter.formatter);
 			tempCSV.add(temp);
 		}
-		File_IO.writeFile(tempCSV, "BookingHistory/"+name);
+		file_IO.writeFile(tempCSV, "BookingHistory/"+name);
 	}
 }

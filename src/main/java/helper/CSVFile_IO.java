@@ -18,14 +18,14 @@ import com.opencsv.CSVWriter;
  * @since 2022-11-01
  */
 //to update the seatTaken, can concatenate to the String then update the line
-public class File_IO {
+public class CSVFile_IO implements File_IOInterface{
 
     /**
      * Function to read file of records in .csv format.
      * @param pathName name of the file.
      * @return List of String Array stored in csv file.
      */
-    public static List<String[]> readFile(String pathName) {
+    public List<String[]> readFile(String pathName) {
 
         //String cwd = Path.of("").toAbsolutePath().toString();
         String path = "src/main/java/csv/" + pathName + ".csv";
@@ -54,7 +54,7 @@ public class File_IO {
      * @param twoDList List of String Array to be recorded and saved.
      * @param pathName Csv file name.
      */
-    public static void writeFile(List<String[]> twoDList, String pathName) {
+    public void writeFile(List<String[]> twoDList, String pathName) {
         String path = "src/main/java/csv/" + pathName + ".csv";
         File file = new File(path);
 

@@ -17,7 +17,10 @@ import src.main.java.movie.*;
 public class CineplexController {
     public static List<Cineplex> cineplexList;
     public static List<String[]> cineplexCSV;
-
+    /**
+	 * Create instance of File_IO.
+	 */
+    private static File_IOInterface file_IO = new CSVFile_IO();
     /**
      * Load function. Use the date from the CSV file to create the cineplex objects.
      */
@@ -27,7 +30,7 @@ public class CineplexController {
             cineplexList = new ArrayList<Cineplex>();
         }
 
-        cineplexCSV = File_IO.readFile("cineplex");
+        cineplexCSV = file_IO.readFile("cineplex");
 
         for (int h = 0; h < cineplexCSV.size(); h++) {
             String cineplexName = cineplexCSV.get(h)[0];
@@ -74,6 +77,6 @@ public class CineplexController {
             cineplex[0] = cineplexList.get(h).getCineplexName();
             cineplexCSV.add(cineplex);
         }
-        File_IO.writeFile(cineplexCSV, "cineplex");
+        file_IO.writeFile(cineplexCSV, "cineplex");
     }
 }

@@ -14,6 +14,11 @@ public class SalesManager
 	private static List<Sales> salesList;
 	private static List<String[]> salesCSV;
 	/**
+	 * Create instance of File_IO.
+	 */
+	private static File_IOInterface file_IO = new CSVFile_IO();
+	
+	/**
 	 * @return a list of movie sales
 	 */
 	public static List<Sales> getSalesList()
@@ -95,7 +100,7 @@ public class SalesManager
 			salesList = new ArrayList<Sales>();
 		}
 		
-		salesCSV = File_IO.readFile("movieSales");
+		salesCSV = file_IO.readFile("movieSales");
 		
 		for(int i=0 ; i<salesCSV.size() ; i++) //search for existing entry and update total sales
 		{
@@ -118,6 +123,6 @@ public class SalesManager
 			temp[1] = Integer.toString(salesList.get(i).getTotalSales());
 			tempCSV.add(temp);
 		}
-		File_IO.writeFile(tempCSV, "movieSales");
+		file_IO.writeFile(tempCSV, "movieSales");
 	}
 }

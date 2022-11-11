@@ -16,6 +16,10 @@ public class ShowTimeList {
     private static List<ShowTime> showTimeList;
     private static List<String[]> showTimeCSV;
     /**
+	 * Create instance of File_IO.
+	 */
+    private static File_IOInterface file_IO = new CSVFile_IO();
+    /**
      * sorts the list of show time after a new one has been added in
      */
     private static void sortAfterAppend()
@@ -96,7 +100,7 @@ public class ShowTimeList {
         if(showTimeList == null){
             showTimeList = new ArrayList<ShowTime>();
         }
-        showTimeCSV = File_IO.readFile("showTime");
+        showTimeCSV = file_IO.readFile("showTime");
         
         for(int i = 0;i<showTimeCSV.size();i++){
             String movieID = showTimeCSV.get(i)[0];
@@ -136,6 +140,6 @@ public class ShowTimeList {
             writeBackCSV.add(tempTimeList.toArray(new String[0]));
         }
         
-        File_IO.writeFile(writeBackCSV, "showTime");
+        file_IO.writeFile(writeBackCSV, "showTime");
     }
 }

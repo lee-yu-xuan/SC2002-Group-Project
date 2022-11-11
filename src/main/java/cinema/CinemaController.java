@@ -15,7 +15,10 @@ import src.main.java.helper.*;
 public class CinemaController {
     public static List<Cinema> cinemaList;
     public static List<String[]> cinemaCSV;
-
+    /**
+	 * Create instance of File_IO.
+	 */
+    private static File_IOInterface file_IO = new CSVFile_IO();
     /**
      * Load function. Use the date from the CSV file to create the cinema objects.
      */
@@ -25,7 +28,7 @@ public class CinemaController {
             cinemaList = new ArrayList<Cinema>();
         }
     
-        cinemaCSV = File_IO.readFile("cinema");
+        cinemaCSV = file_IO.readFile("cinema");
 
         for(int h=0; h<cinemaCSV.size(); h++){
             String cinemaID = cinemaCSV.get(h)[0];
@@ -147,7 +150,7 @@ public static void save(){
             temp[4] = cinemaList.get(i).getLayout().toString();
             tempCSV.add(temp);
         }
-        File_IO.writeFile(tempCSV, "cinema");
+        file_IO.writeFile(tempCSV, "cinema");
 }
 
 

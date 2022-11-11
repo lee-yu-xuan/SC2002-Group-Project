@@ -17,7 +17,10 @@ import java.util.Collections;
 public class PromoCodeList {
     private static List<PromoCode> promoCodeList;
     private static List<String[]> promoCodeCSV;
-
+    /**
+	 * Create instance of File_IO.
+	 */
+    private static File_IOInterface file_IO = new CSVFile_IO();
     /**
      * Sort the promo code order.
      */
@@ -193,7 +196,7 @@ public class PromoCodeList {
             promoCodeList = new ArrayList<PromoCode>();
         }
 
-        promoCodeCSV = File_IO.readFile("promoCode");
+        promoCodeCSV = file_IO.readFile("promoCode");
 
         for(int i =0;i<promoCodeCSV.size();i++){
             String promoCode = promoCodeCSV.get(i)[0];
@@ -241,6 +244,6 @@ public class PromoCodeList {
             writeBackCSV.add(tempCodeList.toArray(new String[0]));
         }
 
-        File_IO.writeFile(writeBackCSV, "promoCode");
+        file_IO.writeFile(writeBackCSV, "promoCode");
     }
 }

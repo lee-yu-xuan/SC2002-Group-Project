@@ -15,7 +15,10 @@ import src.main.java.helper.*;
 public class SeatBooked_Controller {
     public static List<SeatBooked> seatBookedList;
     public static List<String[]> seatBookedCSV;
-
+    /**
+	 * Create instance of File_IO.
+	 */
+    private static File_IOInterface file_IO = new CSVFile_IO();
     /**
      * Load the Seatbooked data from csv file.
      */
@@ -25,7 +28,7 @@ public class SeatBooked_Controller {
             seatBookedList = new ArrayList<SeatBooked>();
         }
 
-        seatBookedCSV = File_IO.readFile("seatBooked");
+        seatBookedCSV = file_IO.readFile("seatBooked");
 
         for (int h = 0; h < seatBookedCSV.size(); h++) {
             String cinemaID = seatBookedCSV.get(h)[0];
@@ -110,6 +113,6 @@ public class SeatBooked_Controller {
             temp[5] = seatBookedList.get(i).getTiming().format(_DateTimeFormatter.formatter);
             tempCSV.add(temp);
         }
-        File_IO.writeFile(tempCSV, "seatBooked");
+        file_IO.writeFile(tempCSV, "seatBooked");
     }
 }
