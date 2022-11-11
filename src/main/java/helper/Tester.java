@@ -210,7 +210,7 @@ public class Tester {
             System.out.println(movieList.get(i).getType());
             System.out.println(movieList.get(i).getDirector());
             System.out.println(movieList.get(i).getCast());
-            System.out.println(movieList.get(i).getRating());
+            System.out.println(movieList.get(i).getRestriction());
             System.out.println(movieList.get(i).getMovieID());
         }
     }
@@ -236,13 +236,13 @@ public class Tester {
             System.out.println("Enter cast (seperate by comma -> ',' )");
             String cast = sc.nextLine();
 
-            System.out.println("Enter rating");
-            String rating = sc.nextLine();
+            System.out.println("Enter restriction");
+            Restriction restriction = ExceptionHandling.checkRestriction();
             
             System.out.println("Enter movieID");
             String movieID = sc.nextLine();
 
-            MovieListing.add(new Movie(movieTitle, sypnosis, type, director, cast, rating, movieID));
+            MovieListing.add(new Movie(movieTitle, sypnosis, type, director, cast, restriction, movieID));
         }
         MovieListing.save();
     }
