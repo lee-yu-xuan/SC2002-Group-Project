@@ -86,10 +86,10 @@ public class ShowTimeList {
      */
     public static boolean deleteByMovieInfo(String movieID, String cinemaID, LocalDateTime startTime, LocalDateTime endTime){
         for(int i = 0;i<showTimeList.size();i++){
-            if(showTimeList.get(i).getMovieID() == movieID &&
-            showTimeList.get(i).getCinemaID() == cinemaID &&
-            showTimeList.get(i).getStartTime() == startTime &&
-            showTimeList.get(i).getEndTime() == endTime)
+            if(showTimeList.get(i).getMovieID().equals(movieID) &&
+            showTimeList.get(i).getCinemaID().equals(cinemaID) &&
+            showTimeList.get(i).getStartTime().equals(startTime) &&
+            showTimeList.get(i).getEndTime().equals(endTime))
                 showTimeList.remove(i);
                 return true;
         }

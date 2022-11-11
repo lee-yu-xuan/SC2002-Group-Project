@@ -143,10 +143,10 @@ public class StaffManager {
 				do {
 					MovieName = ExceptionHandling.StringScannerWithSpace();
 					index = MovieListing.getMovieIndexByTitle(MovieName);
-					if(index==-1){
+					if (index == -1) {
 						System.out.println("MovieName not found, please try again..");
 					}
-				} while (index==-1);
+				} while (index == -1);
 
 				break;
 
@@ -156,10 +156,10 @@ public class StaffManager {
 				do {
 					MovieID = ExceptionHandling.checkForAlphabet(2);
 					index = MovieListing.getMovieIndexByID(MovieID);
-					if(index==-1){
+					if (index == -1) {
 						System.out.println("MovieID not found, please try again..");
 					}
-				} while (index==-1);
+				} while (index == -1);
 
 				break;
 			default:
@@ -277,16 +277,15 @@ public class StaffManager {
 
 		System.out.println("Enter the ID of the Movie: ");
 		do {
-			movieID = ExceptionHandling.checkForAlphabet(2);
+			movieID = ExceptionHandling.StringScanner();
 			movieIDExist = MovieListing.checkIfExist(movieID);
 		} while (movieIDExist == false);
-		
 
 		System.out.println("Enter the Cinema ID: ");
 		do {
 			cinemaID = ExceptionHandling.checkForAlphabet(2);
 			cinemaIDExist = CinemaController.checkIfExist(cinemaID);
-		} while (cinemaIDExist==false);
+		} while (cinemaIDExist == false);
 
 		do {
 			System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
@@ -318,28 +317,27 @@ public class StaffManager {
 			}
 		} while (endTime.isEmpty() || x == 1);
 
-		
 		System.out.println("Enter the class of cinema: ");
 		cinemaClass = CinemaController.getClassOfCinema(cinemaID);
 
 		ShowTime ST = new ShowTime(movieID, cinemaID, startTime, endTime, cinemaClass);
 		ShowTimeList.add(ST);
-		
 
-		//add seatBooked
+		// add seatBooked
 		String layout = CinemaController.geLayout(cinemaID).toString();
-		int row=0;
-		int col=0;
+		int row = 0;
+		int col = 0;
 
-		if(layout.equals("small")){
+		if (layout.equals("small")) {
 			row = col = 5;
-		}else if(layout.equals("medium")){
+		} else if (layout.equals("medium")) {
 			row = col = 10;
-		}else if(layout.equals("large")){
+		} else if (layout.equals("large")) {
 			row = col = 15;
 		}
-		
-		SeatBooked newSeatingRecord = new SeatBooked(cinemaID, layout, row, col, "", LocalDateTime.parse(startTime, _DateTimeFormatter.formatter));
+
+		SeatBooked newSeatingRecord = new SeatBooked(cinemaID, layout, row, col, "",
+				LocalDateTime.parse(startTime, _DateTimeFormatter.formatter));
 		SeatBooked_Controller.addSeatBooked(newSeatingRecord);
 	}
 
@@ -350,27 +348,47 @@ public class StaffManager {
 		int no = 0;
 
 		System.out.println("Please choose one of the options:");
-		System.out.println("1) Delete by movie index");
+		System.out.println("1) Delete by movieID");
 		System.out.println("2) Delete by movie info");
 		no = ExceptionHandling.IntegerScannerRangeOfFunction(2);
 
 		switch (no) {
 			case 1:
-				int index = -1;
-				System.out.println("Enter the index of the Movie: ");
+				String movieID = "";
+				boolean movieIDExist = false;
+				System.out.println("Enter the ID of the Movie: ");
 				do {
 					try {
-						index = ExceptionHandling.IntegerScanner();
+						movieID = ExceptionHandling.StringScanner();
+						movieIDExist = MovieListing.checkIfExist(movieID);
 					} catch (NumberFormatException nfe) {
 						System.out.println("Please enter in integer!");
 					}
-				} while (index < 0);
+				} while (movieIDExist == false);
+				movieIDExist = MovieListing.checkIfExist(movieID);
 
-				ShowTimeList.deleteByIndex(index);
+				List<ShowTime> showTimeList = ShowTimeList.getShowTimeByID(movieID);
+				
+        		int size = showTimeList.size();
+
+				if(size <= 0){
+					System.out.println("No showTime found!");
+					return;
+				}
+        
+				for(int i = 0;i<size;i++){
+					System.out.println((i+1) +". Cinema ID: "+showTimeList.get(i).getCinemaID()+" Start Time: "+showTimeList.get(i).getStartTime()+" End Time: "+showTimeList.get(i).getEndTime());
+				}
+
+				//select movie
+				
+				int option = ExceptionHandling.IntegerScannerRangeOfFunction(showTimeList.size());
+				ShowTimeList.deleteByMovieInfo(showTimeList.get(option).getMovieID(),
+				showTimeList.get(option).getCinemaID(), showTimeList.get(option).getStartTime(), showTimeList.get(option).getEndTime());
 				break;
 
 			case 2:
-				String movieID = "";
+				movieID = "";
 				String cinemaID = "";
 				LocalDateTime startTime;
 				LocalDateTime endTime;
@@ -470,10 +488,10 @@ public class StaffManager {
 	 */
 	public static void addPromo() {
 		String promoCode = "";
-    int count = 0;
-    LocalDateTime startTime;
-    LocalDateTime endTime;
-    PromoCodeStatus promoCodeStatus = PromoCodeStatus.READY;
+		int count = 0;
+		LocalDateTime startTime;
+		LocalDateTime endTime;
+		PromoCodeStatus promoCodeStatus = PromoCodeStatus.READY;
 		double offer = 1.0;
 		int flag = 0;
 
@@ -484,14 +502,14 @@ public class StaffManager {
 		count = Integer.valueOf(ExceptionHandling.checkForAlphabet(2));
 
 		System.out.println("Enter the startTime of the Promo Code (yyyy-MM-dd HH:mm): ");
-		startTime =  ExceptionHandling.checkDateTime();
+		startTime = ExceptionHandling.checkDateTime();
 
 		System.out.println("Enter the endTime of the Promo Code (yyyy-MM-dd HH:mm): ");
 		endTime =  ExceptionHandling.checkDateTime();
 
 		System.out.println("Enter the offer of the Promo Code: ");
 		offer = Double.valueOf(ExceptionHandling.checkForAlphabet(2));
-		
+
 		do {
 			String status;
 			System.out.println("Enter the status of the Promo Code :");
@@ -506,45 +524,42 @@ public class StaffManager {
 			flag = 1;
 			// if(status.toLowerCase().equals("ready"))
 			// {
-			// 	promoCodeStatus = PromoCodeStatus.READY;
-			// 	flag = 1;
+			// promoCodeStatus = PromoCodeStatus.READY;
+			// flag = 1;
 			// }
 			// else if(status.toLowerCase().equals("available"))
 			// {
-			// 	promoCodeStatus = PromoCodeStatus.AVAILABLE;
-			// 	flag = 1;
+			// promoCodeStatus = PromoCodeStatus.AVAILABLE;
+			// flag = 1;
 			// }
 			// else if(status.toLowerCase().equals("blocked"))
 			// {
-			// 	promoCodeStatus = PromoCodeStatus.BLOCKED;
-			// 	flag = 1;
+			// promoCodeStatus = PromoCodeStatus.BLOCKED;
+			// flag = 1;
 			// }
 			// else
 			// {
-			// 	System.out.println("Invalid input! Enter either Ready, Available or Blocked");
-		}while(flag==0);
+			// System.out.println("Invalid input! Enter either Ready, Available or
+			// Blocked");
+		} while (flag == 0);
 
-	PromoCode promo = new PromoCode(promoCode, offer, count, startTime, endTime, promoCodeStatus);
+		PromoCode promo = new PromoCode(promoCode, offer, count, startTime, endTime, promoCodeStatus);
 
-	PromoCodeList.add(promo);
+		PromoCodeList.add(promo);
 	}
 
 	/**
 	 * View all promo code function for Staff.
 	 */
-	public static void viewAllPromo()
-	{
+	public static void viewAllPromo() {
 		promoList = PromoCodeList.getPromoCodeList();
 
-		if(promoList.size() == 0)
-		{
+		if (promoList.size() == 0) {
 			System.out.println("No promo codes in database");
-		}
-		else
-		{
-			for(int i=0 ; i<promoList.size() ; i++)
-			{
-				System.out.println((i+1) +". " + promoList.get(i).getPromoCode() + " : " + promoList.get(i).getOffer() + " (" + promoList.get(i).getPromoCodeStatus() +")" );
+		} else {
+			for (int i = 0; i < promoList.size(); i++) {
+				System.out.println((i + 1) + ". " + promoList.get(i).getPromoCode() + " : "
+						+ promoList.get(i).getOffer() + " (" + promoList.get(i).getPromoCodeStatus() + ")");
 			}
 		}
 	}
@@ -557,22 +572,22 @@ public class StaffManager {
 		String branch = "";
 		int numberOfSeats = 0;
 		String tmp_classOfCinema = "";
-		
+
 		System.out.println("Enter the cinemaID: ");
 		cinemaID = ExceptionHandling.StringScanner();
-		
+
 		System.out.println("Enter the branch: ");
 		branch = ExceptionHandling.checkForAlphabet(1);
-		
-		System.out.println("Enter the number of seats ");	
+
+		System.out.println("Enter the number of seats ");
 		numberOfSeats = ExceptionHandling.IntegerScanner();
-	
-		System.out.println("Enter the class of cinema: ");	
+
+		System.out.println("Enter the class of cinema: ");
 		ClassOfCinema classOfCinema = ExceptionHandling.checkClassOfCinema();
 
 		System.out.println("Enter the layout type: ");
 		Layout layout = ExceptionHandling.checkLayout();
-	
+
 		Cinema cinema = new Cinema(cinemaID, branch, numberOfSeats, classOfCinema, layout);
 
 		CinemaController.add(cinema);
@@ -583,47 +598,45 @@ public class StaffManager {
 	/**
 	 * Remove Cinema function for Staff.
 	 */
-	public static void removeCinema(){
+	public static void removeCinema() {
 		String cinemaID = "";
 		System.out.println("Enter the cinemaID that you want to remove: ");
 		cinemaID = ExceptionHandling.StringScanner();
-		if(CinemaController.deleteByID(cinemaID)==0){
+		if (CinemaController.deleteByID(cinemaID) == 0) {
 			System.out.println("Cinema not found!");
 			System.out.println();
-		}
-		else{
+		} else {
 			System.out.println("Cinema deleted!");
 			System.out.println();
 		}
-		
+
 	}
 
 	/**
 	 * Add Cineplex function for Staff.
 	 */
-	public static void addCineplex(){
+	public static void addCineplex() {
 		String cineplexName = "";
 		System.out.println("Please enter the name of the new cineplex that you wish to add: ");
-		cineplexName = ExceptionHandling.StringScannerWithSpace(); 
+		cineplexName = ExceptionHandling.StringScannerWithSpace();
 		Cineplex cineplex = new Cineplex(cineplexName);
 		CineplexController.add(cineplex);
 
 		System.out.println("Cineplex has been added successfully!");
-		System.out.println(); 
+		System.out.println();
 	}
 
 	/**
 	 * Remove Cineplex function for Staff.
 	 */
-	public static void removeCineplex(){
+	public static void removeCineplex() {
 		String cineplexName = "";
 		System.out.println("Enter the cineplex name that you want to remove: ");
 		cineplexName = ExceptionHandling.StringScanner();
-		if(CineplexController.deleteByName(cineplexName)==0){
+		if (CineplexController.deleteByName(cineplexName) == 0) {
 			System.out.println("Cineplex not found!");
 			System.out.println();
-		}
-		else{
+		} else {
 			System.out.println("Cineplex deleted!");
 			System.out.println();
 		}
