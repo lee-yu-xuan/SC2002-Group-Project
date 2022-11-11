@@ -596,9 +596,12 @@ public class StaffManager {
 		String cineplexName = "";
 		System.out.println("Enter the cineplex name that you want to remove: ");
 		cineplexName = ExceptionHandling.StringScanner();
-		CineplexController.deleteByName(cineplexName);
 		if(CineplexController.deleteByName(cineplexName)==0){
 			System.out.println("Cineplex not found!");
+			System.out.println();
+		}
+		else{
+			System.out.println("Cineplex deleted!");
 			System.out.println();
 		}
 	}
