@@ -46,9 +46,8 @@ public class StaffManager {
 		String Type = "";
 		String Director = "";
 		String Cast = "";
-		String Rating = "NA";
+		Restriction restriction = null;
 		String reviews = "";
-		String rating = "";
 		String movieID = "";
 
 		System.out.println("Enter the name of the Movie: ");
@@ -60,7 +59,7 @@ public class StaffManager {
 		System.out.println("Enter the Synopsis: ");
 		Synopsis = ExceptionHandling.StringScannerWithSpace();
 
-		System.out.println("Enter the Type: ");
+		System.out.println("Enter the Genre: ");
 		Type = ExceptionHandling.StringScanner();
 
 		System.out.println("Enter the name of the director: ");
@@ -70,12 +69,12 @@ public class StaffManager {
 		Cast = ExceptionHandling.StringScannerWithSpace();
 
 		System.out.println("Enter the rating: ");
-		rating = ExceptionHandling.StringScanner();
+		restriction = ExceptionHandling.checkRestriction();
 
 		System.out.println("Enter the movieID: ");
 		movieID = ExceptionHandling.StringScanner();
 
-		Movie movie = new Movie(MovieName, status, Synopsis, Type, Director, Cast, rating, movieID);
+		Movie movie = new Movie(MovieName, status, Synopsis, Type, Director, Cast, restriction, movieID);
 
 		MovieListing.add(movie);
 	}
@@ -211,10 +210,9 @@ public class StaffManager {
 					// movieCSV.get(i)[5]= castt;
 					break;
 				case 7:
-					System.out.println("Enter movie ratingg");
-					String ratingg = ExceptionHandling.StringScanner();
-					MovieListing.getMovieList().get(index).setRating(ratingg);
-					// movieCSV.get(i)[6]= ratingg;
+					System.out.println("Enter movie restriction");
+					Restriction restriction = ExceptionHandling.checkRestriction();
+					MovieListing.getMovieList().get(index).setRestriction(restriction);
 					break;
 				case 8:
 					x = false;
@@ -266,6 +264,7 @@ public class StaffManager {
 		String endTime = "";
 		String classOfCinema = "";
 		int x = 0;
+		ClassOfCinema cinemaClass = null;
 
 		System.out.println("Enter the ID of the Movie: ");
 
@@ -305,24 +304,13 @@ public class StaffManager {
 			}
 		} while (endTime.isEmpty() || x == 1);
 
-		do {
-			System.out.println("Enter the class of cinema: ");
-			try {
-				classOfCinema = ExceptionHandling.StringScanner();
-				ClassOfCinema.valueOf(classOfCinema);
-				x = 0;
-			} catch (NumberFormatException nfe) {
-				System.out.println("Please enter in string!");
-			} catch (java.lang.IllegalArgumentException e) {
-				System.out.println("Please enter the correct format");
-				System.out.println();
-				x = 1;
-			}
-		} while (classOfCinema.isEmpty());
+		
+		System.out.println("Enter the class of cinema: ");
+		cinemaClass = ExceptionHandling.checkClassOfCinema();
 
-		ClassOfCinema CC = ClassOfCinema.valueOf(classOfCinema);
-		ShowTime ST = new ShowTime(movieID, cinemaID, startTime, endTime, CC);
+		ShowTime ST = new ShowTime(movieID, cinemaID, startTime, endTime, cinemaClass);
 		ShowTimeList.add(ST);
+		ShowTimeList.save();
 	}
 
 	/**

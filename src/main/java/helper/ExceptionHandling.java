@@ -7,6 +7,7 @@ import java.util.Scanner;
 import src.main.java.enums.ClassOfCinema;
 import src.main.java.enums.Layout;
 import src.main.java.enums.ShowingStatus;
+import src.main.java.enums.Restriction;
 
 /**
  * A Payment Interface.
@@ -171,6 +172,9 @@ public class ExceptionHandling {
         String str = "";
         try {
             str = scanner.nextLine();
+            if(str.equals("")){
+                throw new InputMismatchException();
+            }
             // System.out.println("You typed in: " + str);
         } catch (InputMismatchException e) {
             System.out.println("You did not enter a string.");
@@ -187,6 +191,9 @@ public class ExceptionHandling {
         String str = "";
         try {
             str = stringScanner.nextLine();
+            if(str.equals("")){
+                throw new Exception();
+            }
         } catch (Exception e) {
             System.out.println("Please enter a valid string");
             str = ExceptionHandling.StringScannerWithSpace();
@@ -211,5 +218,21 @@ public class ExceptionHandling {
         }
         return showingStatus;
     }
+
+    public static Restriction checkRestriction() {
+        Scanner scanner = new Scanner(System.in);
+        Restriction restriction = null;
+        try {
+            restriction = Restriction.valueOf(scanner.nextLine());
+            // System.out.println("You entered: " + num);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Please enter one of the following");
+            System.out.println("PG, PG13, R21");
+            restriction = ExceptionHandling.checkRestriction();
+        }
+        return restriction;
+    }
+
+    
 
 }

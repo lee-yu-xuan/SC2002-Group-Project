@@ -1,6 +1,9 @@
 package src.main.java.movie;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.RestoreAction;
+
 import src.main.java.enums.ShowingStatus;
+import src.main.java.enums.Restriction;
 
 /**
  * A Movie Class.
@@ -15,7 +18,7 @@ public class Movie{
     private String type;
     private String director;
     private String cast;
-    private String rating;
+    private Restriction restriction;
     private String movieID;
 
     /**
@@ -25,17 +28,17 @@ public class Movie{
      * @param type String genre of movie.
      * @param director String name of director.
      * @param cast String name of cast.
-     * @param rating String rating of movie.
+     * @param restriction String restriction of movie.
      * @param movieID String movie ID
      */
-    public Movie(String movieTitle, String synopsis, String type,String director, String cast, String rating,String movieID){
+    public Movie(String movieTitle, String synopsis, String type,String director, String cast, Restriction restriction,String movieID){
         this.movieTitle = movieTitle;
         this.showingStatus = ShowingStatus.COMING_SOON;
         this.synopsis = synopsis;
         this.type = type;
         this.director = director;
         this.cast = cast;
-        this.rating = rating;
+        this.restriction = restriction;
         this.movieID = movieID;
     }
      /**
@@ -46,17 +49,17 @@ public class Movie{
      * @param type String genre of movie.
      * @param director String name of director.
      * @param cast String name of cast.
-     * @param rating String rating of movie.
+     * @param restriction String restriction of movie.
      * @param movieID String movie ID
      */
-    public Movie(String movieTitle, ShowingStatus showingStatus, String synopsis, String type,String director, String cast, String rating,String movieID){
+    public Movie(String movieTitle, ShowingStatus showingStatus, String synopsis, String type,String director, String cast, Restriction restriction,String movieID){
         this.movieTitle = movieTitle;
         this.showingStatus = showingStatus;
         this.synopsis = synopsis;
         this.type = type;
         this.director = director;
         this.cast = cast;
-        this.rating = rating;
+        this.restriction = restriction;
         this.movieID = movieID;
     }
     /**
@@ -95,11 +98,11 @@ public class Movie{
         this.cast = cast;
     }
     /**
-     * Set the rating of a movie.
-     * @param rating String of movie ratings.
+     * Set the restriction of a movie.
+     * @param restriction String of movie restriction.
      */
-    public void setRating(String rating){
-        this.rating = rating;
+    public void setRestriction(Restriction restriction){
+        this.restriction = restriction;
     }
     /**
      * Set the genre of a movie.
@@ -151,11 +154,11 @@ public class Movie{
         return cast;
     }
     /**
-     * Get Movie rating function.
-     * @return the rating.
+     * Get Movie restriction function.
+     * @return the restriction.
      */ 
-    public String getRating() {
-        return rating;
+    public Restriction getRestriction() {
+        return restriction;
     }
     /**
      * Get Movie ID function.

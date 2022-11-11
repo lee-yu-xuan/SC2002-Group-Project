@@ -222,7 +222,7 @@ public class MovieListing {
             temp[3] = movieList.get(i).getType();
             temp[4] = movieList.get(i).getDirector();
             temp[5] = movieList.get(i).getCast();
-            temp[6] = movieList.get(i).getRestriction();
+            temp[6] = movieList.get(i).getRestriction().toString();
             temp[7] = movieList.get(i).getMovieID();
             tempCSV.add(temp);
         }

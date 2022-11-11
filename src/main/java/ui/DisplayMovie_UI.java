@@ -87,7 +87,11 @@ public class DisplayMovie_UI {
         //list top 5 movies by sales
         List<Movie> movieList = MovieController.showMovieByTicketSales();
         System.out.print( "\n\n\n" );
-        for(int i = 0;i<movieList.size();i++){
+        int size = 5;
+        if(movieList.size()>5) size = 5;
+        else size = movieList.size();
+
+        for(int i = 0;i<size;i++){
             System.out.println((i+1) + ". "+movieList.get(i).getMovieTitle());
         }
 
@@ -107,7 +111,11 @@ public class DisplayMovie_UI {
         //list top 5 movies by rating
         List<Movie> movieList = MovieController.showMovieByRating();
         System.out.print( "\n\n\n" );
-        for(int i = 0;i<movieList.size();i++){
+        int size = 5;
+        if(movieList.size()>5) size = 5;
+        else size = movieList.size();
+        
+        for(int i = 0;i<size;i++){
             System.out.println((i+1) +". "+movieList.get(i).getMovieTitle());
         }
 

@@ -88,6 +88,7 @@ public class BuyTicket_UI {
         } else if (movieID.charAt(4) == '3') {
             restriction = Restriction.R21;
         }
+    
         // pass price arguments
         // get the movieGoer's age since he/she might be booking for another person
         System.out.println("Please enter the age of the movieGoer");

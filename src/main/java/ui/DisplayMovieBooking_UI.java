@@ -64,7 +64,11 @@ public class DisplayMovieBooking_UI {
         List<Movie> movieList = MovieController.showAvailableMovieByTicketSales();
         System.out.println("\nMovies");
         System.out.println("--------------------");
-        for(int i = 0;i<movieList.size();i++){
+        int size = 5;
+        if(movieList.size()>5) size = 5;
+        else size = movieList.size();
+
+        for(int i = 0;i<size;i++){
             System.out.println((i+1) + ". "+movieList.get(i).getMovieTitle());
 
         }
@@ -86,7 +90,11 @@ public class DisplayMovieBooking_UI {
         List<Movie> movieList = MovieController.showAvailableMovieByRating();
         System.out.println("\nMovies");
         System.out.println("--------------------");
-        for(int i = 0;i<movieList.size();i++){
+        int size = 5;
+        if(movieList.size()>5) size = 5;
+        else size = movieList.size();
+        
+        for(int i = 0;i<size;i++){
             System.out.println((i+1) +". "+movieList.get(i).getMovieTitle());
         }
 
