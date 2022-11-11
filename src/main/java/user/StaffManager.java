@@ -370,9 +370,10 @@ public class StaffManager {
 					} catch (NumberFormatException nfe) {
 						System.out.println("Please enter in integer!");
 					}
-					System.out.println("MovieID not found! Please re-enter!");
+					if(movieIDExist == false){
+						System.out.println("MovieID not found! Please re-enter!");
+					}
 				} while (movieIDExist == false);
-				movieIDExist = MovieListing.checkIfExist(movieID);
 
 				List<ShowTime> showTimeList = ShowTimeList.getShowTimeByID(movieID);
 				
@@ -390,9 +391,8 @@ public class StaffManager {
 				//select movie
 				
 				int option = ExceptionHandling.IntegerScannerRangeOfFunction(showTimeList.size());
-				boolean success = ShowTimeList.deleteByMovieInfo(showTimeList.get(option).getMovieID(),
-				showTimeList.get(option).getCinemaID(), showTimeList.get(option).getStartTime(), showTimeList.get(option).getEndTime());
-				System.out.println(success);
+				boolean success = ShowTimeList.deleteByMovieInfo(showTimeList.get(option-1).getMovieID(),
+				showTimeList.get(option-1).getCinemaID(), showTimeList.get(option-1).getStartTime(), showTimeList.get(option-1).getEndTime());
 				break;
 
 			case 2:
