@@ -279,12 +279,18 @@ public class StaffManager {
 		do {
 			movieID = ExceptionHandling.StringScanner();
 			movieIDExist = MovieListing.checkIfExist(movieID);
+			if(!movieIDExist){
+				System.out.println("MovieID not found! Please re-enter!");
+			}
 		} while (movieIDExist == false);
-
+		
 		System.out.println("Enter the Cinema ID: ");
 		do {
 			cinemaID = ExceptionHandling.StringScanner();
 			cinemaIDExist = CinemaController.checkIfExist(cinemaID);
+			if(!cinemaIDExist){
+				System.out.println("CinemaID not found! Please re-enter!");
+			}
 		} while (cinemaIDExist == false);
 
 		do {
@@ -356,14 +362,15 @@ public class StaffManager {
 			case 1:
 				String movieID = "";
 				boolean movieIDExist = false;
-				System.out.println("Enter the ID of the Movie: ");
 				do {
 					try {
+						System.out.println("Enter the ID of the Movie: ");
 						movieID = ExceptionHandling.StringScanner();
 						movieIDExist = MovieListing.checkIfExist(movieID);
 					} catch (NumberFormatException nfe) {
 						System.out.println("Please enter in integer!");
 					}
+					System.out.println("MovieID not found! Please re-enter!");
 				} while (movieIDExist == false);
 				movieIDExist = MovieListing.checkIfExist(movieID);
 
