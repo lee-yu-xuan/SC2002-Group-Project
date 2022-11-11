@@ -6,6 +6,7 @@ package src.main.java.movie;
 import java.util.ArrayList;
 import java.util.List;
 
+import src.main.java.enums.Restriction;
 import src.main.java.enums.ShowingStatus;
 import src.main.java.helper.*;
 
@@ -121,7 +122,7 @@ public class MovieListing {
             System.out.println(movie.getType());
             System.out.println(movie.getDirector());
             System.out.println(movie.getCast());
-            System.out.println(movie.getRating());
+            System.out.println(movie.getRestriction());
         }
     }
     /**
@@ -201,9 +202,9 @@ public class MovieListing {
             String type = movieCSV.get(i)[3];
             String director = movieCSV.get(i)[4];
             String cast = movieCSV.get(i)[5];
-            String rating = movieCSV.get(i)[6];
+            Restriction restriction = Restriction.valueOf(movieCSV.get(i)[6]);
             String movieID = movieCSV.get(i)[7];
-            movieList.add(new Movie(movieTitle, showingStatus, synopsis, type, director, cast, rating, movieID));
+            movieList.add(new Movie(movieTitle, showingStatus, synopsis, type, director, cast, restriction, movieID));
         }
     }
 
@@ -221,7 +222,7 @@ public class MovieListing {
             temp[3] = movieList.get(i).getType();
             temp[4] = movieList.get(i).getDirector();
             temp[5] = movieList.get(i).getCast();
-            temp[6] = movieList.get(i).getRating();
+            temp[6] = movieList.get(i).getRestriction();
             temp[7] = movieList.get(i).getMovieID();
             tempCSV.add(temp);
         }
