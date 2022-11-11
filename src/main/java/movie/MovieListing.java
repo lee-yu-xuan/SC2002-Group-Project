@@ -130,12 +130,12 @@ public class MovieListing {
         if (index != 1) {
             Movie movie = movieList.get(index);
 
-            System.out.println(movie.getMovieTitle());
-            System.out.println(movie.getSynopsis());
-            System.out.println(movie.getType());
-            System.out.println(movie.getDirector());
-            System.out.println(movie.getCast());
-            System.out.println(movie.getRestriction());
+            System.out.println("Title: "+movie.getMovieTitle()+"\n");
+            System.out.println("Synopsis: "+movie.getSynopsis()+"\n");
+            System.out.println("Genre: "+movie.getType()+"\n");
+            System.out.println("Director: "+movie.getDirector()+"\n");
+            System.out.println("Casts: "+movie.getCast()+"\n");
+            System.out.println("Restriction: "+movie.getRestriction()+"\n");
         }
     }
     /**

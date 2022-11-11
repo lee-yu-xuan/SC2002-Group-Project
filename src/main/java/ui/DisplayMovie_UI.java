@@ -42,6 +42,7 @@ public class DisplayMovie_UI {
                 case 1:
                     //list top 5 movies by sales
                     movieID = listBySales();
+                    
                     break;
                 case 2:
                     //list top 5 movies by rating

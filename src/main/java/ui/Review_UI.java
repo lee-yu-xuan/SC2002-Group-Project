@@ -29,5 +29,6 @@ public class Review_UI {
 		
         
         ReviewList.addRatingReview(movieID, review, rating);
+        ReviewList.save();
     }
 }
