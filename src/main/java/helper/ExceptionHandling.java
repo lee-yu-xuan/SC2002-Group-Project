@@ -126,7 +126,7 @@ public class ExceptionHandling {
                         throw new InputMismatchException();
                     }
                 } catch (InputMismatchException e) {
-                    System.out.println("You did not enter numerical number.");
+                    System.out.println("You did not enter numerical number. Please enter it again.");
                     str = ExceptionHandling.checkForAlphabet(2);
                 }
                 break;

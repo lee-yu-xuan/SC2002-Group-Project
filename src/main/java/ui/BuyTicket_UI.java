@@ -91,7 +91,7 @@ public class BuyTicket_UI {
         // pass price arguments
         // get the movieGoer's age since he/she might be booking for another person
         System.out.println("Please enter the age of the movieGoer");
-        String age = ExceptionHandling.StringScanner();
+        String age = ExceptionHandling.checkForAlphabet(2);
         new Price(time, age, 1, SystemConfigController.getClassMulti(tmp.get(choice).getClassOfCinema().toString()),
                 row);
 
