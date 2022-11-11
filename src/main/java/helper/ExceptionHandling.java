@@ -156,7 +156,7 @@ public class ExceptionHandling {
 
         while (num <= 0 || num > upperBound) {
             System.out.println("Please enter a number between 1 and " + upperBound);
-            num = scanner.nextInt();
+            num = ExceptionHandling.IntegerScannerRangeOfFunction(upperBound);
         }
 
         return num;
