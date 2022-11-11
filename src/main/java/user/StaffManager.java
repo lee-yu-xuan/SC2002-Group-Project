@@ -489,6 +489,9 @@ public class StaffManager {
 
 		System.out.println("Enter the endTime of the Promo Code (yyyy-MM-dd HH:mm): ");
 		endTime =  ExceptionHandling.checkDateTime();
+
+		System.out.println("Enter the offer of the Promo Code: ");
+		offer = Double.valueOf(ExceptionHandling.checkForAlphabet(2));
 		
 		do {
 			String status;
