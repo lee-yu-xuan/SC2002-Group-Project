@@ -136,6 +136,35 @@ public static void updateNumberOfSeats(ArrayList<Cinema> cinemas, String cinemaI
 }
 
 /**
+ * Return true if cinemaID exist in the CSV file.
+ * @param cinemaID
+ * @return success of finding cinemaID in arrayList
+ */
+public static boolean checkIfExist(String cinemaID){
+    for(int h=0; h<cinemaList.size(); h++){
+        if(cinemaList.get(h).getCinemaID().equals(cinemaID)){
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * Check the class of cinema(Admin function)
+ * @param cinemaID
+ * @return
+ */
+public static ClassOfCinema getClassOfCinema(String cinemaID){
+    ClassOfCinema classOfCinema = null;
+    for(int h=0; h<cinemaList.size(); h++){
+        if(cinemaList.get(h).getCinemaID().equals(cinemaID)){
+            classOfCinema = cinemaList.get(h).getClassOfCinema();
+        }
+    }
+    return classOfCinema;
+}
+
+/**
 * Save function. Save the cinema objects to the CSV file.
 */
 public static void save(){
