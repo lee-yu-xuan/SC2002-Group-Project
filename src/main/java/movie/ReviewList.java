@@ -64,7 +64,7 @@ public class ReviewList {
         List<Review> returnMovieList = new ArrayList<Review>();
         for(int i = 0;i<reviewList.size();i++){
             if(movieID.equals(reviewList.get(i).getMovieID())){
-                while(i < reviewList.size() && reviewList.get(i).getMovieID() == movieID){
+                while(i < reviewList.size() && reviewList.get(i).getMovieID().equals(movieID)){
                     returnMovieList.add(reviewList.get(i));
                 }
                 break;
