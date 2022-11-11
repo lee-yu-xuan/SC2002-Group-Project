@@ -18,9 +18,10 @@ public class CineplexController {
     public static List<Cineplex> cineplexList;
     public static List<String[]> cineplexCSV;
     /**
-	 * Create instance of File_IO.
-	 */
+     * Create instance of File_IO.
+     */
     private static File_IOInterface file_IO = new CSVFile_IO();
+
     /**
      * Load function. Use the date from the CSV file to create the cineplex objects.
      */
@@ -39,11 +40,6 @@ public class CineplexController {
                                                                  // movielist, unlike in real life some movies only
                                                                  // available in selected cinemas only
 
-            // movieList
-            for(int i=0; i<movieList.size(); i++){
-                System.out.println(movieList.get(i).getMovieTitle());
-            }
-
             cineplexList.add(new Cineplex(cineplexName, cinemaList, movieList));
         }
     }
@@ -56,11 +52,11 @@ public class CineplexController {
         cineplexList.add(cineplex);
     }
 
-    public static int deleteByName(String cineplexName){
- 
-        for(int h=0; h<cineplexList.size(); h++){
-            if(cineplexList.get(h).getCineplexName().equals(cineplexName)){
-                cineplexList.remove(h); //id found
+    public static int deleteByName(String cineplexName) {
+
+        for (int h = 0; h < cineplexList.size(); h++) {
+            if (cineplexList.get(h).getCineplexName().equals(cineplexName)) {
+                cineplexList.remove(h); // id found
                 return 1;
             }
         }

@@ -70,7 +70,7 @@ public class StaffManager {
 		System.out.println("Enter the Cast: ");
 		Cast = ExceptionHandling.StringScannerWithSpace();
 
-		System.out.println("Enter the rating: ");
+		System.out.println("Enter the restriction: ");
 		restriction = ExceptionHandling.checkRestriction();
 
 		System.out.println("Enter the movieID: ");
