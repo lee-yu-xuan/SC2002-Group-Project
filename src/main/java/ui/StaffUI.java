@@ -1,7 +1,16 @@
 package src.main.java.ui;
 
 import java.util.Scanner;
+
+import src.main.java.cinema.CinemaController;
+import src.main.java.cinema.CineplexController;
 import src.main.java.helper.*;
+import src.main.java.movie.MovieListing;
+import src.main.java.movie.ShowTimeController;
+import src.main.java.movie.ShowTimeList;
+import src.main.java.payment.PromoCodeList;
+import src.main.java.sysconfig.SystemConfig;
+import src.main.java.sysconfig.SystemConfigController;
 import src.main.java.user.*;
 
 /**
@@ -39,42 +48,53 @@ public class StaffUI {
 			switch (no) {
 				case 1:
 					StaffManager.addMovie();
+					MovieListing.save();
 					break;
 				case 2:
 					StaffManager.removeMovie();
+					MovieListing.save();
 					break;
 				case 3:
 					StaffManager.update();
+					MovieListing.save();
 					break;
 				case 4:
 					StaffManager.topFiveMovies();
 					break;
 				case 5:
 					StaffManager.addShowTimes();
+					ShowTimeList.save();
 					break;
 				case 6:
 					StaffManager.removeShowTimes();
+					ShowTimeList.save();
 					break;
 				case 7:
 					StaffManager.viewAllPromo();
 					break;
 				case 8:
 					StaffManager.addPromo();
+					PromoCodeList.save();
 					break;
 				case 9:
 					StaffManager.editSysCon();
+					SystemConfigController.save();
 					break;
 				case 10:
 					StaffManager.addCinema();
+					CinemaController.save();
 					break;
 				case 11:
 					StaffManager.removeCinema();
+					CinemaController.save();
 					break;
 				case 12:
 					StaffManager.addCineplex();
+					CineplexController.save();
 					break;
 				case 13:
 					StaffManager.removeCineplex();
+					CineplexController.save();
 					break;
 				default:
 					System.out.println("Logging out of Staff account ...");
