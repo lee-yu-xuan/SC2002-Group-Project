@@ -186,7 +186,7 @@ public class MovieListing {
      */ 
     public static int deleteByID(String id) {
         for (int i = 0; i < movieList.size(); i++) {
-            if (movieList.get(i).getMovieID() == id) {
+            if (movieList.get(i).getMovieID().equals(id)) {
                 movieList.remove(i); // id found
                 return 1;
             }

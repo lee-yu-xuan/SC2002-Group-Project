@@ -179,7 +179,6 @@ public class StaffManager {
 
 			System.out.println("Enter your choice:");
 			int choice = ExceptionHandling.IntegerScannerRangeOfFunction(8);
-			scan.nextLine();
 			switch (choice) {
 				case 1:
 					System.out.println("Enter movie Name");
