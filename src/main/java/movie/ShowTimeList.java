@@ -82,16 +82,18 @@ public class ShowTimeList {
      * @param cinemaID String cinema id
      * @param startTime LocalDateTime start time of the movie
      * @param endTime LocalDateTIme end time of the movie
+     * @return success of deleting the movie
      */
-    public static void deleteByMovieInfo(String movieID, String cinemaID, LocalDateTime startTime, LocalDateTime endTime){
+    public static boolean deleteByMovieInfo(String movieID, String cinemaID, LocalDateTime startTime, LocalDateTime endTime){
         for(int i = 0;i<showTimeList.size();i++){
             if(showTimeList.get(i).getMovieID() == movieID &&
             showTimeList.get(i).getCinemaID() == cinemaID &&
             showTimeList.get(i).getStartTime() == startTime &&
             showTimeList.get(i).getEndTime() == endTime)
                 showTimeList.remove(i);
+                return true;
         }
-        
+        return false;
     }
    /**
      * Load the content of showtime list CSV into the system
