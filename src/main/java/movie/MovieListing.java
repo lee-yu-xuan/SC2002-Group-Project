@@ -58,6 +58,19 @@ public class MovieListing {
         return "Movie not found";
     }
     /**
+     * Return true if movieID exist in the arraylist
+     * @param movieID movie ID
+     * @return success of finding movieID in the arraylist.
+     */ 
+    public static boolean checkIfExist(String movieID) {
+        for (int i = 0; i < movieList.size(); i++) {
+            if (movieList.get(i).getMovieID().equals(movieID)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
      * Add a new movie function.
      * @param movie Movie class object.
      */
