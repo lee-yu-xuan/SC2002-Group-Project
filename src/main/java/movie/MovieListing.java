@@ -145,7 +145,7 @@ public class MovieListing {
      */ 
     public static int deleteByName(String title) {
         for (int i = 0; i < movieList.size(); i++) {
-            if (movieList.get(i).getMovieTitle() == title) {
+            if (title.equals(movieList.get(i).getMovieTitle()) ) {
                 movieList.remove(i); // title found
                 return 1;
             }
