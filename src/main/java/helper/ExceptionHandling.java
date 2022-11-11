@@ -186,7 +186,7 @@ public class ExceptionHandling {
         Scanner stringScanner = new Scanner(System.in);
         String str = "";
         try {
-            str = stringScanner.next();
+            str = stringScanner.nextLine();
         } catch (Exception e) {
             System.out.println("Please enter a valid string");
             str = ExceptionHandling.StringScannerWithSpace();
