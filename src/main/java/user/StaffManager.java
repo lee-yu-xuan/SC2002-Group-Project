@@ -283,7 +283,7 @@ public class StaffManager {
 
 		System.out.println("Enter the Cinema ID: ");
 		do {
-			cinemaID = ExceptionHandling.checkForAlphabet(2);
+			cinemaID = ExceptionHandling.StringScanner();
 			cinemaIDExist = CinemaController.checkIfExist(cinemaID);
 		} while (cinemaIDExist == false);
 
