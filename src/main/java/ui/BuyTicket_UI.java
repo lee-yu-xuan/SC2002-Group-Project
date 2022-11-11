@@ -114,5 +114,6 @@ public class BuyTicket_UI {
         BookingManager.addBooking(booking);
         System.out.println("Booking successful");
         BookingManager.save(userName);
+        SalesManager.save();
     }
 }
