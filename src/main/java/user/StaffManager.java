@@ -265,14 +265,21 @@ public class StaffManager {
 		String classOfCinema = "";
 		int x = 0;
 		ClassOfCinema cinemaClass = null;
+		boolean cinemaIDExist = false;
+		boolean movieIDExist = false;
 
 		System.out.println("Enter the ID of the Movie: ");
-
-		movieID = ExceptionHandling.checkForAlphabet(2);
+		do {
+			movieID = ExceptionHandling.checkForAlphabet(2);
+			movieIDExist = MovieListing.checkIfExist(movieID);
+		} while (movieIDExist == false);
+		
 
 		System.out.println("Enter the Cinema ID: ");
-
-		cinemaID = ExceptionHandling.checkForAlphabet(2);
+		do {
+			cinemaID = ExceptionHandling.checkForAlphabet(2);
+			cinemaIDExist = CinemaController.checkIfExist(cinemaID);
+		} while (cinemaIDExist==false);
 
 		do {
 			System.out.println("Enter the startTime of the movie (yyyy-MM-dd HH:mm): ");
@@ -306,7 +313,7 @@ public class StaffManager {
 
 		
 		System.out.println("Enter the class of cinema: ");
-		cinemaClass = ExceptionHandling.checkClassOfCinema();
+		cinemaClass = CinemaController.getClassOfCinema(cinemaID);
 
 		ShowTime ST = new ShowTime(movieID, cinemaID, startTime, endTime, cinemaClass);
 		ShowTimeList.add(ST);
