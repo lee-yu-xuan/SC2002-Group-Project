@@ -10,7 +10,7 @@ import src.main.java.enums.ShowingStatus;
 import src.main.java.enums.Restriction;
 
 /**
- * A Payment Interface.
+ * Exception Handling class.
  * 
  * @author Lim Yao Xian
  * @version 1.0
