@@ -433,17 +433,19 @@ public class StaffManager {
 					SystemConfig.addHoliday(start, end);
 					break;
 				case 4:
+					System.out.println("Please enter the new base price:");
 					price = scan.nextDouble();
 					SystemConfig.setBasePrice(price);
 					break;
 				case 5:
+
 					price = SystemConfig.getBasePrice();
 					System.out.println("base price: " + price);
 					break;
 				case 6:
 					classW = SystemConfig.getClassWeight();
 					for (i = 0; i < classW.length; i += 2) {
-						System.out.print(classW[i] + ": " + classW[i + 1]);
+						System.out.print(classW[i] + ": " + classW[i + 1] + " ");
 					}
 					break;
 				case 7:

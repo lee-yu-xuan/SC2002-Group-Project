@@ -29,6 +29,7 @@ public class StaffUI {
 	public static void UI() {
 		do {
 			StaffManager SM = new StaffManager();
+			System.out.println("");
 			System.out.println("Please enter your option");
 			System.out.println("1) Add Movie");
 			System.out.println("2) Remove Movie");
