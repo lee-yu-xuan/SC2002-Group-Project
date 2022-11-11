@@ -219,6 +219,11 @@ public class ExceptionHandling {
         return showingStatus;
     }
 
+
+    /**
+     * Check for Valid restriction for movie.(PG, PG13, R21)
+     * @return Valid Restriction Enum.
+     */
     public static Restriction checkRestriction() {
         Scanner scanner = new Scanner(System.in);
         Restriction restriction = null;

@@ -44,6 +44,11 @@ public class CineplexController {
         }
     }
 
+
+    /**
+     * Get a new cineplex object into the list of cineplex objects
+     * @param cineplex
+     */
     public static void add(Cineplex cineplex) {
         if (cineplexList == null) {
             // System.out.println("The movieList is empty");
@@ -52,6 +57,11 @@ public class CineplexController {
         cineplexList.add(cineplex);
     }
 
+    /**
+     * Delete a cineplex object from the list of cineplex objects
+     * @param cineplexName
+     * @return
+     */
     public static int deleteByName(String cineplexName) {
 
         for (int h = 0; h < cineplexList.size(); h++) {
