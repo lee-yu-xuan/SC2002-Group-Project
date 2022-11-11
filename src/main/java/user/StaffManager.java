@@ -581,12 +581,12 @@ public class StaffManager {
 	public static void addCineplex(){
 		String cineplexName = "";
 		System.out.println("Please enter the name of the new cineplex that you wish to add: ");
-		cineplexName = ExceptionHandling.checkForAlphabet(1);
+		cineplexName = ExceptionHandling.StringScannerWithSpace(); 
 		Cineplex cineplex = new Cineplex(cineplexName);
 		CineplexController.add(cineplex);
 
 		System.out.println("Cineplex has been added successfully!");
-		System.out.println();
+		System.out.println(); 
 	}
 
 	/**
