@@ -29,8 +29,9 @@ public class MovieController {
             for(int j = i;j> 0;j--){
                 double curRating = ReviewList.getAvgRating(movieID.get(j));
                 double preRating = ReviewList.getAvgRating(movieID.get(j-1));
-                if(curRating < preRating){
+                if(curRating > preRating){
                     Collections.swap(movieList,j,j-1);
+                    Collections.swap(movieID,j,j-1);
                 }
                 else break;
             }
@@ -56,6 +57,7 @@ public class MovieController {
                 double preRating = SalesManager.getSalesByID(movieID.get(j-1));
                 if(curRating < preRating){
                     Collections.swap(movieList,j,j-1);
+                    Collections.swap(movieID,j,j-1);
                 }
                 else break;
             }
@@ -79,8 +81,9 @@ public class MovieController {
             for(int j = i;j> 0;j--){
                 double curRating = ReviewList.getAvgRating(movieID.get(j));
                 double preRating = ReviewList.getAvgRating(movieID.get(j-1));
-                if(curRating < preRating){
+                if(curRating > preRating){
                     Collections.swap(movieList,j,j-1);
+                    Collections.swap(movieID,j,j-1);
                 }
                 else break;
             }
@@ -106,6 +109,7 @@ public class MovieController {
                 double preRating = SalesManager.getSalesByID(movieID.get(j-1));
                 if(curRating < preRating){
                     Collections.swap(movieList,j,j-1);
+                    Collections.swap(movieID,j,j-1);
                 }
                 else break;
             }
