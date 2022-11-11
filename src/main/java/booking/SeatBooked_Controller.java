@@ -53,6 +53,17 @@ public class SeatBooked_Controller {
     }
 
     /**
+     * Add new seatBooked to the seatBooked class(used by admin).
+     * @param newSeatRecord
+     */
+    public static void addSeatBooked(SeatBooked newSeatRecord){
+        if(seatBookedList == null){
+            seatBookedList = new ArrayList<SeatBooked>();
+        }
+        seatBookedList.add(newSeatRecord);
+    }
+
+    /**
      * Update the lit of booked seats.
      * 
      * @param newBookedSeats_row    Row of the new booking.
@@ -80,8 +91,14 @@ public class SeatBooked_Controller {
         String col = Integer.toString(newBookedSeats_column);
         System.out.println("col: " + col);
 
+        String updatedBookedSeats = "";
         // append the newBookedSeats to the oldBookedSeat String
-        String updatedBookedSeats = oldBookedSeat + "&" + row + "!" + col;
+        if(oldBookedSeat.equals("")){
+            updatedBookedSeats = row + "!" + col;
+        }
+        else{
+            updatedBookedSeats = oldBookedSeat + "&" + row + "!" + col;
+        }
 
         // update the seatBookedList
         seatBookedList.get(location).setSeatsTaken(updatedBookedSeats);

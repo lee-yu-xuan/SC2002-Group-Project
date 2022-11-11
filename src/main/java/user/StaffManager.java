@@ -9,6 +9,8 @@ import src.main.java.payment.PromoCode;
 import src.main.java.payment.PromoCodeList;
 import src.main.java.helper.*;
 import src.main.java.sysconfig.*;
+import src.main.java.booking.SeatBooked;
+import src.main.java.booking.SeatBooked_Controller;
 import src.main.java.cinema.Cinema;
 import src.main.java.cinema.CinemaController;
 import src.main.java.cinema.Cineplex;
@@ -138,21 +140,27 @@ public class StaffManager {
 			case 1:
 				String MovieName = "";
 				System.out.println("Enter the name of the Movie: ");
-				MovieName = ExceptionHandling.checkForAlphabet(1);
-				index = MovieListing.getMovieIndexByTitle(MovieName);
-				if (index == -1) {
-					return;
-				}
+				do {
+					MovieName = ExceptionHandling.StringScannerWithSpace();
+					index = MovieListing.getMovieIndexByTitle(MovieName);
+					if(index==-1){
+						System.out.println("MovieName not found, please try again..");
+					}
+				} while (index==-1);
+
 				break;
 
 			case 2:
 				String MovieID = "";
 				System.out.println("Enter the ID of the Movie: ");
-				MovieID = ExceptionHandling.checkForAlphabet(2);
-				index = MovieListing.getMovieIndexByID(MovieID);
-				if (index == -1) {
-					return;
-				}
+				do {
+					MovieID = ExceptionHandling.checkForAlphabet(2);
+					index = MovieListing.getMovieIndexByID(MovieID);
+					if(index==-1){
+						System.out.println("MovieID not found, please try again..");
+					}
+				} while (index==-1);
+
 				break;
 			default:
 				System.out.println("Wrong options");
@@ -317,7 +325,23 @@ public class StaffManager {
 
 		ShowTime ST = new ShowTime(movieID, cinemaID, startTime, endTime, cinemaClass);
 		ShowTimeList.add(ST);
-		ShowTimeList.save();
+		
+
+		//add seatBooked
+		String layout = CinemaController.geLayout(cinemaID).toString();
+		int row=0;
+		int col=0;
+
+		if(layout.equals("small")){
+			row = col = 5;
+		}else if(layout.equals("medium")){
+			row = col = 10;
+		}else if(layout.equals("large")){
+			row = col = 15;
+		}
+		
+		SeatBooked newSeatingRecord = new SeatBooked(cinemaID, layout, row, col, "", LocalDateTime.parse(startTime, _DateTimeFormatter.formatter));
+		SeatBooked_Controller.addSeatBooked(newSeatingRecord);
 	}
 
 	/**

@@ -56,6 +56,7 @@ public class BuyTicket_UI {
             row = ExceptionHandling.IntegerScannerRangeOfFunction(rowUpperbound);
             System.out.println("Select the column of your preferred seat");
             col = ExceptionHandling.IntegerScannerRangeOfFunction(columnUpperbound);
+            
             duplicateSeat = LayoutController.checkIfDuplicateSeats(row, col, cinemaID, time);
             System.out.println("\n");
             if (duplicateSeat == true)
@@ -81,12 +82,14 @@ public class BuyTicket_UI {
 
         Restriction restriction = Restriction.PG;
         // check movieID for the restriction
-        if (movieID.charAt(4) == '1') {
-            restriction = Restriction.PG;
-        } else if (movieID.charAt(4) == '2') {
+        if (movieID.charAt(1) == '0') {
             restriction = Restriction.PG13;
-        } else if (movieID.charAt(4) == '3') {
+        } else if (movieID.charAt(1) == '1') {
+            restriction = Restriction.PG;
+        } else if (movieID.charAt(1) == '2') {
             restriction = Restriction.R21;
+        } else{
+            restriction = Restriction.PG13;
         }
     
         // pass price arguments

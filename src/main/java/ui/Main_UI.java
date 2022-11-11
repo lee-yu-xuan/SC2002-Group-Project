@@ -129,9 +129,9 @@ public class Main_UI {
  * X - ThreeD
  * W - Premium
  * 
- * End With:
- * 01 - PG
- * 02 - PG13
- * 03 - R21
+ * 2nd number:
+ * 00 - PGs
+ * 01 - PG13
+ * 02 - R21
  * 
  */

@@ -37,7 +37,7 @@ public class LayoutController {
                 noOfRows = movieList.get(i).getNoOfRows();
                 noOfColumns = movieList.get(i).getNoOfColumns();
                 seatsTaken = movieList.get(i).getSeatsTaken();
-
+         
                 List<String> items = Arrays.asList(seatsTaken.split("&"));
 
                 // initialize layout
@@ -50,12 +50,17 @@ public class LayoutController {
                 }
 
                 // mark the layout with the seats taken
-                for (i = 0; i < items.size(); i++) {
-                    String[] temp = items.get(i).split("!");
-                    int row = Integer.parseInt(temp[0]) - 1;
-                    int column = Integer.parseInt(temp[1]) - 1;
-                    Layout[row][column] = 'X';
+                if(seatsTaken.equals("")){
+                    int continued = 1;
+                }else{
+                    for (i = 0; i < items.size(); i++) {
+                        String[] temp = items.get(i).split("!");
+                        int row = Integer.parseInt(temp[0]) - 1;
+                        int column = Integer.parseInt(temp[1]) - 1;
+                        Layout[row][column] = 'X';
+                    }
                 }
+                
 
                 // print layout
                 System.out.println("\nCinema layout");
@@ -99,6 +104,9 @@ public class LayoutController {
             LocalDateTime dt1 = movieList.get(i).getTiming();
             if (tmpCinemaID.compareTo(cinemaID) == 0 && dt1.compareTo(timing) == 0) {
                 seatsTaken = movieList.get(i).getSeatsTaken();
+                if(seatsTaken.equals("")){
+                    return false;
+                }
                 List<String> items = Arrays.asList(seatsTaken.split("&"));
                 for (int j = 0; j < items.size(); j++) {
                     String[] temp = items.get(j).split("!");

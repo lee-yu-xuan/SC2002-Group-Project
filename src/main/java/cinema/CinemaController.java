@@ -182,5 +182,17 @@ public static void save(){
         file_IO.writeFile(tempCSV, "cinema");
 }
 
+public static Layout geLayout(String cinemaID){
+    Layout layout = null;
+    for(int h=0; h<cinemaList.size(); h++){
+        if(cinemaList.get(h).getCinemaID().equals(cinemaID)){
+            layout = cinemaList.get(h).getLayout();
+        }
+    }
+    return layout;
+}
 
 }
+
+
+
