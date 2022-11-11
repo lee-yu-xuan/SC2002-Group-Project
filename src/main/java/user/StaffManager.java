@@ -383,8 +383,9 @@ public class StaffManager {
 				//select movie
 				
 				int option = ExceptionHandling.IntegerScannerRangeOfFunction(showTimeList.size());
-				ShowTimeList.deleteByMovieInfo(showTimeList.get(option).getMovieID(),
+				boolean success = ShowTimeList.deleteByMovieInfo(showTimeList.get(option).getMovieID(),
 				showTimeList.get(option).getCinemaID(), showTimeList.get(option).getStartTime(), showTimeList.get(option).getEndTime());
+				System.out.println(success);
 				break;
 
 			case 2:

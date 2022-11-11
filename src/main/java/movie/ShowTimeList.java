@@ -89,9 +89,10 @@ public class ShowTimeList {
             if(showTimeList.get(i).getMovieID().equals(movieID) &&
             showTimeList.get(i).getCinemaID().equals(cinemaID) &&
             showTimeList.get(i).getStartTime().equals(startTime) &&
-            showTimeList.get(i).getEndTime().equals(endTime))
+            showTimeList.get(i).getEndTime().equals(endTime)){
                 showTimeList.remove(i);
                 return true;
+            } 
         }
         return false;
     }
