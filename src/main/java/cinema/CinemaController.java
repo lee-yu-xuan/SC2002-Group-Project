@@ -181,7 +181,11 @@ public static void save(){
         }
         file_IO.writeFile(tempCSV, "cinema");
 }
-
+/**
+* Get function. Get the cinema layout for a particular cinema.
+@param cinemaID CinemaID to be checked.
+@return Layout of the cinema.
+*/
 public static Layout geLayout(String cinemaID){
     Layout layout = null;
     for(int h=0; h<cinemaList.size(); h++){
