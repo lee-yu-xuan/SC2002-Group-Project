@@ -137,8 +137,8 @@ public static void updateNumberOfSeats(ArrayList<Cinema> cinemas, String cinemaI
 
 /**
  * Return true if cinemaID exist in the CSV file.
- * @param cinemaID
- * @return success of finding cinemaID in arrayList
+ * @param cinemaID Cinema ID.
+ * @return Success of finding cinemaID in arrayList
  */
 public static boolean checkIfExist(String cinemaID){
     for(int h=0; h<cinemaList.size(); h++){
@@ -151,8 +151,8 @@ public static boolean checkIfExist(String cinemaID){
 
 /**
  * Check the class of cinema(Admin function)
- * @param cinemaID
- * @return
+ * @param cinemaID Cinema Id.
+ * @return Class type of a Cinema.
  */
 public static ClassOfCinema getClassOfCinema(String cinemaID){
     ClassOfCinema classOfCinema = null;

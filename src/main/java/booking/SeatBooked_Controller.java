@@ -54,7 +54,7 @@ public class SeatBooked_Controller {
 
     /**
      * Add new seatBooked to the seatBooked class(used by admin).
-     * @param newSeatRecord
+     * @param newSeatRecord New seats records.
      */
     public static void addSeatBooked(SeatBooked newSeatRecord){
         if(seatBookedList == null){
