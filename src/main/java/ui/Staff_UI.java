@@ -20,7 +20,7 @@ import src.main.java.user.*;
  * @version 1.0
  * @since 2022-11-01
  */
-public class StaffUI {
+public class Staff_UI {
 	static int no = 0;
 
 	/**

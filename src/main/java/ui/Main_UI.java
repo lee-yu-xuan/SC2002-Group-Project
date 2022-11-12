@@ -85,7 +85,7 @@ public class Main_UI {
 
             switch (choice) {
                 case 1:
-                    LoginUI test = new LoginUI();
+                    Login_UI test = new Login_UI();
                     // 1 - MOVIEGOER, 0 - STAFF
                     String[] userStringArr = test.UI();
 
@@ -95,7 +95,7 @@ public class Main_UI {
                         User_UI.display_UI(userName);
                         BookingManager.save(userName);
                     } else if (userStringArr[3].equals("STAFF")) {
-                        StaffUI.UI();
+                        Staff_UI.UI();
                     }
                     break;
 
@@ -104,7 +104,7 @@ public class Main_UI {
                     break;
 
                 case 3:
-                    RegistrationUI.UI();
+                    Registration_UI.UI();
                     break;
 
                 case 4:

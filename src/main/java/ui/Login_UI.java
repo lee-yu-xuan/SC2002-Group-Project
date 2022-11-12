@@ -11,7 +11,7 @@ import src.main.java.helper.*;
  * @since 2022-11-01
  */
 //input login interface for startup for the program
-public class LoginUI {
+public class Login_UI {
 
     Scanner sc = new Scanner(System.in);
     public List<String[]> loginParticularCSV;
@@ -25,7 +25,7 @@ public class LoginUI {
      * Default constructor for LoginUI.
      */
     // consturctor
-    public LoginUI() {
+    public Login_UI() {
     };
 
     /**
