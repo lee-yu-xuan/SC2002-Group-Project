@@ -55,7 +55,7 @@ public class MovieController {
             for(int j = i;j> 0;j--){
                 double curRating = SalesManager.getSalesByID(movieID.get(j));
                 double preRating = SalesManager.getSalesByID(movieID.get(j-1));
-                if(curRating < preRating){
+                if(curRating > preRating){
                     Collections.swap(movieList,j,j-1);
                     Collections.swap(movieID,j,j-1);
                 }
@@ -107,7 +107,7 @@ public class MovieController {
             for(int j = i;j> 0;j--){
                 double curRating = SalesManager.getSalesByID(movieID.get(j));
                 double preRating = SalesManager.getSalesByID(movieID.get(j-1));
-                if(curRating < preRating){
+                if(curRating > preRating){
                     Collections.swap(movieList,j,j-1);
                     Collections.swap(movieID,j,j-1);
                 }

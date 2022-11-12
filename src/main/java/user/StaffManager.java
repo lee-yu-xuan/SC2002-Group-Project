@@ -235,6 +235,7 @@ public class StaffManager {
 	 */
 	public static void topFiveMovies() {
 		int choice = 0;
+		List<Movie> movieList;
 		do {
 			System.out.println("Please choose one of the options");
 			System.out.println("1) Ranked by ticketSales");
@@ -249,10 +250,14 @@ public class StaffManager {
 		} while (choice > 2 || choice < 1);
 
 		if (choice == 1) {
-			MovieController.showMovieByTicketSales();
+			movieList = MovieController.showMovieByTicketSales();
+
+			for (int i = 0; i < movieList.size(); i++) {
+				System.out.println(i + ". " + movieList.get(i).getMovieTitle());
+			}
 		}
 		if (choice == 2) {
-			List<Movie> movieList = MovieController.showMovieByRating();
+			movieList = MovieController.showMovieByRating();
 
 			for (int i = 0; i < movieList.size(); i++) {
 				System.out.println(i + ". " + movieList.get(i).getMovieTitle());
