@@ -11,15 +11,13 @@ import src.main.java.enums.Restriction;
 
 /**
  * Exception Handling class.
- * 
- * @author Lim Yao Xian
+ * @author Yao Xian Lim
  * @version 1.0
  * @since 2022-11-01
  */
 public class ExceptionHandling {
     /**
      * Integer scanner method with exception handling.
-     * 
      * @return User Integer input.
      */
     public static int IntegerScanner() {
@@ -37,8 +35,7 @@ public class ExceptionHandling {
     }
 
     /**
-     * Layout scanner method with exception handling.
-     * 
+     * Layout scanner method with exception handling. 
      * @return Layout input.
      */
     public static Layout checkLayout() {
@@ -57,7 +54,6 @@ public class ExceptionHandling {
 
     /**
      * ClassOfCinema scanner method with exception handling.
-     * 
      * @return ClassOfCinema input.
      */
     public static ClassOfCinema checkClassOfCinema() {
@@ -75,7 +71,6 @@ public class ExceptionHandling {
 
     /**
      * LocalDateTime scanner method with exception handling.
-     * 
      * @return User LocalDateTime input.
      */
     public static LocalDateTime checkDateTime() {
@@ -96,7 +91,6 @@ public class ExceptionHandling {
 
     /**
      * String and Character scanner method with exception handling.
-     * 
      * @param option Checker invoked.
      * @return User String input.
      */
@@ -140,7 +134,6 @@ public class ExceptionHandling {
 
     /**
      * Interger Scanner with bounded valid input.
-     * 
      * @param upperBound Highest valid Integer input.
      * @return User Integer input.
      */
@@ -163,8 +156,7 @@ public class ExceptionHandling {
     }
 
     /**
-     * String scanner with exception handling.
-     * 
+     * String scanner with exception handling. 
      * @return User String input.
      */
     public static String StringScanner() {

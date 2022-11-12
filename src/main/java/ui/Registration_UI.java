@@ -11,7 +11,7 @@ import src.main.java.helper.*;
  * @version 1.0
  * @since 2022-11-01
  */
-public class RegistrationUI {
+public class Registration_UI {
     private static String name;
     private static String password;
     private static String username;

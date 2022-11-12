@@ -47,7 +47,7 @@ public class CineplexController {
 
     /**
      * Get a new cineplex object into the list of cineplex objects
-     * @param cineplex
+     * @param cineplex Cineplex to be added.
      */
     public static void add(Cineplex cineplex) {
         if (cineplexList == null) {
@@ -59,8 +59,8 @@ public class CineplexController {
 
     /**
      * Delete a cineplex object from the list of cineplex objects
-     * @param cineplexName
-     * @return
+     * @param cineplexName Name of new Cineplex.
+     * @return Integer representation of status.
      */
     public static int deleteByName(String cineplexName) {
 
