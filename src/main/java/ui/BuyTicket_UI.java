@@ -29,9 +29,15 @@ public class BuyTicket_UI {
         List<ShowTime> tmp = ShowTimeController.showTimeByShowTime(movieID);
         System.out.println("\nShowtimes");
         System.out.println("--------------------");
-        for (int i = 0; i < tmp.size(); i++) {
-            System.out.println((i + 1) + ". " + tmp.get(i).getCinemaID() + " " + tmp.get(i).getStartTime());
+        if(tmp.size() == 0){
+            System.out.println("No showtimes available");
+            return;
+        }else{
+            for (int i = 0; i < tmp.size(); i++) {
+                System.out.println((i + 1) + ". " + tmp.get(i).getCinemaID() + " " + tmp.get(i).getStartTime());
+            }
         }
+        
 
         // user select cinema and timing
         System.out.println("Select your preferred cinema and timing");

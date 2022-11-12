@@ -70,7 +70,6 @@ public class DisplayMovieBooking_UI {
 
         for(int i = 0;i<size;i++){
             System.out.println((i+1) + ". "+movieList.get(i).getMovieTitle());
-
         }
 
         //select movie
