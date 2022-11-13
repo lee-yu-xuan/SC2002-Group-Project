@@ -9,6 +9,7 @@ import src.main.java.movie.MovieListing;
 import src.main.java.movie.ShowTimeController;
 import src.main.java.movie.ShowTimeList;
 import src.main.java.payment.PromoCodeList;
+import src.main.java.sysconfig.Holiday;
 import src.main.java.sysconfig.SystemConfig;
 import src.main.java.sysconfig.SystemConfigController;
 import src.main.java.user.*;
@@ -80,6 +81,7 @@ public class Staff_UI {
 				case 9:
 					StaffManager.editSysCon();
 					SystemConfigController.save();
+					Holiday.save();
 					break;
 				case 10:
 					StaffManager.addCinema();
