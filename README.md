@@ -2,7 +2,7 @@
 MOBLIMA is an application to computerize the processes of making online booking and purchase of movie tickets, listing of movies and sale reporting. It will be used by the moviegoers and cinema staff.
 
 # Setup
-We use VSCode to implement our project. Feel free to use other ide, but VSCode is the best way to review our project.
+We use VSCode to implement our project. Feel free to use other IDE, but VSCode is the best way to review our project.
 
 We use OpenCSV for the CRUD operation to the CSV file.
 
