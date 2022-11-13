@@ -328,7 +328,7 @@ public class StaffManager {
 			}
 		} while (endTime.isEmpty() || x == 1);
 
-		System.out.println("Enter the class of cinema: ");
+		//System.out.println("Enter the class of cinema: ");
 		cinemaClass = CinemaController.getClassOfCinema(cinemaID);
 
 		ShowTime ST = new ShowTime(movieID, cinemaID, startTime, endTime, cinemaClass);
