@@ -70,9 +70,9 @@ public class User_UI {
                     }
                     
                 
-                    break;
+                    
                 }
-                
+                break;
                     case 4:
                     System.out.println("Thank you for using our application!");
                     return;

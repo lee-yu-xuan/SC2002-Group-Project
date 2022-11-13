@@ -67,7 +67,8 @@ public class ShowTimeController {
                 //System.out.println("This show is over.");
             }
         }
-
+        MovieListing.save();
+        ShowTimeList.save();
         
     }
 }

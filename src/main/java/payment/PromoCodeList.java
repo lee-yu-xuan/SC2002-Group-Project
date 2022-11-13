@@ -185,6 +185,8 @@ public class PromoCodeList {
                 i--;
             }
         }
+
+        save();
     }
 
     /**
