@@ -2,7 +2,7 @@
 MOBLIMA is an application to computerize the processes of making online booking and purchase of movie tickets, listing of movies and sale reporting. It will be used by the moviegoers and cinema staff.
 
 # File Organisation
-All of our code are located in src/main/java. The main function of our program is Main_UI.java, which located in the **ui** folder. All other java code is organised based on their functionality. 
+All of our code are located in src/main/java. The main function of our program is Main_UI.java, which located in the **ui** folder. All java code is organised based on their functionality. 
 
 For example, MovieListing.java, which controls all the movie object instances, is located in the **movie** folder.
 
