@@ -33,7 +33,7 @@ public class DisplayMovieBooking_UI {
                 movieID = MovieListing.getAvailableMovieID(movieTitle);
             
             if(movieID == null){
-                System.out.println("Movie not found");
+                System.out.println("Movie or show time not found!");
                 return;
             }
         }
